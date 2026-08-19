@@ -1,0 +1,2440 @@
+/* ================================
+   FONTS
+   ================================ */
+/* Bricolage Grotesque - displejove pismo, self-host variabilni font (bez requestu na Google) */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url('../assets/fonts/bricolage-grotesque-var-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url('../assets/fonts/bricolage-grotesque-var-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ================================
+   DESIGN TOKENS
+   ================================ */
+:root {
+  /* 21st.dev theme (dark default)
+     Pozadi neni cista cern (#141414), povrchy karet o ~4 % svetlejsi (#1E1E1E).
+     Textove urovne: #EDEDED / #A9A9AB / #85858A - vsechny kombinace overeny na AA,
+     viz tabulka kontrastu v commitu faze 2. */
+  --card: #1E1E1E;
+  --ring: #737373;
+  --input: #525252;
+  --muted: #232323;
+  --accent: #454545;
+  --border: #303030;
+  --radius: 0rem;
+  --primary: #737373;
+  --sidebar: #171717;
+  --secondary: #232323;
+  --background: #141414;
+  --foreground: #EDEDED;
+  --destructive: #ff6467;
+  --popover: #262626;
+  --sidebar-ring: #525252;
+  --sidebar-accent: #262626;
+  --sidebar-border: #ffffff;
+  --card-foreground: #fafafa;
+  --sidebar-primary: #fafafa;
+  --muted-foreground: #A9A9AB;
+  --accent-foreground: #fafafa;
+  --popover-foreground: #fafafa;
+  --primary-foreground: #fafafa;
+  --sidebar-foreground: #fafafa;
+  --secondary-foreground: #fafafa;
+  --destructive-foreground: #262626;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-primary-foreground: #171717;
+
+  /* Colors — mapped to theme */
+  --color-bg-primary: var(--background);
+  --color-bg-secondary: var(--card);
+  --color-bg-card: var(--card);
+  --color-bg-card-hover: var(--muted);
+  --color-bg-glass: var(--card);
+  --color-border: var(--border);
+  --color-border-hover: var(--accent);
+
+  --color-text-primary: var(--foreground);
+  --color-text-secondary: var(--muted-foreground);
+  /* tercialni uroven: zadani chtelo #666-#777, ale na kartach (#1E1E1E) by
+     nepresla AA 4,5:1 - zvednuto na nejblizsi vyhovujici hodnotu */
+  --color-text-muted: #85858A;
+
+  --color-accent-1: var(--foreground);
+  --color-accent-2: var(--foreground);
+  --color-accent-3: var(--foreground);
+  --color-accent-warm: var(--foreground);
+  --color-accent-gradient: none;
+  --color-accent-glow: rgba(255, 255, 255, 0.04);
+
+  /* Typography
+     --font-display nese H1, nadpisy sekci, nazvy karet a CTA nadpisy.
+     Vymena displejoveho pisma = zmena teto jedne hodnoty (+ @font-face).
+     --font-mono je jen pro technicke stitky, meta radky a cisla. */
+  --font-primary: 'Geist', sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+  --fs-3xl: 2.5rem;
+  --fs-4xl: 3.5rem;
+  --fs-5xl: 4.5rem;
+  --fs-hero: clamp(3rem, 6vw, 5.5rem);
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  /* Navigace ma vlastni optickou velikost mezi --fs-sm a --fs-base:
+     na 14px pusobila lista utlumene, 16px uz je velikost bezneho textu.
+     Barva lezi mezi --color-text-secondary a --color-text-primary, aby
+     zustal rozdil jak vuci bile aktivni polozce, tak vuci pozadi. */
+  --nav-link-size: 0.9375rem;
+  --nav-link-color: #B3B3B6;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+  --space-section: clamp(5rem, 10vw, 9rem);
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 999px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 350ms;
+  --duration-slow: 600ms;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px rgba(255, 255, 255, 0.04);
+
+  /* Layout - tri sirky obsahu */
+  --container-max: 1200px;          /* plna: obrazky, pred a po, mrizky */
+  --container-mid: 55rem;           /* stredni: dvousloupcove bloky (880px) */
+  --container-prose: 36rem;         /* uzka: souvisly text, ~60-70 skutecnych znaku na radek */
+  --container-padding: clamp(1.5rem, 5vw, 3rem);
+
+  /* Vertikalni rytmus sekci: 24 / 48 / 96 / 160 px - nic mimo skalu */
+  --rhythm-1: 1.5rem;
+  --rhythm-2: 3rem;
+  --rhythm-3: 6rem;
+  --rhythm-4: 10rem;
+}
+
+/* ================================
+   RESET & BASE
+   ================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Fixni navbar by jinak prekryl nadpis sekce, na kterou vede kotva. */
+  scroll-padding-top: 7rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+
+  overflow-x: hidden;
+}
+
+/* Noise texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* ================================
+   UTILITIES
+   ================================ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* uzsi varianty kontejneru - sirka obsahu + padding po stranach */
+.container--mid {
+  max-width: calc(var(--container-mid) + 2 * var(--container-padding));
+}
+
+.container--prose {
+  max-width: calc(var(--container-prose) + 2 * var(--container-padding));
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.section-label::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--color-text-secondary);
+}
+
+.section-label.no-line::before {
+  display: none;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, var(--fs-4xl));
+  font-weight: var(--fw-bold);
+  line-height: 1.15;
+  margin-bottom: var(--space-lg);
+  text-rendering: optimizeLegibility;
+}
+
+.section-subtitle {
+  font-size: var(--fs-md);
+  color: var(--color-text-secondary);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* souhrnny mono radek pod podnadpisem sekce (napr. pocet klientskych webu) */
+.projects-meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: var(--space-md);
+}
+
+.gradient-text {
+  color: #ffffff;
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+
+/* Kdo si vypnul animace, uvidi obsah rovnou - jinak by cekal na prijezd,
+   ktery se pro nej nema odehrat. Observer tridu .visible stejne doplni. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.section-btn-wrap {
+  margin-top: var(--space-xl);
+}
+
+
+/* ================================
+   NAVIGATION
+   ================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--space-lg) 0;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+/* Jemne ztmaveni pod nescrollovanou listou. Bez nej odkazy splyvaji se
+   svetlymi misty hero fotky. Po odscrollovani ho vystrida plne pozadi nize. */
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100% + 56px);
+  background: linear-gradient(to bottom,
+              rgba(8, 8, 8, 0.62) 0%,
+              rgba(8, 8, 8, 0.35) 55%,
+              rgba(8, 8, 8, 0) 100%);
+  pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.navbar.scrolled::before {
+  opacity: 0;
+}
+
+.navbar.scrolled {
+  padding: var(--space-md) 0;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Tri zony: logo vlevo, menu na stredu, jazyk + CTA vpravo.
+   Nad 1220 px je menu opticky presne na stredu (1fr auto 1fr), pod tim
+   se sloupce prepnou na auto 1fr auto, aby se menu nesrazilo s pravou zonou. */
+.navbar .container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: var(--space-lg);
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 1220px) {
+  .navbar .container {
+    grid-template-columns: 1fr auto 1fr;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1219px) {
+  /* Mezera mezi zonami musi zustat vetsi nez mezera mezi polozkami menu,
+     jinak prepinac jazyka opticky splyne s poslednim odkazem. */
+  .navbar .container {
+    column-gap: var(--space-xl);
+  }
+}
+
+/* Logo i prava zona musi zustat nad mobilnim overlay menu (z-index 998) */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  position: relative;
+  z-index: 999;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  justify-self: end;
+  position: relative;
+  z-index: 999;
+}
+
+.nav-logo img {
+  height: 28px;
+  width: auto;
+  display: block;
+  /* monochromni znacka - nez bude dodane odbarvene logo.png, drzi to CSS filtr;
+     zesvetleno, aby znacka na tmavem pozadi nesplyvala */
+  filter: grayscale(1) brightness(2.5);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 900px) {
+  .nav-links {
+    justify-self: center;
+  }
+}
+
+/* Uzsi okna: polozky bliz k sobe, aby zonova mezera vyse zustala vetsi.
+   Musi byt az za zakladnim pravidlem — media query nezvysuje specificitu. */
+@media (min-width: 900px) and (max-width: 1219px) {
+  .nav-links {
+    gap: 1.25rem;
+  }
+}
+
+/* :not(.nav-cta) — jinak by tohle pravidlo (0,1,1) prebilo odsazeni pilulky
+   v .nav-cta (0,1,0) a CTA v mobilnim menu by ztratilo vnitrni okraje. */
+.nav-links a:not(.nav-cta) {
+  padding: 2px 0;
+}
+
+.nav-links a {
+  font-size: var(--nav-link-size);
+  font-weight: var(--fw-medium);
+  color: var(--nav-link-color);
+  transition: color var(--duration-fast) var(--ease-out);
+  position: relative;
+}
+
+/* Hover: linka najizdi zleva. Aktivni stranka linku nema — nese ji barva
+   a vaha, takze se dva signaly nepletou. */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: var(--color-text-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.nav-links a:hover {
+  color: var(--color-text-primary);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Bold je tu na jedine polozce, kde neohrozi prednost CTA */
+.static-active {
+  color: var(--color-text-primary) !important;
+  font-weight: var(--fw-bold);
+}
+
+/* Velikost i odsazeni v em, aby pilulka rostla spolu s odkazy a nezustala
+   pozadu za menu. */
+.nav-cta {
+  display: inline-block;
+  padding: 0.62em 1.5em;
+  border-radius: var(--radius-full);
+  background: #EDEDED;
+  font-size: var(--nav-link-size);
+  font-weight: var(--fw-semibold);
+  color: #0A0A0A !important;
+  white-space: nowrap;
+  transition: transform var(--duration-fast) var(--ease-spring),
+              opacity var(--duration-fast) var(--ease-out);
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  opacity: 0.85;
+}
+
+/* CTA a kontakt na dne mobilniho menu — na desktopu skryte */
+.menu-extra {
+  display: none;
+}
+
+/* Mobile menu toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+  z-index: 1001;
+  position: relative;
+}
+
+/* Same prouzky meri 28x16 px - to je na prst malo. Pseudo-prvek roztahne
+   dotykovou plochu na 44x44 px, aniz by pohnul rozvrzenim navigace. */
+.nav-toggle::before {
+  content: "";
+  position: absolute;
+  inset: -14px -8px;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--color-text-primary);
+  border-radius: var(--radius-full);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Interactive Starfield Canvas */
+.hero-stars-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 6rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-extrabold);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-xl);
+}
+
+.hero-title .line {
+  display: block;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.7s var(--ease-out) both;
+}
+
+.hero-title .line:nth-child(1) { animation-delay: 0.3s; }
+.hero-title .line:nth-child(2) { animation-delay: 0.5s; }
+.hero-title .line:nth-child(3) { animation-delay: 0.7s; }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius-full);
+  background: #EDEDED;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  color: #0A0A0A;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-fast) var(--ease-spring),
+              opacity var(--duration-fast) var(--ease-out);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.85;
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.97);
+  opacity: 0.75;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-primary);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.97);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   ABOUT SECTION
+   ================================ */
+.about {
+  padding: var(--space-section) 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+.about-text .section-title {
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+.about-text p {
+  font-size: var(--fs-md);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
+}
+
+/* About portrait */
+.about-portrait {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ================================
+   PROJECTS SECTION
+   ================================ */
+.projects {
+  padding: var(--space-section) 0;
+}
+
+.projects-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--space-4xl);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+}
+
+.project-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+}
+
+/* Featured (first) card spans full width with side-by-side layout */
+.project-card.project-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.project-card.project-featured .project-image {
+  aspect-ratio: auto;
+  min-height: 340px;
+}
+
+.project-card.project-featured .project-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-3xl);
+}
+
+.project-card.project-featured .project-title {
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-md);
+}
+
+.project-card.project-featured .project-description {
+  font-size: var(--fs-base);
+  line-height: 1.8;
+  margin-bottom: var(--space-xl);
+}
+
+/* Project CTA for featured card */
+.project-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.project-cta:hover {
+  color: #ffffff;
+  gap: var(--space-md);
+}
+
+/* Project number watermark */
+.project-number {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-xl);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 6rem;
+  font-weight: var(--fw-extrabold);
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.project-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-6px);
+  /* hloubka rozdilem plochy a ramecku - cerny stin na tmavem pozadi nefunguje */
+  box-shadow: var(--shadow-glow);
+}
+
+.project-card-overlay-link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+/* karta má overflow:hidden — outline musí dovnitř, jinak se ořízne */
+.project-card-overlay-link:focus-visible {
+  outline-offset: -3px;
+}
+
+/* kompaktni mrizka konceptu - mensi vizualni vaha nez klientska prace.
+   2x2, aby ctyri karty drzely mrizku bez osamocene polozky na druhem radku */
+.projects-grid--compact {
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.projects-grid--compact .project-info {
+  padding: var(--space-md);
+}
+
+.projects-grid--compact .project-title {
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-xs);
+}
+
+.projects-grid--compact .project-description {
+  display: none;
+}
+
+.projects-grid--compact .project-number {
+  display: none;
+}
+
+.projects-grid--compact .project-cta {
+  font-size: var(--fs-xs);
+}
+
+.projects-grid--compact .project-tags {
+  margin-bottom: var(--space-sm);
+}
+
+.project-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(20, 20, 20, 0.6), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card:hover .project-image-overlay {
+  opacity: 1;
+}
+
+.project-link-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #EDEDED;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-lg);
+  color: #0A0A0A;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.project-card:hover .project-link-icon {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-info {
+  padding: var(--space-xl);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.project-tag {
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-sm);
+}
+
+.project-description {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+/* Mono radek s overitelnym cislem projektu (sdili index i /projekty) */
+.project-stat {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+/* Ambient glow behind featured card image */
+.project-card.project-featured .project-image::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.03), transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ================================
+   CONTACT SECTION
+   ================================ */
+.contact {
+  padding: var(--space-section) 0;
+  position: relative;
+}
+
+.contact-grid {
+  display: grid;
+  /* Formular je hlavni akce sekce - dostava sirsi sloupec nez info vlevo */
+  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-rows: auto 1fr;
+  column-gap: var(--space-4xl);
+  row-gap: var(--space-2xl);
+}
+
+.contact-info {
+  padding-right: var(--space-2xl);
+}
+
+.contact-info .section-subtitle {
+  margin-bottom: var(--space-3xl);
+}
+
+/* Karta formulare zabira oba radky, "Co bude dal" je pod levym sloupcem */
+.contact-form-card {
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+
+.contact-next {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+}
+
+/* Osoba: fotka + jmeno a role */
+.contact-person {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.contact-person img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.contact-person-name {
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+}
+
+.contact-person-role {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+/* E-mail jako hlavni typograficky prvek */
+.contact-email {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.28);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  margin-bottom: var(--space-lg);
+  transition: text-decoration-color var(--duration-fast) var(--ease-out);
+}
+
+.contact-email:hover {
+  text-decoration-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Telefon jako outline pilulka */
+.contact-phone-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.55rem 1.2rem;
+  color: var(--color-text-primary);
+  font-size: var(--fs-base);
+  margin-bottom: var(--space-lg);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.contact-phone-pill:hover {
+  border-color: var(--color-border-hover);
+}
+
+.contact-phone-pill svg {
+  flex-shrink: 0;
+}
+
+.contact-place {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+/* Co bude dal */
+.contact-next-label {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.contact-next-steps {
+  list-style: none;
+  counter-reset: step;
+  color: var(--color-text-secondary);
+}
+
+.contact-next-steps li {
+  counter-increment: step;
+  padding: 0.2rem 0;
+}
+
+.contact-next-steps li::before {
+  content: counter(step) ".";
+  color: var(--color-text-muted);
+  margin-right: 0.5rem;
+}
+
+/* Contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-md);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-size: var(--fs-base);
+  transition: all var(--duration-fast) var(--ease-out);
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+}
+
+/* Hint a chybovy stav skupiny Kontakt ("staci jedno") */
+.form-hint {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin: -0.25rem 0 var(--space-sm);
+}
+
+.form-hint.error {
+  color: var(--destructive);
+}
+
+.form-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* "nebo" mezi e-mailem a telefonem - jen kdyz jsou pole pod sebou */
+.form-duo-or {
+  display: none;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* Uzka karta (laptop, kde se telefonni placeholder nevesel) -> pole pod sebe.
+   Pozor: query meri content-box karty (bez ~44px paddingu na kazde strane).
+   440px = kazde pole ~212px, presne dost pro "+420 601 123 456" s odsazenim.
+   Viewportova media query nize zustava jako fallback bez container queries. */
+@container (max-width: 440px) {
+  .form-duo {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .form-duo-or {
+    display: block;
+  }
+}
+
+.form-duo.error input {
+  border-color: var(--destructive);
+}
+
+.form-label-sub {
+  font-size: var(--fs-sm);
+  margin-bottom: 0.4rem;
+}
+
+.form-submit {
+  align-self: flex-start;
+}
+
+/* Pasivni souhlas pod odesilacim tlacitkem. Zpracovani stoji na predsmluvnim
+   jednani, ne na souhlasu, proto zadny checkbox - jen informace. */
+.form-consent {
+  margin-top: var(--space-md);
+  max-width: 32rem;
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.form-consent a {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.18);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.form-consent a:hover {
+  color: var(--color-text-primary);
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+.footer {
+  position: relative;
+  padding: var(--space-4xl) 0 0;
+  background: var(--color-bg-secondary);
+  overflow: hidden;
+}
+
+/* Subtle gradient glow at top */
+.footer-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+
+/* Horni rada: znacka + jednoradkove predstaveni */
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm) var(--space-xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.02em;
+  display: inline-block;
+}
+
+.footer-claim {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+/* 3-column grid */
+.footer-grid {
+  display: grid;
+  /* Treti sloupec podle obsahu, aby se rada peti ikon nelamala */
+  grid-template-columns: 1fr 1fr auto;
+  gap: var(--space-4xl);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-2xl) 0 var(--space-3xl);
+}
+
+.footer-place {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-md);
+}
+
+.footer-ico {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-sm);
+  opacity: 0.9;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-contact-item svg {
+  color: var(--color-accent-1);
+  flex-shrink: 0;
+}
+
+.footer-contact-item:hover {
+  color: var(--color-text-primary);
+}
+
+/* Footer headings */
+.footer-heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+/* Nav column */
+.footer-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.footer-nav-link {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  position: relative;
+  display: inline-block;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-text-primary);
+  transition: width var(--duration-normal) var(--ease-out);
+}
+
+.footer-nav-link:hover {
+  color: var(--color-text-primary);
+}
+
+.footer-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Social column - vcetne katalogovych profilu (Google, Firmy.cz) */
+.footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.footer-social-link {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.footer-social-link:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-3px);
+}
+
+/* Brand ikony (Google, Firmy.cz): v klidu monochrom jako ostatni,
+   originalni barvy z inline fillu se ukazou az na hover/focus */
+.footer-social-link svg path {
+  transition: fill var(--duration-fast) var(--ease-out);
+}
+
+.footer-social-link.is-brand:not(:hover):not(:focus-visible) svg path {
+  fill: currentColor;
+}
+
+/* Footer bottom row */
+.footer-bottom {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-xl) 0;
+}
+
+.footer-copyright {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+}
+
+/* Typograficky podpis pres spodni hranu. Cistá dekorace (aria-hidden),
+   proto nesmi chytat mys ani vyber textu. Vyjizdi z paticky ven - orez
+   zajistuje overflow: hidden na .footer. */
+.footer-watermark {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  font-size: clamp(3rem, 15vw, 13rem);
+  line-height: 0.78;
+  letter-spacing: -0.03em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.05);
+  transform: translateY(0.14em);
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 1024px) {
+  .about-visual .about-portrait {
+    max-height: 500px;
+  }
+
+  /* Tri sloupce se pri teto sirce vejdou jen s uzsi mezerou */
+  .footer-grid {
+    gap: var(--space-2xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: var(--space-3xl);
+  }
+
+  .contact-info {
+    padding-right: 0;
+  }
+
+  /* Poradi: nadpis + kontakty -> formular -> "Co bude dal" */
+  .contact-form-card {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .contact-next {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .form-duo {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .form-duo-or {
+    display: block;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: var(--space-md) 0;
+  }
+
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar.scrolled {
+    padding: var(--space-md) 0;
+    background: rgba(20, 20, 20, 0.95);
+  }
+
+  .navbar.menu-active,
+  .navbar.scrolled.menu-active {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: transparent;
+    transition: none;
+  }
+
+  .navbar.menu-active::before {
+    opacity: 0;
+  }
+
+  /* Na mobilu patri CTA i prepinac jazyka do menu (.menu-extra), ne do horni
+     listy - ta ma nest jen znacku a hamburger. */
+  .nav-right .nav-cta,
+  .nav-right .lang-switcher {
+    display: none;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Mensi mezery nez drive: pri --space-2xl se CTA na nizsich displejich
+       uz nevesla pod posledni odkaz. */
+    gap: var(--space-lg);
+    padding: 5rem var(--container-padding) 2.5rem;
+    z-index: 998;
+    /* Na nizkych displejich (napr. telefon na sirku) je obsah vyssi nez okno -
+       at jde dojet dolu misto orezu. */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-semibold);
+  }
+
+  .nav-links a::after {
+    bottom: -3px;
+    height: 2px;
+  }
+
+  /* Postupne najeti polozek. Animace (ne transition), aby se spustila
+     i pri prechodu z display:none na display:flex. */
+  .nav-links.active > a,
+  .nav-links.active > .menu-extra {
+    animation: navItemIn 0.45s var(--ease-out) backwards;
+  }
+
+  .nav-links.active > a:nth-child(1) { animation-delay: 0.05s; }
+  .nav-links.active > a:nth-child(2) { animation-delay: 0.10s; }
+  .nav-links.active > a:nth-child(3) { animation-delay: 0.15s; }
+  .nav-links.active > a:nth-child(4) { animation-delay: 0.20s; }
+  .nav-links.active > a:nth-child(5) { animation-delay: 0.25s; }
+  .nav-links.active > .menu-extra { animation-delay: 0.30s; }
+
+  .menu-extra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+    width: 100%;
+  }
+
+  /* Polozky menu maji 24 px - pri 16px pismu pusobilo CTA slabeji nez ony.
+     Siroka pilulka a vetsi pismo mu vrati prednost. */
+  .menu-extra .nav-cta {
+    font-size: var(--fs-lg);
+    width: min(20rem, 100%);
+    text-align: center;
+  }
+
+  /* Prepinac jazyka je v menu utilita - vetsi dotykove plochy, ale tise */
+  .menu-extra .lang-switcher {
+    padding: 4px;
+  }
+
+  .menu-extra .lang-btn {
+    font-size: var(--fs-sm);
+    /* 40px vysoky terc - prst uz se trefi, ale prepinac zustava opticky drobny */
+    padding: 12px 20px;
+  }
+
+  .nav-toggle {
+    display: flex;
+    z-index: 999;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+@keyframes navItemIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-links.active > a,
+  .nav-links.active > .menu-extra {
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+  }
+
+  .about-visual {
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .about-visual .about-portrait {
+    max-height: none;
+    max-width: 320px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card.project-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card.project-featured .project-image {
+    min-height: 200px;
+  }
+
+  .project-card.project-featured .project-info {
+    padding: var(--space-xl);
+  }
+
+  .project-card.project-featured .project-title {
+    font-size: var(--fs-xl);
+  }
+
+  .projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  /* Paticka na mobilu: jeden sloupec zarovnany vlevo (stred by se pral
+     s podpisem pod nim), navigace ve dvou sloupcich kvuli delce */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .footer-nav-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md) var(--space-lg);
+  }
+
+  .footer-nav-link {
+    display: block;
+  }
+
+}
+
+/* ================================
+   CONTACT FORM CARD
+   ================================ */
+.contact-form-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3xl);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transform: scale(1.02);
+  /* Duo e-mail/telefon se sklada podle sirky karty, ne viewportu */
+  container-type: inline-size;
+}
+
+.contact-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.contact-form-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-xs);
+}
+
+.contact-form-card .form-subtitle {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2xl);
+}
+
+@media (max-width: 768px) {
+  .contact-form-card {
+    padding: var(--space-xl);
+    transform: none;
+  }
+}
+
+/* ================================
+   LANGUAGE SWITCHER
+   ================================ */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  line-height: 1;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+/* Cely prepinac je jeden ovladac - kliknuti kamkoli prepne na druhy jazyk.
+   Po najeti se rozsviti ta polozka, na kterou se prepne, aby bylo predem videt,
+   co kliknuti udela. */
+.lang-switcher {
+  cursor: pointer;
+}
+
+.lang-switcher:hover .lang-btn:not(.active) {
+  color: var(--color-text-primary);
+}
+
+.lang-btn:hover {
+  color: var(--color-text-secondary);
+}
+
+.lang-btn.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-text-primary);
+}
+
+/* Odsazeni od hamburgeru resi gap na .nav-right, vlastni margin uz netreba */
+
+/* ================================
+   UTILITIES — VISIBILITY
+   ================================ */
+.hidden { display: none !important; }
+
+/* ================================
+   ACCESSIBILITY
+   ================================ */
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Prvni cil tabulatoru: preskocit navigaci rovnou na obsah. Videt je az pri
+   zaostreni z klavesnice - myse a dotyku se nedotkne. */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  z-index: 10000;
+  padding: 0.7rem 1.25rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  background: #EDEDED;
+  color: #0A0A0A;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus-visible {
+  transform: translate(-50%, 0);
+}
+
+/* nav-toggle resets outline — restore it */
+.nav-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 6px;
+}
+
+/* ================================
+   REFERENCE CARDS (sdilene: stuzka na homepage + /tvorba-webovych-stranek)
+
+   Cela karta je odkaz na pripadovou studii. Struktura ma tri patra:
+   hlava (nazev firmy + pilulka "Studie"), citace, podpis.
+   Pozadi je rozostreny nahled klientova webu ve 40 % - rozostreni je
+   nutne, screenshoty nesou vlastni text a ostry by se tloukl s citaci.
+   ================================ */
+.reference-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.15rem, 4vw, 1.6rem);
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--duration-normal) var(--ease-out),
+              transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.reference-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* rozostreny nahled webu + zavoj houstnouci dolu, aby podpis dole drzel AA */
+.reference-shot {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.reference-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(20, 20, 20, 0.32) 0%,
+    rgba(20, 20, 20, 0.48) 50%,
+    rgba(20, 20, 20, 0.88) 100%);
+}
+
+/* vlasova svetelna hrana pres horni okraj */
+.reference-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+}
+
+.reference-card > *:not(.reference-shot) {
+  position: relative;
+  z-index: 1;
+}
+
+.reference-card:hover .reference-shot {
+  opacity: 0.5;
+}
+
+.reference-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.reference-company {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  min-width: 0;
+}
+
+.reference-study {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  border: 1px solid var(--color-border-hover);
+  border-radius: var(--radius-full);
+  padding: 0.26rem 0.6rem 0.24rem;
+  transition: color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out);
+}
+
+.reference-study .arrow {
+  display: inline-block;
+  margin-left: 0.34rem;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.reference-card:hover .reference-study {
+  color: var(--color-text-primary);
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.reference-card:hover .reference-study .arrow {
+  transform: translateX(3px);
+}
+
+/* citace je doslovna a nekrati se - zadny line-clamp */
+.reference-text {
+  font-size: 0.985rem;
+  line-height: 1.62;
+  letter-spacing: -0.008em;
+  color: var(--color-text-primary);
+  flex: 1;
+  margin: 0 0 var(--space-lg);
+  overflow-wrap: break-word;
+}
+
+.reference-name {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.005em;
+  color: var(--color-text-primary);
+  min-width: 0;
+}
+
+/* Podpis vlevo, pilulka Studie vpravo - akce sedi na konci cteciho toku
+   a na nejtmavsi casti zavoje, kde ma nejlepsi kontrast. */
+.reference-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+/* Na uzke karte by podpis s pilulkou v paticce mohly kolidovat.
+   Karta ve stuzce je clamp(280px, 82vw, 380px), takze 352 px odpovida
+   viewportu 429 px - pod nim z pilulky zmizi slovo a zustane sipka.
+   Ramecek, a s nim signal "klikni", zustava. */
+@media (max-width: 430px) {
+  .reference-study {
+    padding: 0.26rem 0.5rem 0.24rem;
+  }
+
+  .reference-study .label {
+    display: none;
+  }
+
+  .reference-study .arrow {
+    margin-left: 0;
+  }
+}
+
+/* ================================
+   REFERENCE ROWS (/reference - editorial s listou)
+   ================================ */
+.reference-row {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  gap: var(--space-lg) var(--space-2xl);
+  padding: var(--space-2xl) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.reference-row:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.reference-rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.reference-rail-logo {
+  width: 100%;
+  max-width: 100%;
+  height: 58px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.reference-rail-company {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+}
+
+.reference-rail-person {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+.reference-rail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.reference-rail-meta span {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.reference-rail-meta .fact {
+  color: var(--color-text-secondary);
+}
+
+.reference-rail-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.15rem;
+}
+
+.reference-rail-links a {
+  width: fit-content;
+  max-width: 100%;
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 2px;
+  transition: color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+  overflow-wrap: anywhere;
+}
+
+.reference-rail-links a:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-text-muted);
+}
+
+.reference-quote {
+  font-size: clamp(1.02rem, 2.1vw, 1.42rem);
+  line-height: 1.45;
+  letter-spacing: -0.026em;
+  font-weight: 550;
+  color: var(--color-text-primary);
+  max-width: 40ch;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .reference-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   CTA SMOKE CANVAS (shared)
+   ================================ */
+.cta-aether-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cta-fade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-primary) 0%,
+    rgba(20, 20, 20, 0.05) 50%,
+    var(--color-bg-primary) 100%
+  );
+}
+
+/* ================================
+   COOKIE CONSENT
+   ================================ */
+.cookie-bar {
+  position: fixed;
+  left: var(--space-lg);
+  bottom: var(--space-lg);
+  z-index: 9990;
+  width: min(25rem, calc(100vw - var(--space-lg) * 2));
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--duration-normal) var(--ease-out),
+              transform var(--duration-normal) var(--ease-out);
+}
+
+.cookie-bar.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Otevrene mobilni menu ma na dne CTA a kontakt - cookie lista by je prekryla.
+   Stejne jako u .contact-bar nize ustoupi, dokud je menu otevrene. */
+@media (max-width: 900px) {
+  body.menu-open .cookie-bar.is-visible {
+    opacity: 0;
+    transform: translateY(16px);
+    pointer-events: none;
+  }
+}
+
+.cookie-bar-inner {
+  padding: var(--space-lg);
+}
+
+.cookie-bar-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.cookie-bar-text {
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.cookie-bar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.cookie-btn {
+  padding: 0.55rem 1.35rem;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-out),
+              opacity var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out);
+}
+
+.cookie-btn-accept {
+  background: #EDEDED;
+  border: 1px solid #EDEDED;
+  color: #0A0A0A;
+  font-weight: var(--fw-semibold);
+}
+
+.cookie-btn-accept:hover {
+  opacity: 0.85;
+}
+
+.cookie-btn-reject {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--color-text-primary);
+  font-weight: var(--fw-medium);
+}
+
+.cookie-btn-reject:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cookie-btn:active {
+  transform: scale(0.97);
+}
+
+.cookie-bar-more {
+  display: inline-block;
+  margin-top: var(--space-md);
+  padding: 0;
+  background: none;
+  border: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.cookie-bar-more:hover,
+.cookie-bar-link:hover {
+  color: var(--color-text-secondary);
+}
+
+/* Odkaz na plne zneni vedle prepinace detailu, na jednom radku. */
+.cookie-bar-link {
+  display: inline-block;
+  margin-top: var(--space-md);
+  margin-left: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.2);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.cookie-bar-detail {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--fs-xs);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.cookie-bar :is(button, a):focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+  .cookie-bar {
+    left: var(--space-sm);
+    right: var(--space-sm);
+    bottom: var(--space-sm);
+    width: auto;
+  }
+
+  .cookie-bar-inner {
+    padding: var(--space-md);
+  }
+
+  .cookie-bar-actions .cookie-btn {
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-bar {
+    transform: none;
+    transition: opacity var(--duration-fast) linear;
+  }
+}
+
+/* Odkaz v paticce - zmena souhlasu kdykoli pozdeji */
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-lg);
+}
+
+/* Pozor na poradi: tohle pravidlo stoji az za blokem RESPONSIVE vyse,
+   mobilni uprava spodni rady proto musi byt tady, jinak ji prebije. */
+@media (max-width: 768px) {
+  .footer-bottom {
+    justify-content: flex-start;
+    gap: var(--space-sm) var(--space-lg);
+  }
+}
+
+.footer-cookie-btn,
+.footer-legal-link {
+  padding: 0;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-cookie-btn:hover,
+.footer-legal-link:hover {
+  color: var(--color-text-secondary);
+}
+
+/* ================================
+   KONTAKTNI LISTA (jen mobil)
+   ================================
+   Pruh u spodni hrany displeje s primymi akcemi. Drzi moznost ozvat se po ruce
+   behem cteni - tedy tam, kde stranka zadnou vyzvu nema. Zobrazuje se az po
+   odscrollovani hera (ten ma vlastni tlacitka) a schova se u zaveru stranky,
+   kde uz je CTA sekce i paticka s kontaktem. Ridi js/main.js. */
+.contact-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9980; /* pod cookie listou (9990) - ta ma prednost */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 0.6rem 0.75rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
+  background: rgba(20, 20, 20, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--color-border);
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform var(--duration-normal) var(--ease-out),
+              opacity var(--duration-fast) var(--ease-out);
+}
+
+.contact-bar.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Otevrene mobilni menu je pres celou obrazovku - lista musi ustoupit */
+body.menu-open .contact-bar.is-visible {
+  transform: translateY(110%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Cookie lista sedi u stejne hrany - kdyz je kontaktni videt, nadzvedne se
+   nad ni. Skutecnou vysku dopocita js/main.js do --contact-bar-h, hodnota
+   nize je jen zaloha, kdyby JS nedobehl. */
+body.contact-bar-open .cookie-bar {
+  bottom: calc(var(--space-lg) + var(--contact-bar-h, 4.25rem));
+}
+
+@media (max-width: 560px) {
+  body.contact-bar-open .cookie-bar {
+    bottom: calc(var(--space-sm) + var(--contact-bar-h, 4.25rem));
+  }
+}
+
+/* Na uzkem displeji tlacitka vyplni sirku, na sirsim se zastavi na 15rem
+   a cela skupina zustane na stredu - jinak by u 900 px byla nesmyslne siroka */
+.contact-bar .btn-primary,
+.contact-bar .btn-secondary {
+  flex: 1 1 0;
+  max-width: 15rem;
+  justify-content: center;
+  padding: 0.7rem 0.9rem;
+  font-size: var(--fs-sm);
+}
+
+.contact-bar-close {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+
+.contact-bar-close:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-hover);
+}
+
+/* Stejna hranice jako u navigace (900px) - od te sirky je web v mobilnim
+   rezimu s hamburgerem, takze i lista patri sem. Kdyz se meni jedna hranice,
+   musi se zmenit i druha, jinak vznikne pasmo s hamburgerem a bez listy. */
+@media (max-width: 900px) {
+  .contact-bar {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-bar {
+    transform: none;
+    transition: opacity var(--duration-fast) linear;
+  }
+}

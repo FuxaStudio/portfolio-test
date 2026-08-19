@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fuxa-studio",
+  "compatibility_date": "2026-04-06",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "exclude": [
+      ".git",
+      ".wrangler",
+      ".playwright-mcp",
+      ".superpowers",
+      "docs",
+      "memory",
+      ".claude",
+      "README.md",
+      "*.md",
+      "wrangler.jsonc",
+      "tvorba-webovych-stranek-koncept.html",
+      "o-mne-koncept.html",
+      "Case Studies"
+    ]
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}

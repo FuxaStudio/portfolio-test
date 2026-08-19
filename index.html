@@ -1,0 +1,1848 @@
+﻿<!DOCTYPE html>
+<html lang="cs" data-page="index">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <title>Pavel Fuxa — web designer a developer z Pardubicka | Fuxa Studio</title>
+  <meta name="description"
+    content="Tvorba webů pro malé firmy a živnostníky z Pardubicka. Ceny veřejně od 10 000 Kč, hotovo do měsíce od dodání podkladů. Případové studie s reálnými výsledky." />
+  <meta name="author" content="Pavel Fuxa" />
+  <meta name="theme-color" content="#141414" />
+
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://fuxastudio.cz/" />
+  <link rel="alternate" hreflang="cs" href="https://fuxastudio.cz/" />
+  <link rel="alternate" hreflang="x-default" href="https://fuxastudio.cz/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fuxastudio.cz/" />
+  <meta property="og:title" content="Tvorba webových stránek na míru — Pavel Fuxa | Fuxa Studio" />
+  <meta property="og:description" content="Tvorba webů pro malé firmy a živnostníky z Pardubicka. Ceny veřejně od 10 000 Kč, hotovo do měsíce od dodání podkladů. Případové studie s reálnými výsledky." />
+  <meta property="og:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta property="og:image:alt" content="Pavel Fuxa — Fuxa Studio, tvorba webových stránek na míru" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:site_name" content="Fuxa Studio" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tvorba webových stránek na míru — Pavel Fuxa | Fuxa Studio" />
+  <meta name="twitter:description" content="Tvorba webů pro malé firmy a živnostníky z Pardubicka. Ceny veřejně od 10 000 Kč, hotovo do měsíce od dodání podkladů." />
+  <meta name="twitter:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- Preload kritických zdrojů -->
+  <link rel="preload" href="assets/hero-sekce.webp" as="image" type="image/webp" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Bez JS nedobehne IntersectionObserver, ktery .reveal odkryva - obsah by
+       zustal na opacity: 0. Fallback ho zobrazi rovnou. -->
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://fuxastudio.cz/#website",
+        "url": "https://fuxastudio.cz/",
+        "name": "Fuxa Studio",
+        "description": "Portfolio webového developera Pavla Fuxy",
+        "inLanguage": "cs-CZ",
+        "dateModified": "2026-08-12"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://fuxastudio.cz/#webpage",
+        "url": "https://fuxastudio.cz/",
+        "name": "Tvorba webových stránek na míru — Pavel Fuxa | Fuxa Studio",
+        "description": "Tvorba webů pro malé firmy a živnostníky z Pardubicka. Ceny veřejně od 10 000 Kč, hotovo do měsíce od dodání podkladů.",
+        "isPartOf": { "@id": "https://fuxastudio.cz/#website" },
+        "about": { "@id": "https://fuxastudio.cz/#person" },
+        "inLanguage": "cs-CZ",
+        "dateModified": "2026-08-12"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://fuxastudio.cz/#person",
+        "name": "Pavel Fuxa",
+        "url": "https://fuxastudio.cz/",
+        "image": "https://fuxastudio.cz/assets/about.webp",
+        "jobTitle": "Web Developer",
+        "description": "Freelance web developer kombinující programování s grafickým designem. Tvorba moderních, rychlých a funkčních webových stránek na míru.",
+        "email": "fuxa@fuxastudio.cz",
+        "telephone": "+420736131410",
+        "sameAs": [
+          "https://www.linkedin.com/in/pavel-fuxa-1a1569401/",
+          "https://www.instagram.com/fuxastudio/",
+          "https://www.facebook.com/profile.php?id=61572145793086"
+        ],
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "React", "Next.js", "Node.js", "Figma", "Web Design"]
+      },
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://fuxastudio.cz/#service",
+        "name": "Fuxa Studio",
+        "url": "https://fuxastudio.cz/",
+        "description": "Tvorba webových stránek na míru — od návrhu po spuštění.",
+        "telephone": "+420736131410",
+        "image": "https://fuxastudio.cz/assets/og-image.jpg",
+        "priceRange": "od 10 000 Kč",
+        "founder": { "@id": "https://fuxastudio.cz/#person" },
+        "areaServed": [
+          {"@type": "Country", "name": "Česká republika"},
+          {"@type": "AdministrativeArea", "name": "Pardubický kraj"}
+        ],
+        "serviceType": "Tvorba webových stránek",
+        "sameAs": [
+          "https://share.google/jNHbajMbGHvZoFNuk",
+          "https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Svídnice",
+          "addressRegion": "Pardubický kraj",
+          "addressCountry": "CZ"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "fuxa@fuxastudio.cz",
+          "telephone": "+420736131410",
+          "contactType": "customer service"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ========== INDEX HERO — TYPOGRAFICKÁ KOMPOZICE ========== */
+    .hero {
+      min-height: 100vh;
+      padding: 0;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    /* width: 100% je nutne — jako flex polozka by se kontejner jinak smrstil
+       na sirku typografie a veta s CTA by se zalamovaly podle ni, ne podle okna */
+    .hero > .container {
+      width: 100%;
+      max-width: 100%;
+      padding: 0 3vw;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .hero-typo-wrap {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      /* 13vh + kompenzace ořezu descenderu (0.2em z fontu WEB = 0.2 × 28vw),
+         aby text zůstal opticky stejně vysoko jako před text-box trimem */
+      padding-bottom: calc(13vh + clamp(32px, 5.6vw, 104px));
+    }
+
+    /* Wrapper pro obě textové vrstvy — společný positioning kontext */
+    .hero-text-group {
+      position: relative;
+    }
+
+    /* Sdílené vlastnosti textových vrstev */
+    .hero-text-behind,
+    .hero-text-over {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 0.05em;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    /* Ořez řádkových boxů na cap-height → baseline, aby glyfy lícovaly s hranami
+       flex boxů. Fallback: negativní em-marginy dle metrik Bebas Neue
+       (ascent .95em, descent .35em, cap .703em při line-height 1). */
+    .hero-word-web,
+    .hero-word-designer,
+    .hero-word-developer {
+      line-height: 1;
+      margin-top: -0.0969em;
+      margin-bottom: -0.2em;
+    }
+
+    @supports (text-box: trim-both cap alphabetic) {
+      .hero-word-web,
+      .hero-word-designer,
+      .hero-word-developer {
+        margin-top: 0;
+        margin-bottom: 0;
+        text-box: trim-both cap alphabetic;
+      }
+    }
+
+    /* Vrstva 1: solid bílý text */
+    .hero-text-behind {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Vrstva 3: outline text — inset:0 relativní k hero-text-group */
+    .hero-text-over {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .hero-word-web {
+      font-size: clamp(160px, 28vw, 520px);
+      color: #fafafa;
+    }
+
+    .hero-text-over .hero-word-web {
+      color: transparent;
+      -webkit-text-stroke: 4px #fafafa;
+      paint-order: stroke fill;
+    }
+
+    /* Sloupec se roztáhne na výšku „“ (align-items: stretch na rodiči),
+       space-between přitiskne DESIGNER k horní a DEVELOPER ke spodní hraně */
+    .hero-word-stack {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 0.1em;
+    }
+
+    .hero-word-designer,
+    .hero-word-developer {
+      font-size: clamp(70px, 12vw, 222px);
+      color: #fafafa;
+    }
+
+    .hero-text-over .hero-word-designer,
+    .hero-text-over .hero-word-developer {
+      color: transparent;
+      -webkit-text-stroke: 4px #fafafa;
+      paint-order: stroke fill;
+    }
+
+    /* Vrstva 2: fotka za textem — 92vh, aby obličej zůstal nad textem
+       i v oknech prohlížeče s výškou ~900–950 px (monitor minus lišty) */
+    .hero-photo {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 92vh;
+      width: auto;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Přístupnostní skrytý h1 */
+    .hero-typo-wrap .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Tablet a mobil — text nahoře, fotka dole */
+    @media (max-width: 768px) {
+      .hero-typo-wrap {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* 4rem = prostor navigace; +5vh posouvá textový blok níž,
+           aby se nelepil na navbar a kompozice byla vyváženější */
+        padding-top: calc(4rem + 5vh);
+        padding-bottom: 0;
+        gap: 1.25rem;
+      }
+
+      .hero-text-group {
+        width: 100%;
+      }
+
+      /* Vypnout overlay efekt na mobilu — jen čistý text */
+      .hero-text-over {
+        display: none;
+      }
+
+      .hero-word-web {
+        font-size: 25vw;
+      }
+
+      .hero-word-designer,
+      .hero-word-developer {
+        font-size: 11.5vw;
+      }
+
+      /* Picture wrapper dostane flex-grow — img uvnitř není přímý flex child */
+      .hero-typo-wrap > picture {
+        flex: 1;
+        min-height: 0;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      /* Fotka — vyplní dostupný prostor wrapperu */
+      .hero-photo {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+        object-fit: contain;
+        object-position: center bottom;
+      }
+
+    }
+
+    /* Nízká a široká okna (otočený telefon, malé okno na notebooku) — sem
+       mobilní breakpoint nedosáhne, protože ten se řídí šířkou. Typografie se
+       tady musí řídit výškou, jinak věta a CTA nasednou na slovo DEVELOPER. */
+    @media (min-width: 769px) and (max-height: 560px) {
+      .hero-word-web {
+        font-size: min(28vw, 34vh);
+      }
+
+      .hero-word-designer,
+      .hero-word-developer {
+        font-size: min(12vw, 14.6vh);
+      }
+
+      .hero-text-over .hero-word-web,
+      .hero-text-over .hero-word-designer,
+      .hero-text-over .hero-word-developer {
+        -webkit-text-stroke-width: 2px;
+      }
+
+      .hero-typo-wrap {
+        padding-bottom: 30vh;
+      }
+
+      .hero-photo {
+        height: 86vh;
+      }
+    }
+
+    /* ========== HERO CLARITY (věta + CTA) — překryv dole přes fotku ========== */
+    .hero-clarity {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 3.5vh;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.15rem;
+      text-align: center;
+      padding: 0 var(--space-md);
+    }
+
+    .hero-tagline {
+      margin: 0;
+      /* 52rem drzi vetu na jedne radce - dvouradkova by narazila do slova
+         DEVELOPER, mezi typografii a tlacitky je jen ~115 px */
+      max-width: 52rem;
+      font-size: clamp(1.05rem, 1.42vw, 1.28rem);
+      line-height: 1.55;
+      color: var(--color-text-primary);
+      text-wrap: balance;
+      text-shadow: 0 1px 14px rgba(10, 10, 15, 0.65);
+    }
+
+    .hero-tagline b {
+      font-weight: var(--fw-semibold);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-ctas .btn-primary,
+    .hero-ctas .btn-secondary {
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero-clarity {
+        position: static;
+        gap: var(--space-md);
+        padding: 0.5rem var(--space-md) 0;
+      }
+    }
+
+    @media (min-width: 769px) and (max-height: 560px) {
+      .hero-clarity {
+        bottom: 2.4vh;
+        gap: 0.85rem;
+      }
+
+      .hero-tagline {
+        font-size: 1rem;
+        line-height: 1.45;
+      }
+
+      .hero-ctas {
+        gap: 0.75rem;
+      }
+    }
+
+    /* ========== SMOKE CANVAS ========== */
+    .aether-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-fade {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(10, 10, 15, 0.0) 0%,
+        rgba(10, 10, 15, 0.05) 50%,
+        var(--color-bg-primary) 100%
+      );
+    }
+
+    /* ========== REFERENCES PREVIEW ========== */
+    .references-preview {
+      padding: var(--space-section) 0;
+    }
+
+    .references-preview-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: var(--space-4xl);
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+    }
+
+    /* Full-width rolling references (auto-scroll + drag-to-scroll) */
+    .references-marquee {
+      position: relative;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      cursor: grab;
+      scroll-behavior: auto;
+      touch-action: pan-x;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;      /* Firefox */
+      -ms-overflow-style: none;   /* legacy Edge */
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+    }
+
+    .references-marquee::-webkit-scrollbar {
+      display: none;              /* Chrome / Safari */
+    }
+
+    .references-marquee.is-dragging {
+      cursor: grabbing;
+      user-select: none;
+    }
+
+    .references-marquee-track {
+      display: flex;
+      width: max-content;
+      padding: 14px 0 32px;
+      align-items: stretch;
+      will-change: transform; /* auto-posun jede pres transform (sub-pixel) */
+    }
+
+    .references-marquee .reference-card {
+      flex: 0 0 auto;
+      width: clamp(280px, 82vw, 380px);
+      margin-right: var(--space-xl);
+    }
+
+    /* moving strip: skip the vertical lift (would clip under overflow) */
+    .references-marquee .reference-card:hover {
+      transform: none;
+    }
+
+    @media (max-width: 640px) {
+      .references-preview-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ========== HOME SERVICES (editorial seznam) ========== */
+    .home-services {
+      padding: var(--space-section) 0 0;
+    }
+
+    /* Dva sloupce, zadny levy index: sluzby jsou tri alternativy, ne kroky.
+       Nadpisy tim padnou na stejnou levou hranu jako titulek a perex sekce. */
+    .svc-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: var(--space-xl);
+      padding: var(--space-xl) 0;
+      border-top: 1px solid var(--color-border);
+      text-decoration: none;
+      transition: padding-left var(--duration-normal) var(--ease-out);
+    }
+
+    .svc-row:last-of-type {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .svc-row:hover {
+      padding-left: var(--space-md);
+    }
+
+    .svc-row-body h3 {
+      font-size: var(--fs-2xl);
+      font-weight: var(--fw-semibold);
+      margin: 0 0 var(--space-xs);
+      color: var(--color-text-primary);
+    }
+
+    .svc-row-body p {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: var(--fs-base);
+      line-height: 1.6;
+      max-width: 56ch;
+    }
+
+    .svc-row-arrow {
+      color: var(--color-text-secondary);
+      transition: transform var(--duration-normal) var(--ease-out), color var(--duration-normal) var(--ease-out);
+    }
+
+    .svc-row:hover .svc-row-arrow {
+      transform: translate(4px, -4px);
+      color: var(--color-text-primary);
+    }
+
+    @media (max-width: 640px) {
+      .svc-row {
+        grid-template-columns: 1fr;
+      }
+
+      .svc-row-arrow {
+        display: none;
+      }
+
+      .svc-row-body h3 {
+        font-size: var(--fs-xl);
+      }
+    }
+
+    /* ========== HOME PRICING ========== */
+    /* Prevzato ze stranky Sluzby, aby cenik byl na obou mistech stejny.
+       Sekce navazuje na marquee referenci, ktera uz ma spodni odsazeni -
+       proto nahore nula misto --space-3xl jako na Sluzbach. */
+    .pricing {
+      padding: 0 0 var(--space-section);
+    }
+
+    .pricing-head {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .pricing-head .section-subtitle {
+      margin: var(--space-md) 0 0;
+      max-width: 42rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+      align-items: stretch;
+    }
+
+    .price-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl) var(--space-xl) var(--space-xl);
+      transition: border-color var(--duration-normal) var(--ease-out),
+                  transform var(--duration-normal) var(--ease-out);
+    }
+
+    .price-card:hover {
+      border-color: var(--color-border-hover);
+      transform: translateY(-4px);
+    }
+
+    .price-card.featured {
+      border-color: rgba(255, 255, 255, 0.35);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.055) 0%, var(--color-bg-card) 45%);
+      padding: calc(var(--space-2xl) + var(--space-lg)) var(--space-xl) calc(var(--space-xl) + var(--space-md));
+      margin: calc(var(--space-lg) * -1) 0;
+      box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.9);
+    }
+
+    .price-badge {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-bg-primary);
+      background: var(--color-text-primary);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 1rem;
+      white-space: nowrap;
+    }
+
+    .price-name {
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-semibold);
+      margin: 0 0 var(--space-xs);
+    }
+
+    .price-for {
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+      margin: 0 0 var(--space-lg);
+      min-height: 2.6em;
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: calc(var(--fs-2xl) * 0.94);
+      font-weight: var(--fw-bold);
+      letter-spacing: -0.01em;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .price-amount .price-prefix {
+      font-size: var(--fs-base);
+      font-weight: var(--fw-regular);
+      color: var(--color-text-secondary);
+      margin-right: 0.35rem;
+    }
+
+    .price-time {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin: var(--space-sm) 0 var(--space-lg);
+    }
+
+    .price-divider {
+      height: 1px;
+      background: var(--color-border);
+      margin-bottom: var(--space-lg);
+    }
+
+    .price-list {
+      list-style: none;
+      margin: 0 0 var(--space-xl);
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      flex: 1;
+    }
+
+    .price-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .price-list li svg {
+      flex: none;
+      margin-top: 0.2em;
+      color: var(--color-text-primary);
+    }
+
+    .price-card .btn-primary,
+    .price-card .btn-secondary {
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .pricing-guide {
+      margin: var(--space-2xl) 0 0;
+      color: var(--color-text-secondary);
+      max-width: 46rem;
+      line-height: 1.65;
+    }
+
+    .pricing-guide b {
+      color: var(--color-text-primary);
+      font-weight: var(--fw-semibold);
+    }
+
+    /* Sprava a rozvoj - doplnek pod kartami, ne treti balicek */
+    .care-band {
+      display: grid;
+      grid-template-columns: 1.2fr 1.1fr 0.8fr;
+      gap: var(--space-xl);
+      align-items: center;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-xl);
+      margin-top: var(--space-xl);
+    }
+
+    .care-band-label {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+
+    .care-band h3 {
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-semibold);
+      margin: 0 0 var(--space-xs);
+    }
+
+    .care-band > div:first-child p {
+      margin: 0;
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      max-width: 40ch;
+    }
+
+    .care-band ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .care-band ul li {
+      display: flex;
+      gap: var(--space-sm);
+      align-items: flex-start;
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .care-band ul li svg {
+      flex: none;
+      margin-top: 0.2em;
+      color: var(--color-text-primary);
+    }
+
+    /* Cena je soucast pruhu, ne prilepena karta - proto doleva a bez odtrzeni */
+    .care-band-cta {
+      text-align: left;
+    }
+
+    .care-band-cta .price-amount {
+      font-size: var(--fs-2xl);
+      white-space: nowrap;
+    }
+
+    .care-band-cta .price-time {
+      margin: var(--space-xs) 0 var(--space-md);
+    }
+
+    .pricing-note {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin: var(--space-xl) 0 0;
+    }
+
+    .pricing-local {
+      margin: var(--space-lg) 0 0;
+      max-width: 42rem;
+      color: var(--color-text-secondary);
+    }
+
+    .pricing-local a {
+      color: var(--color-text-primary);
+      text-decoration: underline;
+    }
+
+    /* Tri sloupce drzi jen nad 1200px - uzsi karta uz zlomi cenu na dva radky.
+       Na tabletu proto dva sloupce a treti karta pres celou sirku, aby nezustala
+       sama v rohu a aby balicky nebyly mensi nez doplnkova Sprava. */
+    @media (max-width: 1200px) {
+      .price-card.featured {
+        margin: 0;
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-grid > .price-card:nth-child(3) {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+        grid-template-rows: auto auto auto auto 1fr;
+        column-gap: var(--space-2xl);
+        align-content: start;
+      }
+
+      .pricing-grid > .price-card:nth-child(3) > .price-name { grid-area: 1 / 1; }
+      .pricing-grid > .price-card:nth-child(3) > .price-for { grid-area: 2 / 1; }
+      .pricing-grid > .price-card:nth-child(3) > .price-amount { grid-area: 3 / 1; }
+      .pricing-grid > .price-card:nth-child(3) > .price-time { grid-area: 4 / 1; }
+      .pricing-grid > .price-card:nth-child(3) > .price-divider { display: none; }
+
+      .pricing-grid > .price-card:nth-child(3) > .price-list {
+        grid-area: 1 / 2 / 5 / 3;
+        margin: 0;
+      }
+
+      .pricing-grid > .price-card:nth-child(3) > .btn-secondary {
+        grid-area: 5 / 2;
+        margin-top: var(--space-xl);
+        align-self: end;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .price-for {
+        min-height: 0;
+      }
+    }
+
+    /* Pod 850px uz se do dvou sloupcu cena nevejde. */
+    @media (max-width: 850px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 38rem;
+      }
+
+      .pricing-grid > .price-card:nth-child(3) {
+        display: flex;
+        grid-column: auto;
+      }
+
+      .pricing-grid > .price-card:nth-child(3) > .price-divider {
+        display: block;
+      }
+
+      /* karta uz neni mrizka - vratit seznamu i tlacitku chovani jako u ostatnich karet */
+      .pricing-grid > .price-card:nth-child(3) > .price-list {
+        margin: 0 0 var(--space-xl);
+      }
+
+      .pricing-grid > .price-card:nth-child(3) > .btn-secondary {
+        grid-area: auto;
+        align-self: stretch;
+        margin-top: auto;
+      }
+
+      .care-band {
+        max-width: 38rem;
+        grid-template-columns: 1fr;
+      }
+
+      .care-band-cta {
+        text-align: left;
+      }
+
+      /* tlacitko ve Sprave na plnou sirku, at se chova jako v kartach */
+      .care-band-cta .btn-secondary {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .price-amount {
+        font-size: calc(var(--fs-2xl) * 0.82);
+      }
+    }
+
+    @media (max-width: 350px) {
+      .price-amount {
+        font-size: calc(var(--fs-2xl) * 0.66);
+      }
+    }
+  </style>
+
+  <!-- Google Analytics 4 + Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted'
+    });
+  </script>
+  <script defer src="js/consent.js"></script>
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link" data-i18n="a11y.skipToContent">Přeskočit na obsah</a>
+
+<!-- ========== NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo"><img src="assets/logo.png" alt="Fuxa Studio Logo" width="279" height="191"></a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="/" class="static-active"
+          data-i18n="nav.home">Domů</a>
+        <a href="/tvorba-webovych-stranek" data-i18n="nav.services">Služby a ceník</a>
+
+        <a href="/projekty" data-i18n="nav.projects">Projekty</a>
+        <a href="/reference" data-i18n="nav.references">Reference</a>
+        <a href="/o-mne" data-i18n="nav.about">O mně</a>
+        <div class="menu-extra">
+          <a href="#contact" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
+          <div class="lang-switcher" role="group" aria-label="Language / Jazyk">
+            <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <!-- Language switcher -->
+        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language / Jazyk">
+          <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        </div>
+        <a href="#contact" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <canvas id="aetherFlow" class="aether-canvas"></canvas>
+    <div class="hero-fade"></div>
+
+    <div class="container">
+      <div class="hero-typo-wrap">
+
+        <!-- Textové vrstvy v společném wrapperu pro přesné překrytí -->
+        <div class="hero-text-group">
+
+          <!-- Vrstva 1: solid bílý text -->
+          <div class="hero-text-behind">
+            <span class="hero-word-web">Web</span>
+            <div class="hero-word-stack">
+              <span class="hero-word-designer">Designer</span>
+              <span class="hero-word-developer">Developer</span>
+            </div>
+          </div>
+
+          <!-- Vrstva 3: outline text (překrývá text-behind přesně) -->
+          <div class="hero-text-over" aria-hidden="true">
+            <span class="hero-word-web">Web</span>
+            <div class="hero-word-stack">
+              <span class="hero-word-designer">Designer</span>
+              <span class="hero-word-developer">Developer</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Vrstva jasnosti: věta o výsledku + CTA + klienti -->
+        <div class="hero-clarity">
+          <p class="hero-tagline" data-i18n-html="hero.tagline.html">Pomáhám <b>malým firmám z Pardubicka</b> získávat zákazníky přes web.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn-primary">
+              <span data-i18n="hero.cta.primary">Nezávazná poptávka</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+            </a>
+            <a href="/projekty" class="btn-secondary" data-i18n="hero.cta.secondary">Moje projekty</a>
+          </div>
+        </div>
+
+        <!-- Vrstva 2: fotka kotvená ke spodku -->
+        <picture>
+          <img src="assets/hero-sekce.webp" alt="" class="hero-photo" aria-hidden="true" fetchpriority="high" />
+        </picture>
+
+        <!-- SEO nadpis (vizuálně skrytý) -->
+        <h1 class="sr-only" data-i18n="hero.h1">Pavel Fuxa — web designer a developer z Pardubicka</h1>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ========== SERVICES (editorial) ========== -->
+  <section class="home-services" id="sluzby">
+    <div class="container">
+      <span class="section-label reveal" data-i18n="sluzbypage.list.label">Služby</span>
+      <h2 class="section-title reveal" data-i18n-html="sluzbypage.list.title.html">S čím vám <span class="gradient-text">pomůžu</span></h2>
+      <!-- text-wrap: balance vyrovna delky radku - zlom pak padne na hranici vet
+           misto doprostred vyctu. Starsi prohlizece deklaraci ignoruji. -->
+      <p class="section-subtitle reveal" style="margin: var(--space-md) 0 var(--space-2xl); max-width: 42rem; text-wrap: balance;" data-i18n-html="home.audience.html">Nejčastěji dělám weby malým firmám a živnostníkům <a href="/tvorba-webovych-stranek-pardubice" style="color: var(--color-text-primary); text-decoration: underline;">z Pardubicka</a>. Kavárny a podniky, rodinné výroby, sportovní akce a poradenské firmy.</p>
+
+      <a href="/tvorba-webovych-stranek#sluzby" class="svc-row reveal">
+        <div class="svc-row-body">
+          <h3 data-i18n="sluzbypage.list.1.title">Nový web na míru</h3>
+          <p data-i18n="home.services.1.desc">Kompletní web od čistého papíru — návrh, design, kód, texty, SEO a spuštění.</p>
+        </div>
+        <svg class="svc-row-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+      </a>
+
+      <a href="/tvorba-webovych-stranek#sluzby" class="svc-row reveal reveal-delay-1">
+        <div class="svc-row-body">
+          <h3 data-i18n="sluzbypage.list.2.title">Redesign stávajícího webu</h3>
+          <p data-i18n="home.services.2.desc">Zachovám, co funguje, a předělám, co brzdí.</p>
+        </div>
+        <svg class="svc-row-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+      </a>
+
+      <a href="/tvorba-webovych-stranek#sluzby" class="svc-row reveal reveal-delay-2">
+        <div class="svc-row-body">
+          <h3 data-i18n="sluzbypage.list.3.title">Správa a rozvoj webu</h3>
+          <p data-i18n="home.services.3.desc">Aktualizace, zálohy, úpravy obsahu a drobný vývoj.</p>
+        </div>
+        <svg class="svc-row-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="projects-header">
+        <div>
+          <span class="section-label reveal" data-i18n="projects.label">Moje práce</span>
+          <h2 class="section-title reveal" data-i18n-html="projects.title.html">Vybrané <span
+              class="gradient-text">projekty</span></h2>
+          <p class="section-subtitle reveal" data-i18n="projects.subtitle">
+            Weby pro skutečné firmy. Každý hotový do měsíce od dodání podkladů.
+          </p>
+        </div>
+        <a href="/projekty" class="btn-secondary reveal" id="viewAllProjects">
+          <span data-i18n="projects.viewAll">Zobrazit všechny</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 — Svídnický extrém (reálná zakázka, hlavní projekt) -->
+        <article class="project-card project-featured reveal" id="project1">
+
+          <div class="project-image">
+            <img src="assets/cs-svidnicky-hero.webp" srcset="assets/cs-svidnicky-hero-720.webp 720w, assets/cs-svidnicky-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 655px" width="1440" height="721" alt="Náhled webu Svídnický extrém — web pro sportovní akci" loading="lazy" />
+            <div class="project-image-overlay">
+              <div class="project-link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag" data-i18n="project.tag.sport">Sport</span>
+            </div>
+            <h3 class="project-title">Svídnický extrém</h3>
+            <p class="project-description" data-i18n="project.svidnicky.desc">
+              Od nuly k webu za 18 dní. Závod, který žil jen na Facebooku, získal web s online registracemi.
+            </p>
+            <p class="project-stat" data-i18n="project.svidnicky.stat">Pozice 2,7 na Googlu za 3 měsíce</p>
+            <span class="project-cta">
+              <span data-i18n="casestudy.open">Případová studie</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+          <a class="project-card-overlay-link" href="/projekty/svidnicky-extrem" aria-label="Případová studie Svídnický extrém"></a>
+        </article>
+
+        <!-- Project 2 — Mlýn Janderov (reálná zakázka) -->
+        <article class="project-card reveal reveal-delay-1" id="project2">
+          <div class="project-number">02</div>
+          <div class="project-image">
+            <img src="assets/cs-janderov-hero.webp" srcset="assets/cs-janderov-hero-720.webp 720w, assets/cs-janderov-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="900" alt="Náhled webu Mlýn Janderov" loading="lazy" />
+            <div class="project-image-overlay">
+              <div class="project-link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag" data-i18n="project.tag.mlyn">Lokální podnik</span>
+            </div>
+            <h3 class="project-title">Mlýn Janderov</h3>
+            <p class="project-description" data-i18n="project.janderov.desc">
+              Klient nemusel řešit vůbec nic technického. Zastaralý web bez přístupů převzatý celý včetně domény a hostingu.
+            </p>
+            <p class="project-stat" data-i18n="project.janderov.stat">18 dní od poptávky ke spuštění</p>
+            <span class="project-cta">
+              <span data-i18n="casestudy.open">Případová studie</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+          <a class="project-card-overlay-link" href="/projekty/mlyn-janderov" aria-label="Případová studie Mlýn Janderov"></a>
+        </article>
+
+        <!-- Project 3 — Mattina (reálná zakázka) -->
+        <article class="project-card reveal reveal-delay-2" id="project3">
+          <div class="project-number">03</div>
+          <div class="project-image">
+            <img src="assets/cs-mattina-hero.webp" srcset="assets/cs-mattina-hero-720.webp 720w, assets/cs-mattina-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="900" alt="Náhled webu Mattina — web pro kavárnu" loading="lazy" />
+            <div class="project-image-overlay">
+              <div class="project-link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="project-tag" data-i18n="project.tag.kavarna">Kavárna</span>
+            </div>
+            <h3 class="project-title">Mattina</h3>
+            <p class="project-description" data-i18n="project.mattina.desc">
+              Web pro kavárnu, která ještě neexistovala. Dvojjazyčný, s obsahem psaným za pochodu.
+            </p>
+            <p class="project-stat" data-i18n="project.mattina.stat">Hotovo měsíc před otevřením</p>
+            <span class="project-cta">
+              <span data-i18n="casestudy.open">Případová studie</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+          <a class="project-card-overlay-link" href="/projekty/mattina-cafe" aria-label="Případová studie Mattina Café"></a>
+        </article>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="section-label" data-i18n="about.label">O mně</span>
+          <h2 class="section-title" data-i18n-html="about.title.html">Grafik, který weby<br /><span
+              class="gradient-text">i naprogramuje</span></h2>
+          <p data-i18n="about.p1">
+            Jsem Pavel Fuxa, web developer na volné noze. Spojuji programování s grafickým cítěním: web navrhnu i naprogramuji, aby dával smysl a dobře vypadal.
+          </p>
+          <p data-i18n="about.p2">
+            K webům jsem se dostal přirozeně. Vystudoval jsem grafiku a postupně mě začalo lákat nejen weby navrhovat, ale rovnou je i stavět, a dělat to po svém, na sebe. Spojení designu a kódu mi dává smysl. Nejsem grafik, co předá návrh a dál ho neřeší, ani kodér, kterému je vzhled jedno.
+          </p>
+          <p data-i18n="about.p3">
+            Čekat ode mě můžete přehlednou komunikaci a web postavený na míru místo přetažené šablony. Výsledek má být rychlý a dobře použitelný. Po předání nezmizím. Web je pro mě začátek spolupráce, ne konec.
+          </p>
+
+          <div class="section-btn-wrap">
+            <a href="/o-mne" class="btn-secondary">
+              <span data-i18n="about.more">Více o mně</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-visual reveal reveal-delay-2">
+          <div class="about-portrait">
+            <img src="assets/about.webp" alt="Pavel Fuxa — Web Developer" width="1141" height="1752" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REFERENCES PREVIEW ========== -->
+  <section class="references-preview" id="references-preview">
+    <div class="container">
+      <div class="references-preview-header">
+        <div>
+          <span class="section-label reveal" data-i18n="references.label">Reference</span>
+          <h2 class="section-title reveal" data-i18n-html="references.title.html">Co říkají <span class="gradient-text">klienti</span></h2>
+          <p class="section-subtitle reveal" data-i18n="references.subtitle">
+            Čtyři reference. Jedna klientka se vrátila dvakrát.
+          </p>
+        </div>
+        <a href="/reference" class="btn-secondary reveal" id="viewAllReferences">
+          <span data-i18n="references.viewAll">Zobrazit všechny</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Full-width rolling references (JS clones the set to fill any screen) -->
+    <div class="references-marquee" role="region" aria-label="Reference klientů — hodnocení spolupráce">
+      <div class="references-marquee-track">
+        <!-- Reference — Mattina Café -->
+        <a href="/projekty/mattina-cafe" class="reference-card">
+          <span class="reference-shot" style="background-image: url('assets/ref-bg-mattina.webp')" aria-hidden="true"></span>
+          <span class="reference-head">
+            <span class="reference-company">Mattina Café</span>
+          </span>
+          <p class="reference-text" data-i18n="reference.mattina.text">
+            So spoluprácou som veľmi spokojná, všetko bolo urobené podľa našich predstáv, dokonca aj texty prvých blogov. Ďakujeme.
+          </p>
+          <span class="reference-foot">
+            <span class="reference-name">Ivana Lenčéšová</span>
+            <span class="reference-study"><span class="label" data-i18n="reference.study">Studie</span><span class="arrow" aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <!-- Reference — Mlýn Janderov -->
+        <a href="/projekty/mlyn-janderov" class="reference-card">
+          <span class="reference-shot" style="background-image: url('assets/ref-bg-janderov.webp')" aria-hidden="true"></span>
+          <span class="reference-head">
+            <span class="reference-company">Mlýn Janderov</span>
+          </span>
+          <p class="reference-text" data-i18n="reference.janderov.text">
+            Jsme maximálně spokojení. Pomáhal nám s tvorbou webových stránek a i když to s námi nebylo úplně jednoduché, vše se nakonec podařilo. Výsledek přesně odpovídá naší představě. Budeme i nadále v kontaktu. Doporučujeme.
+          </p>
+          <span class="reference-foot">
+            <span class="reference-name">Ing. Petr Schaffer</span>
+            <span class="reference-study"><span class="label" data-i18n="reference.study">Studie</span><span class="arrow" aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <!-- Reference — Svídnický extrém -->
+        <a href="/projekty/svidnicky-extrem" class="reference-card">
+          <span class="reference-shot" style="background-image: url('assets/ref-bg-exrem.webp')" aria-hidden="true"></span>
+          <span class="reference-head">
+            <span class="reference-company">Svídnický extrém</span>
+          </span>
+          <p class="reference-text" data-i18n="reference.extrem.text">
+            Během spolupráce jsme měli spoustu připomínek a Pavel je vždycky zpracoval bez problémů. Ocenili jsme, že se nebál říct svůj názor, když měl lepší nápad, ale zároveň respektoval, co jsme chtěli. Výsledek předčil naše očekávání.
+          </p>
+          <span class="reference-foot">
+            <span class="reference-name">Martin Stebel</span>
+            <span class="reference-study"><span class="label" data-i18n="reference.study">Studie</span><span class="arrow" aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <!-- Reference — Global Accord Strategies -->
+        <a href="/projekty/global-accord-strategies" class="reference-card">
+          <span class="reference-shot" style="background-image: url('assets/ref-bg-gas.webp')" aria-hidden="true"></span>
+          <span class="reference-head">
+            <span class="reference-company">Global Accord Strategies</span>
+          </span>
+          <p class="reference-text" data-i18n="reference.globalaccord.text">
+            Postaral se o celý web od začátku do konce. Vyřešil texty, fotky i technickou stránku, takže jsme se do toho nemuseli vůbec zapojovat. Spolehlivá a bezproblémová spolupráce.
+          </p>
+          <span class="reference-foot">
+            <span class="reference-name">Ivana Lenčéšová</span>
+            <span class="reference-study"><span class="label" data-i18n="reference.study">Studie</span><span class="arrow" aria-hidden="true">→</span></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <!-- Stejny cenik jako na strance Sluzby, aby cislo bylo na obou mistech
+       shodne. CTA vede na formular na teto strance, ne na /kontakt. -->
+  <section class="pricing" id="cena">
+    <div class="container">
+
+      <div class="pricing-head">
+        <span class="section-label reveal" data-i18n="sluzbypage.price.label">Kolik to stojí</span>
+        <h2 class="section-title reveal" data-i18n-html="home.price.title.html">Ceny mám <span class="gradient-text">veřejné</span></h2>
+        <p class="section-subtitle reveal" data-i18n="cenikpage.hero.subtitle">Žádné „cena na vyžádání“. Tady vidíte předem, s čím počítat — přesnou nabídku dostanete po nezávazné konzultaci.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Jednostránkový web -->
+        <article class="price-card reveal">
+          <h3 class="price-name" data-i18n="cenik.onepage.name">Jednostránkový web</h3>
+          <p class="price-for" data-i18n="cenik.onepage.for">Pro řemeslníky, akce a menší služby. Jedna stránka, která řekne, co děláte a proč si vybrat vás.</p>
+          <p class="price-amount" data-i18n="cenik.onepage.amount">10 000 – 16 000 Kč</p>
+          <p class="price-time" data-i18n="cenik.onepage.time">Dodání 1–2 týdny</p>
+          <div class="price-divider"></div>
+          <ul class="price-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.onepage.i1">Vlastní design, ne šablona</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.onepage.i2">Na mobilu i tabletu stejně dobře jako na počítači</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.onepage.i3">Texty vymyslím za vás</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.onepage.i4">Kontaktní formulář</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.onepage.i5">Základní SEO: sitemapa a Google Search Console</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.onepage.i6">Doménu a hosting vyřídím za vás</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.onepage.i7">30 dní podpory: opravy i drobné úpravy textů</span></li>
+          </ul>
+          <a href="#contact" class="btn-secondary" data-i18n="cenik.cta">Nezávazná poptávka</a>
+        </article>
+
+        <!-- Vícestránkový web -->
+        <article class="price-card featured reveal reveal-delay-1">
+          <span class="price-badge" data-i18n="cenik.multipage.badge">Nejčastější volba</span>
+          <h3 class="price-name" data-i18n="cenik.multipage.name">Vícestránkový web</h3>
+          <p class="price-for" data-i18n="cenik.multipage.for">Pro firmy, restaurace a penziony, které chtějí být k nalezení na Googlu a mít kde ukázat, co umí.</p>
+          <p class="price-amount" data-i18n="cenik.multipage.amount">20 000 – 35 000 Kč</p>
+          <p class="price-time" data-i18n="cenik.multipage.time">Dodání 2–3 týdny</p>
+          <div class="price-divider"></div>
+          <ul class="price-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.multipage.i1">Vše z jednostránkového webu</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.multipage.i2">Obvykle 5 – 8 stránek podle toho, co potřebujete</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.multipage.i3">Texty ke všem stránkám</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.multipage.i4">Měření návštěvnosti v Google Analytics</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.multipage.i5">WordPress, když si chcete obsah spravovat sami</span></li>
+          </ul>
+          <a href="#contact" class="btn-primary">
+            <span data-i18n="cenik.cta">Nezávazná poptávka</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+          </a>
+        </article>
+
+        <!-- Větší web / e-shop — kotva a dveře pro větší poptávky -->
+        <article class="price-card reveal reveal-delay-2">
+          <h3 class="price-name" data-i18n="cenik.custom.name">Náročnější weby</h3>
+          <p class="price-for" data-i18n="cenik.custom.for">Když nestačí stránky a text: e-shop, rezervace, přihlašování uživatelů nebo napojení na systémy, které už používáte.</p>
+          <p class="price-amount" data-i18n="cenik.custom.amount">Individuálně</p>
+          <p class="price-time" data-i18n="cenik.custom.time">Termín podle rozsahu</p>
+          <div class="price-divider"></div>
+          <ul class="price-list">
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.custom.i1">Vše z vícestránkového webu</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.custom.i2">Nejdřív si sedneme nad tím, co má web umět</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.custom.i3">Cenová nabídka do 3 pracovních dnů</span></li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.custom.i4">Možnost rozdělit práci do etap</span></li>
+          </ul>
+          <a href="#contact" class="btn-secondary" data-i18n="cenik.custom.cta">Domluvit konzultaci</a>
+        </article>
+
+      </div>
+
+      <p class="pricing-guide reveal" data-i18n-html="cenik.guide.html">Kde v tom rozpětí skončíte? <b>U spodní hranice</b>, když máte texty, fotky a jasnou představu. <b>U horní</b>, když chcete, abych to udělal celé za vás.</p>
+
+      <!-- Správa jako doplněk, ne třetí balíček -->
+      <aside class="care-band reveal">
+        <div>
+          <span class="care-band-label" data-i18n="cenik.care.label">Doplněk k webu</span>
+          <h3 data-i18n="cenik.care.title">Správa a rozvoj webu</h3>
+          <p data-i18n="cenik.care.desc">Pro každého, kdo se o web nechce starat sám. Aby po roce nezestárl.</p>
+        </div>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.care.i1">Pravidelné aktualizace a zálohy</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.care.i2">Úpravy obsahu a drobný vývoj</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.care.i3">Dohled nad rychlostí a funkčností</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="cenik.care.i4">Když web nejede, jdete přede vším ostatním</span></li>
+        </ul>
+        <div class="care-band-cta">
+          <p class="price-amount"><span class="price-prefix" data-i18n="cenik.from">od</span> <span data-i18n="cenik.care.amount">400 Kč / měsíc</span></p>
+          <p class="price-time" data-i18n="cenik.care.time">Průběžná spolupráce</p>
+          <a href="#contact" class="btn-secondary" data-i18n="cenik.cta">Nezávazná poptávka</a>
+        </div>
+      </aside>
+
+      <p class="pricing-note reveal" data-i18n="cenik.novat">Nejsem plátce DPH, ceny jsou konečné. Cenu dostanete písemně před začátkem práce — a platí.</p>
+      <p class="pricing-local reveal" data-i18n-html="cenik.local.html">Jste z Pardubic nebo okolí? Rád se potkám osobně. Víc na stránce <a href="/tvorba-webovych-stranek-pardubice">tvorba webových stránek v Pardubicích</a>.</p>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h2 class="section-title" data-i18n-html="contact.title.html">Máte nápad<br /><span class="gradient-text">na web?</span></h2>
+          <p class="section-subtitle" data-i18n="contact.subtitle">Napište mi nebo zavolejte.</p>
+
+          <div class="contact-person">
+            <img src="assets/about.webp" alt="Pavel Fuxa" width="52" height="52" loading="lazy" decoding="async" />
+            <div>
+              <div class="contact-person-name">Pavel Fuxa</div>
+              <div class="contact-person-role" data-i18n="contact.person.role">web designer a developer</div>
+            </div>
+          </div>
+
+          <div>
+            <a href="mailto:fuxa@fuxastudio.cz" class="contact-email">fuxa@fuxastudio.cz</a>
+          </div>
+
+          <div>
+            <a href="tel:+420736131410" class="contact-phone-pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+420 736 131 410</span>
+            </a>
+          </div>
+
+          <p class="contact-place" data-i18n="contact.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+        </div>
+
+        <div class="contact-form-card reveal reveal-delay-2" id="form">
+          <form class="contact-form" id="contactForm">
+            <input type="hidden" name="access_key" value="21ce9b27-37ef-4f30-bc47-26c8ce8cbc6a">
+            <!-- Honeypot Spam Protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+            <div class="form-group">
+              <label for="formName" class="form-label" data-i18n="form.name.label">Jméno *</label>
+              <input type="text" name="name" id="formName" autocomplete="name" placeholder="Jana Nováková"
+                data-i18n-placeholder="form.name.placeholder" required />
+            </div>
+
+            <div class="form-group">
+              <span class="form-label" data-i18n="form.contact.label">Kontakt *</span>
+              <p class="form-hint" id="contactHint" role="status" data-i18n="form.contact.hint">Stačí vyplnit jedno, ozvu se tam, kam chcete.</p>
+              <div class="form-duo" id="contactDuo">
+                <div>
+                  <label for="formEmail" class="form-label form-label-sub" data-i18n="form.email.label">E-mail</label>
+                  <input type="email" name="email" id="formEmail" autocomplete="email" placeholder="jana@firma.cz"
+                    data-i18n-placeholder="form.email.placeholder" aria-describedby="contactHint" />
+                </div>
+                <span class="form-duo-or" aria-hidden="true" data-i18n="form.contact.or">nebo</span>
+                <div>
+                  <label for="formPhone" class="form-label form-label-sub" data-i18n="form.phone.label">Telefon</label>
+                  <input type="tel" name="phone" id="formPhone" autocomplete="tel" placeholder="+420 601 123 456"
+                    data-i18n-placeholder="form.phone.placeholder" aria-describedby="contactHint" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="formMessage" class="form-label" data-i18n="form.message.label">Váš projekt *</label>
+              <textarea name="message" id="formMessage" required data-i18n-placeholder="form.message.placeholder"
+                placeholder="Např. provozuji kavárnu a potřebuji web, který pomůže zvýšit návštěvnost a získat nové zákazníky"></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn-primary" id="formSubmitBtn">
+                <span data-i18n="form.submit">Odeslat poptávku</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+            </div>
+            <p class="form-consent" data-i18n-html="form.consent.html">Odesláním formuláře berete na vědomí, jak nakládám s vašimi údaji. Nikomu je nepředávám a newsletter neposílám. Podrobnosti najdete v <a href="/ochrana-osobnich-udaju">ochraně osobních údajů</a>.</p>
+          </form>
+        </div>
+
+        <div class="contact-next reveal">
+          <p class="contact-next-label" data-i18n="contact.next.label">Co bude dál</p>
+          <ol class="contact-next-steps">
+            <li data-i18n="contact.next.1">Do 24 hodin se ozvu</li>
+            <li data-i18n="contact.next.2">Krátce probereme, co potřebujete</li>
+            <li data-i18n="contact.next.3">Pošlu nabídku s cenou a termínem</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+
+      <!-- Znacka a jednoradkove predstaveni -->
+      <div class="footer-top">
+        <a href="/" class="footer-logo">FuxaStudio</a>
+        <p class="footer-claim" data-i18n="footer.claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
+      </div>
+
+      <!-- Footer Main Grid -->
+      <div class="footer-grid">
+
+        <!-- Left: Kontakt -->
+        <div class="footer-brand">
+          <h4 class="footer-heading" data-i18n="footer.contact.heading">Kontakt</h4>
+          <div class="footer-contact-list">
+            <a href="tel:+420736131410" class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              +420 736 131 410
+            </a>
+            <a href="mailto:fuxa@fuxastudio.cz" class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              fuxa@fuxastudio.cz
+            </a>
+          </div>
+          <p class="footer-place" data-i18n="footer.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+          <p class="footer-ico">IČO: 29618843</p>
+        </div>
+
+        <!-- Center: Navigation -->
+        <div class="footer-nav">
+          <h4 class="footer-heading" data-i18n="footer.nav.heading">Navigace</h4>
+          <ul class="footer-nav-list">
+            <li><a href="/" class="footer-nav-link" data-i18n="nav.home">Domů</a></li>
+            <li><a href="/tvorba-webovych-stranek" class="footer-nav-link" data-i18n="nav.services">Služby a ceník</a></li>
+
+            <li><a href="/tvorba-webovych-stranek-pardubice" class="footer-nav-link" data-i18n="nav.local">Tvorba webů Pardubice</a></li>
+            <li><a href="/o-mne" class="footer-nav-link" data-i18n="nav.about">O mně</a></li>
+            <li><a href="/projekty" class="footer-nav-link" data-i18n="nav.projects">Projekty</a></li>
+            <li><a href="/reference" class="footer-nav-link" data-i18n="nav.references">Reference</a></li>
+            <li><a href="/kontakt" class="footer-nav-link" data-i18n="nav.contact">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <!-- Right: Social -->
+        <div class="footer-social-col">
+          <h4 class="footer-heading" data-i18n="footer.social.heading">Najdete mě</h4>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/profile.php?id=61572145793086" class="footer-social-link is-brand"
+              aria-label="Facebook" id="footerFacebook" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path fill="#1877F2"
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/fuxastudio/" class="footer-social-link is-brand" aria-label="Instagram"
+              id="footerInstagram" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <defs>
+                  <linearGradient id="igGradient" x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0" stop-color="#FEDA75" />
+                    <stop offset="0.28" stop-color="#FA7E1E" />
+                    <stop offset="0.55" stop-color="#D62976" />
+                    <stop offset="0.8" stop-color="#962FBF" />
+                    <stop offset="1" stop-color="#4F5BD5" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#igGradient)"
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/pavel-fuxa-1a1569401/" class="footer-social-link is-brand" aria-label="LinkedIn"
+              id="footerLinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path fill="#0A66C2"
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+            <a href="https://share.google/jNHbajMbGHvZoFNuk" class="footer-social-link is-brand" aria-label="Google profil"
+              target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+                <path fill="#4285F4"
+                  d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" />
+                <path fill="#34A853"
+                  d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" />
+                <path fill="#FBBC05"
+                  d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z" />
+                <path fill="#EA4335"
+                  d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" />
+              </svg>
+            </a>
+            <a href="https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html" class="footer-social-link is-brand" aria-label="Firmy.cz"
+              target="_blank" rel="noopener noreferrer">
+              <svg width="19" height="19" viewBox="42 34 126 126" aria-hidden="true">
+                <defs>
+                  <linearGradient id="firmyCzGradient" x1="49" x2="49" y1="53.9" y2="142.1"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FC4646" />
+                    <stop offset="1" stop-color="#C51F1F" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#firmyCzGradient)" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M145.129 63.892c-1.411-2.246-3.643-4.112-5.984-5.34-8.723-4.575-18.559-4.623-28.197-4.651-6.985-.022-13.968.458-20.89 1.366a171.89 171.89 0 0 0-11.402 1.892c-4.496.9-8.97 1.905-13.361 3.207-3.986 1.183-7.836 3.275-11.51 5.168-1.713.882-3.536 2.048-4.352 3.83-.98 2.138-.016 4.176.177 6.351.267 3.017 1.61 3.95 3.248 6.218 3.236 4.48 8.414 5.701 13.728 3.778 1.392-.505 4.823-2.886 6.128-2.532 2.122.578.305 6.725-.142 8.21-.613 2.027-1.75 3.54-3.833 4.276-1.749.62-5.37.263-5.947 2.465-1.611 6.147 5.28 10.683 6.23 16.148.475 2.729-.736 5.465-1.05 8.161-.412 3.542-.632 7.122-.944 10.677-.147 1.665-.657 3.954-.477 5.584.276 2.487 3.262 3.991 5.514 3.178 3.558-1.286 5.442-5.51 6.886-8.616 1.977-4.258 3.02-8.589 3.947-13.137.622-3.052 1.73-6.302 5.43-6.684 4.89-.507 9.653-1.769 14.552-2.27 5.265-.54 10.574-.76 15.781-1.736 3.473-.653 7.02-.552 10.514-1.019 5.887-.784 12.838-2.892 17.952-5.891 2.497-1.463 3.47-4.75 4.503-7.214 2.7-6.46-15.658-5.571-18.436-5.594-7.91-.066-15.241.132-21.998.657-4.943.384-9.818.724-14.781.636-2.168-.039-5.32-.019-6.734-1.908-1.66-2.215-.479-7.052.549-9.335 1.297-2.885 6.235-2.082 8.796-2.263 4.356-.31 8.685-.91 13.05-1.086 9.29-.376 18.191-.749 27.393-2.158 2.314-.355 6.434-1.089 6.999-3.78.498-2.374-.107-4.626-1.339-6.588Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copyright" data-i18n="footer.copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
+        <a href="/ochrana-osobnich-udaju" class="footer-legal-link" data-i18n="nav.privacy">Ochrana osobních údajů</a>        <button type="button" class="footer-cookie-btn" data-cookie-settings data-i18n="cookie.footerLink">Nastavení cookies</button>
+      </div>
+
+    </div>
+
+    <!-- Typograficky podpis - dekorace, pro cteciky skryta -->
+    <p class="footer-watermark" aria-hidden="true">FuxaStudio</p>
+  </footer>
+
+  <!-- Kontaktni lista - jen mobil (CSS .contact-bar), zobrazovani ridi js/main.js -->
+  <div class="contact-bar" id="contactBar">
+    <a href="mailto:fuxa@fuxastudio.cz?subject=Popt%C3%A1vka%20webu" class="btn-primary"
+      data-i18n="contactbar.write">Napsat</a>
+    <a href="tel:+420736131410" class="btn-secondary" data-i18n="contactbar.call">Zavolat</a>
+    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu"
+      data-i18n-aria="contactbar.close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="js/translations.js"></script>
+  <script src="js/smoke-shader.js"></script>
+  <script src="js/main.js"></script>
+  <script>initSmokeShader('aetherFlow', 'hero');</script>
+
+  <!-- References marquee: auto-scroll + drag-to-scroll, seamless infinite loop -->
+  <script>
+    (function () {
+      var marquee = document.querySelector('.references-marquee');
+      if (!marquee) return;
+      var track = marquee.querySelector('.references-marquee-track');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+      var SPEED = 55; // px/s auto-scroll
+      var originals = Array.prototype.slice.call(track.children);
+      var halfWidth = 0;
+
+      var hovering = false;   // mouse over the strip
+      var pressed = false;    // mouse button down (drag not yet started)
+      var dragging = false;   // mouse drag in progress
+      var touchHold = false;  // finger interacting (native scroll)
+      var startX = 0, startScroll = 0, moved = 0, touchTimer = null;
+
+      // Auto-posun jede pres transform tracku - scrollLeft umi jen cele CSS
+      // pixely, takze pri 55 px/s vychazely snimky bez pohybu (mikrozaseky).
+      // Transform je sub-pixelovy. Vizualni pozice = scrollLeft + shift;
+      // scrollLeft patri uzivateli (drag mysi, nativni touch scroll).
+      var shift = 0;
+
+      function applyShift() {
+        track.style.transform = shift ? 'translate3d(' + (-shift).toFixed(3) + 'px,0,0)' : '';
+      }
+
+      // pred uzivatelskym scrollem prelit transformovy posun do scrollLeft
+      function bakeShift() {
+        if (!shift) return;
+        var total = marquee.scrollLeft + shift;
+        shift = 0;
+        track.style.transform = '';
+        if (halfWidth > 0) {
+          while (total >= halfWidth) total -= halfWidth;
+          while (total < 0) total += halfWidth;
+        }
+        marquee.scrollLeft = total;
+      }
+
+      function markClone(node) {
+        node.setAttribute('aria-hidden', 'true');
+        node.setAttribute('data-clone', '');
+        // cela karta je odkaz, takze klon musi vypadnout z tab poradi i sam o sobe
+        if (node.matches && node.matches('a, button, [tabindex]')) node.setAttribute('tabindex', '-1');
+        var f = node.querySelectorAll('a, button, [tabindex]');
+        for (var i = 0; i < f.length; i++) f[i].setAttribute('tabindex', '-1');
+      }
+
+      function build() {
+        var clones = track.querySelectorAll('[data-clone]');
+        for (var i = 0; i < clones.length; i++) clones[i].remove();
+        // repeat the original set until one sequence is at least as wide as the viewport
+        var guard = 0;
+        while (track.scrollWidth < marquee.clientWidth && guard < 20) {
+          for (var j = 0; j < originals.length; j++) {
+            var c = originals[j].cloneNode(true);
+            markClone(c);
+            track.appendChild(c);
+          }
+          guard++;
+        }
+        // duplicate the whole sequence once so a jump of one half is seamless
+        var seq = Array.prototype.slice.call(track.children);
+        for (var k = 0; k < seq.length; k++) {
+          var d = seq[k].cloneNode(true);
+          markClone(d);
+          track.appendChild(d);
+        }
+        halfWidth = track.scrollWidth / 2;
+        marquee.scrollLeft = 0;
+        shift = 0;
+        track.style.transform = '';
+      }
+
+      function wrap() {
+        if (halfWidth <= 0) return;
+        if (marquee.scrollLeft >= halfWidth) marquee.scrollLeft -= halfWidth;
+        else if (marquee.scrollLeft < 0) marquee.scrollLeft += halfWidth;
+      }
+
+      var last = null;
+      function tick(ts) {
+        if (last === null) last = ts;
+        var dt = (ts - last) / 1000; last = ts;
+        if (dt > 0.1) dt = 0.1; // clamp after tab switch
+        if (!hovering && !dragging && !touchHold && !reduce.matches) {
+          shift += SPEED * dt;
+          if (halfWidth > 0 && marquee.scrollLeft + shift >= halfWidth) shift -= halfWidth;
+          applyShift();
+        } else {
+          wrap();
+        }
+        requestAnimationFrame(tick);
+      }
+
+      // pause on hover so the buttons stay clickable
+      marquee.addEventListener('mouseenter', function () { hovering = true; });
+      marquee.addEventListener('mouseleave', function () { hovering = false; });
+
+      // ----- drag to scroll -----
+      // Drag (a pointer capture) startuje az po posunu > 6 px. Okamzity
+      // setPointerCapture na pointerdown by presmeroval nasledny click na
+      // marquee misto na odkaz, takze karty by nesly otevrit.
+      marquee.addEventListener('pointerdown', function (e) {
+        bakeShift(); // od ted posouva uzivatel, vse jede pres scrollLeft
+        if (e.pointerType === 'mouse') {
+          pressed = true; dragging = false; moved = 0;
+          startX = e.clientX; startScroll = marquee.scrollLeft;
+        } else {
+          // touch / pen: native scroll handles the drag, just pause auto-scroll
+          touchHold = true;
+          if (touchTimer) clearTimeout(touchTimer);
+        }
+      });
+      marquee.addEventListener('pointermove', function (e) {
+        if (!pressed) return;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > moved) moved = Math.abs(dx);
+        if (!dragging) {
+          if (moved <= 6) return;
+          dragging = true;
+          marquee.classList.add('is-dragging');
+          try { marquee.setPointerCapture(e.pointerId); } catch (err) {}
+        }
+        marquee.scrollLeft = startScroll - dx;
+        wrap();
+      });
+      function endPointer(e) {
+        if (e.pointerType === 'mouse') {
+          pressed = false;
+          if (dragging) {
+            dragging = false;
+            marquee.classList.remove('is-dragging');
+            try { marquee.releasePointerCapture(e.pointerId); } catch (err) {}
+          }
+        } else {
+          // let native momentum settle before auto-scroll resumes
+          if (touchTimer) clearTimeout(touchTimer);
+          touchTimer = setTimeout(function () { touchHold = false; }, 1200);
+        }
+      }
+      marquee.addEventListener('pointerup', endPointer);
+      marquee.addEventListener('pointercancel', endPointer);
+      window.addEventListener('pointerup', function () {
+        pressed = false;
+        if (dragging) { dragging = false; marquee.classList.remove('is-dragging'); }
+      });
+
+      // a real drag shouldn't fire link navigation
+      marquee.addEventListener('click', function (e) {
+        if (moved > 6) { e.preventDefault(); e.stopPropagation(); moved = 0; }
+      }, true);
+
+      // stop the browser's native ghost-drag on images / links
+      marquee.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+      var rt;
+      window.addEventListener('resize', function () {
+        clearTimeout(rt); rt = setTimeout(build, 200);
+      });
+
+      function start() { build(); requestAnimationFrame(tick); }
+      if (document.readyState === 'complete') start();
+      else window.addEventListener('load', start);
+    })();
+  </script>
+
+</body>
+
+</html>

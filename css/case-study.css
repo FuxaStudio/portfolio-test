@@ -1,0 +1,1005 @@
+/* ================================
+   CASE STUDY PAGES (/projekty/*)
+   Sdilene styly pripadovych studii - drive duplikovany inline blok.
+   ================================ */
+
+/* Tri sirky obsahu sdili jednu levou hranu. Uzsi kontejnery se necentruji,
+   drzi levy okraj plneho 1200px kontejneru a volny prostor nechavaji vpravo.
+   margin-left = leva mezera vycentrovaneho plneho kontejneru. */
+.container--mid,
+.container--prose {
+  margin-inline: max(0px, calc((100% - var(--container-max)) / 2)) auto;
+}
+
+/* ========== CASE STUDY PAGE ==========
+   Vertikalni mezery sekci vyhradne ze skaly --rhythm-1..4 (24/48/96/160). */
+.csp-hero {
+  padding: var(--rhythm-4) 0 0;
+}
+
+.csp-back {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  margin-bottom: var(--rhythm-2);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.csp-back:hover {
+  color: var(--color-text-primary);
+}
+
+.csp-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, var(--fs-4xl));
+  font-weight: var(--fw-bold);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  max-width: 24ch;
+  margin: 0 0 var(--space-lg);
+}
+
+.csp-meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-md);
+}
+
+/* drobny radek pod meta radkem (napr. druha zakazka od stejne klientky) -
+   stejny styl jako .csp-meta, jen prisunuty tesne pod nej */
+.csp-meta-note {
+  margin: calc(-1 * var(--space-sm)) 0 var(--space-md);
+}
+
+.csp-visit {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 2px;
+  transition: color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
+}
+
+.csp-visit:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+
+.csp-frame {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-bg-card);
+  margin-top: var(--rhythm-2);
+}
+
+.csp-frame-bar {
+  display: flex;
+  gap: 6px;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.csp-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+
+.csp-frame img {
+  display: block;
+  width: 100%;
+  /* height auto, jinak by atributova vyska (rezervace mista) prebila pomer stran */
+  height: auto;
+}
+
+.csp-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--rhythm-2);
+}
+
+.csp-stat {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+
+.csp-stat-n {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-semibold);
+  /* zadny letter-spacing - rozjizdel mezery v cislech jako 1 840 nebo 39,5 % */
+}
+
+.csp-stat-l {
+  font-family: var(--font-mono);
+  color: var(--color-text-secondary);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  margin-top: var(--space-xs);
+}
+
+.csp-gsc {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-lg);
+}
+
+.csp-section {
+  padding-top: var(--rhythm-3);
+}
+
+.csp-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+}
+
+/* nadpisy sekci - displejove pismo, ne mono stitek */
+.csp-h {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  font-weight: var(--fw-semibold);
+  margin: 0 0 var(--space-md);
+}
+
+.csp-block p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  max-width: 60ch;
+  margin: 0;
+}
+
+/* Sloupce drzi pomer stran obou snimku (mobil 390x844 = 0,46209,
+   desktop 1440x900 = 1,6). Diky tomu vyjdou oba obrazky stejne vysoke
+   a ani jeden se neorizne. Drivejsi align-items: stretch srovnaval vysky
+   silou a desktopovemu snimku ubiral 17 % sirky - z ukazky webu byl
+   vyrez bez leveho i praveho okraje. */
+.csp-shots {
+  display: grid;
+  grid-template-columns: minmax(0, 0.46209fr) minmax(0, 1.6fr);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.csp-shots figure {
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-card);
+  display: flex;
+  flex-direction: column;
+}
+
+.csp-shots img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.csp-shots figcaption,
+.csp-ba-grid figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-primary);
+  padding: var(--space-sm) var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.csp-story {
+  /* sirku urcuje .container--prose */
+  max-width: none;
+}
+
+.csp-story p {
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+  margin: 0 0 var(--space-lg);
+}
+
+.csp-story p:last-child {
+  margin-bottom: 0;
+}
+
+.csp-ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.csp-ba-grid figure {
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-card);
+}
+
+.csp-ba-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* hlavicka casove osy - nadpis vlevo, procesni metrika dodavatele vpravo */
+.csp-timeline-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.csp-timeline-head .csp-h {
+  margin: 0;
+}
+
+.csp-process {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+}
+
+.csp-process-n {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+}
+
+.csp-process-l {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.csp-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--space-xl);
+}
+
+.csp-step {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-md);
+}
+
+.csp-step-d {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.csp-step-t {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+}
+
+/* vytazeny citat - velky samostatny predel, vetsi nez nadpis sekce */
+.csp-pull {
+  border-left: 3px solid var(--color-text-primary);
+  padding-left: var(--space-xl);
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(var(--fs-xl), 3.2vw, var(--fs-3xl));
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  max-width: 28ch;
+}
+
+.csp-quote {
+  align-self: start;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-card);
+  padding: var(--space-xl);
+  margin: 0;
+}
+
+.csp-quote p {
+  font-size: var(--fs-lg);
+  font-style: italic;
+  color: var(--color-text-primary);
+  line-height: 1.55;
+  margin: 0 0 var(--space-md);
+}
+
+.csp-quote cite {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.csp-scope p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  max-width: 60ch;
+  margin: 0;
+}
+
+.csp-scope-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.csp-scope-list li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+}
+
+.csp-scope-list li:last-child {
+  border-bottom: 0;
+}
+
+.csp-price {
+  margin-top: var(--space-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.csp-price b {
+  color: var(--color-text-primary);
+}
+
+.csp-price a {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.csp-next {
+  display: block;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-card);
+  padding: var(--space-xl);
+  text-decoration: none;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.csp-next:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* spodni tlacitko na zivy web - nejsilnejsi moment na proklik je po docteni */
+.csp-live-btn {
+  /* odkaz na zivy web stoji nad kartou dalsi studie - po docteni je
+     nejsilnejsi nabidka videt vysledek naostro, ne odejit na dalsi text */
+  margin-bottom: var(--space-lg);
+}
+
+/* stitek "Dalsi pripadova studie" v karte - mono label, ne nadpis */
+.csp-next-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.csp-next-hook {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+  margin-top: var(--space-sm);
+}
+
+/* ========== CTA ========== */
+.page-cta {
+  position: relative;
+  padding: var(--rhythm-3) 0;
+  overflow: hidden;
+  text-align: center;
+  margin-top: var(--rhythm-3);
+}
+
+.page-cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 860px) {
+  .csp-cols {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .csp-shots {
+    grid-template-columns: 1fr;
+  }
+
+  .csp-shots figure:first-child {
+    max-width: 320px;
+  }
+
+  .csp-ba-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   NOVA STRUKTURA STUDIE (prefix .kn-)
+   Poprve nasazena na Janderovi; komponenty jsou obecne
+   a pocita se s prevzetim i na dalsich studiich.
+   ================================ */
+
+/* ---- hero: perex + souhrnny panel ---- */
+.kn-hero-sub {
+  font-size: var(--fs-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 46ch;
+  margin: 0 0 var(--rhythm-2);
+}
+
+.kn-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-lg) 0;
+}
+
+.kn-summary-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.kn-summary-value {
+  font-size: var(--fs-sm);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+.kn-summary-value a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1px;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.kn-summary-value a:hover {
+  border-color: var(--color-text-primary);
+}
+
+/* ---- proza vlevo, souhrn rozhodnuti vpravo ---- */
+.kn-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.kn-split .csp-story {
+  max-width: 62ch;
+}
+
+.kn-side-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-sm);
+}
+
+.kn-side-item {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-md) 0;
+}
+
+.kn-side-item h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-xs);
+}
+
+.kn-side-item h3 a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1px;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.kn-side-item h3 a:hover {
+  border-color: var(--color-text-primary);
+}
+
+.kn-side-item p {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---- pred a po: slider ovladany neviditelnym range inputem ---- */
+.kn-ba {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-card);
+  --pos: 50%;
+}
+
+.kn-ba img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  pointer-events: none;
+}
+
+.kn-ba-after {
+  clip-path: inset(0 0 0 var(--pos));
+}
+
+.kn-ba-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  width: 2px;
+  margin-left: -1px;
+  background: var(--color-text-primary);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.kn-ba-knob {
+  position: absolute;
+  top: 50%;
+  left: var(--pos);
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.kn-ba-tag {
+  position: absolute;
+  top: var(--space-md);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(20, 20, 20, 0.75);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.3rem 0.75rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.kn-ba-tag--before { left: var(--space-md); }
+.kn-ba-tag--after { right: var(--space-md); }
+
+.kn-ba-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 4;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.kn-ba-hint {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-md);
+}
+
+/* range input je neviditelny (opacity 0), takze fokus z klavesnice
+   zviditelnuje ramecek celeho slideru */
+.kn-ba:focus-within {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 3px;
+}
+
+/* staticke pred/po pro mobil - slider se na dotykove sirce pere se scrollem */
+.kn-ba-fallback {
+  display: none;
+}
+
+/* ---- ukazky: rolovatelny web v plne delce s prepinacem desktop/mobil ---- */
+.kn-scrollframe {
+  margin: 0 0 var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-card);
+}
+
+.kn-scrollframe-bar {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.kn-view-btn {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-out),
+              background var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+
+.kn-view-btn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-border-hover);
+}
+
+.kn-view-btn.is-active {
+  color: var(--color-bg-primary);
+  background: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+
+.kn-scrollframe-view {
+  height: min(70vh, 640px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.kn-scrollframe-view[hidden] {
+  display: none;
+}
+
+.kn-scrollframe-view:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: -2px;
+}
+
+.kn-scrollframe-view img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* mobilni panel - telefonni sloupec vycentrovany na tmavem podkladu;
+   vyssi specificita nez .kn-scrollframe-view img (to nastavuje width: 100%) */
+.kn-scrollframe-view--mobile {
+  background: var(--color-bg-primary);
+  padding: var(--space-lg) var(--space-md);
+}
+
+.kn-scrollframe .kn-scrollframe-view--mobile img {
+  width: min(100%, 400px);
+  margin-inline: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.kn-scrollframe figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-primary);
+  padding: var(--space-sm) var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---- vysledky + reference vedle sebe ---- */
+.kn-results-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.kn-results-lead {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  max-width: 52ch;
+  margin: 0;
+}
+
+.kn-results-cols .csp-stats {
+  margin-top: var(--space-xl);
+}
+
+/* ---- rozsah dodavky jako stitky ---- */
+.kn-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kn-tags li {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.45rem 0.9rem;
+  white-space: nowrap;
+}
+
+/* ---- tistena cast dodavky: text vlevo, plakat vpravo ---- */
+.kn-print {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.66fr);
+  gap: var(--space-3xl);
+  /* text je kratsi nez plakat - vycentrovany vedle nej drzi blok pohromade */
+  align-items: center;
+}
+
+/* orámovaný snímek s popiskem - plakat u tisku, snimky tabulky, obecne cokoli,
+   co se ma ukazat celé najednou (na rozdil od rolovatelneho .kn-scrollframe) */
+.kn-figure {
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-card);
+}
+
+.kn-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* snimek se da otevrit v prekryvu - kurzor a jemne zesvetleni to naznaci */
+.kn-figure img.kn-zoomable {
+  cursor: zoom-in;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.kn-figure img.kn-zoomable:hover {
+  opacity: 0.88;
+}
+
+.kn-figure img.kn-zoomable:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: -2px;
+}
+
+.kn-figure figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-primary);
+  padding: var(--space-sm) var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---- lightbox pro .kn-figure (prekryv vytvari js/main.js) ----
+   Snimek se v nem ukazuje ve skutecne velikosti a da se posouvat. Na mobilu
+   je to jediny zpusob, jak z tabulky neco precist. */
+.kn-lightbox {
+  /* 98vw, at se snimek tabulky (1400 px) vejde bez posouvani uz od 1440px okna */
+  width: min(98vw, 1560px);
+  max-width: none;
+  max-height: 92vh;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+  overflow: hidden;
+  /* globalni reset * { margin: 0 } rusi automaticke centrovani dialogu */
+  margin: auto;
+}
+
+.kn-lightbox::backdrop {
+  background: rgba(10, 10, 10, 0.9);
+}
+
+.kn-lightbox-view {
+  overflow: auto;
+  max-height: 92vh;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.kn-lightbox-view img {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: auto;
+}
+
+.kn-lightbox-close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+
+.kn-lightbox-close:hover {
+  border-color: var(--color-border-hover);
+}
+
+/* ---- zaverecna navigace: prehled vlevo, dalsi studie vpravo ---- */
+.kn-nav-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--color-border);
+}
+
+.kn-nav-cell {
+  padding: var(--space-xl) var(--space-xl) var(--space-xl) 0;
+}
+
+.kn-nav-cell--next {
+  text-align: right;
+  border-left: 1px solid var(--color-border);
+  padding: var(--space-xl) 0 var(--space-xl) var(--space-xl);
+}
+
+.kn-nav-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.kn-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.kn-nav-link:hover {
+  color: var(--color-text-secondary);
+}
+
+/* ---- responsive ---- */
+@media (max-width: 900px) {
+  .kn-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kn-results-cols,
+  .kn-split,
+  .kn-print {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .kn-nav-row {
+    grid-template-columns: 1fr;
+  }
+
+  .kn-nav-cell--next {
+    text-align: left;
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .kn-ba,
+  .kn-ba-hint {
+    display: none;
+  }
+
+  .kn-ba-fallback {
+    display: grid;
+  }
+}

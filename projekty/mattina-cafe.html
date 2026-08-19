@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="cs" data-page="csmattina">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <title>Web pro kavárnu — Mattina Café | Fuxa Studio</title>
+  <meta name="description"
+    content="Dvojjazyčný web pro novou kavárnu v Bratislavě, hotový měsíc před otevřením. Texty, překlady i první blogy. Případová studie od poptávky po spuštění." />
+  <meta name="author" content="Pavel Fuxa" />
+  <meta name="theme-color" content="#141414" />
+
+  <!-- Canonical + hreflang -->
+  <link rel="canonical" href="https://fuxastudio.cz/projekty/mattina-cafe" />
+  <link rel="alternate" hreflang="cs" href="https://fuxastudio.cz/projekty/mattina-cafe" />
+  <link rel="alternate" hreflang="x-default" href="https://fuxastudio.cz/projekty/mattina-cafe" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://fuxastudio.cz/projekty/mattina-cafe" />
+  <meta property="og:title" content="Web pro kavárnu — Mattina Café | Fuxa Studio" />
+  <meta property="og:description" content="Dvojjazyčný web pro novou kavárnu v Bratislavě, hotový měsíc před otevřením. Texty, překlady i první blogy." />
+  <meta property="og:image" content="https://fuxastudio.cz/assets/cs-mattina-hero.webp" />
+  <meta property="og:image:width" content="1440" />
+  <meta property="og:image:height" content="900" />
+  <meta property="og:image:alt" content="Náhled webu Mattina Café" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:site_name" content="Fuxa Studio" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Web pro kavárnu — case study Mattina Café" />
+  <meta name="twitter:description" content="Dvojjazyčný web pro novou kavárnu, hotový měsíc před otevřením. Texty, překlady i první blogy." />
+  <meta name="twitter:image" content="https://fuxastudio.cz/assets/cs-mattina-hero.webp" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" /></noscript>
+
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://fuxastudio.cz/projekty/mattina-cafe#article",
+        "headline": "Web pro kavárnu, která ještě neexistovala — case study Mattina Café",
+        "description": "Dvojjazyčný web pro novou kavárnu v Bratislavě, hotový měsíc před otevřením, včetně textů, překladů a prvních blogových článků.",
+        "image": "https://fuxastudio.cz/assets/cs-mattina-hero.webp",
+        "datePublished": "2026-08-07",
+        "dateModified": "2026-08-16",
+        "author": { "@type": "Person", "name": "Pavel Fuxa", "url": "https://fuxastudio.cz/o-mne" },
+        "mainEntityOfPage": "https://fuxastudio.cz/projekty/mattina-cafe",
+        "inLanguage": "cs-CZ"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Domů", "item": "https://fuxastudio.cz/" },
+          { "@type": "ListItem", "position": 2, "name": "Projekty", "item": "https://fuxastudio.cz/projekty" },
+          { "@type": "ListItem", "position": 3, "name": "Mattina Café", "item": "https://fuxastudio.cz/projekty/mattina-cafe" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="/css/case-study.css" />
+
+  <!-- Google Analytics 4 + Consent Mode v2 -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted'
+    });
+  </script>
+  <script defer src="/js/consent.js"></script>
+</head>
+
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo"><img src="/assets/logo.png" alt="Fuxa Studio Logo" width="279" height="191"></a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="/" data-i18n="nav.home">Domů</a>
+        <a href="/tvorba-webovych-stranek" data-i18n="nav.services">Služby a ceník</a>
+        <a href="/projekty" class="static-active" data-i18n="nav.projects">Projekty</a>
+        <a href="/reference" data-i18n="nav.references">Reference</a>
+        <a href="/o-mne" data-i18n="nav.about">O mně</a>
+        <div class="menu-extra">
+          <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
+          <div class="lang-switcher" role="group" aria-label="Language / Jazyk">
+            <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <!-- Language switcher -->
+        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language / Jazyk">
+          <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        </div>
+        <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+  <!-- ========== HERO ========== -->
+  <section class="csp-hero">
+    <div class="container">
+      <a href="/projekty" class="csp-back">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span data-i18n="cspage.back">Všechny projekty</span>
+      </a>
+      <span class="section-label" data-i18n="casestudy.open">Případová studie</span>
+      <h1 class="csp-title" data-i18n="casestudy.mattina.hook">Web pro kavárnu, která ještě neexistovala</h1>
+      <p class="kn-hero-sub" data-i18n="cspage.mattina.sub">Dvojjazyčný web pro novou kavárnu v Bratislavě. Hotový měsíc před otevřením, aby měl marketing kam posílat lidi.</p>
+      <p class="csp-meta csp-meta-note" data-i18n="cspage.mattina.meta2">Klientka se poté vrátila s druhou zakázkou.</p>
+
+      <div class="kn-summary">
+        <div>
+          <div class="kn-summary-label" data-i18n="cspage.sum.client">Klient</div>
+          <div class="kn-summary-value">Mattina Café</div>
+        </div>
+        <div>
+          <div class="kn-summary-label" data-i18n="cspage.sum.field">Obor</div>
+          <div class="kn-summary-value" data-i18n="cspage.mattina.sum.field">Kavárna v Bratislavě</div>
+        </div>
+        <div>
+          <div class="kn-summary-label" data-i18n="cspage.sum.scope">Rozsah</div>
+          <div class="kn-summary-value" data-i18n="cspage.mattina.sum.scope">WordPress ve dvou jazycích + obsah</div>
+        </div>
+        <div>
+          <div class="kn-summary-label" data-i18n="cspage.sum.live">Živý web</div>
+          <div class="kn-summary-value"><a href="https://mattina.sk/" target="_blank" rel="noopener noreferrer">mattina.sk&nbsp;↗</a></div>
+        </div>
+      </div>
+
+      <div class="csp-frame">
+        <img src="/assets/cs-mattina-hero.webp" srcset="/assets/cs-mattina-hero-720.webp 720w, /assets/cs-mattina-hero.webp 1440w" sizes="(max-width: 1200px) 92vw, 1160px" width="1440" height="900" fetchpriority="high" alt="Úvodní sekce webu kavárny mattina.sk" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== KDO JE KLIENT + VÝCHOZÍ STAV ========== -->
+  <section class="csp-section">
+    <div class="container csp-cols">
+      <div class="csp-block">
+        <h2 class="csp-h" data-i18n="cspage.h.client">Kdo je klient</h2>
+        <p data-i18n="cspage.mattina.client">Nová kavárna v Bratislavě, v době zadání jen holý prostor s jasným plánem otevření a mystery marketingem na adrese podniku. Klientka mě na Upworku vybrala „“.</p>
+      </div>
+      <div class="csp-block">
+        <h2 class="csp-h" data-i18n="cspage.h.baseline">Výchozí stav a cíle</h2>
+        <p data-i18n="casestudy.mattina.brief">Fotky neexistovaly a menu se teprve tvořilo. Web přesto musel být hotový měsíc před otevřením, aby měl marketing kolem otevření kam posílat lidi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== JAK SE TO STAVĚLO — próza + boční souhrn ========== -->
+  <section class="csp-section">
+    <div class="container">
+      <h2 class="csp-h" style="margin-bottom: var(--space-lg);" data-i18n="cspage.h.story">Jak se to stavělo</h2>
+      <div class="kn-split">
+        <div class="csp-story">
+          <p data-i18n="cspage.mattina.st1">Fotky neexistovaly, ceny neexistovaly. Zboží ještě nebylo objednané. Začali jsme tedy s ilustračními fotografiemi a pevnou strukturou a obsah se vyměňoval za pochodu, jak podklady od týmu kavárny přicházely. U jídla jsem fotky z internetu odmítl a u croissantů nechal radši prázdné místo, než abych vymýšlel složení.</p>
+          <p data-i18n="cspage.mattina.st2">Zvláštní kapitola byl mystery marketing. Na adrese kavárny běžela kampaň „“, takže dočasná stránka webu nesměla prozradit adresu. A protože datum otevření nebylo známé, upravil jsem ji bez obvyklého odpočtu. Klientka napsala „“</p>
+          <p data-i18n="cspage.mattina.st3">Web je kompletně ve slovenštině a angličtině. Texty prvních blogových článků jsem napsal já a klientka je pak v referenci výslovně pochválila. Když se po spuštění objevil bug v přepínání jazyků, byl nahlášený ráno a opravený tentýž den odpoledne.</p>
+        </div>
+        <aside class="kn-side">
+          <p class="kn-side-label" data-i18n="cspage.side.label">Klíčová rozhodnutí</p>
+          <div class="kn-side-item">
+            <h3 data-i18n="cspage.mattina.d1.t">Pevná struktura, obsah za pochodu</h3>
+            <p data-i18n="cspage.mattina.d1.p">Ilustrační fotky jen tam, kde nelžou.</p>
+          </div>
+          <div class="kn-side-item">
+            <h3 data-i18n="cspage.mattina.d2.t">Mystery marketing</h3>
+            <p data-i18n="cspage.mattina.d2.p">Dočasná stránka bez adresy a bez odpočtu.</p>
+          </div>
+          <div class="kn-side-item">
+            <h3 data-i18n="cspage.mattina.d3.t">Dva jazyky</h3>
+            <p data-i18n="cspage.mattina.d3.p">Slovenština a angličtina včetně prvních blogů.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TIMELINE ========== -->
+  <section class="csp-section">
+    <div class="container">
+      <div class="csp-timeline-head">
+        <h2 class="csp-h" data-i18n="cspage.h.timeline">Jak to probíhalo</h2>
+        <p class="csp-process">
+          <span class="csp-process-n" data-i18n="cspage.mattina.s1.n">&lt; 1 měsíc</span>
+          <span class="csp-process-l" data-i18n="cspage.mattina.s1.l">od kontraktu k hotovému webu</span>
+        </p>
+      </div>
+      <ol class="csp-steps" style="list-style: none; margin: 0; padding: 0;">
+        <li class="csp-step">
+          <div class="csp-step-d" data-i18n="cspage.mattina.t1.d">Den 0</div>
+          <div class="csp-step-t" data-i18n="cspage.mattina.t1.t">Podpis kontraktu přes Upwork.</div>
+        </li>
+        <li class="csp-step">
+          <div class="csp-step-d" data-i18n="cspage.mattina.t2.d">Průběžně</div>
+          <div class="csp-step-t" data-i18n="cspage.mattina.t2.t">Texty, překlady a první blogové články vznikaly s podklady za pochodu.</div>
+        </li>
+        <li class="csp-step">
+          <div class="csp-step-d" data-i18n="cspage.mattina.t4.d">Do otevření</div>
+          <div class="csp-step-t" data-i18n="cspage.mattina.t4.t">Dočasná stránka „“, mystery marketing bez adresy.</div>
+        </li>
+        <li class="csp-step">
+          <div class="csp-step-d" data-i18n="cspage.mattina.t3.d">&lt; 1 měsíc</div>
+          <div class="csp-step-t" data-i18n="cspage.mattina.t3.t">Hotový dvojjazyčný web měsíc před plánovaným otevřením kavárny.</div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== UKÁZKY WEBU — rolovatelný web s přepínačem Desktop/Mobil ========== -->
+  <section class="csp-section">
+    <div class="container">
+      <h2 class="csp-h" data-i18n="cspage.h.shots">Ukázky webu</h2>
+
+      <figure class="kn-scrollframe" id="knShowcase">
+        <div class="kn-scrollframe-bar" role="group" aria-label="Přepínání náhledu mezi počítačovou a mobilní verzí">
+          <button type="button" class="kn-view-btn is-active" data-view="desktop" aria-pressed="true" data-i18n="cspage.view.desktop">Desktop</button>
+          <button type="button" class="kn-view-btn" data-view="mobile" aria-pressed="false" data-i18n="cspage.view.mobile">Mobil</button>
+        </div>
+        <div class="kn-scrollframe-view" data-view-panel="desktop" tabindex="0" aria-label="Homepage webu Mattina Café v počítačové verzi, rolovatelný náhled">
+          <img src="/assets/cs-mattina-fullpage.webp" width="1600" height="5963" alt="Celá homepage webu Mattina Café v počítačové verzi" loading="lazy" />
+        </div>
+        <div class="kn-scrollframe-view kn-scrollframe-view--mobile" data-view-panel="mobile" tabindex="0" aria-label="Homepage webu Mattina Café v mobilní verzi, rolovatelný náhled" hidden>
+          <img src="/assets/cs-mattina-mobile-full.webp" width="425" height="14424" alt="Celá homepage webu Mattina Café v mobilní verzi" loading="lazy" />
+        </div>
+        <figcaption data-i18n="cspage.showcase.cap">Homepage v plné délce · uvnitř rámečku lze rolovat</figcaption>
+      </figure>
+
+      <a href="https://mattina.sk/" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="margin-top: var(--space-xl);">
+        <span data-i18n="cspage.live.btn">Přejít na živý web</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== REFERENCE + ROZSAH DODÁVKY ========== -->
+  <section class="csp-section">
+    <div class="container container--mid csp-cols">
+      <blockquote class="csp-quote">
+        <p data-i18n="casestudy.mattina.quote">„“</p>
+        <cite>Ivana Lenčéšová — Mattina Café</cite>
+      </blockquote>
+      <div class="csp-scope">
+        <h2 class="csp-h" style="margin-bottom: var(--space-lg);" data-i18n="cspage.h.scope">Co bylo součástí</h2>
+        <ul class="kn-tags">
+          <li data-i18n="cspage.mattina.sc1">Úprava WordPress šablony na značku kavárny</li>
+          <li data-i18n="cspage.mattina.sc2">Texty ve slovenštině a angličtině</li>
+          <li data-i18n="cspage.mattina.sc3">První blogové články</li>
+          <li data-i18n="cspage.mattina.sc4">Dočasná „“ stránka</li>
+        </ul>
+        <p class="csp-price" data-i18n-html="cspage.price.html">Podobné projekty dnes vychází od <b>10 000 Kč</b>. Přesné balíčky najdete v <a href="/tvorba-webovych-stranek#cenik">ceníku</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="page-cta" id="cta">
+    <canvas id="ctaAetherFlow" class="cta-aether-canvas"></canvas>
+    <div class="cta-fade"></div>
+    <div class="container">
+      <div class="page-cta-content">
+        <span class="section-label no-line" style="justify-content: center;" data-i18n="cta.label">Připraveni?</span>
+        <h2 class="section-title" data-i18n-html="cspage.mattina.cta.title.html">Otevíráte <span class="gradient-text">podnik?</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto var(--space-3xl);" data-i18n="cspage.mattina.cta.sub">Web může stát dřív než první káva. Napište mi, ozvu se do 24 hodin.</p>
+        <a href="/kontakt#form" class="btn-primary">
+          <span data-i18n="casestudy.want">Chci podobný web</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NAVIGACE — až pod CTA: zpět na přehled, nebo další studie ========== -->
+  <section class="csp-section" style="padding-bottom: var(--rhythm-3);">
+    <div class="container">
+      <div class="kn-nav-row">
+        <div class="kn-nav-cell">
+          <span class="kn-nav-label" data-i18n="cspage.nav.overview">Přehled</span>
+          <a href="/projekty" class="kn-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span data-i18n="cspage.back">Všechny projekty</span>
+          </a>
+        </div>
+        <div class="kn-nav-cell kn-nav-cell--next">
+          <span class="kn-nav-label" data-i18n="cspage.next">Další případová studie</span>
+          <a href="/projekty/global-accord-strategies" class="kn-nav-link">
+            <span data-i18n="casestudy.gas.hook">Celý web na klíč za 8 dní</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+
+      <!-- Znacka a jednoradkove predstaveni -->
+      <div class="footer-top">
+        <a href="/" class="footer-logo">FuxaStudio</a>
+        <p class="footer-claim" data-i18n="footer.claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
+      </div>
+
+      <!-- Footer Main Grid -->
+      <div class="footer-grid">
+
+        <!-- Left: Kontakt -->
+        <div class="footer-brand">
+          <h4 class="footer-heading" data-i18n="footer.contact.heading">Kontakt</h4>
+          <div class="footer-contact-list">
+            <a href="tel:+420736131410" class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              +420 736 131 410
+            </a>
+            <a href="mailto:fuxa@fuxastudio.cz" class="footer-contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              fuxa@fuxastudio.cz
+            </a>
+          </div>
+          <p class="footer-place" data-i18n="footer.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+          <p class="footer-ico">IČO: 29618843</p>
+        </div>
+
+        <!-- Center: Navigation -->
+        <div class="footer-nav">
+          <h4 class="footer-heading" data-i18n="footer.nav.heading">Navigace</h4>
+          <ul class="footer-nav-list">
+            <li><a href="/" class="footer-nav-link" data-i18n="nav.home">Domů</a></li>
+            <li><a href="/tvorba-webovych-stranek" class="footer-nav-link" data-i18n="nav.services">Služby a ceník</a></li>
+            <li><a href="/tvorba-webovych-stranek-pardubice" class="footer-nav-link" data-i18n="nav.local">Tvorba webů Pardubice</a></li>
+            <li><a href="/o-mne" class="footer-nav-link" data-i18n="nav.about">O mně</a></li>
+            <li><a href="/projekty" class="footer-nav-link" data-i18n="nav.projects">Projekty</a></li>
+            <li><a href="/reference" class="footer-nav-link" data-i18n="nav.references">Reference</a></li>
+            <li><a href="/kontakt" class="footer-nav-link" data-i18n="nav.contact">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <!-- Right: Social -->
+        <div class="footer-social-col">
+          <h4 class="footer-heading" data-i18n="footer.social.heading">Najdete mě</h4>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/profile.php?id=61572145793086" class="footer-social-link is-brand"
+              aria-label="Facebook" id="footerFacebook" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/fuxastudio/" class="footer-social-link is-brand" aria-label="Instagram"
+              id="footerInstagram" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <defs>
+                  <linearGradient id="igGradient" x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0" stop-color="#FEDA75" />
+                    <stop offset="0.28" stop-color="#FA7E1E" />
+                    <stop offset="0.55" stop-color="#D62976" />
+                    <stop offset="0.8" stop-color="#962FBF" />
+                    <stop offset="1" stop-color="#4F5BD5" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#igGradient)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/pavel-fuxa-1a1569401/" class="footer-social-link is-brand" aria-label="LinkedIn"
+              id="footerLinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path fill="#0A66C2" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+            <a href="https://share.google/jNHbajMbGHvZoFNuk" class="footer-social-link is-brand" aria-label="Google profil"
+              target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+                <path fill="#4285F4"
+                  d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" />
+                <path fill="#34A853"
+                  d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" />
+                <path fill="#FBBC05"
+                  d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z" />
+                <path fill="#EA4335"
+                  d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" />
+              </svg>
+            </a>
+            <a href="https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html" class="footer-social-link is-brand" aria-label="Firmy.cz"
+              target="_blank" rel="noopener noreferrer">
+              <svg width="19" height="19" viewBox="42 34 126 126" aria-hidden="true">
+                <defs>
+                  <linearGradient id="firmyCzGradient" x1="49" x2="49" y1="53.9" y2="142.1"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FC4646" />
+                    <stop offset="1" stop-color="#C51F1F" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#firmyCzGradient)" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M145.129 63.892c-1.411-2.246-3.643-4.112-5.984-5.34-8.723-4.575-18.559-4.623-28.197-4.651-6.985-.022-13.968.458-20.89 1.366a171.89 171.89 0 0 0-11.402 1.892c-4.496.9-8.97 1.905-13.361 3.207-3.986 1.183-7.836 3.275-11.51 5.168-1.713.882-3.536 2.048-4.352 3.83-.98 2.138-.016 4.176.177 6.351.267 3.017 1.61 3.95 3.248 6.218 3.236 4.48 8.414 5.701 13.728 3.778 1.392-.505 4.823-2.886 6.128-2.532 2.122.578.305 6.725-.142 8.21-.613 2.027-1.75 3.54-3.833 4.276-1.749.62-5.37.263-5.947 2.465-1.611 6.147 5.28 10.683 6.23 16.148.475 2.729-.736 5.465-1.05 8.161-.412 3.542-.632 7.122-.944 10.677-.147 1.665-.657 3.954-.477 5.584.276 2.487 3.262 3.991 5.514 3.178 3.558-1.286 5.442-5.51 6.886-8.616 1.977-4.258 3.02-8.589 3.947-13.137.622-3.052 1.73-6.302 5.43-6.684 4.89-.507 9.653-1.769 14.552-2.27 5.265-.54 10.574-.76 15.781-1.736 3.473-.653 7.02-.552 10.514-1.019 5.887-.784 12.838-2.892 17.952-5.891 2.497-1.463 3.47-4.75 4.503-7.214 2.7-6.46-15.658-5.571-18.436-5.594-7.91-.066-15.241.132-21.998.657-4.943.384-9.818.724-14.781.636-2.168-.039-5.32-.019-6.734-1.908-1.66-2.215-.479-7.052.549-9.335 1.297-2.885 6.235-2.082 8.796-2.263 4.356-.31 8.685-.91 13.05-1.086 9.29-.376 18.191-.749 27.393-2.158 2.314-.355 6.434-1.089 6.999-3.78.498-2.374-.107-4.626-1.339-6.588Z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copyright" data-i18n="footer.copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
+        <a href="/ochrana-osobnich-udaju" class="footer-legal-link" data-i18n="nav.privacy">Ochrana osobních údajů</a>        <button type="button" class="footer-cookie-btn" data-cookie-settings data-i18n="cookie.footerLink">Nastavení cookies</button>
+      </div>
+
+    </div>
+
+    <!-- Typograficky podpis - dekorace, pro cteciky skryta -->
+    <p class="footer-watermark" aria-hidden="true">FuxaStudio</p>
+  </footer>
+
+  <!-- Kontaktni lista - jen mobil (CSS .contact-bar), zobrazovani ridi js/main.js -->
+  <div class="contact-bar" id="contactBar">
+    <a href="mailto:fuxa@fuxastudio.cz?subject=Popt%C3%A1vka%20webu" class="btn-primary"
+      data-i18n="contactbar.write">Napsat</a>
+    <a href="tel:+420736131410" class="btn-secondary" data-i18n="contactbar.call">Zavolat</a>
+    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu"
+      data-i18n-aria="contactbar.close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 6 6 18M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="/js/translations.js"></script>
+  <script src="/js/smoke-shader.js"></script>
+  <script src="/js/main.js"></script>
+  <script>initSmokeShader('ctaAetherFlow', 'cta');</script>
+  <script>
+    // Ukázky webu — přepínač Desktop / Mobil
+    (function () {
+      var showcase = document.getElementById('knShowcase');
+      if (!showcase) return;
+      var btns = showcase.querySelectorAll('.kn-view-btn');
+      var panels = showcase.querySelectorAll('[data-view-panel]');
+      Array.prototype.forEach.call(btns, function (btn) {
+        btn.addEventListener('click', function () {
+          var view = btn.getAttribute('data-view');
+          Array.prototype.forEach.call(btns, function (b) {
+            var active = b === btn;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          Array.prototype.forEach.call(panels, function (p) {
+            p.hidden = p.getAttribute('data-view-panel') !== view;
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
