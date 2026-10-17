@@ -1,0 +1,24 @@
+# Co se nikdy nenasazuje na Cloudflare. Syntaxe jako .gitignore.
+# Pozor: wrangler zna jen tenhle soubor, pole assets.exclude ve wrangler.jsonc
+# se tise ignoruje. Viz podklady/reports/tech-launch.md (B1).
+.git
+.gitignore
+.wrangler
+.playwright-mcp
+.superpowers
+.claude
+memory
+
+# pojistka: zdroje znacky v repu byt nemaji, Pavel je drzi mimo projekt.
+# Kdyby se sem slozka nekdy vratila, nenasadi se.
+loga
+
+# pracovni podklady, briefy, reporty, plany
+podklady
+*.md
+
+# soukrome klientske materialy - nikdy nenasazovat
+Case Studies
+
+wrangler.jsonc
+.assetsignore

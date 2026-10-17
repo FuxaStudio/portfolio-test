@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs" data-page="contact">
 
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <title>Kontakt — Poptávka tvorby webových stránek | Fuxa Studio</title>
+  <title>Kontakt a poptávka webu | FuxaStudio</title>
   <meta name="description"
     content="Poptávka webu bez závazků. Formulář, e-mail nebo telefon, odpovím do 24 hodin. Pak dostanete nabídku s cenou a termínem." />
   <meta name="author" content="Pavel Fuxa" />
@@ -14,34 +14,49 @@
   <!-- Canonical + hreflang -->
   <link rel="canonical" href="https://fuxastudio.cz/kontakt" />
   <link rel="alternate" hreflang="cs" href="https://fuxastudio.cz/kontakt" />
+  <link rel="alternate" hreflang="en" href="https://fuxastudio.cz/en/contact" />
   <link rel="alternate" hreflang="x-default" href="https://fuxastudio.cz/kontakt" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fuxastudio.cz/kontakt" />
-  <meta property="og:title" content="Kontakt — Poptávka tvorby webových stránek | Fuxa Studio" />
+  <meta property="og:title" content="Kontakt a poptávka webu | FuxaStudio" />
   <meta property="og:description" content="Poptávka webu bez závazků. Formulář, e-mail nebo telefon, odpovím do 24 hodin. Pak dostanete nabídku s cenou a termínem." />
   <meta property="og:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="675" />
-  <meta property="og:image:alt" content="Pavel Fuxa — Fuxa Studio, tvorba webových stránek na míru" />
+  <meta property="og:image:alt" content="Pavel Fuxa z FuxaStudia, tvorba webových stránek na míru" />
   <meta property="og:locale" content="cs_CZ" />
-  <meta property="og:site_name" content="Fuxa Studio" />
+  <meta property="og:site_name" content="FuxaStudio" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kontakt — Poptávka tvorby webových stránek | Fuxa Studio" />
+  <meta name="twitter:title" content="Kontakt a poptávka webu | FuxaStudio" />
   <meta name="twitter:description" content="Poptávka webu bez závazků. Odpovím do 24 hodin." />
   <meta name="twitter:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://api.web3forms.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" /></noscript>
+
+  <!-- Fonts - self-host, zadny pozadavek na cizi domenu. Deklarace jsou
+       v css/style.css, tady se jen predbezne stahnou rezy nad ohybem. -->
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Animace jsou progressive enhancement: skryty vychozi stav se zapina az
+       touhle tridou. Bez JS (bot, scraper, pomala linka) i pri zapnutem
+       "omezit pohyb" zustava v CSS rovnou konecny vzhled stranky.
+       Inline a synchronne v <head>, aby trida platila uz pro prvni vykresleni. -->
+  <script>
+    (function () {
+      try {
+        if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('js-anim');
+        }
+      } catch (e) { /* stary prohlizec - zustane konecny stav, coz je v poradku */ }
+    })();
+  </script>
 
   <style>
     /* ========== CONTACT PAGE — HERO ========== */
@@ -72,6 +87,9 @@
       top: -150px;
       right: -100px;
       background: radial-gradient(circle, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+    }
+
+    .js-anim .contact-hero-bg::after {
       animation: glowPulse 6s ease-in-out infinite alternate;
     }
 
@@ -104,10 +122,15 @@
       margin-bottom: var(--space-2xl);
     }
 
+    /* Vychozi stav = konecny. Prijezd (vc. 0,8 s prodlevy, po kterou by byl
+       blok neviditelny) bezi az pod .js-anim - viz progressive enhancement. */
     .contact-hero-actions {
       display: flex;
       justify-content: center;
       gap: var(--space-lg);
+    }
+
+    .js-anim .contact-hero-actions {
       animation: fadeInUp 0.8s var(--ease-out) 0.8s both;
     }
 
@@ -130,8 +153,10 @@
       }
     }
   </style>
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/favicon.png" />
+  <link rel="icon" href="/portfolio-test/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="/portfolio-test/assets/brand/icon.svg" />
+  <link rel="apple-touch-icon" href="/portfolio-test/apple-touch-icon.png" />
+  <link rel="manifest" href="/portfolio-test/assets/brand/site.webmanifest" />
 
 
   <!-- Structured Data (JSON-LD) -->
@@ -149,10 +174,10 @@
       {
         "@type": "ContactPage",
         "@id": "https://fuxastudio.cz/kontakt",
-        "name": "Kontakt — Fuxa Studio",
-        "description": "Kontaktní stránka Fuxa Studio — Pavel Fuxa, freelance web developer",
+        "name": "Kontakt | FuxaStudio",
+        "description": "Kontaktní stránka FuxaStudio. Pavel Fuxa, freelance web developer.",
         "url": "https://fuxastudio.cz/kontakt",
-        "dateModified": "2026-08-12",
+        "dateModified": "2026-08-24",
         "mainEntity": { "@id": "https://fuxastudio.cz/#person" }
       },
       {
@@ -161,29 +186,42 @@
         "name": "Pavel Fuxa",
         "url": "https://fuxastudio.cz/",
         "image": "https://fuxastudio.cz/assets/about.webp",
-        "jobTitle": "Web Developer",
-        "description": "Freelance web developer kombinující programování s grafickým designem. Tvorba moderních, rychlých a funkčních webových stránek na míru.",
+        "jobTitle": "Web designer & developer",
+        "description": "Web designer a developer ze Svídnice u Chrudimi. Vystudovaná počítačová grafika, weby pro malé firmy z Pardubicka. Návrh i stavba jedním člověkem.",
         "email": "fuxa@fuxastudio.cz",
         "telephone": "+420736131410",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Svídnice",
+          "addressRegion": "Pardubický kraj",
+          "addressCountry": "CZ"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "SPŠE a VOŠ Pardubice"
+        },
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "WordPress", "Framer", "Figma", "Web Design"],
         "sameAs": [
           "https://www.linkedin.com/in/pavel-fuxa-1a1569401/",
           "https://www.instagram.com/fuxastudio/",
-          "https://www.facebook.com/profile.php?id=61572145793086"
-        ],
-        "knowsAbout": ["HTML", "CSS", "JavaScript", "React", "Next.js", "Node.js", "Figma", "Web Design"]
+          "https://www.facebook.com/profile.php?id=61572145793086",
+          "https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html"
+        ]
       },
       {
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://fuxastudio.cz/#service",
-        "name": "Fuxa Studio",
+        "name": "FuxaStudio",
         "url": "https://fuxastudio.cz/",
-        "description": "Tvorba webových stránek na míru — od návrhu po spuštění.",
+        "description": "Tvorba webových stránek na míru, od návrhu po spuštění.",
         "telephone": "+420736131410",
         "image": "https://fuxastudio.cz/assets/og-image.jpg",
         "priceRange": "od 10 000 Kč",
         "founder": { "@id": "https://fuxastudio.cz/#person" },
         "areaServed": [
           {"@type": "Country", "name": "Česká republika"},
+          {"@type": "Country", "name": "Slovensko"},
+          {"@type": "Continent", "name": "Evropa"},
           {"@type": "AdministrativeArea", "name": "Pardubický kraj"}
         ],
         "serviceType": "Tvorba webových stránek",
@@ -221,7 +259,13 @@
       security_storage: 'granted'
     });
   </script>
-  <script defer src="js/consent.js"></script>
+  <!-- Preklady pred site-prefs.js: cookie lista se sklada uz s texty
+       v aktualnim jazyce. defer drzi poradi a nic neblokuje.
+       Soubor i tridy uvnitr se jmenuji "prefs", ne "cookie" - Brave se
+       zapnutymi stity a adblocky maji v seznamech pravidla na cookie-*
+       nazvy a listu bez varovani schovaji. Neprejmenovavat zpet. -->
+  <script defer src="js/translations.js"></script>
+  <script defer src="js/site-prefs.js"></script>
 </head>
 
 <body>
@@ -229,32 +273,30 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="/" class="nav-logo"><img src="assets/logo.png" alt="Fuxa Studio Logo" width="279" height="191"></a>
+      <a href="/portfolio-test/" class="nav-logo"><img src="/portfolio-test/assets/brand/fs-logo-nav.svg" alt="Logo FuxaStudio" width="279" height="191"></a>
 
       <div class="nav-links" id="navLinks">
-        <a href="/" data-i18n="nav.home">Domů</a>
-        <a href="/tvorba-webovych-stranek" data-i18n="nav.services">Služby a ceník</a>
+        <a href="/portfolio-test/">Domů</a>
+        <a href="/portfolio-test/tvorba-webovych-stranek">Služby a ceník</a>
 
-        <a href="/projekty" data-i18n="nav.projects">Projekty</a>
-        <a href="/reference" data-i18n="nav.references">Reference</a>
-        <a href="/o-mne" data-i18n="nav.about">O mně</a>
+        <a href="/portfolio-test/projekty">Projekty</a>
+        <a href="/portfolio-test/reference">Reference</a>
+        <a href="/portfolio-test/o-mne">O mně</a>
         <div class="menu-extra">
-          <a href="#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-          <div class="lang-switcher" role="group" aria-label="Language / Jazyk">
-            <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-          </div>
+          <a href="#form" class="nav-cta">Nezávazná poptávka</a>
+          <a class="lang-switcher" href="/portfolio-test/en/contact" hreflang="en" aria-label="Přepnout na anglickou verzi">
+            <span class="lang-btn">EN</span>
+          </a>
         </div>
       </div>
 
       <div class="nav-right">
         <!-- Language switcher -->
-        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language / Jazyk">
-          <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-        </div>
-        <a href="#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <a class="lang-switcher" id="langSwitcher" href="/portfolio-test/en/contact" hreflang="en" aria-label="Přepnout na anglickou verzi">
+          <span class="lang-btn">EN</span>
+        </a>
+        <a href="#form" class="nav-cta">Nezávazná poptávka</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -272,11 +314,11 @@
         style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0;"></canvas>
     </div>
     <div class="container contact-hero-content">
-      <h1 class="hero-title" data-i18n-html="contact.title.html">Máte nápad<br /><span class="gradient-text">na web?</span></h1>
-      <p class="contact-hero-subtitle" data-i18n="contact.subtitle">Napište mi nebo zavolejte.</p>
+      <h1 class="hero-title">Máte nápad<br /><span class="gradient-text">na web?</span></h1>
+      <p class="contact-hero-subtitle">Napište mi nebo zavolejte.</p>
       <div class="contact-hero-actions">
         <a href="mailto:fuxa@fuxastudio.cz?subject=Popt%C3%A1vka%20webu" class="btn-primary" id="heroCtaEmail">
-          <span data-i18n="contactpage.cta.email">Napsat e-mail</span>
+          <span>Napsat e-mail</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -289,7 +331,7 @@
             <path
               d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
-          <span data-i18n="contactpage.cta.phone">Zavolat</span>
+          <span>Zavolat</span>
         </a>
       </div>
     </div>
@@ -301,10 +343,10 @@
       <div class="contact-grid">
         <div class="contact-info reveal">
           <div class="contact-person">
-            <img src="assets/about.webp" alt="Pavel Fuxa" width="52" height="52" loading="lazy" decoding="async" />
+            <img src="/portfolio-test/assets/about-104.webp" alt="Pavel Fuxa" width="52" height="52" loading="lazy" decoding="async" />
             <div>
               <div class="contact-person-name">Pavel Fuxa</div>
-              <div class="contact-person-role" data-i18n="contact.person.role">web designer a developer</div>
+              <div class="contact-person-role">web designer a developer</div>
             </div>
           </div>
 
@@ -319,7 +361,8 @@
             </a>
           </div>
 
-          <p class="contact-place" data-i18n="contact.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+          <p class="contact-place">Svídnice u Chrudimi · pracuju po celé ČR i v zahraničí</p>
+          <p class="contact-place">Weby od 10&nbsp;000&nbsp;Kč, hotové do měsíce od dodání podkladů. Cenu a termín dostanete písemně předem. Nejsem plátce DPH, ceny jsou konečné. <a href="/portfolio-test/tvorba-webovych-stranek#cenik">Ceník</a>.</p>
         </div>
 
         <div class="contact-form-card reveal reveal-delay-2" id="form">
@@ -329,33 +372,30 @@
             <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
             <div class="form-group">
-              <label for="formName" class="form-label" data-i18n="form.name.label">Jméno *</label>
-              <input type="text" name="name" id="formName" autocomplete="name" placeholder="Jana Nováková"
-                data-i18n-placeholder="form.name.placeholder" required />
+              <label for="formName" class="form-label">Jméno *</label>
+              <input type="text" name="name" id="formName" autocomplete="name" placeholder="Jana Nováková" required />
             </div>
 
             <div class="form-group">
-              <span class="form-label" data-i18n="form.contact.label">Kontakt *</span>
+              <span class="form-label">Kontakt *</span>
               <p class="form-hint" id="contactHint" role="status" data-i18n="form.contact.hint">Stačí vyplnit jedno, ozvu se tam, kam chcete.</p>
               <div class="form-duo" id="contactDuo">
                 <div>
-                  <label for="formEmail" class="form-label form-label-sub" data-i18n="form.email.label">E-mail</label>
-                  <input type="email" name="email" id="formEmail" autocomplete="email" placeholder="jana@firma.cz"
-                    data-i18n-placeholder="form.email.placeholder" aria-describedby="contactHint" />
+                  <label for="formEmail" class="form-label form-label-sub">E-mail</label>
+                  <input type="email" name="email" id="formEmail" autocomplete="email" placeholder="jana@firma.cz" aria-describedby="contactHint" />
                 </div>
-                <span class="form-duo-or" aria-hidden="true" data-i18n="form.contact.or">nebo</span>
+                <span class="form-duo-or" aria-hidden="true">nebo</span>
                 <div>
-                  <label for="formPhone" class="form-label form-label-sub" data-i18n="form.phone.label">Telefon</label>
-                  <input type="tel" name="phone" id="formPhone" autocomplete="tel" placeholder="+420 601 123 456"
-                    data-i18n-placeholder="form.phone.placeholder" aria-describedby="contactHint" />
+                  <label for="formPhone" class="form-label form-label-sub">Telefon</label>
+                  <input type="tel" name="phone" id="formPhone" autocomplete="tel" placeholder="+420 601 123 456" aria-describedby="contactHint" />
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="formMessage" class="form-label" data-i18n="form.message.label">Váš projekt *</label>
-              <textarea name="message" id="formMessage" required data-i18n-placeholder="form.message.placeholder"
-                placeholder="Např. provozuji kavárnu a potřebuji web, který pomůže zvýšit návštěvnost a získat nové zákazníky"></textarea>
+              <label for="formMessage" class="form-label">Váš projekt *</label>
+              <textarea name="message" id="formMessage" required
+                placeholder="Např. otevírám kavárnu a do jara potřebuju web s menu."></textarea>
             </div>
 
             <div class="form-submit">
@@ -364,16 +404,17 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
               </button>
             </div>
-            <p class="form-consent" data-i18n-html="form.consent.html">Odesláním formuláře berete na vědomí, jak nakládám s vašimi údaji. Nikomu je nepředávám a newsletter neposílám. Podrobnosti najdete v <a href="/ochrana-osobnich-udaju">ochraně osobních údajů</a>.</p>
+            <p class="form-consent">Odesláním formuláře berete na vědomí, jak nakládám s vašimi údaji. Nikomu je nepředávám a newsletter neposílám. Podrobnosti najdete v <a href="/portfolio-test/ochrana-osobnich-udaju">ochraně osobních údajů</a>.</p>
           </form>
         </div>
 
         <div class="contact-next reveal">
-          <p class="contact-next-label" data-i18n="contact.next.label">Co bude dál</p>
+          <p class="contact-next-label">Co bude dál</p>
           <ol class="contact-next-steps">
-            <li data-i18n="contact.next.1">Do 24 hodin se ozvu</li>
-            <li data-i18n="contact.next.2">Krátce probereme, co potřebujete</li>
-            <li data-i18n="contact.next.3">Pošlu nabídku s cenou a termínem</li>
+            <li>Do 24 hodin se ozvu</li>
+            <li>Krátce probereme, co potřebujete</li>
+            <li>Do dalších 24 hodin pošlu nabídku s cenou a termínem</li>
+            <li>Navrhnu vám hlavní stránku zdarma</li>
           </ol>
         </div>
       </div>
@@ -389,8 +430,8 @@
 
       <!-- Znacka a jednoradkove predstaveni -->
       <div class="footer-top">
-        <a href="/" class="footer-logo">FuxaStudio</a>
-        <p class="footer-claim" data-i18n="footer.claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
+        <a href="/portfolio-test/" class="footer-logo">FuxaStudio</a>
+        <p class="footer-claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
       </div>
 
       <!-- Footer Main Grid -->
@@ -398,7 +439,7 @@
 
         <!-- Left: Kontakt -->
         <div class="footer-brand">
-          <h4 class="footer-heading" data-i18n="footer.contact.heading">Kontakt</h4>
+          <h2 class="footer-heading">Kontakt</h2>
           <div class="footer-contact-list">
             <a href="tel:+420736131410" class="footer-contact-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -417,28 +458,28 @@
               fuxa@fuxastudio.cz
             </a>
           </div>
-          <p class="footer-place" data-i18n="footer.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+          <p class="footer-place">Svídnice u Chrudimi · pracuju po celé ČR i v zahraničí</p>
           <p class="footer-ico">IČO: 29618843</p>
         </div>
 
         <!-- Center: Navigation -->
         <div class="footer-nav">
-          <h4 class="footer-heading" data-i18n="footer.nav.heading">Navigace</h4>
+          <h2 class="footer-heading">Navigace</h2>
           <ul class="footer-nav-list">
-            <li><a href="/" class="footer-nav-link" data-i18n="nav.home">Domů</a></li>
-            <li><a href="/tvorba-webovych-stranek" class="footer-nav-link" data-i18n="nav.services">Služby a ceník</a></li>
+            <li><a href="/portfolio-test/" class="footer-nav-link">Domů</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek" class="footer-nav-link">Služby a ceník</a></li>
 
-            <li><a href="/tvorba-webovych-stranek-pardubice" class="footer-nav-link" data-i18n="nav.local">Tvorba webů Pardubice</a></li>
-            <li><a href="/o-mne" class="footer-nav-link" data-i18n="nav.about">O mně</a></li>
-            <li><a href="/projekty" class="footer-nav-link" data-i18n="nav.projects">Projekty</a></li>
-            <li><a href="/reference" class="footer-nav-link" data-i18n="nav.references">Reference</a></li>
-            <li><a href="/kontakt" class="footer-nav-link" data-i18n="nav.contact">Kontakt</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek-pardubice" class="footer-nav-link">Tvorba webů Pardubice</a></li>
+            <li><a href="/portfolio-test/o-mne" class="footer-nav-link">O mně</a></li>
+            <li><a href="/portfolio-test/projekty" class="footer-nav-link">Projekty</a></li>
+            <li><a href="/portfolio-test/reference" class="footer-nav-link">Reference</a></li>
+            <li><a href="/portfolio-test/kontakt" class="footer-nav-link">Kontakt</a></li>
           </ul>
         </div>
 
         <!-- Right: Social -->
         <div class="footer-social-col">
-          <h4 class="footer-heading" data-i18n="footer.social.heading">Najdete mě</h4>
+          <h2 class="footer-heading">Najdete mě</h2>
           <div class="footer-socials">
             <a href="https://www.facebook.com/profile.php?id=61572145793086" class="footer-social-link is-brand" aria-label="Facebook" id="footerFacebook" target="_blank" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -499,20 +540,16 @@
 
       <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p class="footer-copyright" data-i18n="footer.copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
-        <a href="/ochrana-osobnich-udaju" class="footer-legal-link" data-i18n="nav.privacy">Ochrana osobních údajů</a>        <button type="button" class="footer-cookie-btn" data-cookie-settings data-i18n="cookie.footerLink">Nastavení cookies</button>
+        <p class="footer-copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
+        <a href="/portfolio-test/ochrana-osobnich-udaju" class="footer-legal-link">Ochrana osobních údajů</a>        <button type="button" class="footer-prefs-btn" data-prefs-open>Nastavení cookies</button>
       </div>
 
     </div>
-
-    <!-- Typograficky podpis - dekorace, pro cteciky skryta -->
-    <p class="footer-watermark" aria-hidden="true">FuxaStudio</p>
   </footer>
 
-  <script src="js/translations.js"></script>
-  <script src="js/wave-hero.js"></script>
-  <script src="js/main.js"></script>
-  <script>initWaveHero('waveHeroCanvas', 'contact');</script>
+  <script defer src="js/wave-hero.js"></script>
+  <script defer src="js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initWaveHero('waveHeroCanvas', 'contact'); });</script>
 
 </body>
 

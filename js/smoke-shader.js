@@ -29,12 +29,44 @@
     '  O=vec4(col,1);\n' +
     '}';
 
+  /* Fragment shader je nejdrazsi vec na strance. Na stroji s grafickou kartou
+     stoji par milisekund na snimek, na stroji bez ni (headless Chrome, na kterem
+     bezi PageSpeed, levny notebook, virtualka) se stejny snimek pocita softwarove
+     na procesoru a trva desetiny sekundy. Proto tri pojistky:
+     1. rendrujeme do mensiho bufferu, nez je canvas na obrazovce - kour je mekky
+        sum, na pulce rozliseni ho nikdo nepozna, ale fragmentu je 4x min,
+     2. detekujeme softwarovy renderer a rovnou z animace delame staticky obrazek,
+     3. merime, jak dlouho snimky ve skutecnosti trvaji, a kdyz to stroj nestiha,
+        animaci zmrazime na poslednim snimku.
+     preserveDrawingBuffer drzi posledni snimek na platne i po zastaveni smycky. */
+  var MAX_PIXELS   = 400000; // strop poctu fragmentu na snimek
+  var MAX_SCALE    = 0.5;    // vic nez pulka rozliseni nema u kouře smysl
+  var FRAME_MS     = 50;     // ~20 fps, kour se hybe pomalu
+  var SLOW_MS      = 90;     // snimek, ktery uz je podezrele dlouhy
+  var SLOW_STRIKES = 6;      // kolik jich po sobe staci na zmrazeni
+  var FIRST_FRAME_BUDGET_MS = 30; // drazsi prvni snimek = stroj na animaci nema
+
+  function looksLikeSoftware(gl) {
+    var dbg = gl.getExtension('WEBGL_debug_renderer_info');
+    if (!dbg) return false;
+    var name = '';
+    try { name = String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) || ''); } catch (e) { return false; }
+    return /swiftshader|llvmpipe|softpipe|software|basic render|microsoft basic/i.test(name);
+  }
+
   function initSmokeShader(canvasId, sectionId) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var canvas = document.getElementById(canvasId);
     if (!canvas) return;
 
-    var gl = canvas.getContext('webgl2');
+    var gl = canvas.getContext('webgl2', {
+      alpha: false,
+      depth: false,
+      stencil: false,
+      antialias: false,
+      powerPreference: 'low-power',
+      preserveDrawingBuffer: true
+    });
     if (!gl) { canvas.style.display = 'none'; return; }
 
     function mkShader(type, src) {
@@ -73,27 +105,25 @@
     var color = [0.0, 0.0, 0.0];
     var t0 = performance.now();
     var raf = null;
+    var frozen = false;   // stroj to nestiha, zustava posledni snimek
+    var visible = true;   // sekce je v zabere
+    var strikes = 0;
+    var lastFrameTime = 0;
 
     function resize() {
       var section = document.getElementById(sectionId);
       if (!section) return;
-      var dpr = 1;
       var w = section.offsetWidth, h = section.offsetHeight;
-      canvas.width  = w * dpr; canvas.height = h * dpr;
+      if (!w || !h) return;
+      var scale = Math.min(MAX_SCALE, Math.sqrt(MAX_PIXELS / (w * h)));
+      canvas.width  = Math.max(1, Math.round(w * scale));
+      canvas.height = Math.max(1, Math.round(h * scale));
       canvas.style.width  = w + 'px';
       canvas.style.height = h + 'px';
       gl.viewport(0, 0, canvas.width, canvas.height);
     }
-    window.addEventListener('resize', resize, { passive: true });
-    resize();
 
-    var lastFrameTime = 0;
-    function render(ts) {
-      if (ts - lastFrameTime < 32) {
-        raf = requestAnimationFrame(render);
-        return;
-      }
-      lastFrameTime = ts;
+    function draw() {
       var now = (performance.now() - t0) * 0.001;
       gl.useProgram(prog);
       gl.bindBuffer(gl.ARRAY_BUFFER, buf);
@@ -101,19 +131,71 @@
       gl.uniform1f(uTime, now);
       gl.uniform3fv(uColor, color);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    }
+
+    function stop() {
+      if (raf !== null) { cancelAnimationFrame(raf); raf = null; }
+    }
+
+    function start() {
+      if (frozen || !visible || document.hidden || raf !== null) return;
+      lastFrameTime = 0;
       raf = requestAnimationFrame(render);
     }
 
-    document.addEventListener('visibilitychange', function() {
-      if (document.hidden) {
-        cancelAnimationFrame(raf);
-        raf = null;
-      } else if (!raf) {
-        raf = requestAnimationFrame(render);
+    function render(ts) {
+      raf = requestAnimationFrame(render);
+      if (lastFrameTime && ts - lastFrameTime < FRAME_MS) return;
+
+      var gap = lastFrameTime ? ts - lastFrameTime : 0;
+      lastFrameTime = ts;
+
+      if (gap > SLOW_MS) {
+        if (++strikes >= SLOW_STRIKES) { frozen = true; stop(); return; }
+      } else if (strikes) {
+        strikes--;
       }
+
+      draw();
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { resize(); draw(); }, 150);
+    }, { passive: true });
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else start();
     });
 
-    raf = requestAnimationFrame(render);
+    /* Kour pod patou stranky nema proc pocitat, kdyz je uzivatel u hlavicky. */
+    var section = document.getElementById(sectionId);
+    if (section && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+        if (visible) start(); else stop();
+      }, { rootMargin: '120px' }).observe(section);
+    }
+
+    resize();
+
+    /* Nazev rendereru rekne pravdu jen nekdy - WEBGL_debug_renderer_info
+       prohlizece kvuli soukromi casto neposkytnou. Spolehlivejsi je zmerit
+       si prvni snimek. gl.finish() pocka, nez grafika praci opravdu dodela,
+       takze cislo odpovida skutecnosti. Na grafickem akceleratoru jsou to
+       jednotky milisekund, na softwarovem SwiftShaderu (headless Chrome,
+       na kterem bezi PageSpeed, virtualka, stroj bez ovladacu) desitky az
+       stovky. Kdyz je snimek drahy, vykreslime jeden jediny staticky
+       a procesor uz dal nezatezujeme. */
+    var t = performance.now();
+    draw();
+    gl.finish();
+    var firstFrameMs = performance.now() - t;
+
+    if (firstFrameMs > FIRST_FRAME_BUDGET_MS || looksLikeSoftware(gl)) return;
+
+    start();
   }
 
   window.initSmokeShader = initSmokeShader;

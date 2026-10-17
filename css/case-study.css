@@ -4,10 +4,9 @@
    ================================ */
 
 /* Tri sirky obsahu sdili jednu levou hranu. Uzsi kontejnery se necentruji,
-   drzi levy okraj plneho 1200px kontejneru a volny prostor nechavaji vpravo.
+   drzi levy okraj plneho kontejneru (--container-max) a volny prostor nechavaji vpravo.
    margin-left = leva mezera vycentrovaneho plneho kontejneru. */
-.container--mid,
-.container--prose {
+.container--mid {
   margin-inline: max(0px, calc((100% - var(--container-max)) / 2)) auto;
 }
 
@@ -61,43 +60,12 @@
   margin: calc(-1 * var(--space-sm)) 0 var(--space-md);
 }
 
-.csp-visit {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  font-size: var(--fs-sm);
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  border-bottom: 1px solid var(--color-border);
-  padding-bottom: 2px;
-  transition: color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out);
-}
-
-.csp-visit:hover {
-  color: var(--color-text-primary);
-  border-color: var(--color-text-primary);
-}
-
 .csp-frame {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
   background: var(--color-bg-card);
   margin-top: var(--rhythm-2);
-}
-
-.csp-frame-bar {
-  display: flex;
-  gap: 6px;
-  padding: var(--space-sm) var(--space-md);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.csp-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--color-border);
 }
 
 .csp-frame img {
@@ -171,35 +139,6 @@
   margin: 0;
 }
 
-/* Sloupce drzi pomer stran obou snimku (mobil 390x844 = 0,46209,
-   desktop 1440x900 = 1,6). Diky tomu vyjdou oba obrazky stejne vysoke
-   a ani jeden se neorizne. Drivejsi align-items: stretch srovnaval vysky
-   silou a desktopovemu snimku ubiral 17 % sirky - z ukazky webu byl
-   vyrez bez leveho i praveho okraje. */
-.csp-shots {
-  display: grid;
-  grid-template-columns: minmax(0, 0.46209fr) minmax(0, 1.6fr);
-  gap: var(--space-lg);
-  align-items: start;
-}
-
-.csp-shots figure {
-  margin: 0;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--color-bg-card);
-  display: flex;
-  flex-direction: column;
-}
-
-.csp-shots img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.csp-shots figcaption,
 .csp-ba-grid figcaption {
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
@@ -212,7 +151,6 @@
 }
 
 .csp-story {
-  /* sirku urcuje .container--prose */
   max-width: none;
 }
 
@@ -312,20 +250,6 @@
   line-height: 1.6;
 }
 
-/* vytazeny citat - velky samostatny predel, vetsi nez nadpis sekce */
-.csp-pull {
-  border-left: 3px solid var(--color-text-primary);
-  padding-left: var(--space-xl);
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(var(--fs-xl), 3.2vw, var(--fs-3xl));
-  font-weight: var(--fw-semibold);
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  color: var(--color-text-primary);
-  max-width: 28ch;
-}
-
 .csp-quote {
   align-self: start;
   border: 1px solid var(--color-border);
@@ -359,80 +283,16 @@
   margin: 0;
 }
 
-.csp-scope-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.csp-scope-list li {
-  padding: var(--space-sm) 0;
-  border-bottom: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
-  font-size: var(--fs-sm);
-}
-
-.csp-scope-list li:last-child {
-  border-bottom: 0;
-}
-
 .csp-price {
   margin-top: var(--space-lg);
   color: var(--color-text-secondary);
   line-height: 1.7;
 }
 
-.csp-price b {
-  color: var(--color-text-primary);
-}
-
 .csp-price a {
   color: var(--color-text-primary);
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-.csp-next {
-  display: block;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  background: var(--color-bg-card);
-  padding: var(--space-xl);
-  text-decoration: none;
-  transition: border-color var(--duration-fast) var(--ease-out);
-}
-
-.csp-next:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-/* spodni tlacitko na zivy web - nejsilnejsi moment na proklik je po docteni */
-.csp-live-btn {
-  /* odkaz na zivy web stoji nad kartou dalsi studie - po docteni je
-     nejsilnejsi nabidka videt vysledek naostro, ne odejit na dalsi text */
-  margin-bottom: var(--space-lg);
-}
-
-/* stitek "Dalsi pripadova studie" v karte - mono label, ne nadpis */
-.csp-next-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.csp-next-hook {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-md);
-  font-family: var(--font-display);
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-semibold);
-  color: var(--color-text-primary);
-  margin-top: var(--space-sm);
 }
 
 /* ========== CTA ========== */
@@ -451,17 +311,11 @@
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 860px) {
+  /* minmax(0, …), ne holy 1fr - dno 1fr je min-content a stitky v .kn-tags
+     maji nowrap, takze dlouhy anglicky stitek by stopu roztahl pres viewport */
   .csp-cols {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-2xl);
-  }
-
-  .csp-shots {
-    grid-template-columns: 1fr;
-  }
-
-  .csp-shots figure:first-child {
-    max-width: 320px;
   }
 
   .csp-ba-grid {
@@ -506,6 +360,8 @@
   font-size: var(--fs-sm);
   color: var(--color-text-primary);
   line-height: 1.5;
+  /* zachrana pro dlouhe nedelitelne hodnoty, hlavne adresu ziveho webu */
+  overflow-wrap: break-word;
 }
 
 .kn-summary-value a {
@@ -1001,5 +857,40 @@
 
   .kn-ba-fallback {
     display: grid;
+  }
+
+  /* Ctyri hodnoty vedle sebe se na uzkem displeji nevejdou. Adresa ziveho webu
+     je jedno nedelitelne slovo sirsi nez pulka viewportu, ve dvou sloupcich se
+     orezavala i se sipkou. Jeden sloupec ji necha cely. */
+  .kn-summary {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* Na telefonu by ctyri radky souhrnu odsunuly nahled webu pod prvni
+     obrazovku a studie by zacinala bez jedineho obrazku. Nahled proto
+     jde hned pod perex, souhrn az za nej. */
+  .csp-hero > .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .csp-hero .csp-frame {
+    order: 1;
+    align-self: stretch;
+    margin-top: 0;
+  }
+
+  .csp-hero .kn-summary {
+    order: 2;
+    align-self: stretch;
+    margin-top: var(--rhythm-2);
+  }
+
+  /* Stitky se pod tuhle sirku smi zalomit. Nowrap je drzi hezky pohromade,
+     dokud se vejdou - anglicka zneni jsou ale delsi nez ceska a pretekala. */
+  .kn-tags li {
+    white-space: normal;
   }
 }

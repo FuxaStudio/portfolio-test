@@ -8,8 +8,13 @@
 # dev tooling artifacts — not for git or deployment
 .playwright-mcp/
 .superpowers/
-docs/
 memory/
+
+# pracovni podklady (briefy, audity, reporty, plany) — mimo repozitar
+podklady/
+
+# stara zaloha prekladovych souboru — mimo repozitar
+backup-i18n/
 
 # soukromé podklady — nikdy nenasazovat ani neverzovat
 Case Studies/

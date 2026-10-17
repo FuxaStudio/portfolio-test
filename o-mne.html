@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs" data-page="about">
 
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <title>O mně | Pavel Fuxa — tvorba webů Pardubice a Chrudim</title>
+  <title>Pavel Fuxa, tvorba webů Pardubice a Chrudim | FuxaStudio</title>
   <meta name="description"
     content="Jsem Pavel Fuxa, web designer a developer ze Svídnice u Chrudimi. Weby pro malé firmy z Pardubicka navrhuju i stavím sám, od návrhu po spuštění." />
   <meta name="author" content="Pavel Fuxa" />
@@ -14,35 +14,51 @@
   <!-- Canonical + hreflang -->
   <link rel="canonical" href="https://fuxastudio.cz/o-mne" />
   <link rel="alternate" hreflang="cs" href="https://fuxastudio.cz/o-mne" />
+  <link rel="alternate" hreflang="en" href="https://fuxastudio.cz/en/about" />
   <link rel="alternate" hreflang="x-default" href="https://fuxastudio.cz/o-mne" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fuxastudio.cz/o-mne" />
-  <meta property="og:title" content="O mně | Pavel Fuxa — tvorba webů Pardubice a Chrudim" />
+  <meta property="og:title" content="Pavel Fuxa, tvorba webů Pardubice a Chrudim | FuxaStudio" />
   <meta property="og:description" content="Jsem Pavel Fuxa, web designer a developer ze Svídnice u Chrudimi. Weby pro malé firmy z Pardubicka navrhuju i stavím sám, od návrhu po spuštění." />
   <meta property="og:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="675" />
-  <meta property="og:image:alt" content="Pavel Fuxa — Fuxa Studio, tvorba webových stránek na míru" />
+  <meta property="og:image:alt" content="Pavel Fuxa z FuxaStudia, tvorba webových stránek na míru" />
   <meta property="og:locale" content="cs_CZ" />
-  <meta property="og:site_name" content="Fuxa Studio" />
+  <meta property="og:site_name" content="FuxaStudio" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="O mně | Pavel Fuxa — tvorba webů Pardubice a Chrudim" />
-  <meta name="twitter:description" content="Weby pro malé firmy z Pardubicka navrhuju i stavím sám — od návrhu po spuštění." />
+  <meta name="twitter:title" content="Pavel Fuxa, tvorba webů Pardubice a Chrudim | FuxaStudio" />
+  <meta name="twitter:description" content="Weby pro malé firmy z Pardubicka navrhuju i stavím sám, od návrhu po spuštění." />
   <meta name="twitter:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" /></noscript>
+  <!-- Fonts - self-host, zadny pozadavek na cizi domenu. Deklarace jsou
+       v css/style.css, tady se jen predbezne stahnou rezy nad ohybem. -->
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/favicon.png" />
+
+  <!-- Animace jsou progressive enhancement: skryty vychozi stav se zapina az
+       touhle tridou. Bez JS (bot, scraper, pomala linka) i pri zapnutem
+       "omezit pohyb" zustava v CSS rovnou konecny vzhled stranky.
+       Inline a synchronne v <head>, aby trida platila uz pro prvni vykresleni. -->
+  <script>
+    (function () {
+      try {
+        if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('js-anim');
+        }
+      } catch (e) { /* stary prohlizec - zustane konecny stav, coz je v poradku */ }
+    })();
+  </script>
+  <link rel="icon" href="/portfolio-test/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="/portfolio-test/assets/brand/icon.svg" />
+  <link rel="apple-touch-icon" href="/portfolio-test/apple-touch-icon.png" />
+  <link rel="manifest" href="/portfolio-test/assets/brand/site.webmanifest" />
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -60,12 +76,12 @@
         "@type": "AboutPage",
         "@id": "https://fuxastudio.cz/o-mne",
         "url": "https://fuxastudio.cz/o-mne",
-        "name": "O mně | Pavel Fuxa — tvorba webů Pardubice a Chrudim",
-        "description": "Pavel Fuxa — web designer a developer ze Svídnice u Chrudimi. Weby pro malé firmy z Pardubicka, návrh i stavba jedním člověkem.",
+        "name": "Pavel Fuxa, tvorba webů Pardubice a Chrudim | FuxaStudio",
+        "description": "Pavel Fuxa, web designer a developer ze Svídnice u Chrudimi. Weby pro malé firmy z Pardubicka, návrh i stavba jedním člověkem.",
         "isPartOf": { "@id": "https://fuxastudio.cz/#website" },
         "about": { "@id": "https://fuxastudio.cz/#person" },
         "inLanguage": "cs-CZ",
-        "dateModified": "2026-08-19"
+        "dateModified": "2026-08-24"
       }
     ]
   }
@@ -80,7 +96,7 @@
     "url": "https://fuxastudio.cz/",
     "image": "https://fuxastudio.cz/assets/about.webp",
     "jobTitle": "Web designer & developer",
-    "description": "Web designer a developer ze Svídnice u Chrudimi. Vystudovaná počítačová grafika, weby pro malé firmy z Pardubicka — návrh i stavba jedním člověkem.",
+    "description": "Web designer a developer ze Svídnice u Chrudimi. Vystudovaná počítačová grafika, weby pro malé firmy z Pardubicka. Návrh i stavba jedním člověkem.",
     "email": "fuxa@fuxastudio.cz",
     "telephone": "+420736131410",
     "address": {
@@ -93,7 +109,7 @@
       "@type": "EducationalOrganization",
       "name": "SPŠE a VOŠ Pardubice"
     },
-    "knowsAbout": ["HTML", "CSS", "JavaScript", "React", "Next.js", "Node.js", "WordPress", "Figma", "Web Design"],
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "WordPress", "Framer", "Figma", "Web Design"],
     "sameAs": [
       "https://www.linkedin.com/in/pavel-fuxa-1a1569401/",
       "https://www.instagram.com/fuxastudio/",
@@ -105,7 +121,7 @@
 
   <style>
     /* ==========================================================================
-       /o-mne — verze z 19. 8. 2026 (přeneseno z o-mne-koncept.html).
+       /o-mne — verze z 19. 8. 2026.
        Layout: středový hero, dvousloupcový příběh s fotkou, řádky tvrzení|důkaz,
        karty rizika, mřížka ověření. Všechno na tokenech z css/style.css.
        ========================================================================== */
@@ -122,10 +138,6 @@
       text-transform: uppercase;
       color: var(--color-text-muted);
       margin-bottom: var(--space-lg);
-    }
-
-    .km-kicker::before {
-      content: "—\00a0\00a0";
     }
 
     .km-h2 {
@@ -145,22 +157,20 @@
       max-width: 36rem;
     }
 
-    .km-lead b {
-      color: var(--color-text-primary);
-      font-weight: var(--fw-semibold);
-    }
-
     .km-lead a {
       color: var(--color-text-primary);
       text-decoration: none;
       border-bottom: 1px solid var(--color-border);
     }
 
-    /* --- HERO — na střed, vlnovka jako na ostatních podstránkách --- */
+    /* --- HERO — na střed, vlnovka jako na ostatních podstránkách ---
+       Odsazení shora je 10rem, protože po odstranění kickeru začíná hero rovnou
+       H1. Na ostatních podstránkách je H1 taky 10rem od horní hrany sekce
+       (8rem padding + 2rem na .hero-content), takže si stránky sedí. */
     .km-hero {
       position: relative;
       overflow: hidden;
-      padding: 9rem 0 var(--space-4xl);
+      padding: 10rem 0 var(--space-4xl);
       text-align: center;
     }
 
@@ -182,10 +192,6 @@
     .km-hero .container {
       position: relative;
       z-index: 1;
-    }
-
-    .km-hero .km-kicker::before {
-      content: "";
     }
 
     .km-hero h1 {
@@ -221,11 +227,6 @@
       margin-bottom: var(--space-lg);
     }
 
-    .km-story p b {
-      color: var(--color-text-primary);
-      font-weight: var(--fw-semibold);
-    }
-
     .km-story-link {
       display: inline-block;
       margin-top: var(--space-sm);
@@ -252,48 +253,49 @@
       border-radius: var(--radius-lg);
     }
 
-    /* --- KARTY (A co když zmizíte) --- */
-    .km-cards {
+    /* Popisek nese jméno a místo — jediné dvě věci, které se odstraněním
+       kickeru z heru ztratily. U obličeje je čtenář čeká sám od sebe. */
+    .km-photo figcaption {
+      margin-top: var(--space-md);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      line-height: 1.85;
+    }
+
+    /* --- OTÁZKA A ODPOVĚĎ (A co když se rozejdeme) ---
+       Karty vyměněné 20. 8. 2026: rámeček + výplň + zaoblení + čísla 01/02/03
+       působily jako šablona a číslování nic neznačilo (nejsou to kroky, ale tři
+       nezávislé odpovědi). Teď je jedinou linkou v sekci svislý vlas u odpovědi,
+       který dělá totéž co odsazení citované zprávy. Nerovná spodní hrana sloupců
+       nevadí, protože pod textem už nekončí žádná krabice.
+       Věta o 24 hodinách zůstává POD sekcí jako pointa, ne jako čtvrtá položka. --- */
+    .km-qa {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-lg);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: var(--space-2xl);
       margin-top: var(--space-3xl);
     }
 
-    .km-cards--three {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .km-card {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: var(--space-xl) var(--space-lg);
-    }
-
-    .km-card h3 {
+    .km-qa h3 {
       font-family: var(--font-display);
-      font-size: var(--fs-lg);
+      font-size: clamp(1.25rem, 1.8vw, 1.5rem);
       font-weight: var(--fw-bold);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
+      line-height: 1.22;
       color: var(--color-text-primary);
-      margin-bottom: var(--space-sm);
-      line-height: 1.25;
-    }
-
-    .km-card p {
-      font-size: var(--fs-sm);
-      line-height: 1.7;
-      color: var(--color-text-secondary);
-    }
-
-    .km-card-num {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.14em;
-      color: var(--color-text-muted);
       margin-bottom: var(--space-md);
+      text-wrap: balance;
+    }
+
+    .km-qa p {
+      font-size: var(--fs-sm);
+      line-height: 1.8;
+      color: var(--color-text-secondary);
+      padding-left: var(--space-lg);
+      border-left: 1px solid var(--color-border);
     }
 
     /* --- ŘÁDKY TVRZENÍ | DŮKAZ ---
@@ -433,19 +435,6 @@
       color: var(--color-text-muted);
     }
 
-    .km-verify-note {
-      margin-top: var(--space-xl);
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-text-muted);
-    }
-
-    .km-verify-note::before {
-      content: "—\00a0\00a0";
-    }
-
     /* --- CTA --- */
     .km-cta {
       padding: var(--space-section) 0;
@@ -458,10 +447,6 @@
       margin: 0 auto;
       position: relative;
       z-index: 2;
-    }
-
-    .km-cta .km-kicker::before {
-      content: "";
     }
 
     .km-cta h2 {
@@ -504,8 +489,9 @@
         gap: var(--space-2xl) var(--space-lg);
       }
 
-      .km-cards--three {
+      .km-qa {
         grid-template-columns: 1fr;
+        row-gap: var(--space-2xl);
       }
 
       .km-sec {
@@ -514,10 +500,13 @@
     }
 
     @media (max-width: 640px) {
-      .km-cards,
       .km-split,
       .km-verify {
         grid-template-columns: 1fr;
+      }
+
+      .km-qa p {
+        padding-left: var(--space-md);
       }
 
       .km-split {
@@ -525,7 +514,7 @@
       }
 
       .km-hero {
-        padding-top: 7.5rem;
+        padding-top: 8.5rem;
       }
     }
   </style>
@@ -543,7 +532,13 @@
       security_storage: 'granted'
     });
   </script>
-  <script defer src="js/consent.js"></script>
+  <!-- Preklady pred site-prefs.js: cookie lista se sklada uz s texty
+       v aktualnim jazyce. defer drzi poradi a nic neblokuje.
+       Soubor i tridy uvnitr se jmenuji "prefs", ne "cookie" - Brave se
+       zapnutymi stity a adblocky maji v seznamech pravidla na cookie-*
+       nazvy a listu bez varovani schovaji. Neprejmenovavat zpet. -->
+  <script defer src="js/translations.js"></script>
+  <script defer src="js/site-prefs.js"></script>
 </head>
 
 <body>
@@ -551,32 +546,30 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="/" class="nav-logo"><img src="assets/logo.png" alt="Fuxa Studio Logo" width="279" height="191"></a>
+      <a href="/portfolio-test/" class="nav-logo"><img src="/portfolio-test/assets/brand/fs-logo-nav.svg" alt="Logo FuxaStudio" width="279" height="191"></a>
 
       <div class="nav-links" id="navLinks">
-        <a href="/" data-i18n="nav.home">Domů</a>
-        <a href="/tvorba-webovych-stranek" data-i18n="nav.services">Služby a ceník</a>
+        <a href="/portfolio-test/">Domů</a>
+        <a href="/portfolio-test/tvorba-webovych-stranek">Služby a ceník</a>
 
-        <a href="/projekty" data-i18n="nav.projects">Projekty</a>
-        <a href="/reference" data-i18n="nav.references">Reference</a>
-        <a href="/o-mne" class="static-active" data-i18n="nav.about">O mně</a>
+        <a href="/portfolio-test/projekty">Projekty</a>
+        <a href="/portfolio-test/reference">Reference</a>
+        <a href="/portfolio-test/o-mne" class="static-active">O mně</a>
         <div class="menu-extra">
-          <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-          <div class="lang-switcher" role="group" aria-label="Language / Jazyk">
-            <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-          </div>
+          <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+          <a class="lang-switcher" href="/portfolio-test/en/about" hreflang="en" aria-label="Přepnout na anglickou verzi">
+            <span class="lang-btn">EN</span>
+          </a>
         </div>
       </div>
 
       <div class="nav-right">
         <!-- Language switcher -->
-        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language / Jazyk">
-          <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-        </div>
-        <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <a class="lang-switcher" id="langSwitcher" href="/portfolio-test/en/about" hreflang="en" aria-label="Přepnout na anglickou verzi">
+          <span class="lang-btn">EN</span>
+        </a>
+        <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -587,17 +580,16 @@
 
   <main id="main-content">
 
-  <!-- Obsah je zatím jen česky (bez data-i18n) — EN čeká na rozhodnutí
-       o statických EN stránkách; slovníkové klíče aboutpage.* jsou od
-       19. 8. 2026 nepoužité. -->
-
   <!-- ========== HERO ========== -->
   <header class="km-hero" id="about">
     <div class="km-hero-bg"><canvas id="aboutBgCanvas"></canvas></div>
     <div class="container">
-      <span class="km-kicker">Pavel Fuxa &nbsp;·&nbsp; web designer a developer &nbsp;·&nbsp; Svídnice u Chrudimi</span>
+      <!-- Kicker se jménem odstraněn 20. 8. 2026. „Web designer a developer“ říkal
+           potřetí totéž co H1 a co první věta pod ním. Jméno je teď pod fotkou
+           v sekci Kdo jsem a v bloku Ověření u IČA. Ostatní podstránky mají nad
+           H1 taky prázdno, takže je hero konzistentní se zbytkem webu. -->
       <h1>Jeden člověk<br />na celý web.</h1>
-      <p>Návrh, design, kód i texty — od první skici po spuštění. Jednáte přímo s tím, kdo váš web staví.</p>
+      <p>Návrh, kód i texty, od první skici po spuštění. Jednáte přímo s tím, kdo váš web staví.</p>
     </div>
   </header>
 
@@ -609,43 +601,44 @@
           <span class="km-kicker">Kdo jsem</span>
           <h2 class="km-h2">Začalo to závodem<br />od nás z vesnice</h2>
           <p>
-            Úplně první web jsem dělal pro <b>Svídnický extrém</b>. Známý potřeboval, aby se lidi
-            mohli přihlašovat online místo přes Facebook — za 18 dní byl web venku. Od té doby
-            stavím weby pro malé firmy z Pardubicka: penziony, kavárny, řemeslníky a místní akce.
+            Úplně první web jsem dělal pro Svídnický extrém. Známý potřeboval, aby se lidi
+            na závod přihlašovali online místo přes Facebook. Za 18 dní byl web venku. Pak přišel
+            mlýn s historií od roku 1540, kavárna v Bratislavě, poradenská firma a svatba pro 51 hostů.
           </p>
           <p>
-            Vystudoval jsem <b>počítačovou grafiku na SPŠE a VOŠ v Pardubicích</b> a k tomu se
-            doučil kód. Web proto navrhnu i postavím sám, bez předávání mezi grafikem
-            a programátorem.
+            Vystudoval jsem počítačovou grafiku na SPŠE a VOŠ v Pardubicích a k tomu se
+            doučil kód. Návrh i kód je u mě jedna práce, nic se cestou nepředává.
           </p>
           <p>
-            Stavím buď v čistém kódu, nebo na WordPressu — podle toho, co u konkrétního projektu
+            Stavím v čistém kódu, na WordPressu nebo ve Frameru, podle toho, co u konkrétního projektu
             dává větší smysl. Co je rozumnější pro vás, řeknu rovnou v nabídce.
           </p>
           <p>
-            Do firmy jsem nešel schválně. Za výsledek ručím já — nemám na koho ukázat,
+            Do firmy jsem nešel schválně. Za výsledek ručím já. Nemám na koho ukázat,
             a přesně tak to chci.
           </p>
-          <a class="km-story-link" href="/projekty/svidnicky-extrem">Jak ten první web vznikal, jsem rozepsal v případové studii →</a>
+          <a class="km-story-link" href="/portfolio-test/projekty/svidnicky-extrem">Jak ten první web vznikal, jsem rozepsal v případové studii →</a>
         </div>
         <figure class="km-photo">
-          <img src="assets/about.webp" alt="Pavel Fuxa, web designer a vývojář ze Svídnice u Chrudimi"
+          <img src="/portfolio-test/assets/about.webp" srcset="/assets/about-720.webp 720w, /assets/about.webp 1141w" sizes="400px"
+               alt="Pavel Fuxa, web designer a vývojář ze Svídnice u Chrudimi"
                width="1141" height="1752" loading="lazy" />
+          <figcaption>Pavel Fuxa &nbsp;·&nbsp; Svídnice u Chrudimi</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
   <!-- ========== NEJEN WEBY ==========
-       Nabídka grafiky navíc — logo je i v ceníku doplňků (od 5 000 Kč),
+       Nabídka grafiky navíc — logo je i v ceníku doplňků (individuálně, cena v nabídce),
        tady záměrně bez ceny. -->
   <section class="km-sec" id="nejen-weby">
     <div class="container reveal">
       <span class="km-kicker">Nejen weby</span>
       <h2 class="km-h2">K webu i logo a tiskoviny</h2>
       <p class="km-lead" style="max-width: 40rem;">
-        Když potřebujete k webu i <b>logo, jídelní lístek, vizitky nebo leták</b>,
-        nemusíte shánět dalšího člověka. Grafika je můj vystudovaný obor — udělám ji
+        Když potřebujete k webu i logo, jídelní lístek, vizitky nebo leták,
+        nemusíte shánět dalšího člověka. Grafika je můj vystudovaný obor. Udělám ji
         k webu tak, aby všechno ladilo. Stačí to zmínit v poptávce.
       </p>
     </div>
@@ -667,10 +660,10 @@
         <div class="km-row">
           <div class="km-row-claim">
             <h3>Řeknu vám, co si myslím</h3>
-            <p>Když má nápad slabinu, dozvíte se to ode mě — ne až od svých zákazníků. A když máte lepší nápad vy, udělá se to po vašem.</p>
+            <p>Když má nápad slabinu, dozvíte se to ode mě dřív než od svých zákazníků. A když máte lepší nápad vy, udělá se to po vašem.</p>
           </div>
           <div class="km-row-proof">
-            <blockquote>„Ocenili jsme, že se nebál říct svůj názor, když měl lepší nápad, ale zároveň respektoval, co jsme chtěli. Výsledek předčil naše očekávání."</blockquote>
+            <blockquote>„…Ocenili jsme, že se nebál říct svůj názor, když měl lepší nápad, ale zároveň respektoval, co jsme chtěli. Výsledek předčil naše očekávání.“</blockquote>
             <cite>Martin Stebel · Svídnický extrém</cite>
           </div>
         </div>
@@ -678,10 +671,10 @@
         <div class="km-row">
           <div class="km-row-claim">
             <h3>Nemusíte umět nic technického</h3>
-            <p>Doména, hosting, technika i texty — vezmu na sebe tolik, kolik budete chtít pustit. Od vás potřebuju hlavně na začátku jedno: říct mi, co má web umět. Podle toho postavím první stránku, a až s ní budete spokojení, dodělám zbytek.</p>
+            <p>Doménu, hosting, techniku i texty beru na sebe. Tolik, kolik budete chtít pustit. Od vás potřebuju na začátku jediné. Říct mi, co má web umět. Postavím první verzi, tu si proklikáte, a teprve pak se dodělává zbytek.</p>
           </div>
           <div class="km-row-proof">
-            <blockquote>„Postaral se o celý web od začátku do konce. Vyřešil texty, fotky i technickou stránku, takže jsme se do toho nemuseli vůbec zapojovat."</blockquote>
+            <blockquote>„Postaral sa o celý web od začiatku do konca. Vyriešil texty, fotky aj technickú stránku, takže sme sa do toho nemuseli vôbec zapájať…“</blockquote>
             <cite>Ivana Lenčéšová · Global Accord Strategies<br />Druhá zakázka od téže klientky</cite>
           </div>
         </div>
@@ -693,8 +686,8 @@
           </div>
           <div class="km-row-proof">
             <div class="km-metric">Hotovo měsíc před otevřením kavárny<span>Mattina Café</span></div>
-            <div class="km-metric">18 dní od poptávky ke spuštění<span>Mlýn Janderov</span></div>
-            <div class="km-metric">8 dní od zadání ke schválení<span>Global Accord Strategies</span></div>
+            <div class="km-metric">6 dní od zadání ke spuštění<span>Mlýn Janderov</span></div>
+            <div class="km-metric">8 dní od zadání ke spuštění<span>Global Accord Strategies</span></div>
           </div>
         </div>
 
@@ -704,14 +697,14 @@
             <p>Ne každá zakázka jede hladce. Každá ale dojela do konce. Portfoliu, kde šlo úplně všechno jako po másle, stejně nikdo nevěří.</p>
           </div>
           <div class="km-row-proof">
-            <blockquote>„…i když to s námi nebylo úplně jednoduché, vše se nakonec podařilo. Výsledek přesně odpovídá naší představě. Doporučujeme."</blockquote>
+            <blockquote>„…i když to s námi nebylo úplně jednoduché, vše se nakonec podařilo. Výsledek přesně odpovídá naší představě. Budeme i nadále v kontaktu. Doporučujeme.“</blockquote>
             <cite>Ing. Petr Schaffer · Mlýn Janderov</cite>
           </div>
         </div>
       </div>
       <p class="km-lead" style="margin-top: var(--space-xl);">
         Celé příběhy k těmhle číslům a citacím najdete
-        v <a href="/projekty">případových studiích</a>.
+        v <a href="/portfolio-test/projekty">případových studiích</a>.
       </p>
     </div>
   </section>
@@ -729,8 +722,8 @@
       <ul class="km-split reveal">
         <li><b>Focení.</b> Fotky rozhodnou o tom, jak web dopadne, a nafotit je neumím. Řeknu vám, jaké potřebujeme, a doporučím někoho. Když máte vlastní a jsou použitelné, uděláme to s nimi.</li>
         <li><b>Správu sociálních sítí a placenou reklamu.</b> Web postavím tak, aby reklama měla kam vést. Samotnou reklamu neřeším.</li>
-        <li><b>Měsíční SEO balíčky.</b> Co jde pro vyhledávače udělat při stavbě webu, udělám. Slibovat první místo na Googlu za měsíční paušál ale nebudu — to nemůže garantovat nikdo.</li>
-        <li><b>Weby „do konce týdne".</b> Když je termín nereálný, výsledek je nereálný taky. Radši to řeknu předem.</li>
+        <li><b>Měsíční SEO balíčky.</b> Co jde pro vyhledávače udělat při stavbě webu, udělám. Slibovat první místo na Googlu za měsíční paušál ale nebudu. To nemůže garantovat nikdo.</li>
+        <li><b>Weby „do konce týdne“.</b> Když je termín nereálný, výsledek je nereálný taky. Radši to řeknu předem.</li>
       </ul>
     </div>
   </section>
@@ -738,43 +731,42 @@
   <!-- ========== A CO KDYŽ ZMIZÍTE ==========
        Poslední námitka před napsáním e-mailu se zavírá jako poslední — po
        důkazech a hranicích, těsně před Ověřením a CTA. Netvrdit nic
-       o předávání přístupů (klientské weby běží pod společným účtem). -->
+       o předávání přístupů (klientské weby běží pod společným účtem).
+
+       NADPIS ZMĚNĚN 20. 8. 2026 z „A co když zmizíte?" na „A co když se
+       rozejdeme?". Původní znění si říkalo o nedůvěru, kterou stránka o kus
+       výš sama vyvrací („Za výsledek ručím já", „Každá zakázka dojela do
+       konce"). Rozchod je normální konec spolupráce, ne útěk, takže sekce
+       přestala být obranná a tři fakta pod ní čtou jako výhoda, ne jako
+       omluva. Otázku v nadpisu NEMĚNIT na tvrzení — Pavel ji chce. -->
   <section class="km-sec" id="riziko">
     <div class="container">
       <div class="reveal">
         <span class="km-kicker">Riziko</span>
-        <h2 class="km-h2">„A co když zmizíte?"</h2>
+        <h2 class="km-h2">„A co když se rozejdeme?“</h2>
         <p class="km-lead">Nahlas se mě na to nezeptá nikdo, ale rozhoduje to o tom, jestli mi napíšete. Tak rovnou, jak to mám ošetřené.</p>
       </div>
-      <div class="km-cards km-cards--three reveal">
-        <div class="km-card">
-          <span class="km-card-num">01</span>
-          <h3>Doména i hosting můžou být psané na vás</h3>
-          <p>Jak budete chtít. Část klientů nechává provoz na mně, ať nemusí nic řešit. Kdo chce mít všechno na sebe, tomu to tak od začátku založím — a kdykoliv později se dá všechno převést na vás nebo k někomu jinému. Bez dohadování.</p>
+      <div class="km-qa reveal">
+        <div>
+          <h3>Komu bude patřit doména a hosting?</h3>
+          <p>Jak budete chtít. Část klientů nechává provoz na mně, ať nemusí nic řešit. Kdo chce mít všechno na sebe, tomu to tak od začátku založím. A kdykoliv později to celé převedu na vás nebo k někomu jinému. Bez dohadování.</p>
         </div>
-        <div class="km-card">
-          <span class="km-card-num">02</span>
-          <h3>Web umí převzít kdokoliv jiný</h3>
-          <p>Stavím v běžných technologiích — čistý kód nebo WordPress. Žádný vlastní systém, kterému rozumím jen já. Kterýkoliv vývojář v tom umí pokračovat.</p>
+        <div>
+          <h3>Kdo v tom webu bude umět pokračovat?</h3>
+          <p>Stavím v běžných technologiích, v čistém kódu, na WordPressu nebo ve Frameru. Žádný vlastní systém, kterému rozumím jen já. Kterýkoliv vývojář v tom umí pokračovat.</p>
         </div>
-        <div class="km-card">
-          <span class="km-card-num">03</span>
-          <h3>Web neleží jen na hostingu</h3>
-          <p>Kompletní aktuální verzi každého webu mám uloženou i u sebe. Kdyby se s hostingem cokoliv stalo, web nasadím znovu jinde — práce nezmizí.</p>
+        <div>
+          <h3>Co když web zmizí i s hostingem?</h3>
+          <p>Kompletní aktuální verzi každého webu mám uloženou i u sebe. Kdyby se s hostingem cokoliv stalo, web nasadím znovu jinde. Práce nezmizí.</p>
         </div>
       </div>
-      <p class="km-lead" style="margin-top: var(--space-xl);">
-        A když se do 24 hodin neozvu, něco se stalo — <a href="tel:+420736131410">zavolejte</a>. Není to normální stav.
+      <p class="km-lead" style="margin-top: var(--space-2xl);">
+        A když se do 24 hodin neozvu, něco se stalo. <a href="tel:+420736131410">Zavolejte</a>. Není to normální stav.
       </p>
     </div>
   </section>
 
-  <!-- ========== OVĚŘENÍ ==========
-       !!! KONTROLA PŘED NASAZENÍM !!! Odkaz „Recenze na Googlu" smí na produkci
-       jen tehdy, když už na profilu aspoň jedna recenze JE (klienti jsou
-       obeslaní, stav ověřit). Odkaz na prázdný profil škodí víc než žádný.
-       Kdyby recenze do nasazení nebyla: dlaždici smazat a v CSS u .km-verify
-       přepnout repeat(4) na repeat(3). -->
+  <!-- ========== OVĚŘENÍ ========== -->
   <section class="km-sec" id="overeni">
     <div class="container reveal">
       <span class="km-kicker">Ověření</span>
@@ -788,16 +780,14 @@
           <small>Zápis firmy</small>
         </div>
         <div>
-          <span class="km-v">29618843</span>
-          <small>IČO · živnostenský rejstřík</small>
+          <span class="km-v">Pavel Fuxa</span>
+          <small>IČO 29618843</small>
         </div>
         <div>
           <span class="km-v">Svídnice u Chrudimi</span>
-          <small>Pracuju po celé ČR</small>
+          <small>Pracuju po celé ČR i v zahraničí</small>
         </div>
       </div>
-      <!-- „…a se smlouvou" doplnit, až bude smlouva o dílo skutečně existovat. -->
-      <p class="km-verify-note">Pracuju na fakturu</p>
     </div>
   </section>
 
@@ -807,10 +797,10 @@
     <div class="cta-fade"></div>
     <div class="container">
       <div class="km-cta-inner">
-        <span class="km-kicker">Připraveni?</span>
         <h2>Máte nápad na web?</h2>
-        <p>Napište mi pár vět o tom, co potřebujete. Do 24 hodin se ozvu — bez závazků a bez obchodních kliček.</p>
-        <a href="/kontakt#form" class="btn-primary" id="aboutCtaBtn">
+        <p>Napište mi pár vět o tom, co potřebujete. Do 24 hodin se ozvu. Nezavazuje vás to k ničemu.</p>
+        <p>Ceny mám veřejné, jednostránkový web od 10&nbsp;000&nbsp;Kč. <a href="/portfolio-test/tvorba-webovych-stranek#cenik">Celý ceník</a>.</p>
+        <a href="/portfolio-test/kontakt#form" class="btn-primary" id="aboutCtaBtn">
           <span>Nezávazná poptávka</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
         </a>
@@ -827,8 +817,8 @@
 
       <!-- Znacka a jednoradkove predstaveni -->
       <div class="footer-top">
-        <a href="/" class="footer-logo">FuxaStudio</a>
-        <p class="footer-claim" data-i18n="footer.claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
+        <a href="/portfolio-test/" class="footer-logo">FuxaStudio</a>
+        <p class="footer-claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
       </div>
 
       <!-- Footer Main Grid -->
@@ -836,7 +826,7 @@
 
         <!-- Left: Kontakt -->
         <div class="footer-brand">
-          <h4 class="footer-heading" data-i18n="footer.contact.heading">Kontakt</h4>
+          <h2 class="footer-heading">Kontakt</h2>
           <div class="footer-contact-list">
             <a href="tel:+420736131410" class="footer-contact-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -855,28 +845,28 @@
               fuxa@fuxastudio.cz
             </a>
           </div>
-          <p class="footer-place" data-i18n="footer.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+          <p class="footer-place">Svídnice u Chrudimi · pracuju po celé ČR i v zahraničí</p>
           <p class="footer-ico">IČO: 29618843</p>
         </div>
 
         <!-- Center: Navigation -->
         <div class="footer-nav">
-          <h4 class="footer-heading" data-i18n="footer.nav.heading">Navigace</h4>
+          <h2 class="footer-heading">Navigace</h2>
           <ul class="footer-nav-list">
-            <li><a href="/" class="footer-nav-link" data-i18n="nav.home">Domů</a></li>
-            <li><a href="/tvorba-webovych-stranek" class="footer-nav-link" data-i18n="nav.services">Služby a ceník</a></li>
+            <li><a href="/portfolio-test/" class="footer-nav-link">Domů</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek" class="footer-nav-link">Služby a ceník</a></li>
 
-            <li><a href="/tvorba-webovych-stranek-pardubice" class="footer-nav-link" data-i18n="nav.local">Tvorba webů Pardubice</a></li>
-            <li><a href="/o-mne" class="footer-nav-link" data-i18n="nav.about">O mně</a></li>
-            <li><a href="/projekty" class="footer-nav-link" data-i18n="nav.projects">Projekty</a></li>
-            <li><a href="/reference" class="footer-nav-link" data-i18n="nav.references">Reference</a></li>
-            <li><a href="/kontakt" class="footer-nav-link" data-i18n="nav.contact">Kontakt</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek-pardubice" class="footer-nav-link">Tvorba webů Pardubice</a></li>
+            <li><a href="/portfolio-test/o-mne" class="footer-nav-link">O mně</a></li>
+            <li><a href="/portfolio-test/projekty" class="footer-nav-link">Projekty</a></li>
+            <li><a href="/portfolio-test/reference" class="footer-nav-link">Reference</a></li>
+            <li><a href="/portfolio-test/kontakt" class="footer-nav-link">Kontakt</a></li>
           </ul>
         </div>
 
         <!-- Right: Social -->
         <div class="footer-social-col">
-          <h4 class="footer-heading" data-i18n="footer.social.heading">Najdete mě</h4>
+          <h2 class="footer-heading">Najdete mě</h2>
           <div class="footer-socials">
             <a href="https://www.facebook.com/profile.php?id=61572145793086" class="footer-social-link is-brand"
               aria-label="Facebook" id="footerFacebook" target="_blank" rel="noopener noreferrer">
@@ -941,23 +931,18 @@
 
       <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p class="footer-copyright" data-i18n="footer.copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
-        <a href="/ochrana-osobnich-udaju" class="footer-legal-link" data-i18n="nav.privacy">Ochrana osobních údajů</a>        <button type="button" class="footer-cookie-btn" data-cookie-settings data-i18n="cookie.footerLink">Nastavení cookies</button>
+        <p class="footer-copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
+        <a href="/portfolio-test/ochrana-osobnich-udaju" class="footer-legal-link">Ochrana osobních údajů</a>        <button type="button" class="footer-prefs-btn" data-prefs-open>Nastavení cookies</button>
       </div>
 
     </div>
-
-    <!-- Typograficky podpis - dekorace, pro cteciky skryta -->
-    <p class="footer-watermark" aria-hidden="true">FuxaStudio</p>
   </footer>
 
   <!-- Kontaktni lista - jen mobil (CSS .contact-bar), zobrazovani ridi js/main.js -->
   <div class="contact-bar" id="contactBar">
-    <a href="mailto:fuxa@fuxastudio.cz?subject=Popt%C3%A1vka%20webu" class="btn-primary"
-      data-i18n="contactbar.write">Napsat</a>
-    <a href="tel:+420736131410" class="btn-secondary" data-i18n="contactbar.call">Zavolat</a>
-    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu"
-      data-i18n-aria="contactbar.close">
+    <a href="/portfolio-test/kontakt#form" class="btn-primary">Napsat</a>
+    <a href="tel:+420736131410" class="btn-secondary">Zavolat</a>
+    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M18 6 6 18M6 6l12 12" />
@@ -965,12 +950,11 @@
     </button>
   </div>
 
-  <script src="js/translations.js"></script>
-  <script src="js/wave-hero.js"></script>
-  <script src="js/smoke-shader.js"></script>
-  <script src="js/main.js"></script>
-  <script>initWaveHero('aboutBgCanvas', 'about');</script>
-  <script>initSmokeShader('ctaAetherFlow', 'cta');</script>
+  <script defer src="js/wave-hero.js"></script>
+  <script defer src="js/smoke-shader.js"></script>
+  <script defer src="js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initWaveHero('aboutBgCanvas', 'about'); });</script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initSmokeShader('ctaAetherFlow', 'cta'); });</script>
 </body>
 
 </html>

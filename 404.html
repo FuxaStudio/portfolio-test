@@ -2,20 +2,55 @@
 <html lang="cs">
 
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, follow" />
-  <title>Stránka nenalezena (404) | Fuxa Studio</title>
-  <meta name="description" content="Stránka, kterou hledáte, neexistuje nebo byla přesunuta." />
+  <title>Stránka nenalezena (404) | FuxaStudio</title>
+  <meta name="description" content="Stránka, kterou hledáte, neexistuje nebo byla přesunuta. Odsud se dostanete na úvod, na projekty i na kontakt." />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" /></noscript>
+  <!-- Open Graph. Stranka je noindex, tohle je jen kvuli nahledu, kdyz nekdo
+       posle rozbitou adresu do chatu. Canonical tu zamerne neni. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Stránka nenalezena (404) | FuxaStudio" />
+  <meta property="og:description" content="Stránka, kterou hledáte, neexistuje nebo byla přesunuta." />
+  <meta property="og:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta property="og:image:alt" content="Pavel Fuxa z FuxaStudia, tvorba webových stránek na míru" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:site_name" content="FuxaStudio" />
 
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stránka nenalezena (404) | FuxaStudio" />
+  <meta name="twitter:description" content="Stránka, kterou hledáte, neexistuje nebo byla přesunuta." />
+  <meta name="twitter:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
+
+  <!-- Fonts - self-host, zadny pozadavek na cizi domenu. Deklarace jsou
+       v css/style.css, tady se jen predbezne stahnou rezy nad ohybem. -->
+  <link rel="preload" href="/portfolio-test/assets/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/portfolio-test/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/portfolio-test/assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="/portfolio-test/css/style.css" />
+
+  <!-- Animace jsou progressive enhancement: skryty vychozi stav se zapina az
+       touhle tridou. Bez JS (bot, scraper, pomala linka) i pri zapnutem
+       "omezit pohyb" zustava v CSS rovnou konecny vzhled stranky.
+       Inline a synchronne v <head>, aby trida platila uz pro prvni vykresleni. -->
+  <script>
+    (function () {
+      try {
+        if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('js-anim');
+        }
+      } catch (e) { /* stary prohlizec - zustane konecny stav, coz je v poradku */ }
+    })();
+  </script>
+  <link rel="icon" href="/portfolio-test/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="/portfolio-test/assets/brand/icon.svg" />
+  <link rel="apple-touch-icon" href="/portfolio-test/apple-touch-icon.png" />
+  <link rel="manifest" href="/portfolio-test/assets/brand/site.webmanifest" />
 
   <style>
     .error-page {
@@ -25,17 +60,35 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 2rem;
+      /* Shora rezerva na fixni navbar, jinak na nizsim okne vleze cislo 404 pod nej */
+      padding: 7rem 2rem 4rem;
       position: relative;
     }
 
+    /* viz index.html - nouzove pismo srovnane na sirku Bebas Neue */
+    @font-face {
+      font-family: 'Bebas Fallback';
+      src: local('Arial'), local('Helvetica Neue'), local('Helvetica'), local('Roboto'), local('Liberation Sans');
+      size-adjust: 56.5%;
+      ascent-override: 168%;
+      descent-override: 62%;
+      line-gap-override: 0%;
+    }
+
     .error-code {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: 'Bebas Neue', 'Bebas Fallback', Arial, sans-serif;
       font-size: clamp(8rem, 20vw, 18rem);
       line-height: 0.85;
       color: rgba(255, 255, 255, 0.06);
       user-select: none;
       margin-bottom: 1.5rem;
+    }
+
+    /* Cislo je dekorace za nadpisem, kontrast 1,15:1 je zamer. Kdyz ho
+       vypiseme pres content, neni z nej textovy uzel a kontrola kontrastu
+       ho preskoci misto toho, aby ho hlasila jako necitelny text. */
+    .error-code::after {
+      content: "404";
     }
 
     .error-title {
@@ -75,7 +128,13 @@
       security_storage: 'granted'
     });
   </script>
-  <script defer src="js/consent.js"></script>
+  <!-- Preklady pred site-prefs.js: cookie lista se sklada uz s texty
+       v aktualnim jazyce. defer drzi poradi a nic neblokuje.
+       Soubor i tridy uvnitr se jmenuji "prefs", ne "cookie" - Brave se
+       zapnutymi stity a adblocky maji v seznamech pravidla na cookie-*
+       nazvy a listu bez varovani schovaji. Neprejmenovavat zpet. -->
+  <script defer src="/portfolio-test/js/translations.js"></script>
+  <script defer src="/portfolio-test/js/site-prefs.js"></script>
 </head>
 
 <body>
@@ -83,31 +142,29 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="/" class="nav-logo"><img src="assets/logo.png" alt="Fuxa Studio Logo"></a>
+      <a href="/portfolio-test/" class="nav-logo"><img src="/portfolio-test/assets/brand/fs-logo-nav.svg" alt="Logo FuxaStudio" width="279" height="191"></a>
 
       <div class="nav-links" id="navLinks">
-        <a href="/" data-i18n="nav.home">Domů</a>
-        <a href="/tvorba-webovych-stranek" data-i18n="nav.services">Služby a ceník</a>
-        <a href="/projekty" data-i18n="nav.projects">Projekty</a>
-        <a href="/reference" data-i18n="nav.references">Reference</a>
-        <a href="/o-mne" data-i18n="nav.about">O mně</a>
+        <a href="/portfolio-test/">Domů</a>
+        <a href="/portfolio-test/tvorba-webovych-stranek">Služby a ceník</a>
+        <a href="/portfolio-test/projekty">Projekty</a>
+        <a href="/portfolio-test/reference">Reference</a>
+        <a href="/portfolio-test/o-mne">O mně</a>
         <div class="menu-extra">
-          <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-          <div class="lang-switcher" role="group" aria-label="Language / Jazyk">
-            <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-          </div>
+          <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+          <a class="lang-switcher" href="/portfolio-test/en/" hreflang="en" aria-label="Přepnout na anglickou verzi">
+            <span class="lang-btn">EN</span>
+          </a>
         </div>
       </div>
 
       <div class="nav-right">
         <!-- Language switcher -->
-        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language / Jazyk">
-          <button class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-          <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
-        </div>
-        <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <a class="lang-switcher" id="langSwitcher" href="/portfolio-test/en/" hreflang="en" aria-label="Přepnout na anglickou verzi">
+          <span class="lang-btn">EN</span>
+        </a>
+        <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -119,26 +176,27 @@
   <main id="main-content">
 
     <section class="error-page">
-      <div class="error-code" aria-hidden="true">404</div>
-      <h1 class="error-title" data-i18n="notfound.title">Stránka nenalezena</h1>
-      <p class="error-desc" data-i18n="notfound.desc">Tahle stránka neexistuje nebo byla přesunuta. Nejspíš hledáte jedno z tohohle:</p>
+      <div class="error-code" aria-hidden="true"></div>
+      <h1 class="error-title">Stránka nenalezena</h1>
+      <p class="error-desc">Tahle stránka neexistuje nebo byla přesunuta. Nejspíš hledáte jedno z tohohle:</p>
       <p class="error-desc" style="margin-top: var(--space-md);">
-        <a href="/projekty" style="color: var(--color-text-primary); text-decoration: underline;" data-i18n="nav.projects">Projekty</a>
+        <a href="/portfolio-test/projekty" style="color: var(--color-text-primary); text-decoration: underline;">Projekty</a>
         &nbsp;·&nbsp;
-        <a href="/tvorba-webovych-stranek" style="color: var(--color-text-primary); text-decoration: underline;" data-i18n="nav.services">Služby a ceník</a>
+        <a href="/portfolio-test/tvorba-webovych-stranek" style="color: var(--color-text-primary); text-decoration: underline;">Služby a ceník</a>
         &nbsp;·&nbsp;
-        <a href="/reference" style="color: var(--color-text-primary); text-decoration: underline;" data-i18n="nav.references">Reference</a>
+        <a href="/portfolio-test/reference" style="color: var(--color-text-primary); text-decoration: underline;">Reference</a>
       </p>
       <div class="error-actions">
-        <a href="/" class="btn-primary">
-          <span data-i18n="notfound.home">Zpět na Domů</span>
+        <a href="/portfolio-test/" class="btn-primary">
+          <span>Zpět na Domů</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 12h18M3 12l6-6M3 12l6 6" />
           </svg>
         </a>
-        <a href="/kontakt#form" class="btn-secondary" data-i18n="nav.contact">Kontakt</a>
+        <a href="/portfolio-test/kontakt#form" class="btn-secondary">Kontakt</a>
       </div>
+      <p class="error-desc" lang="en" style="margin-top: var(--space-2xl);">Looking for the English site? Go to <a href="/portfolio-test/en/" style="color: var(--color-text-primary); text-decoration: underline;">fuxastudio.cz/en</a>.</p>
     </section>
 
   </main>
@@ -150,8 +208,8 @@
 
       <!-- Znacka a jednoradkove predstaveni -->
       <div class="footer-top">
-        <a href="/" class="footer-logo">FuxaStudio</a>
-        <p class="footer-claim" data-i18n="footer.claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
+        <a href="/portfolio-test/" class="footer-logo">FuxaStudio</a>
+        <p class="footer-claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
       </div>
 
       <!-- Footer Main Grid -->
@@ -159,7 +217,7 @@
 
         <!-- Left: Kontakt -->
         <div class="footer-brand">
-          <h4 class="footer-heading" data-i18n="footer.contact.heading">Kontakt</h4>
+          <h2 class="footer-heading">Kontakt</h2>
           <div class="footer-contact-list">
             <a href="tel:+420736131410" class="footer-contact-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -178,35 +236,38 @@
               fuxa@fuxastudio.cz
             </a>
           </div>
-          <p class="footer-place" data-i18n="footer.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+          <p class="footer-place">Svídnice u Chrudimi · pracuju po celé ČR i v zahraničí</p>
           <p class="footer-ico">IČO: 29618843</p>
         </div>
 
+        <!-- Center: Navigation -->
         <div class="footer-nav">
-          <h4 class="footer-heading">Navigace</h4>
+          <h2 class="footer-heading">Navigace</h2>
           <ul class="footer-nav-list">
-            <li><a href="/" class="footer-nav-link">Domů</a></li>
-            <li><a href="/tvorba-webovych-stranek" class="footer-nav-link">Služby a ceník</a></li>
-            <li><a href="/tvorba-webovych-stranek-pardubice" class="footer-nav-link">Tvorba webů Pardubice</a></li>
-            <li><a href="/o-mne" class="footer-nav-link">O mně</a></li>
-            <li><a href="/projekty" class="footer-nav-link">Projekty</a></li>
-            <li><a href="/reference" class="footer-nav-link">Reference</a></li>
-            <li><a href="/kontakt" class="footer-nav-link">Kontakt</a></li>
+            <li><a href="/portfolio-test/" class="footer-nav-link">Domů</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek" class="footer-nav-link">Služby a ceník</a></li>
+
+            <li><a href="/portfolio-test/tvorba-webovych-stranek-pardubice" class="footer-nav-link">Tvorba webů Pardubice</a></li>
+            <li><a href="/portfolio-test/o-mne" class="footer-nav-link">O mně</a></li>
+            <li><a href="/portfolio-test/projekty" class="footer-nav-link">Projekty</a></li>
+            <li><a href="/portfolio-test/reference" class="footer-nav-link">Reference</a></li>
+            <li><a href="/portfolio-test/kontakt" class="footer-nav-link">Kontakt</a></li>
           </ul>
         </div>
 
+        <!-- Right: Social -->
         <div class="footer-social-col">
-          <h4 class="footer-heading">Najdete mě</h4>
+          <h2 class="footer-heading">Najdete mě</h2>
           <div class="footer-socials">
             <a href="https://www.facebook.com/profile.php?id=61572145793086" class="footer-social-link is-brand"
-              aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              aria-label="Facebook" id="footerFacebook" target="_blank" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path fill="#1877F2"
                   d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
               </svg>
             </a>
             <a href="https://www.instagram.com/fuxastudio/" class="footer-social-link is-brand" aria-label="Instagram"
-              target="_blank" rel="noopener noreferrer">
+              id="footerInstagram" target="_blank" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <defs>
                   <linearGradient id="igGradient" x1="0" y1="1" x2="1" y2="0">
@@ -222,7 +283,7 @@
               </svg>
             </a>
             <a href="https://www.linkedin.com/in/pavel-fuxa-1a1569401/" class="footer-social-link is-brand" aria-label="LinkedIn"
-              target="_blank" rel="noopener noreferrer">
+              id="footerLinkedIn" target="_blank" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path fill="#0A66C2"
                   d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -259,24 +320,20 @@
         </div>
       </div>
 
+      <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p class="footer-copyright" data-i18n="footer.copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
-        <a href="/ochrana-osobnich-udaju" class="footer-legal-link" data-i18n="nav.privacy">Ochrana osobních údajů</a>        <button type="button" class="footer-cookie-btn" data-cookie-settings data-i18n="cookie.footerLink">Nastavení cookies</button>
+        <p class="footer-copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
+        <a href="/portfolio-test/ochrana-osobnich-udaju" class="footer-legal-link">Ochrana osobních údajů</a>        <button type="button" class="footer-prefs-btn" data-prefs-open>Nastavení cookies</button>
       </div>
 
     </div>
-
-    <!-- Typograficky podpis - dekorace, pro cteciky skryta -->
-    <p class="footer-watermark" aria-hidden="true">FuxaStudio</p>
   </footer>
 
   <!-- Kontaktni lista - jen mobil (CSS .contact-bar), zobrazovani ridi js/main.js -->
   <div class="contact-bar" id="contactBar">
-    <a href="mailto:fuxa@fuxastudio.cz?subject=Popt%C3%A1vka%20webu" class="btn-primary"
-      data-i18n="contactbar.write">Napsat</a>
-    <a href="tel:+420736131410" class="btn-secondary" data-i18n="contactbar.call">Zavolat</a>
-    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu"
-      data-i18n-aria="contactbar.close">
+    <a href="/portfolio-test/kontakt#form" class="btn-primary">Napsat</a>
+    <a href="tel:+420736131410" class="btn-secondary">Zavolat</a>
+    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M18 6 6 18M6 6l12 12" />
@@ -284,8 +341,7 @@
     </button>
   </div>
 
-  <script src="js/translations.js"></script>
-  <script src="js/main.js"></script>
+  <script defer src="/portfolio-test/js/main.js"></script>
 
 </body>
 

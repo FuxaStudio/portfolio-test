@@ -2,10 +2,10 @@
 <html lang="cs" data-page="cssvatba">
 
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <title>Svatební web s formulářem pro hosty | Fuxa Studio</title>
+  <title>Svatební web s formulářem pro hosty | FuxaStudio</title>
   <meta name="description"
     content="Web pro svatební hosty v designu oznámení. 30 vyplněných formulářů a z nich rovnou počty jídel, přípitků i alergií. Hotovo za 11 dní. Případová studie." />
   <meta name="author" content="Pavel Fuxa" />
@@ -14,36 +14,52 @@
   <!-- Canonical + hreflang -->
   <link rel="canonical" href="https://fuxastudio.cz/projekty/svatebni-web" />
   <link rel="alternate" hreflang="cs" href="https://fuxastudio.cz/projekty/svatebni-web" />
+  <link rel="alternate" hreflang="en" href="https://fuxastudio.cz/en/projects/wedding-website" />
   <link rel="alternate" hreflang="x-default" href="https://fuxastudio.cz/projekty/svatebni-web" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://fuxastudio.cz/projekty/svatebni-web" />
-  <meta property="og:title" content="Svatební web s formulářem pro hosty | Fuxa Studio" />
+  <meta property="og:title" content="Svatební web s formulářem pro hosty | FuxaStudio" />
   <meta property="og:description" content="Web pro svatební hosty v designu oznámení. 30 vyplněných formulářů a z nich rovnou počty jídel, přípitků i alergií. Hotovo za 11 dní." />
   <meta property="og:image" content="https://fuxastudio.cz/assets/cs-svatba-hero.webp" />
   <meta property="og:image:width" content="1440" />
   <meta property="og:image:height" content="900" />
   <meta property="og:image:alt" content="Náhled svatebního webu s jmény novomanželů a datem svatby" />
   <meta property="og:locale" content="cs_CZ" />
-  <meta property="og:site_name" content="Fuxa Studio" />
+  <meta property="og:site_name" content="FuxaStudio" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Svatební web s formulářem pro hosty — případová studie" />
+  <meta name="twitter:title" content="Svatební web s formulářem pro hosty | FuxaStudio" />
   <meta name="twitter:description" content="30 vyplněných formulářů, 51 potvrzených hostů a hotové počty jídel bez jediného telefonátu." />
   <meta name="twitter:image" content="https://fuxastudio.cz/assets/cs-svatba-hero.webp" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="/assets/fonts/bricolage-grotesque-var-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" /></noscript>
+  <!-- Fonts - self-host, zadny pozadavek na cizi domenu. Deklarace jsou
+       v css/style.css, tady se jen predbezne stahnou rezy nad ohybem. -->
+  <link rel="preload" href="/portfolio-test/assets/fonts/bricolage-grotesque-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/portfolio-test/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/portfolio-test/assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
 
-  <link rel="stylesheet" href="/css/style.css" />
-  <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  <link rel="apple-touch-icon" href="/assets/favicon.png" />
+  <link rel="stylesheet" href="/portfolio-test/css/style.css" />
+
+  <!-- Animace jsou progressive enhancement: skryty vychozi stav se zapina az
+       touhle tridou. Bez JS (bot, scraper, pomala linka) i pri zapnutem
+       "omezit pohyb" zustava v CSS rovnou konecny vzhled stranky.
+       Inline a synchronne v <head>, aby trida platila uz pro prvni vykresleni. -->
+  <script>
+    (function () {
+      try {
+        if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('js-anim');
+        }
+      } catch (e) { /* stary prohlizec - zustane konecny stav, coz je v poradku */ }
+    })();
+  </script>
+  <link rel="icon" href="/portfolio-test/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="/portfolio-test/assets/brand/icon.svg" />
+  <link rel="apple-touch-icon" href="/portfolio-test/apple-touch-icon.png" />
+  <link rel="manifest" href="/portfolio-test/assets/brand/site.webmanifest" />
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -53,11 +69,11 @@
       {
         "@type": "Article",
         "@id": "https://fuxastudio.cz/projekty/svatebni-web#article",
-        "headline": "Nikdo nemusel obvolávat svatebčany — case study svatebního webu",
+        "headline": "Nikdo nemusel obvolávat svatebčany. Případová studie svatebního webu",
         "description": "Web pro svatební hosty v designu tištěného oznámení. Formulář, který za celou rodinu vyplní jeden člověk, zapisuje do tabulky, jež si sama počítá porce, přípitky i alergie. 30 odeslaných formulářů, 51 potvrzených hostů na hostině.",
         "image": "https://fuxastudio.cz/assets/cs-svatba-hero.webp",
         "datePublished": "2026-08-17",
-        "dateModified": "2026-08-17",
+        "dateModified": "2026-08-24",
         "author": { "@type": "Person", "name": "Pavel Fuxa", "url": "https://fuxastudio.cz/o-mne" },
         "mainEntityOfPage": "https://fuxastudio.cz/projekty/svatebni-web",
         "inLanguage": "cs-CZ"
@@ -74,7 +90,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/css/case-study.css" />
+  <link rel="stylesheet" href="/portfolio-test/css/case-study.css" />
 
   <!-- Google Analytics 4 + Consent Mode v2 -->
   <script>
@@ -89,7 +105,13 @@
       security_storage: 'granted'
     });
   </script>
-  <script defer src="/js/consent.js"></script>
+  <!-- Preklady pred site-prefs.js: cookie lista se sklada uz s texty
+       v aktualnim jazyce. defer drzi poradi a nic neblokuje.
+       Soubor i tridy uvnitr se jmenuji "prefs", ne "cookie" - Brave se
+       zapnutymi stity a adblocky maji v seznamech pravidla na cookie-*
+       nazvy a listu bez varovani schovaji. Neprejmenovavat zpet. -->
+  <script defer src="/portfolio-test/js/translations.js"></script>
+  <script defer src="/portfolio-test/js/site-prefs.js"></script>
 </head>
 
 <body>
@@ -97,31 +119,29 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="/" class="nav-logo"><img src="/assets/logo.png" alt="Fuxa Studio Logo" width="279" height="191"></a>
+      <a href="/portfolio-test/" class="nav-logo"><img src="/portfolio-test/assets/brand/fs-logo-nav.svg" alt="Logo FuxaStudio" width="279" height="191"></a>
 
       <div class="nav-links" id="navLinks">
-        <a href="/" data-i18n="nav.home">Domů</a>
-        <a href="/tvorba-webovych-stranek" data-i18n="nav.services">Služby a ceník</a>
-        <a href="/projekty" class="static-active" data-i18n="nav.projects">Projekty</a>
-        <a href="/reference" data-i18n="nav.references">Reference</a>
-        <a href="/o-mne" data-i18n="nav.about">O mně</a>
+        <a href="/portfolio-test/">Domů</a>
+        <a href="/portfolio-test/tvorba-webovych-stranek">Služby a ceník</a>
+        <a href="/portfolio-test/projekty" class="static-active">Projekty</a>
+        <a href="/portfolio-test/reference">Reference</a>
+        <a href="/portfolio-test/o-mne">O mně</a>
         <div class="menu-extra">
-          <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-          <div class="lang-switcher" role="group" aria-label="Language / Jazyk">
-            <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-          </div>
+          <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+          <a class="lang-switcher" href="/portfolio-test/en/projects/wedding-website" hreflang="en" aria-label="Přepnout na anglickou verzi">
+            <span class="lang-btn">EN</span>
+          </a>
         </div>
       </div>
 
       <div class="nav-right">
         <!-- Language switcher -->
-        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language / Jazyk">
-          <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-        </div>
-        <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <a class="lang-switcher" id="langSwitcher" href="/portfolio-test/en/projects/wedding-website" hreflang="en" aria-label="Přepnout na anglickou verzi">
+          <span class="lang-btn">EN</span>
+        </a>
+        <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -135,35 +155,35 @@
   <!-- ========== HERO ========== -->
   <section class="csp-hero">
     <div class="container">
-      <a href="/projekty" class="csp-back">
+      <a href="/portfolio-test/projekty" class="csp-back">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        <span data-i18n="cspage.back">Všechny projekty</span>
+        <span>Všechny projekty</span>
       </a>
-      <span class="section-label" data-i18n="casestudy.open">Případová studie</span>
-      <h1 class="csp-title" data-i18n="casestudy.svatba.hook">Nikdo nemusel obvolávat svatebčany</h1>
-      <p class="kn-hero-sub" data-i18n="cspage.svatba.sub">Web pro hosty v designu tištěného svatebního oznámení. Přišlo 30 vyplněných formulářů za 51 hostů (jeden formulář za celou rodinu) a z nich rovnou počty jídel, přípitků i alergií.</p>
+      <span class="section-label">Případová studie</span>
+      <h1 class="csp-title">Nikdo nemusel obvolávat svatebčany</h1>
+      <p class="kn-hero-sub">Web pro hosty v designu tištěného svatebního oznámení. Přišlo 30 vyplněných formulářů za 51 hostů (jeden formulář za celou rodinu) a z nich rovnou počty jídel, přípitků i alergií.</p>
 
       <div class="kn-summary">
         <div>
-          <div class="kn-summary-label" data-i18n="cspage.sum.client">Klient</div>
-          <div class="kn-summary-value" data-i18n="cspage.svatba.sum.client">Snoubenci z Košic</div>
+          <div class="kn-summary-label">Klient</div>
+          <div class="kn-summary-value">Snoubenci z Košic</div>
         </div>
         <div>
-          <div class="kn-summary-label" data-i18n="cspage.sum.field">Obor</div>
-          <div class="kn-summary-value" data-i18n="cspage.svatba.sum.field">Svatba pro 51 hostů</div>
+          <div class="kn-summary-label">Obor</div>
+          <div class="kn-summary-value">Svatba pro 51 hostů</div>
         </div>
         <div>
-          <div class="kn-summary-label" data-i18n="cspage.sum.scope">Rozsah</div>
-          <div class="kn-summary-value" data-i18n="cspage.svatba.sum.scope">Web, formulář, přehled v tabulce a tištěný zasedací pořádek</div>
+          <div class="kn-summary-label">Rozsah</div>
+          <div class="kn-summary-value">Web, formulář, přehled v tabulce a tištěný zasedací pořádek</div>
         </div>
         <div>
-          <div class="kn-summary-label" data-i18n="cspage.sum.demo">Ukázka</div>
-          <div class="kn-summary-value"><a href="https://fuxastudio.github.io/svatebni-web/" target="_blank" rel="noopener noreferrer"><span data-i18n="cspage.svatba.sum.demo">ukázková verze</span>&nbsp;↗</a></div>
+          <div class="kn-summary-label">Ukázka</div>
+          <div class="kn-summary-value"><a href="https://fuxastudio.github.io/svatebni-web/" target="_blank" rel="noopener noreferrer"><span>ukázková verze</span>&nbsp;↗</a></div>
         </div>
       </div>
 
       <div class="csp-frame">
-        <img src="/assets/cs-svatba-hero.webp" srcset="/assets/cs-svatba-hero-720.webp 720w, /assets/cs-svatba-hero.webp 1440w" sizes="(max-width: 1200px) 92vw, 1160px" width="1440" height="900" alt="Úvodní obrazovka svatebního webu se jmény snoubenců a datem svatby" fetchpriority="high" />
+        <img src="/portfolio-test/assets/cs-svatba-hero.webp" srcset="/assets/cs-svatba-hero-400.webp 400w, /assets/cs-svatba-hero-720.webp 720w, /assets/cs-svatba-hero.webp 1440w" sizes="(max-width: 1480px) 92vw, 1352px" width="1440" height="900" alt="Úvodní obrazovka svatebního webu se jmény snoubenců a datem svatby" fetchpriority="high" />
       </div>
     </div>
   </section>
@@ -172,12 +192,12 @@
   <section class="csp-section">
     <div class="container csp-cols">
       <div class="csp-block">
-        <h2 class="csp-h" data-i18n="cspage.h.client">Kdo je klient</h2>
-        <p data-i18n="cspage.svatba.client">Snoubenci z Košic. Zakázku zprostředkovala ženichova sestra a texty i připomínky jsem po celou dobu řešil s ní. Web měl žít jen do svatby, o to přesněji musel fungovat.</p>
+        <h2 class="csp-h">Kdo je klient</h2>
+        <p>Snoubenci z Košic. Zakázku zprostředkovala ženichova sestra a texty i připomínky jsem po celou dobu řešil s ní. Web měl žít jen do svatby, o to přesněji musel fungovat.</p>
       </div>
       <div class="csp-block">
-        <h2 class="csp-h" data-i18n="cspage.h.baseline">Výchozí stav a cíle</h2>
-        <p data-i18n="casestudy.svatba.brief">Hosté měli v ruce papírové oznámení a k němu spoustu otázek, které se do něj nevešly. Účast, výběr menu, alergie i přípitky se sbíraly ručně. Zadání znělo naladit web na design oznámení a dát do něj formulář, který za celou rodinu vyplní jeden člověk.</p>
+        <h2 class="csp-h">Výchozí stav a cíle</h2>
+        <p>Hosté měli v ruce papírové oznámení a k němu spoustu otázek, které se do něj nevešly. Účast, výběr menu, alergie i přípitky se sbíraly ručně. Zadání znělo naladit web na design oznámení a dát do něj formulář, který za celou rodinu vyplní jeden člověk.</p>
       </div>
     </div>
   </section>
@@ -185,26 +205,26 @@
   <!-- ========== JAK SE TO STAVĚLO — próza + boční souhrn ========== -->
   <section class="csp-section">
     <div class="container">
-      <h2 class="csp-h" style="margin-bottom: var(--space-lg);" data-i18n="cspage.h.story">Jak se to stavělo</h2>
+      <h2 class="csp-h" style="margin-bottom: var(--space-lg);">Jak se to stavělo</h2>
       <div class="kn-split">
         <div class="csp-story">
-          <p data-i18n="cspage.svatba.st1">Design nevznikal na zelené louce. Předlohou bylo tištěné oznámení a fotka nazdobeného sálu, takže paleta i řezy písma byly dané předem. První verzi viděli snoubenci dva dny po zadání a od začátku připomínkovali živý web, ne obrázek. Prošla dvěma koly, ve kterých se doladily texty, pořadí sekcí a drobnosti typu smajlíka, který měl být klasický, ne emoji.</p>
-          <p data-i18n="cspage.svatba.st2">Nejvíc práce dal formulář. Jeden člověk v něm potvrdí celou rodinu, dětská část se objeví, jen když někdo přiveze děti, a nic není předvyplněné, aby se nedal odklikat naslepo. Odpovědi padají do tabulky, která si sama počítá porce podle menu, alkoholické i nealkoholické přípitky a seznam alergií. Snoubenci do ní viděli od prvního dne, takže se nemuseli na počty ptát.</p>
-          <p data-i18n="cspage.svatba.st3">Zbytek byly věci, které se do oznámení nevešly. Mapa s vyznačenými parkovišti u obřadu i u hostiny, fotogalerie, kam hosté nahrávají snímky bez zakládání účtu a bez možnosti smazat cizí, vstup na heslo, protože web běžel na veřejné doméně, a QR kód na stoly. Program dne snoubenci doplňovali průběžně, proto je záměrně otevřený a linka za posledním bodem se ztrácí do prázdna.</p>
+          <p>Design nevznikal na zelené louce. Předlohou bylo tištěné oznámení a fotka nazdobeného sálu, takže paleta i řezy písma byly dané předem. První verzi viděli snoubenci dva dny po zadání a připomínky od začátku psali k živému webu. Prošla dvěma koly, ve kterých se doladily texty, pořadí sekcí a drobnosti typu smajlíka, který měl být klasický, ne emoji.</p>
+          <p>Nejvíc práce dal formulář. Jeden člověk v něm potvrdí celou rodinu, dětská část se objeví, jen když někdo přiveze děti, a nic není předvyplněné, aby se nedal odklikat naslepo. Odpovědi padají do tabulky, která si sama počítá porce podle menu, alkoholické i nealkoholické přípitky a seznam alergií. Snoubenci do ní viděli od prvního dne, takže se nemuseli na počty ptát.</p>
+          <p>Zbytek byly věci, které se do oznámení nevešly. Mapa s vyznačenými parkovišti u obřadu i u hostiny. Fotogalerie, kam hosté nahrávají snímky, aniž by si zakládali účet nebo mohli mazat cizí. Vstup na heslo, protože web běžel na veřejné doméně. A QR kód na stoly. Program dne snoubenci doplňovali průběžně, proto je záměrně otevřený a linka za posledním bodem se ztrácí do prázdna.</p>
         </div>
         <aside class="kn-side">
-          <p class="kn-side-label" data-i18n="cspage.side.label">Klíčová rozhodnutí</p>
+          <p class="kn-side-label">Klíčová rozhodnutí</p>
           <div class="kn-side-item">
-            <h3 data-i18n-html="cspage.svatba.d1.t.html"><a href="/tvorba-webovych-stranek">Web na míru</a></h3>
-            <p data-i18n="cspage.svatba.d1.p">Paleta i písmo z tištěného oznámení.</p>
+            <h3><a href="/portfolio-test/tvorba-webovych-stranek">Web na míru</a></h3>
+            <p>Paleta i písmo z tištěného oznámení.</p>
           </div>
           <div class="kn-side-item">
-            <h3 data-i18n="cspage.svatba.d2.t">Jeden formulář za rodinu</h3>
-            <p data-i18n="cspage.svatba.d2.p">Nic předvyplněného. Dětská část jen když jsou děti.</p>
+            <h3>Jeden formulář za rodinu</h3>
+            <p>Nic předvyplněného. Dětská část jen když jsou děti.</p>
           </div>
           <div class="kn-side-item">
-            <h3 data-i18n="cspage.svatba.d3.t">Tabulka, co počítá sama</h3>
-            <p data-i18n="cspage.svatba.d3.p">Porce, přípitky a alergie bez přepisování.</p>
+            <h3>Tabulka, co počítá sama</h3>
+            <p>Porce, přípitky a alergie bez přepisování.</p>
           </div>
         </aside>
       </div>
@@ -215,28 +235,28 @@
   <section class="csp-section">
     <div class="container">
       <div class="csp-timeline-head">
-        <h2 class="csp-h" data-i18n="cspage.h.timeline">Jak to probíhalo</h2>
+        <h2 class="csp-h">Jak to probíhalo</h2>
         <p class="csp-process">
-          <span class="csp-process-n" data-i18n="cspage.svatba.s1.n">11</span>
-          <span class="csp-process-l" data-i18n="cspage.svatba.s1.l">dní od zadání ke spuštění</span>
+          <span class="csp-process-n">11</span>
+          <span class="csp-process-l">dní od zadání ke spuštění</span>
         </p>
       </div>
       <ol class="csp-steps" style="list-style: none; margin: 0; padding: 0;">
         <li class="csp-step">
-          <div class="csp-step-d" data-i18n="cspage.svatba.t1.d">Den 0</div>
-          <div class="csp-step-t" data-i18n="cspage.svatba.t1.t">Zadání e-mailem. Dokument s texty, oznámení a fotka výzdoby sálu.</div>
+          <div class="csp-step-d">Den 0</div>
+          <div class="csp-step-t">Zadání e-mailem. Dokument s texty, oznámení a fotka výzdoby sálu.</div>
         </li>
         <li class="csp-step">
-          <div class="csp-step-d" data-i18n="cspage.svatba.t2.d">Den 2</div>
-          <div class="csp-step-t" data-i18n="cspage.svatba.t2.t">První verze online. Snoubenci připomínkovali živý web, ne obrázek.</div>
+          <div class="csp-step-d">Den 2</div>
+          <div class="csp-step-t">První verze online. Snoubenci připomínkovali rovnou živý web.</div>
         </li>
         <li class="csp-step">
-          <div class="csp-step-d" data-i18n="cspage.svatba.t3.d">Den 10</div>
-          <div class="csp-step-t" data-i18n="cspage.svatba.t3.t">Po dvou kolech úprav zapisuje formulář rovnou do tabulky s přehledem.</div>
+          <div class="csp-step-d">Den 10</div>
+          <div class="csp-step-t">Po dvou kolech úprav zapisuje formulář rovnou do tabulky s přehledem.</div>
         </li>
         <li class="csp-step">
-          <div class="csp-step-d" data-i18n="cspage.svatba.t4.d">Den 11</div>
-          <div class="csp-step-t" data-i18n="cspage.svatba.t4.t">Heslo, fotogalerie a QR kód na stoly. Web hotový, měsíc a půl před svatbou.</div>
+          <div class="csp-step-d">Den 11</div>
+          <div class="csp-step-t">Heslo, fotogalerie a QR kód na stoly. Web hotový, měsíc a půl před svatbou.</div>
         </li>
       </ol>
     </div>
@@ -245,40 +265,40 @@
   <!-- ========== UKÁZKY WEBU — dva rolovatelné rámečky s přepínačem Desktop/Mobil ========== -->
   <section class="csp-section">
     <div class="container">
-      <h2 class="csp-h" data-i18n="cspage.h.shots">Ukázky webu</h2>
+      <h2 class="csp-h">Ukázky webu</h2>
 
       <figure class="kn-scrollframe">
         <div class="kn-scrollframe-bar" role="group" aria-label="Přepínání náhledu mezi počítačovou a mobilní verzí">
-          <button type="button" class="kn-view-btn is-active" data-view="desktop" aria-pressed="true" data-i18n="cspage.view.desktop">Desktop</button>
-          <button type="button" class="kn-view-btn" data-view="mobile" aria-pressed="false" data-i18n="cspage.view.mobile">Mobil</button>
+          <button type="button" class="kn-view-btn is-active" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" class="kn-view-btn" data-view="mobile" aria-pressed="false">Mobil</button>
         </div>
         <div class="kn-scrollframe-view" data-view-panel="desktop" tabindex="0" aria-label="Homepage svatebního webu v počítačové verzi, rolovatelný náhled">
-          <img src="/assets/cs-svatba-fullpage.webp" width="1600" height="8506" alt="Celá homepage svatebního webu v počítačové verzi" loading="lazy" />
+          <img src="/portfolio-test/assets/cs-svatba-fullpage.webp" width="1600" height="8506" alt="Celá homepage svatebního webu v počítačové verzi" loading="lazy" />
         </div>
         <div class="kn-scrollframe-view kn-scrollframe-view--mobile" data-view-panel="mobile" tabindex="0" aria-label="Homepage svatebního webu v mobilní verzi, rolovatelný náhled" hidden>
-          <img src="/assets/cs-svatba-mobile-full.webp" width="425" height="8643" alt="Celá homepage svatebního webu v mobilní verzi" loading="lazy" />
+          <img src="/portfolio-test/assets/cs-svatba-mobile-full.webp" width="425" height="8643" alt="Celá homepage svatebního webu v mobilní verzi" loading="lazy" />
         </div>
-        <figcaption data-i18n="cspage.showcase.cap">Homepage v plné délce · uvnitř rámečku lze rolovat</figcaption>
+        <figcaption>Homepage v plné délce · uvnitř rámečku lze rolovat</figcaption>
       </figure>
 
       <figure class="kn-scrollframe" style="margin-top: var(--space-2xl);">
         <div class="kn-scrollframe-bar" role="group" aria-label="Přepínání náhledu formuláře mezi počítačovou a mobilní verzí">
-          <button type="button" class="kn-view-btn is-active" data-view="desktop" aria-pressed="true" data-i18n="cspage.view.desktop">Desktop</button>
-          <button type="button" class="kn-view-btn" data-view="mobile" aria-pressed="false" data-i18n="cspage.view.mobile">Mobil</button>
+          <button type="button" class="kn-view-btn is-active" data-view="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" class="kn-view-btn" data-view="mobile" aria-pressed="false">Mobil</button>
         </div>
         <div class="kn-scrollframe-view" data-view-panel="desktop" tabindex="0" aria-label="Formulář pro potvrzení účasti v počítačové verzi, rolovatelný náhled">
-          <img src="/assets/cs-svatba-form.webp" width="1600" height="4387" alt="Formulář pro potvrzení účasti s vyplněnou rodinou v počítačové verzi" loading="lazy" />
+          <img src="/portfolio-test/assets/cs-svatba-form.webp" width="1600" height="4387" alt="Formulář pro potvrzení účasti s vyplněnou rodinou v počítačové verzi" loading="lazy" />
         </div>
         <div class="kn-scrollframe-view kn-scrollframe-view--mobile" data-view-panel="mobile" tabindex="0" aria-label="Formulář pro potvrzení účasti v mobilní verzi, rolovatelný náhled" hidden>
-          <img src="/assets/cs-svatba-form-mobile.webp" width="425" height="4021" alt="Formulář pro potvrzení účasti s vyplněnou rodinou v mobilní verzi" loading="lazy" />
+          <img src="/portfolio-test/assets/cs-svatba-form-mobile.webp" width="425" height="4021" alt="Formulář pro potvrzení účasti s vyplněnou rodinou v mobilní verzi" loading="lazy" />
         </div>
-        <figcaption data-i18n="cspage.svatba.form.cap">Formulář s vyplněnou rodinou · dětská část se objeví až po volbě „Áno“</figcaption>
+        <figcaption>Formulář s vyplněnou rodinou · dětská část se objeví až po volbě „Áno“</figcaption>
       </figure>
 
-      <p class="csp-gsc" data-i18n="cspage.svatba.demo.note">Snímky i odkaz vedou na ukázkovou verzi. Jména, datum, místa i menu jsou v ní vymyšlené kvůli soukromí novomanželů a hostů.</p>
+      <p class="csp-gsc">Snímky i odkaz vedou na ukázkovou verzi. Jména, datum, místa i menu jsou v ní vymyšlené kvůli soukromí novomanželů a hostů.</p>
 
       <a href="https://fuxastudio.github.io/svatebni-web/" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="margin-top: var(--space-xl);">
-        <span data-i18n="cspage.svatba.demo.btn">Otevřít ukázkovou verzi</span>
+        <span>Otevřít ukázkovou verzi</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
       </a>
     </div>
@@ -287,15 +307,15 @@
   <!-- ========== ZASEDACÍ POŘÁDEK — tištěná část dodávky ========== -->
   <section class="csp-section">
     <div class="container">
-      <h2 class="csp-h" style="margin-bottom: var(--space-lg);" data-i18n="cspage.svatba.h.print">Ze stejných jmen vznikl i zasedací pořádek</h2>
+      <h2 class="csp-h" style="margin-bottom: var(--space-lg);">Ze stejných jmen vznikl i zasedací pořádek</h2>
       <div class="kn-print">
         <div class="csp-block">
-          <p style="margin-bottom: var(--space-md);" data-i18n="cspage.svatba.print1">Součástí zakázky byla i deska formátu A1, kterou hosté hledali při příchodu do sálu. Vznikla ve stejné typografii jako web i oznámení, takže tištěná a digitální část svatby vypadaly jako jedna věc.</p>
-          <p data-i18n="cspage.svatba.print2">Jména do ní přišla přímo z formuláře. Snoubenci nic nepřepisovali, jen rozdělili potvrzené hosty k deseti stolům.</p>
+          <p style="margin-bottom: var(--space-md);">Součástí zakázky byla i deska formátu A1, kterou hosté hledali při příchodu do sálu. Vznikla ve stejné typografii jako web i oznámení, takže tištěná a digitální část svatby vypadaly jako jedna věc.</p>
+          <p>Jména do ní přišla přímo z formuláře. Snoubenci nic nepřepisovali, jen rozdělili potvrzené hosty k deseti stolům.</p>
         </div>
         <figure class="kn-figure">
-          <img src="/assets/cs-svatba-zasedaci.webp" width="1240" height="1734" alt="Zasedací pořádek ve formátu A1 se jmény hostů rozdělenými k deseti stolům" loading="lazy" />
-          <figcaption data-i18n="cspage.svatba.print.cap">Zasedací pořádek · deska A1 do tisku · jména jsou v ukázce nahrazena</figcaption>
+          <img src="/portfolio-test/assets/cs-svatba-zasedaci.webp" width="1240" height="1734" alt="Zasedací pořádek ve formátu A1 se jmény hostů rozdělenými k deseti stolům" loading="lazy" />
+          <figcaption>Zasedací pořádek · deska A1 do tisku · jména jsou v ukázce nahrazena</figcaption>
         </figure>
       </div>
     </div>
@@ -304,20 +324,20 @@
   <!-- ========== CO PŘIŠLO Z FORMULÁŘE — tabulka jako výstup ========== -->
   <section class="csp-section">
     <div class="container">
-      <h2 class="csp-h" data-i18n="cspage.svatba.h.data">Co z formuláře přišlo</h2>
-      <p class="kn-results-lead" style="margin-bottom: var(--space-xl);" data-i18n="cspage.svatba.lead">Snoubenci nedostali jen hromadu odpovědí. Každý formulář se rozepsal na řádky po osobách a druhý list z nich průběžně počítal to, co potřebovali nadiktovat do restaurace. Počty jídel, přípitků, alergie i vybavení pro děti.</p>
+      <h2 class="csp-h">Co z formuláře přišlo</h2>
+      <p class="kn-results-lead" style="margin-bottom: var(--space-xl);">Snoubenci nedostali jen hromadu odpovědí. Každý formulář se rozepsal na řádky po osobách a druhý list z nich průběžně počítal to, co potřebovali nadiktovat do restaurace. Počty jídel, přípitků, alergie i vybavení pro děti.</p>
 
       <figure class="kn-figure">
-        <img src="/assets/cs-svatba-tabulka-prehled.webp" width="1400" height="317" alt="List s automatickým přehledem: počty hostů, porcí podle menu, přípitků, seznam alergií a vybavení pro děti" loading="lazy" />
-        <figcaption data-i18n="cspage.svatba.table.cap1">List s přehledem · počty se dopočítávají samy</figcaption>
+        <img src="/portfolio-test/assets/cs-svatba-tabulka-prehled.webp" width="1400" height="317" alt="List s automatickým přehledem: počty hostů, porcí podle menu, přípitků, seznam alergií a vybavení pro děti" loading="lazy" />
+        <figcaption>List s přehledem · počty se dopočítávají samy</figcaption>
       </figure>
 
       <figure class="kn-figure" style="margin-top: var(--space-xl);">
-        <img src="/assets/cs-svatba-tabulka-odpovedi.webp" width="1400" height="778" alt="List tabulky s odpověďmi z formuláře, řádek pro každou osobu s výběrem menu, alergií a přípitkem" loading="lazy" />
-        <figcaption data-i18n="cspage.svatba.table.cap2">List s odpověďmi · řádek pro každou osobu</figcaption>
+        <img src="/portfolio-test/assets/cs-svatba-tabulka-odpovedi.webp" width="1400" height="778" alt="List tabulky s odpověďmi z formuláře, řádek pro každou osobu s výběrem menu, alergií a přípitkem" loading="lazy" />
+        <figcaption>List s odpověďmi · řádek pro každou osobu</figcaption>
       </figure>
 
-      <p class="csp-gsc" data-i18n="cspage.svatba.table.note">Ukázka struktury tabulky. Jména, kontakty i vzkazy hostů jsou vymyšlené, souhrnná čísla odpovídají skutečnosti.</p>
+      <p class="csp-gsc">Ukázka struktury tabulky. Jména, kontakty i vzkazy hostů jsou vymyšlené, souhrnná čísla odpovídají skutečnosti.</p>
     </div>
   </section>
 
@@ -325,8 +345,8 @@
   <section class="csp-section">
     <div class="container container--mid">
       <blockquote class="csp-quote">
-        <p data-i18n="casestudy.svatba.quote">„“</p>
-        <cite data-i18n="casestudy.svatba.cite">Lucia — za snoubence</cite>
+        <p>„Pozreli sme si to. Musím povedať, že je to úžasné, dali ste si záležať aj na detailoch, ku ktorým sme vám nedali žiadne informácie.“</p>
+        <cite>Lucia · za snoubence</cite>
       </blockquote>
     </div>
   </section>
@@ -334,19 +354,19 @@
   <!-- ========== ROZSAH DODÁVKY ========== -->
   <section class="csp-section">
     <div class="container container--mid">
-      <h2 class="csp-h" style="margin-bottom: var(--space-lg);" data-i18n="cspage.h.scope">Co bylo součástí</h2>
+      <h2 class="csp-h" style="margin-bottom: var(--space-lg);">Co bylo součástí</h2>
       <ul class="kn-tags">
-        <li data-i18n="cspage.svatba.sc1">Web na míru</li>
-        <li data-i18n="cspage.svatba.sc2">Design podle svatebního oznámení</li>
-        <li data-i18n="cspage.svatba.sc3">Formulář pro celou rodinu</li>
-        <li data-i18n="cspage.svatba.sc4">Automatický přehled v tabulce</li>
-        <li data-i18n="cspage.svatba.sc5">Fotogalerie s nahráváním</li>
-        <li data-i18n="cspage.svatba.sc6">Vstup na heslo</li>
-        <li data-i18n="cspage.svatba.sc7">Mapa s parkováním</li>
-        <li data-i18n="cspage.svatba.sc8">QR kód na stoly</li>
-        <li data-i18n="cspage.svatba.sc9">Zasedací pořádek do tisku</li>
+        <li>Web na míru</li>
+        <li>Design podle svatebního oznámení</li>
+        <li>Formulář pro celou rodinu</li>
+        <li>Automatický přehled v tabulce</li>
+        <li>Fotogalerie s nahráváním</li>
+        <li>Vstup na heslo</li>
+        <li>Mapa s parkováním</li>
+        <li>QR kód na stoly</li>
+        <li>Zasedací pořádek do tisku</li>
       </ul>
-      <p class="csp-price" data-i18n-html="cspage.svatba.price.html">Podobný web pro hosty vychází od <b>10 000 Kč</b> podle rozsahu. Napište mi, co chystáte, a pošlu vám cenu předem.</p>
+      <p class="csp-price">Podobný web pro hosty vychází od 10&nbsp;000&nbsp;Kč podle rozsahu. Napište mi, co chystáte, a pošlu vám cenu předem.</p>
     </div>
   </section>
 
@@ -356,11 +376,10 @@
     <div class="cta-fade"></div>
     <div class="container">
       <div class="page-cta-content">
-        <span class="section-label no-line" style="justify-content: center;" data-i18n="cta.label">Připraveni?</span>
-        <h2 class="section-title" data-i18n-html="cspage.svatba.cta.title.html">Svatební web <span class="gradient-text">pro vaše hosty</span></h2>
-        <p class="section-subtitle" style="margin: 0 auto var(--space-3xl);" data-i18n="cspage.svatba.cta.sub">Formulář i přehled odpovědí na jednom místě, naposledy hotové měsíc a půl před svatbou. Napište mi, ozvu se do 24 hodin.</p>
-        <a href="/kontakt#form" class="btn-primary">
-          <span data-i18n="casestudy.want">Chci podobný web</span>
+        <h2 class="section-title">Svatební web <span class="gradient-text">pro vaše hosty</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto var(--space-3xl);">Formulář i přehled odpovědí na jednom místě, naposledy hotové měsíc a půl před svatbou. Napište mi, ozvu se do 24 hodin.</p>
+        <a href="/portfolio-test/kontakt#form" class="btn-primary">
+          <span>Chci podobný web</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -376,16 +395,16 @@
     <div class="container">
       <div class="kn-nav-row">
         <div class="kn-nav-cell">
-          <span class="kn-nav-label" data-i18n="cspage.nav.overview">Přehled</span>
-          <a href="/projekty" class="kn-nav-link">
+          <span class="kn-nav-label">Přehled</span>
+          <a href="/portfolio-test/projekty" class="kn-nav-link">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            <span data-i18n="cspage.back">Všechny projekty</span>
+            <span>Všechny projekty</span>
           </a>
         </div>
         <div class="kn-nav-cell kn-nav-cell--next">
-          <span class="kn-nav-label" data-i18n="cspage.next">Další případová studie</span>
-          <a href="/projekty/svidnicky-extrem" class="kn-nav-link">
-            <span data-i18n="casestudy.svidnicky.hook">Od nuly k webu za 18 dní</span>
+          <span class="kn-nav-label">Další případová studie</span>
+          <a href="/portfolio-test/projekty/global-accord-strategies" class="kn-nav-link">
+            <span>Celý web na klíč za 8 dní</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
@@ -402,8 +421,8 @@
 
       <!-- Znacka a jednoradkove predstaveni -->
       <div class="footer-top">
-        <a href="/" class="footer-logo">FuxaStudio</a>
-        <p class="footer-claim" data-i18n="footer.claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
+        <a href="/portfolio-test/" class="footer-logo">FuxaStudio</a>
+        <p class="footer-claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
       </div>
 
       <!-- Footer Main Grid -->
@@ -411,7 +430,7 @@
 
         <!-- Left: Kontakt -->
         <div class="footer-brand">
-          <h4 class="footer-heading" data-i18n="footer.contact.heading">Kontakt</h4>
+          <h2 class="footer-heading">Kontakt</h2>
           <div class="footer-contact-list">
             <a href="tel:+420736131410" class="footer-contact-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -429,27 +448,27 @@
               fuxa@fuxastudio.cz
             </a>
           </div>
-          <p class="footer-place" data-i18n="footer.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+          <p class="footer-place">Svídnice u Chrudimi · pracuju po celé ČR i v zahraničí</p>
           <p class="footer-ico">IČO: 29618843</p>
         </div>
 
         <!-- Center: Navigation -->
         <div class="footer-nav">
-          <h4 class="footer-heading" data-i18n="footer.nav.heading">Navigace</h4>
+          <h2 class="footer-heading">Navigace</h2>
           <ul class="footer-nav-list">
-            <li><a href="/" class="footer-nav-link" data-i18n="nav.home">Domů</a></li>
-            <li><a href="/tvorba-webovych-stranek" class="footer-nav-link" data-i18n="nav.services">Služby a ceník</a></li>
-            <li><a href="/tvorba-webovych-stranek-pardubice" class="footer-nav-link" data-i18n="nav.local">Tvorba webů Pardubice</a></li>
-            <li><a href="/o-mne" class="footer-nav-link" data-i18n="nav.about">O mně</a></li>
-            <li><a href="/projekty" class="footer-nav-link" data-i18n="nav.projects">Projekty</a></li>
-            <li><a href="/reference" class="footer-nav-link" data-i18n="nav.references">Reference</a></li>
-            <li><a href="/kontakt" class="footer-nav-link" data-i18n="nav.contact">Kontakt</a></li>
+            <li><a href="/portfolio-test/" class="footer-nav-link">Domů</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek" class="footer-nav-link">Služby a ceník</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek-pardubice" class="footer-nav-link">Tvorba webů Pardubice</a></li>
+            <li><a href="/portfolio-test/o-mne" class="footer-nav-link">O mně</a></li>
+            <li><a href="/portfolio-test/projekty" class="footer-nav-link">Projekty</a></li>
+            <li><a href="/portfolio-test/reference" class="footer-nav-link">Reference</a></li>
+            <li><a href="/portfolio-test/kontakt" class="footer-nav-link">Kontakt</a></li>
           </ul>
         </div>
 
         <!-- Right: Social -->
         <div class="footer-social-col">
-          <h4 class="footer-heading" data-i18n="footer.social.heading">Najdete mě</h4>
+          <h2 class="footer-heading">Najdete mě</h2>
           <div class="footer-socials">
             <a href="https://www.facebook.com/profile.php?id=61572145793086" class="footer-social-link is-brand"
               aria-label="Facebook" id="footerFacebook" target="_blank" rel="noopener noreferrer">
@@ -511,23 +530,18 @@
 
       <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p class="footer-copyright" data-i18n="footer.copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
-        <a href="/ochrana-osobnich-udaju" class="footer-legal-link" data-i18n="nav.privacy">Ochrana osobních údajů</a>        <button type="button" class="footer-cookie-btn" data-cookie-settings data-i18n="cookie.footerLink">Nastavení cookies</button>
+        <p class="footer-copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
+        <a href="/portfolio-test/ochrana-osobnich-udaju" class="footer-legal-link">Ochrana osobních údajů</a>        <button type="button" class="footer-prefs-btn" data-prefs-open>Nastavení cookies</button>
       </div>
 
     </div>
-
-    <!-- Typograficky podpis - dekorace, pro cteciky skryta -->
-    <p class="footer-watermark" aria-hidden="true">FuxaStudio</p>
   </footer>
 
   <!-- Kontaktni lista - jen mobil (CSS .contact-bar), zobrazovani ridi js/main.js -->
   <div class="contact-bar" id="contactBar">
-    <a href="mailto:fuxa@fuxastudio.cz?subject=Popt%C3%A1vka%20webu" class="btn-primary"
-      data-i18n="contactbar.write">Napsat</a>
-    <a href="tel:+420736131410" class="btn-secondary" data-i18n="contactbar.call">Zavolat</a>
-    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu"
-      data-i18n-aria="contactbar.close">
+    <a href="/portfolio-test/kontakt#form" class="btn-primary">Napsat</a>
+    <a href="tel:+420736131410" class="btn-secondary">Zavolat</a>
+    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M18 6 6 18M6 6l12 12" />
@@ -535,10 +549,9 @@
     </button>
   </div>
 
-  <script src="/js/translations.js"></script>
-  <script src="/js/smoke-shader.js"></script>
-  <script src="/js/main.js"></script>
-  <script>initSmokeShader('ctaAetherFlow', 'cta');</script>
+  <script defer src="/portfolio-test/js/smoke-shader.js"></script>
+  <script defer src="/portfolio-test/js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initSmokeShader('ctaAetherFlow', 'cta'); });</script>
   <script>
     // Ukázky webu — přepínač Desktop / Mobil; na této studii jsou rámečky dva,
     // proto se obsluhuje každý zvlášť (jinde stačí jediné id).

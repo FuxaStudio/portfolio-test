@@ -1,71 +1,338 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs" data-page="references">
 
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <title>Reference klientů | Fuxa Studio</title>
+  <title>Reference klientů | FuxaStudio</title>
   <meta name="description"
-    content="Co říkají klienti o spolupráci s Fuxa Studiem. Reference ke čtyřem webům, které dnes běží naostro — s odkazy na případové studie i živé weby." />
+    content="Co říkají klienti o spolupráci s FuxaStudiem. Pět referencí s odkazy na případové studie i na weby samotné." />
   <meta name="author" content="Pavel Fuxa" />
   <meta name="theme-color" content="#141414" />
 
   <!-- Canonical + hreflang -->
   <link rel="canonical" href="https://fuxastudio.cz/reference" />
   <link rel="alternate" hreflang="cs" href="https://fuxastudio.cz/reference" />
+  <link rel="alternate" hreflang="en" href="https://fuxastudio.cz/en/references" />
   <link rel="alternate" hreflang="x-default" href="https://fuxastudio.cz/reference" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fuxastudio.cz/reference" />
-  <meta property="og:title" content="Reference klientů | Fuxa Studio" />
-  <meta property="og:description" content="Co říkají klienti o spolupráci s Fuxa Studiem. Reference ke čtyřem webům, které dnes běží naostro — s odkazy na případové studie i živé weby." />
+  <meta property="og:title" content="Reference klientů | FuxaStudio" />
+  <meta property="og:description" content="Co říkají klienti o spolupráci s FuxaStudiem. Pět referencí s odkazy na případové studie i na weby samotné." />
   <meta property="og:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="675" />
-  <meta property="og:image:alt" content="Pavel Fuxa — Fuxa Studio, tvorba webových stránek na míru" />
+  <meta property="og:image:alt" content="Pavel Fuxa z FuxaStudia, tvorba webových stránek na míru" />
   <meta property="og:locale" content="cs_CZ" />
-  <meta property="og:site_name" content="Fuxa Studio" />
+  <meta property="og:site_name" content="FuxaStudio" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Reference klientů | Fuxa Studio" />
-  <meta name="twitter:description" content="Reference klientů o spolupráci s Fuxa Studiem — Pavel Fuxa." />
+  <meta name="twitter:title" content="Reference klientů | FuxaStudio" />
+  <meta name="twitter:description" content="Co říkají klienti o spolupráci s FuxaStudiem. Pět referencí s odkazy na případové studie." />
   <meta name="twitter:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" /></noscript>
+  <!-- Fonts - self-host, zadny pozadavek na cizi domenu. Deklarace jsou
+       v css/style.css, tady se jen predbezne stahnou rezy nad ohybem. -->
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/favicon.png" />
+
+  <!-- Animace jsou progressive enhancement: skryty vychozi stav se zapina az
+       touhle tridou. Bez JS (bot, scraper, pomala linka) i pri zapnutem
+       "omezit pohyb" zustava v CSS rovnou konecny vzhled stranky.
+       Inline a synchronne v <head>, aby trida platila uz pro prvni vykresleni. -->
+  <script>
+    (function () {
+      try {
+        if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('js-anim');
+        }
+      } catch (e) { /* stary prohlizec - zustane konecny stav, coz je v poradku */ }
+    })();
+  </script>
+  <link rel="icon" href="/portfolio-test/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="/portfolio-test/assets/brand/icon.svg" />
+  <link rel="apple-touch-icon" href="/portfolio-test/apple-touch-icon.png" />
+  <link rel="manifest" href="/portfolio-test/assets/brand/site.webmanifest" />
 
   <style>
-    /* ========== REFERENCES SECTION ========== */
-    .references-section {
-      padding: var(--space-section) 0;
+    /* ========== HERO ========== */
+    /* Hero podle obsahu: nadpis a hodnoceni. Bez minimalni vysky, aby prvni
+       reference vykoukla uz na prvnim obrazu notebooku. */
+    #hero {
+      min-height: 0;
+      padding-top: 8rem;
+      padding-bottom: var(--space-2xl);
     }
 
-    .references-header {
-      text-align: center;
-      margin-bottom: var(--space-4xl);
+    #hero .hero-content {
+      padding-top: 2rem;
     }
 
-    .hero-subtitle {
-      margin: var(--space-lg) 0 0;
-      max-width: 46ch;
-      font-size: var(--fs-md);
-      line-height: 1.6;
+    /* Hodnoceni z Googlu a Firmy.cz, stejna komponenta jako na homepage
+       (CSS je tam v index.html), jen vystredena. Pocet musi sedet s profilem,
+       pri nove recenzi prepsat cislo i aria-label tady i na homepage. */
+    .ref-ratings {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: var(--space-xl);
+    }
+
+    .ref-rating {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: start;
+      align-items: center;
+      column-gap: 0.75rem;
+      row-gap: 0.15rem;
+      padding: 0.2rem 1.75rem;
+      color: var(--color-text-primary);
+      text-align: left;
+      text-decoration: none;
+    }
+
+    .ref-rating + .ref-rating {
+      border-left: 1px solid var(--color-border);
+    }
+
+    .ref-rating svg {
+      grid-row: span 2;
+      width: 28px;
+      height: 28px;
+    }
+
+    .ref-rating-source {
+      font-weight: var(--fw-semibold);
+    }
+
+    .ref-rating-value {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: var(--fs-sm);
       color: var(--color-text-secondary);
     }
 
-    .references-list {
-      max-width: 1120px;
+    .ref-rating-value b {
+      font-weight: var(--fw-semibold);
+      color: var(--color-text-primary);
+    }
+
+    .ref-rating-stars {
+      color: #F5B301;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+
+    .ref-rating:hover .ref-rating-source,
+    .ref-rating:focus-visible .ref-rating-source {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ========== REFERENCE ========== */
+    /* Radek: vlevo ostry nahled webu (jediny odkaz na zivy web), vpravo
+       logo, citace a jeden udaj o case s odkazem na studii. Citace bez
+       uvozovek, stejne jako na kartach na homepage. */
+    .references-section {
+      padding: var(--space-xl) 0 var(--space-section);
+    }
+
+    .ref-list {
+      max-width: 1160px;
       margin: 0 auto;
+    }
+
+    .ref-row,
+    .ref-return {
+      padding-block: var(--space-2xl);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .ref-row {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: var(--space-xl) clamp(2rem, 4vw, 3.5rem);
+      align-items: start;
+    }
+
+    .ref-prev {
+      display: grid;
+      gap: 0.55rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .ref-prev-frame {
+      display: block;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: #0B0B0B;
+      transition: border-color var(--duration-fast) var(--ease-out);
+    }
+
+    .ref-prev-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .ref-prev:hover,
+    .ref-prev:focus-visible {
+      color: var(--color-text-primary);
+    }
+
+    .ref-prev:hover .ref-prev-frame,
+    .ref-prev:focus-visible .ref-prev-frame {
+      border-color: var(--color-border-hover);
+    }
+
+    .ref-prev:focus-visible {
+      outline: none;
+    }
+
+    .ref-prev:focus-visible .ref-prev-frame {
+      outline: 2px solid rgba(255, 255, 255, 0.6);
+      outline-offset: 4px;
+    }
+
+    .ref-body {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      min-width: 0;
+    }
+
+    /* nazev firmy je tady nadpis (h2, v paru h3), karta na homepage ma span */
+    .ref-card-who .ref-card-company {
+      margin: 0;
+    }
+
+    .ref-quote {
+      margin: 0;
+    }
+
+    .ref-quote p {
+      margin: 0;
+      max-width: 52ch;
+      font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: -0.02em;
+      text-wrap: pretty;
+    }
+
+    .ref-note {
+      margin: -0.25rem 0 0;
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+    }
+
+    .ref-foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 1.5rem;
+      margin: 0;
+    }
+
+    .ref-fact {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: var(--fw-medium);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+    }
+
+    .ref-foot a {
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 2px;
+      transition: color var(--duration-fast) var(--ease-out),
+                  border-color var(--duration-fast) var(--ease-out);
+    }
+
+    .ref-foot a:hover {
+      color: var(--color-text-primary);
+      border-color: var(--color-text-muted);
+    }
+
+    /* Tri zakazky od jedne klientky: uvod a dve karty vedle sebe */
+    .ref-return {
+      display: grid;
+      gap: var(--space-xl);
+    }
+
+    .ref-return-head {
+      display: grid;
+      gap: var(--space-sm);
+      max-width: 62ch;
+    }
+
+    .ref-return-head h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.3rem);
+      font-weight: var(--fw-bold);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+
+    .ref-return-head p {
+      margin: 0;
+      color: var(--color-text-secondary);
+    }
+
+    .ref-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .ref-mini {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      min-width: 0;
+      padding: clamp(1.25rem, 2vw, 1.75rem);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+    }
+
+    .ref-mini .ref-quote p {
+      font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+    }
+
+    /* karty v paru jsou stejne vysoke, spodni radek drzi u dna, aby sedel vedle sebe */
+    .ref-mini .ref-foot {
+      margin-top: auto;
+    }
+
+    .ref-step {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
     }
 
     /* ========== CTA ========== */
@@ -93,16 +360,58 @@
       z-index: 2;
     }
 
+    .references-cta-content .section-subtitle {
+      margin: 0 auto var(--space-md);
+    }
+
+    .references-cta-content .section-subtitle:last-of-type {
+      margin-bottom: var(--space-3xl);
+    }
+
     /* ========== RESPONSIVE ========== */
-    @media (max-width: 600px) {
-      #hero .hero-title {
-        text-align: center;
+    /* Na telefonu jde citace prvni, pod ni kdo ji rekl a nahled webu az na
+       konec. Citace je na strance s referencemi hlavni obsah. */
+    @media (max-width: 760px) {
+      .ref-row {
+        grid-template-columns: minmax(0, 1fr);
       }
 
-      .hero-subtitle {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
+      .ref-row > .ref-prev {
+        order: 2;
+      }
+
+      .ref-body .ref-quote,
+      .ref-mini .ref-quote {
+        order: -1;
+      }
+
+      .ref-pair {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .ref-mini .ref-step {
+        order: -2;
+      }
+
+      .ref-mini .ref-prev {
+        order: 5;
+      }
+    }
+
+    /* Hodnoceni pod sebou, svisla cara by po zalomeni visela u druhe polozky */
+    @media (max-width: 640px) {
+      /* blok na stred, polozky v nem zarovnane vlevo, aby loga stala pod sebou */
+      .ref-ratings {
+        display: grid;
+        justify-content: center;
+        justify-items: start;
+        gap: var(--space-md);
+      }
+
+      .ref-rating,
+      .ref-rating + .ref-rating {
+        padding: 0;
+        border-left: 0;
       }
     }
 
@@ -123,48 +432,12 @@
       {
         "@type": "WebPage",
         "@id": "https://fuxastudio.cz/reference",
-        "name": "Reference klientů — Fuxa Studio",
-        "description": "Reference klientů o spolupráci s Pavlem Fuxou — Fuxa Studio",
+        "name": "Reference klientů | FuxaStudio",
+        "description": "Reference klientů o spolupráci s Pavlem Fuxou z FuxaStudia.",
         "url": "https://fuxastudio.cz/reference",
         "about": { "@id": "https://fuxastudio.cz/#person" },
         "inLanguage": "cs-CZ",
-        "dateModified": "2026-06-21"
-      },
-      {
-        "@type": "Review",
-        "reviewBody": "So spoluprácou som veľmi spokojná, všetko bolo urobené podľa našich predstáv, dokonca aj texty prvých blogov. Ďakujeme.",
-        "author": {
-          "@type": "Person",
-          "name": "Ivana Lenčéšová"
-        },
-        "itemReviewed": { "@id": "https://fuxastudio.cz/#service" }
-      },
-      {
-        "@type": "Review",
-        "reviewBody": "Jsme maximálně spokojení. Pomáhal nám s tvorbou webových stránek a i když to s námi nebylo úplně jednoduché, vše se nakonec podařilo. Výsledek přesně odpovídá naší představě. Budeme i nadále v kontaktu. Doporučujeme.",
-        "author": {
-          "@type": "Person",
-          "name": "Ing. Petr Schaffer"
-        },
-        "itemReviewed": { "@id": "https://fuxastudio.cz/#service" }
-      },
-      {
-        "@type": "Review",
-        "reviewBody": "Během spolupráce jsme měli spoustu připomínek a Pavel je vždycky zpracoval bez problémů. Ocenili jsme, že se nebál říct svůj názor, když měl lepší nápad, ale zároveň respektoval, co jsme chtěli. Výsledek předčil naše očekávání.",
-        "author": {
-          "@type": "Person",
-          "name": "Martin Stebel"
-        },
-        "itemReviewed": { "@id": "https://fuxastudio.cz/#service" }
-      },
-      {
-        "@type": "Review",
-        "reviewBody": "Postaral se o celý web od začátku do konce. Vyřešil texty, fotky i technickou stránku, takže jsme se do toho nemuseli vůbec zapojovat. Spolehlivá a bezproblémová spolupráce.",
-        "author": {
-          "@type": "Person",
-          "name": "Ivana Lenčéšová"
-        },
-        "itemReviewed": { "@id": "https://fuxastudio.cz/#service" }
+        "dateModified": "2026-10-16"
       }
     ]
   }
@@ -183,7 +456,13 @@
       security_storage: 'granted'
     });
   </script>
-  <script defer src="js/consent.js"></script>
+  <!-- Preklady pred site-prefs.js: cookie lista se sklada uz s texty
+       v aktualnim jazyce. defer drzi poradi a nic neblokuje.
+       Soubor i tridy uvnitr se jmenuji "prefs", ne "cookie" - Brave se
+       zapnutymi stity a adblocky maji v seznamech pravidla na cookie-*
+       nazvy a listu bez varovani schovaji. Neprejmenovavat zpet. -->
+  <script defer src="js/translations.js"></script>
+  <script defer src="js/site-prefs.js"></script>
 </head>
 
 <body>
@@ -191,31 +470,29 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="/" class="nav-logo"><img src="assets/logo.png" alt="Fuxa Studio Logo" width="279" height="191"></a>
+      <a href="/portfolio-test/" class="nav-logo"><img src="/portfolio-test/assets/brand/fs-logo-nav.svg" alt="Logo FuxaStudio" width="279" height="191"></a>
 
       <div class="nav-links" id="navLinks">
-        <a href="/" data-i18n="nav.home">Domů</a>
-        <a href="/tvorba-webovych-stranek" data-i18n="nav.services">Služby a ceník</a>
-        <a href="/projekty" data-i18n="nav.projects">Projekty</a>
-        <a href="/reference" class="static-active" data-i18n="nav.references">Reference</a>
-        <a href="/o-mne" data-i18n="nav.about">O mně</a>
+        <a href="/portfolio-test/">Domů</a>
+        <a href="/portfolio-test/tvorba-webovych-stranek">Služby a ceník</a>
+        <a href="/portfolio-test/projekty">Projekty</a>
+        <a href="/portfolio-test/reference" class="static-active">Reference</a>
+        <a href="/portfolio-test/o-mne">O mně</a>
         <div class="menu-extra">
-          <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-          <div class="lang-switcher" role="group" aria-label="Language / Jazyk">
-            <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-          </div>
+          <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+          <a class="lang-switcher" href="/portfolio-test/en/references" hreflang="en" aria-label="Přepnout na anglickou verzi">
+            <span class="lang-btn">EN</span>
+          </a>
         </div>
       </div>
 
       <div class="nav-right">
         <!-- Language switcher -->
-        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language / Jazyk">
-          <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-        </div>
-        <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <a class="lang-switcher" id="langSwitcher" href="/portfolio-test/en/references" hreflang="en" aria-label="Přepnout na anglickou verzi">
+          <span class="lang-btn">EN</span>
+        </a>
+        <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -227,105 +504,156 @@
   <main id="main-content">
 
   <!-- ========== HERO ========== -->
-  <section class="hero" id="hero" style="min-height: 50vh; padding-top: 8rem; padding-bottom: 4rem;">
+  <section class="hero hero--center" id="hero">
     <canvas class="hero-stars-canvas" id="waveHeroCanvas"></canvas>
 
-    <div class="container hero-content" style="padding-top: 2rem;">
+    <div class="container hero-content">
       <h1 class="hero-title">
         <span class="line">
-          <span data-i18n="referencespage.hero.line1">Co říkají</span>
-          <span class="gradient-text" data-i18n="referencespage.hero.line2">klienti</span>
+          <span>Co říkají</span>
+          <span class="gradient-text">klienti</span>
         </span>
       </h1>
-      <p class="hero-subtitle" data-i18n="referencespage.hero.desc">Čtyři reference, čtyři weby, které dnes běží naostro. Jedna klientka se vrátila dvakrát.</p>
-      <p class="hero-subtitle" data-i18n-html="referencespage.hero.reviews.html">Hodnocení najdete i na <a href="https://share.google/jNHbajMbGHvZoFNuk" target="_blank" rel="noopener noreferrer" style="color: var(--color-text-primary); text-decoration: underline;">Googlu</a> a <a href="https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html" target="_blank" rel="noopener noreferrer" style="color: var(--color-text-primary); text-decoration: underline;">Firmy.cz</a>.</p>
+      <div class="ref-ratings">
+        <a href="https://share.google/jNHbajMbGHvZoFNuk" class="ref-rating" target="_blank" rel="noopener noreferrer" aria-label="Google, hodnocení 5,0 z 5, 3 recenze">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path fill="#4285F4"
+              d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z" />
+            <path fill="#34A853"
+              d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z" />
+            <path fill="#FBBC05"
+              d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7z" />
+            <path fill="#EA4335"
+              d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z" />
+          </svg>
+          <span class="ref-rating-source">Google</span>
+          <span class="ref-rating-value"><b>5,0</b><span class="ref-rating-stars" aria-hidden="true">★★★★★</span>3 recenze</span>
+        </a>
+        <a href="https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html" class="ref-rating" target="_blank" rel="noopener noreferrer" aria-label="Firmy.cz, hodnocení 5,0 z 5, 1 hodnocení">
+          <svg viewBox="42 34 126 126" aria-hidden="true">
+            <defs>
+              <linearGradient id="firmyCzGradientHero" x1="49" x2="49" y1="53.9" y2="142.1"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FC4646" />
+                <stop offset="1" stop-color="#C51F1F" />
+              </linearGradient>
+            </defs>
+            <path fill="url(#firmyCzGradientHero)" fill-rule="evenodd" clip-rule="evenodd"
+              d="M145.129 63.892c-1.411-2.246-3.643-4.112-5.984-5.34-8.723-4.575-18.559-4.623-28.197-4.651-6.985-.022-13.968.458-20.89 1.366a171.89 171.89 0 0 0-11.402 1.892c-4.496.9-8.97 1.905-13.361 3.207-3.986 1.183-7.836 3.275-11.51 5.168-1.713.882-3.536 2.048-4.352 3.83-.98 2.138-.016 4.176.177 6.351.267 3.017 1.61 3.95 3.248 6.218 3.236 4.48 8.414 5.701 13.728 3.778 1.392-.505 4.823-2.886 6.128-2.532 2.122.578.305 6.725-.142 8.21-.613 2.027-1.75 3.54-3.833 4.276-1.749.62-5.37.263-5.947 2.465-1.611 6.147 5.28 10.683 6.23 16.148.475 2.729-.736 5.465-1.05 8.161-.412 3.542-.632 7.122-.944 10.677-.147 1.665-.657 3.954-.477 5.584.276 2.487 3.262 3.991 5.514 3.178 3.558-1.286 5.442-5.51 6.886-8.616 1.977-4.258 3.02-8.589 3.947-13.137.622-3.052 1.73-6.302 5.43-6.684 4.89-.507 9.653-1.769 14.552-2.27 5.265-.54 10.574-.76 15.781-1.736 3.473-.653 7.02-.552 10.514-1.019 5.887-.784 12.838-2.892 17.952-5.891 2.497-1.463 3.47-4.75 4.503-7.214 2.7-6.46-15.658-5.571-18.436-5.594-7.91-.066-15.241.132-21.998.657-4.943.384-9.818.724-14.781.636-2.168-.039-5.32-.019-6.734-1.908-1.66-2.215-.479-7.052.549-9.335 1.297-2.885 6.235-2.082 8.796-2.263 4.356-.31 8.685-.91 13.05-1.086 9.29-.376 18.191-.749 27.393-2.158 2.314-.355 6.434-1.089 6.999-3.78.498-2.374-.107-4.626-1.339-6.588Z" />
+          </svg>
+          <span class="ref-rating-source">Firmy.cz</span>
+          <span class="ref-rating-value"><b>5,0</b><span class="ref-rating-stars" aria-hidden="true">★★★★★</span>1 hodnocení</span>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- ========== REFERENCES ========== -->
+  <!-- Poradi: Mlyn Janderov, tri zakazky od jedne klientky, svatebni web,
+       Svidnicky extrem. Citace jsou doslovne, viz CLAUDE.md. -->
   <section class="references-section" id="references">
     <div class="container">
-      <div class="references-list">
+      <div class="ref-list">
 
         <!-- Mlýn Janderov -->
-        <div class="reference-row reveal">
-          <div class="reference-rail">
-            <img src="assets/mlyn-janderov-logo.svg" alt="Mlýn Janderov logo" class="reference-rail-logo" width="64" height="64" loading="lazy" />
-            <div>
-              <div class="reference-rail-company">Mlýn Janderov</div>
-              <div class="reference-rail-person">Ing. Petr Schaffer</div>
+        <article class="ref-row reveal">
+          <a href="https://mlyn-janderov.cz/" class="ref-prev" target="_blank" rel="noopener noreferrer">
+            <span class="ref-prev-frame"><img src="assets/cs-janderov-hero-720.webp" srcset="assets/cs-janderov-hero-400.webp 400w, assets/cs-janderov-hero-720.webp 720w" sizes="(max-width: 760px) calc(100vw - 3rem), (max-width: 1480px) 36vw, 540px" alt="Náhled webu Mlýn Janderov" width="720" height="450" loading="lazy" decoding="async" /></span>
+            <span>mlyn-janderov.cz&nbsp;<span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="ref-body">
+            <div class="ref-card-head">
+              <span class="ref-card-logo"><img src="assets/mlyn-janderov-logo.svg" alt="" width="64" height="64" loading="lazy" /></span>
+              <div class="ref-card-who">
+                <h2 class="ref-card-company">Mlýn Janderov</h2>
+                <span class="ref-card-name">Ing. Petr Schaffer</span>
+              </div>
             </div>
-            <div class="reference-rail-meta">
-              <span data-i18n="cspage.janderov.sum.scope">Web na míru + převzetí technického zázemí</span>
-              <span class="fact" data-i18n="refpage.janderov.fact">258 kliknutí z Googlu za první dva měsíce.</span>
-            </div>
-            <div class="reference-rail-links">
-              <a href="/projekty/mlyn-janderov" data-i18n="refpage.casestudy">Případová studie</a>
-              <a href="https://mlyn-janderov.cz/" target="_blank" rel="noopener noreferrer">mlyn-janderov.cz&nbsp;↗</a>
-            </div>
+            <blockquote class="ref-quote"><p>Jsme maximálně spokojení. Pomáhal nám s tvorbou webových stránek a i když to s námi nebylo úplně jednoduché, vše se nakonec podařilo. Výsledek přesně odpovídá naší představě. Budeme i nadále v kontaktu. Doporučujeme.</p></blockquote>
+            <p class="ref-foot"><span class="ref-fact">Spuštěno za 6 dní</span><a href="/portfolio-test/projekty/mlyn-janderov">Případová studie&nbsp;→</a></p>
           </div>
-          <p class="reference-quote" data-i18n="reference.janderov.text">Jsme maximálně spokojení. Pomáhal nám s tvorbou webových stránek a i když to s námi nebylo úplně jednoduché, vše se nakonec podařilo. Výsledek přesně odpovídá naší představě. Budeme i nadále v kontaktu. Doporučujeme.</p>
-        </div>
+        </article>
+
+        <!-- Ivana Lencesova: tri zakazky, na strance dve. Treti byl uklid
+             a nova sekce na hotovem webu, vlastni kartu nema. -->
+        <section class="ref-return reveal" aria-labelledby="ref-return-title">
+          <div class="ref-return-head">
+            <h2 id="ref-return-title">Tři zakázky od jedné klientky</h2>
+            <p>Ivana Lenčéšová si mě vybrala na Upworku kvůli webu pro kavárnu Mattina Café. Potom se vrátila s webem pro Global Accord Strategies a do třetice s úklidem a novou sekcí na hotovém webu na WordPressu.</p>
+          </div>
+          <div class="ref-pair">
+            <article class="ref-mini">
+              <span class="ref-step">První zakázka</span>
+              <a href="https://mattina.sk/" class="ref-prev" target="_blank" rel="noopener noreferrer">
+                <span class="ref-prev-frame"><img src="assets/cs-mattina-hero-720.webp" srcset="assets/cs-mattina-hero-400.webp 400w, assets/cs-mattina-hero-720.webp 720w" sizes="(max-width: 760px) calc(100vw - 6rem), (max-width: 1480px) 38vw, 520px" alt="Náhled webu Mattina Café" width="720" height="450" loading="lazy" decoding="async" /></span>
+                <span>mattina.sk&nbsp;<span aria-hidden="true">↗</span></span>
+              </a>
+              <div class="ref-card-head">
+                <span class="ref-card-logo"><img src="assets/mattina-logo-alpha.webp" alt="" width="181" height="162" loading="lazy" /></span>
+                <div class="ref-card-who">
+                  <h3 class="ref-card-company">Mattina Café</h3>
+                  <span class="ref-card-name">Ivana Lenčéšová</span>
+                </div>
+              </div>
+              <blockquote class="ref-quote"><p>So spoluprácou som veľmi spokojná, všetko bolo urobené podľa našich predstáv, dokonca aj texty prvých blogov. Ďakujeme.</p></blockquote>
+              <p class="ref-foot"><span class="ref-fact">Hotový měsíc před otevřením</span><a href="/portfolio-test/projekty/mattina-cafe">Případová studie&nbsp;→</a></p>
+            </article>
+            <article class="ref-mini">
+              <span class="ref-step">Druhá zakázka</span>
+              <a href="https://globalaccordstrategies.com/" class="ref-prev" target="_blank" rel="noopener noreferrer">
+                <span class="ref-prev-frame"><img src="assets/cs-gas-hero-720.webp" srcset="assets/cs-gas-hero-400.webp 400w, assets/cs-gas-hero-720.webp 720w" sizes="(max-width: 760px) calc(100vw - 6rem), (max-width: 1480px) 38vw, 520px" alt="Náhled webu Global Accord Strategies" width="720" height="359" loading="lazy" decoding="async" /></span>
+                <span>globalaccordstrategies.com&nbsp;<span aria-hidden="true">↗</span></span>
+              </a>
+              <div class="ref-card-head">
+                <span class="ref-card-logo ref-card-logo--light"><img src="assets/globalaccord-logo-alpha.webp" alt="" width="262" height="176" loading="lazy" /></span>
+                <div class="ref-card-who">
+                  <h3 class="ref-card-company">Global Accord Strategies</h3>
+                  <span class="ref-card-name">Ivana Lenčéšová</span>
+                </div>
+              </div>
+              <blockquote class="ref-quote"><p>Postaral sa o celý web od začiatku do konca. Vyriešil texty, fotky aj technickú stránku, takže sme sa do toho nemuseli vôbec zapájať. Spoľahlivá a bezproblémová spolupráca.</p></blockquote>
+              <p class="ref-foot"><span class="ref-fact">Spuštěno za 8 dní</span><a href="/portfolio-test/projekty/global-accord-strategies">Případová studie&nbsp;→</a></p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Svatebni web: zil jen do svatby, odkaz vede na ukazkovou verzi -->
+        <article class="ref-row reveal">
+          <a href="https://fuxastudio.github.io/svatebni-web/" class="ref-prev" target="_blank" rel="noopener noreferrer">
+            <span class="ref-prev-frame"><img src="assets/cs-svatba-hero-720.webp" srcset="assets/cs-svatba-hero-400.webp 400w, assets/cs-svatba-hero-720.webp 720w" sizes="(max-width: 760px) calc(100vw - 3rem), (max-width: 1480px) 36vw, 540px" alt="Náhled svatebního webu" width="720" height="450" loading="lazy" decoding="async" /></span>
+            <span>ukázková verze&nbsp;<span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="ref-body">
+            <div class="ref-card-head">
+              <div class="ref-card-who">
+                <h2 class="ref-card-company">Svatební web</h2>
+                <span class="ref-card-name">Lucia, za snoubence</span>
+              </div>
+            </div>
+            <blockquote class="ref-quote"><p>Pozreli sme si to. Musím povedať, že je to úžasné, dali ste si záležať aj na detailoch, ku ktorým sme vám nedali žiadne informácie.</p></blockquote>
+            <p class="ref-note">Web měl žít jen do svatby. Dnes je k vidění ukázková verze.</p>
+            <p class="ref-foot"><span class="ref-fact">Hotový za 11 dní</span><a href="/portfolio-test/projekty/svatebni-web">Případová studie&nbsp;→</a></p>
+          </div>
+        </article>
 
         <!-- Svídnický extrém -->
-        <div class="reference-row reveal">
-          <div class="reference-rail">
-            <img src="assets/exrem-logo.webp" alt="Svídnický extrém logo" class="reference-rail-logo" width="192" height="192" loading="lazy" />
-            <div>
-              <div class="reference-rail-company">Svídnický extrém</div>
-              <div class="reference-rail-person">Martin Stebel</div>
+        <article class="ref-row reveal">
+          <a href="https://svidnickyextrem.cz/" class="ref-prev" target="_blank" rel="noopener noreferrer">
+            <span class="ref-prev-frame"><img src="assets/cs-svidnicky-hero-720.webp" srcset="assets/cs-svidnicky-hero-400.webp 400w, assets/cs-svidnicky-hero-720.webp 720w" sizes="(max-width: 760px) calc(100vw - 3rem), (max-width: 1480px) 36vw, 540px" alt="Náhled webu Svídnický extrém" width="720" height="360" loading="lazy" decoding="async" /></span>
+            <span>svidnickyextrem.cz&nbsp;<span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="ref-body">
+            <div class="ref-card-head">
+              <span class="ref-card-logo"><img src="assets/exrem-logo.webp" alt="" width="192" height="192" loading="lazy" /></span>
+              <div class="ref-card-who">
+                <h2 class="ref-card-company">Svídnický extrém</h2>
+                <span class="ref-card-name">Martin Stebel</span>
+              </div>
             </div>
-            <div class="reference-rail-meta">
-              <span data-i18n="cspage.svidnicky.sum.scope">Web na míru + texty a registrace</span>
-              <span class="fact" data-i18n="refpage.svidnicky.fact">Od nuly k webu za 18 dní.</span>
-            </div>
-            <div class="reference-rail-links">
-              <a href="/projekty/svidnicky-extrem" data-i18n="refpage.casestudy">Případová studie</a>
-              <a href="https://svidnickyextrem.cz/" target="_blank" rel="noopener noreferrer">svidnickyextrem.cz&nbsp;↗</a>
-            </div>
+            <blockquote class="ref-quote"><p>Během spolupráce jsme měli spoustu připomínek a Pavel je vždycky zpracoval bez problémů. Ocenili jsme, že se nebál říct svůj názor, když měl lepší nápad, ale zároveň respektoval, co jsme chtěli. Výsledek předčil naše očekávání.</p></blockquote>
+            <p class="ref-foot"><span class="ref-fact">Spuštěno za 18 dní</span><a href="/portfolio-test/projekty/svidnicky-extrem">Případová studie&nbsp;→</a></p>
           </div>
-          <p class="reference-quote" data-i18n="reference.extrem.text">Během spolupráce jsme měli spoustu připomínek a Pavel je vždycky zpracoval bez problémů. Ocenili jsme, že se nebál říct svůj názor, když měl lepší nápad, ale zároveň respektoval, co jsme chtěli. Výsledek předčil naše očekávání.</p>
-        </div>
-
-        <!-- Mattina Café -->
-        <div class="reference-row reveal">
-          <div class="reference-rail">
-            <img src="assets/mattina-logo-alpha.webp" alt="Mattina Café logo" class="reference-rail-logo" width="181" height="162" loading="lazy" />
-            <div>
-              <div class="reference-rail-company">Mattina Café</div>
-              <div class="reference-rail-person">Ivana Lenčéšová</div>
-            </div>
-            <div class="reference-rail-meta">
-              <span data-i18n="cspage.mattina.sum.scope">WordPress ve dvou jazycích + obsah</span>
-              <span class="fact" data-i18n="refpage.mattina.fact">Hotový měsíc před otevřením kavárny.</span>
-            </div>
-            <div class="reference-rail-links">
-              <a href="/projekty/mattina-cafe" data-i18n="refpage.casestudy">Případová studie</a>
-              <a href="https://mattina.sk/" target="_blank" rel="noopener noreferrer">mattina.sk&nbsp;↗</a>
-            </div>
-          </div>
-          <p class="reference-quote" data-i18n="reference.mattina.text">So spoluprácou som veľmi spokojná, všetko bolo urobené podľa našich predstáv, dokonca aj texty prvých blogov. Ďakujeme.</p>
-        </div>
-
-        <!-- Global Accord Strategies -->
-        <div class="reference-row reveal">
-          <div class="reference-rail">
-            <img src="assets/globalaccord-logo-alpha.webp" alt="Global Accord Strategies logo" class="reference-rail-logo" width="262" height="176" loading="lazy" />
-            <div>
-              <div class="reference-rail-company">Global Accord Strategies</div>
-              <div class="reference-rail-person">Ivana Lenčéšová</div>
-            </div>
-            <div class="reference-rail-meta">
-              <span data-i18n="cspage.gas.sum.scope">WordPress na klíč, devět stránek</span>
-              <span class="fact" data-i18n="refpage.gas.fact">Druhá zakázka od stejné klientky.</span>
-            </div>
-            <div class="reference-rail-links">
-              <a href="/projekty/global-accord-strategies" data-i18n="refpage.casestudy">Případová studie</a>
-              <a href="https://globalaccordstrategies.com/" target="_blank" rel="noopener noreferrer">globalaccordstrategies.com&nbsp;↗</a>
-            </div>
-          </div>
-          <p class="reference-quote" data-i18n="reference.globalaccord.text">Postaral se o celý web od začátku do konce. Vyřešil texty, fotky i technickou stránku, takže jsme se do toho nemuseli vůbec zapojovat. Spolehlivá a bezproblémová spolupráce.</p>
-        </div>
+        </article>
 
       </div>
     </div>
@@ -337,11 +665,11 @@
     <div class="cta-fade"></div>
     <div class="container">
       <div class="references-cta-content">
-        <span class="section-label no-line" style="justify-content: center;" data-i18n="cta.label">Připraveni?</span>
-        <h2 class="section-title" data-i18n-html="cta.title.html">Máte nápad <span class="gradient-text">na web?</span></h2>
-        <p class="section-subtitle" style="margin: 0 auto var(--space-3xl);" data-i18n="cta.subtitle">Napište mi, ozvu se do 24 hodin.</p>
-        <a href="/kontakt#form" class="btn-primary" id="refCtaBtn">
-          <span data-i18n="cta.btn">Nezávazná poptávka</span>
+        <h2 class="section-title">Máte nápad <span class="gradient-text">na web?</span></h2>
+        <p class="section-subtitle">Napište mi, ozvu se do 24 hodin.</p>
+        <p class="section-subtitle">Hlavní stránku vám navrhnu zdarma, a když se vám nebude líbit, nic neplatíte. Weby začínají na 10&nbsp;000&nbsp;Kč, všechny ceny najdete v <a href="/portfolio-test/tvorba-webovych-stranek#cenik">ceníku</a>.</p>
+        <a href="/portfolio-test/kontakt#form" class="btn-primary" id="refCtaBtn">
+          <span>Nezávazná poptávka</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -360,8 +688,8 @@
 
       <!-- Znacka a jednoradkove predstaveni -->
       <div class="footer-top">
-        <a href="/" class="footer-logo">FuxaStudio</a>
-        <p class="footer-claim" data-i18n="footer.claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
+        <a href="/portfolio-test/" class="footer-logo">FuxaStudio</a>
+        <p class="footer-claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
       </div>
 
       <!-- Footer Main Grid -->
@@ -369,7 +697,7 @@
 
         <!-- Left: Kontakt -->
         <div class="footer-brand">
-          <h4 class="footer-heading" data-i18n="footer.contact.heading">Kontakt</h4>
+          <h2 class="footer-heading">Kontakt</h2>
           <div class="footer-contact-list">
             <a href="tel:+420736131410" class="footer-contact-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -387,27 +715,27 @@
               fuxa@fuxastudio.cz
             </a>
           </div>
-          <p class="footer-place" data-i18n="footer.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+          <p class="footer-place">Svídnice u Chrudimi · pracuju po celé ČR i v zahraničí</p>
           <p class="footer-ico">IČO: 29618843</p>
         </div>
 
         <!-- Center: Navigation -->
         <div class="footer-nav">
-          <h4 class="footer-heading" data-i18n="footer.nav.heading">Navigace</h4>
+          <h2 class="footer-heading">Navigace</h2>
           <ul class="footer-nav-list">
-            <li><a href="/" class="footer-nav-link" data-i18n="nav.home">Domů</a></li>
-            <li><a href="/tvorba-webovych-stranek" class="footer-nav-link" data-i18n="nav.services">Služby a ceník</a></li>
-            <li><a href="/tvorba-webovych-stranek-pardubice" class="footer-nav-link" data-i18n="nav.local">Tvorba webů Pardubice</a></li>
-            <li><a href="/o-mne" class="footer-nav-link" data-i18n="nav.about">O mně</a></li>
-            <li><a href="/projekty" class="footer-nav-link" data-i18n="nav.projects">Projekty</a></li>
-            <li><a href="/reference" class="footer-nav-link" data-i18n="nav.references">Reference</a></li>
-            <li><a href="/kontakt" class="footer-nav-link" data-i18n="nav.contact">Kontakt</a></li>
+            <li><a href="/portfolio-test/" class="footer-nav-link">Domů</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek" class="footer-nav-link">Služby a ceník</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek-pardubice" class="footer-nav-link">Tvorba webů Pardubice</a></li>
+            <li><a href="/portfolio-test/o-mne" class="footer-nav-link">O mně</a></li>
+            <li><a href="/portfolio-test/projekty" class="footer-nav-link">Projekty</a></li>
+            <li><a href="/portfolio-test/reference" class="footer-nav-link">Reference</a></li>
+            <li><a href="/portfolio-test/kontakt" class="footer-nav-link">Kontakt</a></li>
           </ul>
         </div>
 
         <!-- Right: Social -->
         <div class="footer-social-col">
-          <h4 class="footer-heading" data-i18n="footer.social.heading">Najdete mě</h4>
+          <h2 class="footer-heading">Najdete mě</h2>
           <div class="footer-socials">
             <a href="https://www.facebook.com/profile.php?id=61572145793086" class="footer-social-link is-brand"
               aria-label="Facebook" id="footerFacebook" target="_blank" rel="noopener noreferrer">
@@ -469,23 +797,18 @@
 
       <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p class="footer-copyright" data-i18n="footer.copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
-        <a href="/ochrana-osobnich-udaju" class="footer-legal-link" data-i18n="nav.privacy">Ochrana osobních údajů</a>        <button type="button" class="footer-cookie-btn" data-cookie-settings data-i18n="cookie.footerLink">Nastavení cookies</button>
+        <p class="footer-copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
+        <a href="/portfolio-test/ochrana-osobnich-udaju" class="footer-legal-link">Ochrana osobních údajů</a>        <button type="button" class="footer-prefs-btn" data-prefs-open>Nastavení cookies</button>
       </div>
 
     </div>
-
-    <!-- Typograficky podpis - dekorace, pro cteciky skryta -->
-    <p class="footer-watermark" aria-hidden="true">FuxaStudio</p>
   </footer>
 
   <!-- Kontaktni lista - jen mobil (CSS .contact-bar), zobrazovani ridi js/main.js -->
   <div class="contact-bar" id="contactBar">
-    <a href="mailto:fuxa@fuxastudio.cz?subject=Popt%C3%A1vka%20webu" class="btn-primary"
-      data-i18n="contactbar.write">Napsat</a>
-    <a href="tel:+420736131410" class="btn-secondary" data-i18n="contactbar.call">Zavolat</a>
-    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu"
-      data-i18n-aria="contactbar.close">
+    <a href="/portfolio-test/kontakt#form" class="btn-primary">Napsat</a>
+    <a href="tel:+420736131410" class="btn-secondary">Zavolat</a>
+    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M18 6 6 18M6 6l12 12" />
@@ -493,12 +816,11 @@
     </button>
   </div>
 
-  <script src="js/translations.js"></script>
-  <script src="js/wave-hero.js"></script>
-  <script src="js/smoke-shader.js"></script>
-  <script src="js/main.js"></script>
-  <script>initWaveHero('waveHeroCanvas', 'hero');</script>
-  <script>initSmokeShader('ctaAetherFlow', 'cta');</script>
+  <script defer src="js/wave-hero.js"></script>
+  <script defer src="js/smoke-shader.js"></script>
+  <script defer src="js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initWaveHero('waveHeroCanvas', 'hero'); });</script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initSmokeShader('ctaAetherFlow', 'cta'); });</script>
 </body>
 
 </html>

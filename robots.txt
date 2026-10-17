@@ -1,4 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://fuxastudio.cz/sitemap.xml
+Disallow: /

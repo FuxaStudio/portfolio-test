@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs" data-page="projects">
 
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <title>Projekty a případové studie — weby na míru | Fuxa Studio</title>
+  <title>Projekty a případové studie, weby na míru | FuxaStudio</title>
   <meta name="description"
     content="Pět klientských webů s případovými studiemi. Reálný průběh zakázek, termíny a čísla z Google Search Console." />
   <meta name="author" content="Pavel Fuxa" />
@@ -14,36 +14,52 @@
   <!-- Canonical + hreflang -->
   <link rel="canonical" href="https://fuxastudio.cz/projekty" />
   <link rel="alternate" hreflang="cs" href="https://fuxastudio.cz/projekty" />
+  <link rel="alternate" hreflang="en" href="https://fuxastudio.cz/en/projects" />
   <link rel="alternate" hreflang="x-default" href="https://fuxastudio.cz/projekty" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fuxastudio.cz/projekty" />
-  <meta property="og:title" content="Projekty a případové studie — weby na míru | Fuxa Studio" />
+  <meta property="og:title" content="Projekty a případové studie, weby na míru | FuxaStudio" />
   <meta property="og:description" content="Pět klientských webů s případovými studiemi. Reálný průběh zakázek, termíny a čísla z Google Search Console." />
   <meta property="og:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="675" />
-  <meta property="og:image:alt" content="Pavel Fuxa — Fuxa Studio, tvorba webových stránek na míru" />
+  <meta property="og:image:alt" content="Pavel Fuxa z FuxaStudia, tvorba webových stránek na míru" />
   <meta property="og:locale" content="cs_CZ" />
-  <meta property="og:site_name" content="Fuxa Studio" />
+  <meta property="og:site_name" content="FuxaStudio" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Projekty a případové studie — weby na míru | Fuxa Studio" />
+  <meta name="twitter:title" content="Projekty a případové studie, weby na míru | FuxaStudio" />
   <meta name="twitter:description" content="Pět klientských webů s případovými studiemi a čísly z Google Search Console." />
   <meta name="twitter:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="/assets/fonts/bricolage-grotesque-var-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" href="/portfolio-test/assets/fonts/bricolage-grotesque-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <!-- Fonts - self-host, zadny pozadavek na cizi domenu. Deklarace jsou
+       v css/style.css, tady se jen predbezne stahnou rezy nad ohybem. -->
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/favicon.png" />
+
+  <!-- Animace jsou progressive enhancement: skryty vychozi stav se zapina az
+       touhle tridou. Bez JS (bot, scraper, pomala linka) i pri zapnutem
+       "omezit pohyb" zustava v CSS rovnou konecny vzhled stranky.
+       Inline a synchronne v <head>, aby trida platila uz pro prvni vykresleni. -->
+  <script>
+    (function () {
+      try {
+        if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('js-anim');
+        }
+      } catch (e) { /* stary prohlizec - zustane konecny stav, coz je v poradku */ }
+    })();
+  </script>
+  <link rel="icon" href="/portfolio-test/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="/portfolio-test/assets/brand/icon.svg" />
+  <link rel="apple-touch-icon" href="/portfolio-test/apple-touch-icon.png" />
+  <link rel="manifest" href="/portfolio-test/assets/brand/site.webmanifest" />
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -62,31 +78,15 @@
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": "https://fuxastudio.cz/projekty",
-    "name": "Webové projekty — Pavel Fuxa",
-    "description": "Portfolio webových projektů — moderní weby na míru od Pavel Fuxa, Fuxa Studio",
+    "name": "Projekty a případové studie, weby na míru | FuxaStudio",
+    "description": "Pět klientských webů s případovými studiemi. Reálný průběh zakázek, termíny a čísla z Google Search Console.",
     "url": "https://fuxastudio.cz/projekty",
-    "dateModified": "2026-08-17",
+    "dateModified": "2026-10-16",
     "author": { "@id": "https://fuxastudio.cz/#person" },
     "hasPart": [
       {
         "@type": "CreativeWork",
-        "name": "Svídnický extrém",
-        "url": "https://fuxastudio.cz/projekty/svidnicky-extrem",
-        "sameAs": "https://svidnickyextrem.cz/",
-        "description": "Web pro sportovní akci Svídnický extrém — od nuly k webu s online registracemi za 18 dní.",
-        "author": { "@id": "https://fuxastudio.cz/#person" }
-      },
-      {
-        "@type": "CreativeWork",
-        "name": "Global Accord Strategies",
-        "url": "https://fuxastudio.cz/projekty/global-accord-strategies",
-        "sameAs": "https://globalaccordstrategies.com",
-        "description": "Web pro Global Accord Strategies — mezinárodní poradenskou společnost. Devět stránek na klíč za 8 dní.",
-        "author": { "@id": "https://fuxastudio.cz/#person" }
-      },
-      {
-        "@type": "CreativeWork",
-        "name": "Mattina",
+        "name": "Mattina Café",
         "url": "https://fuxastudio.cz/projekty/mattina-cafe",
         "sameAs": "https://mattina.sk/",
         "description": "Web pro kavárnu, která ještě neexistovala. Dvojjazyčný, s obsahem psaným za pochodu.",
@@ -94,45 +94,33 @@
       },
       {
         "@type": "CreativeWork",
+        "name": "Svatební web",
+        "url": "https://fuxastudio.cz/projekty/svatebni-web",
+        "description": "Nikdo nemusel obvolávat svatebčany. Web pro hosty v designu oznámení, formulář za celou rodinu a přehled, který se počítá sám.",
+        "author": { "@id": "https://fuxastudio.cz/#person" }
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "Global Accord Strategies",
+        "url": "https://fuxastudio.cz/projekty/global-accord-strategies",
+        "sameAs": "https://globalaccordstrategies.com",
+        "description": "Celý web na klíč. Devět stránek včetně textů, fotografií a právních náležitostí. Druhá zakázka od stejné klientky.",
+        "author": { "@id": "https://fuxastudio.cz/#person" }
+      },
+      {
+        "@type": "CreativeWork",
         "name": "Mlýn Janderov",
         "url": "https://fuxastudio.cz/projekty/mlyn-janderov",
         "sameAs": "https://mlyn-janderov.cz/",
-        "description": "Web pro rodinné mlynářství Mlýn Janderov s tradicí od roku 1540, včetně převodu domény a hostingu.",
+        "description": "Klient nemusel řešit vůbec nic technického. Starý web bez přístupů jsem převzal celý, i s doménou a hostingem.",
         "author": { "@id": "https://fuxastudio.cz/#person" }
       },
       {
         "@type": "CreativeWork",
-        "name": "Svatební web",
-        "url": "https://fuxastudio.cz/projekty/svatebni-web",
-        "description": "Web pro svatební hosty v designu tištěného oznámení, s formulářem za celou rodinu a automatickým přehledem počtů jídel, přípitků a alergií.",
-        "author": { "@id": "https://fuxastudio.cz/#person" }
-      },
-      {
-        "@type": "CreativeWork",
-        "name": "El Corazón Auténtico",
-        "url": "https://fuxastudio.github.io/Mexicka/",
-        "description": "Ukázkový web pro mexickou restauraci s důrazem na vizuální dojem značky.",
-        "author": { "@id": "https://fuxastudio.cz/#person" }
-      },
-      {
-        "@type": "CreativeWork",
-        "name": "Kavárna Karolína",
-        "url": "https://fuxastudio.github.io/Kavarna/",
-        "description": "Ukázkový redesign konceptu kavárny — moderní vzhled a rychlé načítání.",
-        "author": { "@id": "https://fuxastudio.cz/#person" }
-      },
-      {
-        "@type": "CreativeWork",
-        "name": "Cukrárna Skuteč",
-        "url": "https://cukrarna.framer.website/",
-        "description": "Ukázkový web pro cukrárnu — hravý vizuál a přívětivá prezentace nabídky.",
-        "author": { "@id": "https://fuxastudio.cz/#person" }
-      },
-      {
-        "@type": "CreativeWork",
-        "name": "Aurora",
-        "url": "https://restauraceaurora.framer.website/",
-        "description": "Ukázkový web pro luxusní restauraci — elegantní typografie a plynulé animace.",
+        "name": "Svídnický extrém",
+        "url": "https://fuxastudio.cz/projekty/svidnicky-extrem",
+        "sameAs": "https://svidnickyextrem.cz/",
+        "description": "Od nuly k webu za 18 dní. Závod, který žil jen na Facebooku, získal web s online registracemi.",
         "author": { "@id": "https://fuxastudio.cz/#person" }
       }
     ]
@@ -172,7 +160,30 @@
       }
     }
     .projects-cta-content .section-subtitle {
-      margin: 0 auto var(--space-3xl);
+      margin: 0 auto var(--space-2xl);
+    }
+    .projects-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md) var(--space-xl);
+    }
+    /* Cenik je vedlejsi cesta vedle hlavniho tlacitka, proto odkaz, ne druhe tlacitko */
+    .projects-cta-link {
+      color: var(--color-text-primary);
+      text-decoration: underline;
+      text-decoration-color: var(--color-text-muted);
+      text-underline-offset: 4px;
+      transition: text-decoration-color var(--duration-fast) var(--ease-out);
+    }
+    .projects-cta-link:hover {
+      text-decoration-color: var(--color-text-primary);
+    }
+    .projects-cta-note {
+      margin-top: var(--space-lg);
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
     }
   </style>
   <!-- .project-stat se presunul do css/style.css (sdili ho index i /projekty) -->
@@ -190,7 +201,13 @@
       security_storage: 'granted'
     });
   </script>
-  <script defer src="js/consent.js"></script>
+  <!-- Preklady pred site-prefs.js: cookie lista se sklada uz s texty
+       v aktualnim jazyce. defer drzi poradi a nic neblokuje.
+       Soubor i tridy uvnitr se jmenuji "prefs", ne "cookie" - Brave se
+       zapnutymi stity a adblocky maji v seznamech pravidla na cookie-*
+       nazvy a listu bez varovani schovaji. Neprejmenovavat zpet. -->
+  <script defer src="js/translations.js"></script>
+  <script defer src="js/site-prefs.js"></script>
 </head>
 
 <body>
@@ -198,32 +215,30 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="/" class="nav-logo"><img src="assets/logo.png" alt="Fuxa Studio Logo" width="279" height="191"></a>
+      <a href="/portfolio-test/" class="nav-logo"><img src="/portfolio-test/assets/brand/fs-logo-nav.svg" alt="Logo FuxaStudio" width="279" height="191"></a>
 
       <div class="nav-links" id="navLinks">
-        <a href="/" data-i18n="nav.home">Domů</a>
-        <a href="/tvorba-webovych-stranek" data-i18n="nav.services">Služby a ceník</a>
+        <a href="/portfolio-test/">Domů</a>
+        <a href="/portfolio-test/tvorba-webovych-stranek">Služby a ceník</a>
 
-        <a href="/projekty" class="static-active" data-i18n="nav.projects">Projekty</a>
-        <a href="/reference" data-i18n="nav.references">Reference</a>
-        <a href="/o-mne" data-i18n="nav.about">O mně</a>
+        <a href="/portfolio-test/projekty" class="static-active">Projekty</a>
+        <a href="/portfolio-test/reference">Reference</a>
+        <a href="/portfolio-test/o-mne">O mně</a>
         <div class="menu-extra">
-          <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-          <div class="lang-switcher" role="group" aria-label="Language / Jazyk">
-            <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-          </div>
+          <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+          <a class="lang-switcher" href="/portfolio-test/en/projects" hreflang="en" aria-label="Přepnout na anglickou verzi">
+            <span class="lang-btn">EN</span>
+          </a>
         </div>
       </div>
 
       <div class="nav-right">
         <!-- Language switcher -->
-        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language / Jazyk">
-          <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-        </div>
-        <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <a class="lang-switcher" id="langSwitcher" href="/portfolio-test/en/projects" hreflang="en" aria-label="Přepnout na anglickou verzi">
+          <span class="lang-btn">EN</span>
+        </a>
+        <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -235,13 +250,13 @@
   <main id="main-content">
 
   <!-- ========== HERO ========== -->
-  <section class="hero" id="hero" style="min-height: 50vh; padding-top: 8rem; padding-bottom: 4rem;">
+  <section class="hero hero--center" id="hero" style="min-height: 50vh; padding-top: 8rem; padding-bottom: 4rem;">
     <canvas class="hero-stars-canvas" id="waveHeroCanvas"></canvas>
 
     <div class="container hero-content" style="padding-top: 2rem;">
       <h1 class="hero-title">
         <span class="line">
-          <span data-i18n="projectspage.hero.line1">Moje</span> <span class="gradient-text" data-i18n="projectspage.hero.line2">Projekty</span>
+          <span class="gradient-text">Projekty</span>
         </span>
       </h1>
     </div>
@@ -251,326 +266,156 @@
   <section class="projects" id="projects" style="padding-top: var(--rhythm-1);">
     <div class="container">
 
-      <div style="margin-bottom: var(--space-2xl);">
-        <h2 class="section-title reveal" data-i18n-html="projectspage.client.title.html">Klientské <span class="gradient-text">projekty</span></h2>
-        <p class="section-subtitle reveal" data-i18n="projectspage.client.subtitle">Weby, které dnes běží naostro a slouží svým majitelům.</p>
-        <p class="projects-meta reveal" data-i18n="projectspage.client.meta">5 klientských webů · každý hotový do měsíce od dodání podkladů</p>
-      </div>
-
       <div class="projects-grid">
-        <!-- Project 1 — Svídnický extrém (reálná zakázka) -->
-        <article class="project-card reveal" id="project1" data-category="sport">
-          <div class="project-number" style="font-size: 6rem; top: var(--space-lg); bottom: auto;">01</div>
+        <!-- Project 1 — Mattina Café (reálná zakázka, hlavní projekt přes celou šířku) -->
+        <article class="project-card project-featured reveal" id="project1">
           <div class="project-image">
-            <img src="assets/cs-svidnicky-hero.webp" srcset="assets/cs-svidnicky-hero-720.webp 720w, assets/cs-svidnicky-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="721" alt="Náhled webu Svídnický extrém" fetchpriority="high" />
+            <img src="assets/cs-mattina-hero.webp" srcset="assets/cs-mattina-hero-400.webp 400w, assets/cs-mattina-hero-720.webp 720w, assets/cs-mattina-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 740px" width="1440" height="900" alt="Náhled webu Mattina Café" fetchpriority="high" />
             <div class="project-image-overlay">
               <div class="project-link-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                  <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
             </div>
           </div>
           <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.sport">Sport</span>
-            </div>
-            <h3 class="project-title">Svídnický extrém</h3>
-            <p class="project-description" data-i18n="project.svidnicky.desc">
-              Od nuly k webu za 18 dní. Závod, který žil jen na Facebooku, získal web s online registracemi.
-            </p>
-            <p class="project-stat" data-i18n="project.svidnicky.stat">Pozice 2,7 na Googlu za 3 měsíce</p>
-            <span class="project-cta">
-              <span data-i18n="casestudy.open">Případová studie</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-          <a class="project-card-overlay-link" href="/projekty/svidnicky-extrem" aria-label="Případová studie Svídnický extrém"></a>
-        </article>
-
-        <!-- Project 2 — Global Accord Strategies (reálná zakázka) -->
-        <article class="project-card reveal reveal-delay-1" id="project2" data-category="business">
-          <div class="project-number" style="font-size: 6rem; top: var(--space-lg); bottom: auto;">02</div>
-          <div class="project-image">
-            <img src="assets/cs-gas-hero.webp" srcset="assets/cs-gas-hero-720.webp 720w, assets/cs-gas-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="718" alt="Náhled webu Global Accord Strategies" loading="lazy" />
-            <div class="project-image-overlay">
-              <div class="project-link-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.business">Poradenství</span>
-            </div>
-            <h3 class="project-title">Global Accord Strategies</h3>
-            <p class="project-description" data-i18n="project.globalaccord.desc">
-              Celý web na klíč. Devět stránek včetně textů, fotografií a právních stránek. Druhá zakázka od stejné klientky.
-            </p>
-            <p class="project-stat" data-i18n="project.globalaccord.stat">8 dní od zadání ke schválení</p>
-            <span class="project-cta">
-              <span data-i18n="casestudy.open">Případová studie</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-          <a class="project-card-overlay-link" href="/projekty/global-accord-strategies" aria-label="Případová studie Global Accord Strategies"></a>
-        </article>
-
-        <!-- Project 3 — Mattina (reálná zakázka) -->
-        <article class="project-card reveal" id="project3" data-category="kavarna">
-          <div class="project-number">03</div>
-          <div class="project-image">
-            <img src="assets/cs-mattina-hero.webp" srcset="assets/cs-mattina-hero-720.webp 720w, assets/cs-mattina-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="900" alt="Náhled webu Mattina" loading="lazy" />
-            <div class="project-image-overlay">
-              <div class="project-link-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.kavarna">Kavárna</span>
-            </div>
-            <h3 class="project-title">Mattina</h3>
-            <p class="project-description" data-i18n="project.mattina.desc">
+            <h2 class="project-title">Mattina Café</h2>
+            <p class="project-description">
               Web pro kavárnu, která ještě neexistovala. Dvojjazyčný, s obsahem psaným za pochodu.
             </p>
-            <p class="project-stat" data-i18n="project.mattina.stat">Hotovo měsíc před otevřením</p>
+            <p class="project-stat">Hotovo měsíc před otevřením</p>
             <span class="project-cta">
-              <span data-i18n="casestudy.open">Případová studie</span>
+              <span>Případová studie</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </span>
           </div>
-          <a class="project-card-overlay-link" href="/projekty/mattina-cafe" aria-label="Případová studie Mattina Café"></a>
+          <a class="project-card-overlay-link" href="/portfolio-test/projekty/mattina-cafe" aria-label="Případová studie Mattina Café"></a>
+        </article>
+
+        <!-- Project 2 — Svatební web (reálná zakázka) -->
+        <article class="project-card reveal" id="project2">
+          <div class="project-image">
+            <img src="assets/cs-svatba-hero.webp" srcset="assets/cs-svatba-hero-400.webp 400w, assets/cs-svatba-hero-720.webp 720w, assets/cs-svatba-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 650px" width="1440" height="900" alt="Náhled svatebního webu s formulářem pro hosty" loading="lazy" />
+            <div class="project-image-overlay">
+              <div class="project-link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h2 class="project-title">Svatební web</h2>
+            <p class="project-description">
+              Nikdo nemusel obvolávat svatebčany. Web pro hosty v designu oznámení, formulář za celou rodinu a přehled, který se počítá sám.
+            </p>
+            <p class="project-stat">30 formulářů za 51 hostů, web za 11 dní</p>
+            <span class="project-cta">
+              <span>Případová studie</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+          <a class="project-card-overlay-link" href="/portfolio-test/projekty/svatebni-web" aria-label="Případová studie Svatební web"></a>
+        </article>
+
+        <!-- Project 3 — Global Accord Strategies (reálná zakázka) -->
+        <article class="project-card reveal reveal-delay-1" id="project3">
+          <div class="project-image">
+            <img src="assets/cs-gas-hero.webp" srcset="assets/cs-gas-hero-400.webp 400w, assets/cs-gas-hero-720.webp 720w, assets/cs-gas-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 650px" width="1440" height="718" alt="Náhled webu Global Accord Strategies" loading="lazy" />
+            <div class="project-image-overlay">
+              <div class="project-link-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <h2 class="project-title">Global Accord Strategies</h2>
+            <p class="project-description">
+              Celý web na klíč. Devět stránek včetně textů, fotografií a právních náležitostí. Druhá zakázka od stejné klientky.
+            </p>
+            <p class="project-stat">8 dní od zadání ke spuštění</p>
+            <span class="project-cta">
+              <span>Případová studie</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+          <a class="project-card-overlay-link" href="/portfolio-test/projekty/global-accord-strategies" aria-label="Případová studie Global Accord Strategies"></a>
         </article>
 
         <!-- Project 4 — Mlýn Janderov (reálná zakázka) -->
-        <article class="project-card reveal reveal-delay-1" id="project4" data-category="mlyn">
-          <div class="project-number">04</div>
+        <article class="project-card reveal" id="project4">
           <div class="project-image">
-            <img src="assets/cs-janderov-hero.webp" srcset="assets/cs-janderov-hero-720.webp 720w, assets/cs-janderov-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="900" alt="Náhled webu Mlýn Janderov" loading="lazy" />
+            <img src="assets/cs-janderov-hero.webp" srcset="assets/cs-janderov-hero-400.webp 400w, assets/cs-janderov-hero-720.webp 720w, assets/cs-janderov-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 650px" width="1440" height="900" alt="Náhled webu Mlýn Janderov" loading="lazy" />
             <div class="project-image-overlay">
               <div class="project-link-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                  <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
             </div>
           </div>
           <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.mlyn">Lokální podnik</span>
-            </div>
-            <h3 class="project-title">Mlýn Janderov</h3>
-            <p class="project-description" data-i18n="project.janderov.desc">
-              Klient nemusel řešit vůbec nic technického. Zastaralý web bez přístupů převzatý celý včetně domény a hostingu.
+            <h2 class="project-title">Mlýn Janderov</h2>
+            <p class="project-description">
+              Klient nemusel řešit vůbec nic technického. Starý web bez přístupů jsem převzal celý, i s doménou a hostingem.
             </p>
-            <p class="project-stat" data-i18n="project.janderov.stat">18 dní od poptávky ke spuštění</p>
+            <p class="project-stat">6 dní od zadání ke spuštění</p>
             <span class="project-cta">
-              <span data-i18n="casestudy.open">Případová studie</span>
+              <span>Případová studie</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </span>
           </div>
-          <a class="project-card-overlay-link" href="/projekty/mlyn-janderov" aria-label="Případová studie Mlýn Janderov"></a>
+          <a class="project-card-overlay-link" href="/portfolio-test/projekty/mlyn-janderov" aria-label="Případová studie Mlýn Janderov"></a>
         </article>
 
-        <!-- Project 5 — Svatební web (reálná zakázka) -->
-        <article class="project-card reveal" id="project5" data-category="svatba">
-          <div class="project-number">05</div>
+        <!-- Project 5 — Svídnický extrém (reálná zakázka) -->
+        <article class="project-card reveal reveal-delay-1" id="project5">
           <div class="project-image">
-            <img src="assets/cs-svatba-hero.webp" srcset="assets/cs-svatba-hero-720.webp 720w, assets/cs-svatba-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="900" alt="Náhled svatebního webu s formulářem pro hosty" loading="lazy" />
+            <img src="assets/cs-svidnicky-hero.webp" srcset="assets/cs-svidnicky-hero-400.webp 400w, assets/cs-svidnicky-hero-720.webp 720w, assets/cs-svidnicky-hero.webp 1440w" sizes="(max-width: 768px) 92vw, 650px" width="1440" height="721" alt="Náhled webu Svídnický extrém" loading="lazy" />
             <div class="project-image-overlay">
               <div class="project-link-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                  <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
             </div>
           </div>
           <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.svatba">Svatba</span>
-            </div>
-            <h3 class="project-title" data-i18n="project.svatba.title">Svatební web</h3>
-            <p class="project-description" data-i18n="project.svatba.desc">
-              Nikdo nemusel obvolávat svatebčany. Web pro hosty v designu oznámení, formulář za celou rodinu a přehled, který se počítá sám.
+            <h2 class="project-title">Svídnický extrém</h2>
+            <p class="project-description">
+              Od nuly k webu za 18 dní. Závod, který žil jen na Facebooku, získal web s online registracemi.
             </p>
-            <p class="project-stat" data-i18n="project.svatba.stat">30 formulářů a z nich hotové počty jídel</p>
+            <p class="project-stat">126 kliknutí z Googlu za 3 měsíce</p>
             <span class="project-cta">
-              <span data-i18n="casestudy.open">Případová studie</span>
+              <span>Případová studie</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </span>
           </div>
-          <a class="project-card-overlay-link" href="/projekty/svatebni-web" aria-label="Případová studie Svatební web"></a>
+          <a class="project-card-overlay-link" href="/portfolio-test/projekty/svidnicky-extrem" aria-label="Případová studie Svídnický extrém"></a>
         </article>
-
-      </div>
-
-
-
-      <div style="margin: var(--space-section) 0 var(--space-2xl);">
-        <h2 class="section-title reveal" data-i18n-html="projectspage.concepts.title.html">Studie a <span class="gradient-text">koncepty</span></h2>
-        <p class="section-subtitle reveal" data-i18n="projectspage.concepts.subtitle">Vlastní cvičení a ukázky stylu. Nejsou to klientské zakázky, ale ukazují, jak přemýšlím o designu.</p>
-      </div>
-
-      <div class="projects-grid projects-grid--compact">
-
-        <!-- Project 5 — El Corazón Auténtico -->
-        <article class="project-card reveal" id="project6" data-category="restaurace">
-          <div class="project-number">01</div>
-          <div class="project-image">
-            <img src="assets/project4.webp" srcset="assets/project4-720.webp 720w, assets/project4.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="900" alt="Náhled webu El Corazón Auténtico" loading="lazy" />
-            <div class="project-image-overlay">
-              <div class="project-link-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.restaurace">Restaurace</span>
-            </div>
-            <h3 class="project-title">El Corazón Auténtico</h3>
-            <p class="project-description" data-i18n="project.elcorazon.desc">
-              Web pro mexickou restauraci s výraznou atmosférou. Procvičil jsem si práci s barevností, prezentaci menu a budování silného vizuálního dojmu značky.
-            </p>
-            <span class="project-cta">
-              <span data-i18n="project.cta">Přejít na stránku</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-          <a class="project-card-overlay-link" href="https://fuxastudio.github.io/Mexicka/" target="_blank" rel="noopener noreferrer" aria-label="Přejít na El Corazón Auténtico"></a>
-        </article>
-
-        <!-- Project 6 — Kavárna Karolína -->
-        <article class="project-card reveal reveal-delay-1" id="project7" data-category="kavarna">
-          <div class="project-number">02</div>
-          <div class="project-image">
-            <img src="assets/project3.webp" srcset="assets/project3-720.webp 720w, assets/project3.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="900" alt="Náhled webu Kavárna Karolína" loading="lazy" />
-            <div class="project-image-overlay">
-              <div class="project-link-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.kavarna">Kavárna</span>
-            </div>
-            <h3 class="project-title">Kavárna Karolína</h3>
-            <p class="project-description" data-i18n="project.kavarna.desc">
-              Redesign konceptu kavárny. Cílem byl moderní, útulný vzhled a rychlé načítání i na pomalém připojení.
-            </p>
-            <span class="project-cta">
-              <span data-i18n="project.cta">Přejít na stránku</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-          <a class="project-card-overlay-link" href="https://fuxastudio.github.io/Kavarna/" target="_blank" rel="noopener noreferrer" aria-label="Přejít na Kavárna Karolína"></a>
-        </article>
-
-        <!-- Project 7 — Cukrárna Skuteč -->
-        <article class="project-card reveal" id="project8" data-category="cukrarna">
-          <div class="project-number">03</div>
-          <div class="project-image">
-            <img src="assets/project2.webp" srcset="assets/project2-720.webp 720w, assets/project2.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="900" alt="Náhled webu Cukrárna Skuteč" loading="lazy" />
-            <div class="project-image-overlay">
-              <div class="project-link-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.cukrarna">Cukrárna</span>
-            </div>
-            <h3 class="project-title">Cukrárna Skuteč</h3>
-            <p class="project-description" data-i18n="project.cukrarna.desc">
-              Hravý a barevný web pro cukrárnu. Zaměřil jsem se na svěží vizuál, čitelnou prezentaci nabídky a přívětivý dojem, který láká na sladké.
-            </p>
-            <span class="project-cta">
-              <span data-i18n="project.cta">Přejít na stránku</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-          <a class="project-card-overlay-link" href="https://cukrarna.framer.website/" target="_blank" rel="noopener noreferrer" aria-label="Přejít na Cukrárna Skuteč"></a>
-        </article>
-
-        <!-- Project 8 — Aurora -->
-        <article class="project-card reveal reveal-delay-1" id="project9" data-category="restaurace">
-          <div class="project-number">04</div>
-          <div class="project-image">
-            <img src="assets/project1.webp" srcset="assets/project1-720.webp 720w, assets/project1.webp 1440w" sizes="(max-width: 768px) 92vw, 552px" width="1440" height="900" alt="Náhled webu Aurora" loading="lazy" />
-            <div class="project-image-overlay">
-              <div class="project-link-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.restaurace">Restaurace</span>
-            </div>
-            <h3 class="project-title">Aurora</h3>
-            <p class="project-description" data-i18n="project.aurora.desc">
-              Koncept webu pro luxusní restauraci. Elegantní typografie, plynulé animace a atmosféra, která ladí s prémiovým gastro zážitkem.
-            </p>
-            <span class="project-cta">
-              <span data-i18n="project.cta">Přejít na stránku</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-          <a class="project-card-overlay-link" href="https://restauraceaurora.framer.website/" target="_blank" rel="noopener noreferrer" aria-label="Přejít na Aurora"></a>
-        </article>
-
       </div>
     </div>
   </section>
@@ -581,16 +426,19 @@
     <div class="cta-fade"></div>
     <div class="container">
       <div class="projects-cta-content">
-        <span class="section-label no-line" style="justify-content: center;" data-i18n="cta.label">Připraveni?</span>
-        <h2 class="section-title" data-i18n-html="cta.title.html">Máte nápad <span class="gradient-text">na web?</span></h2>
-        <p class="section-subtitle" data-i18n="cta.subtitle">Napište mi, ozvu se do 24 hodin.</p>
-        <a href="/kontakt#form" class="btn-primary" id="projectsCtaBtn">
-          <span data-i18n="cta.btn">Nezávazná poptávka</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </a>
+        <h2 class="section-title">Máte nápad <span class="gradient-text">na web?</span></h2>
+        <p class="section-subtitle">Weby jako tyhle vycházejí na 10&nbsp;000&nbsp;&ndash;&#8288;&nbsp;28&nbsp;000&nbsp;Kč podle rozsahu. Návrh hlavní stránky dostanete zdarma.</p>
+        <div class="projects-cta-actions">
+          <a href="/portfolio-test/kontakt#form" class="btn-primary" id="projectsCtaBtn">
+            <span>Nezávazná poptávka</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a href="/portfolio-test/tvorba-webovych-stranek#cenik" class="projects-cta-link">Ceník</a>
+        </div>
+        <p class="projects-cta-note">Napište mi, ozvu se do 24 hodin.</p>
       </div>
     </div>
   </section>
@@ -604,8 +452,8 @@
 
       <!-- Znacka a jednoradkove predstaveni -->
       <div class="footer-top">
-        <a href="/" class="footer-logo">FuxaStudio</a>
-        <p class="footer-claim" data-i18n="footer.claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
+        <a href="/portfolio-test/" class="footer-logo">FuxaStudio</a>
+        <p class="footer-claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
       </div>
 
       <!-- Footer Main Grid -->
@@ -613,7 +461,7 @@
 
         <!-- Left: Kontakt -->
         <div class="footer-brand">
-          <h4 class="footer-heading" data-i18n="footer.contact.heading">Kontakt</h4>
+          <h2 class="footer-heading">Kontakt</h2>
           <div class="footer-contact-list">
             <a href="tel:+420736131410" class="footer-contact-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -632,28 +480,28 @@
               fuxa@fuxastudio.cz
             </a>
           </div>
-          <p class="footer-place" data-i18n="footer.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+          <p class="footer-place">Svídnice u Chrudimi · pracuju po celé ČR i v zahraničí</p>
           <p class="footer-ico">IČO: 29618843</p>
         </div>
 
         <!-- Center: Navigation -->
         <div class="footer-nav">
-          <h4 class="footer-heading" data-i18n="footer.nav.heading">Navigace</h4>
+          <h2 class="footer-heading">Navigace</h2>
           <ul class="footer-nav-list">
-            <li><a href="/" class="footer-nav-link" data-i18n="nav.home">Domů</a></li>
-            <li><a href="/tvorba-webovych-stranek" class="footer-nav-link" data-i18n="nav.services">Služby a ceník</a></li>
+            <li><a href="/portfolio-test/" class="footer-nav-link">Domů</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek" class="footer-nav-link">Služby a ceník</a></li>
 
-            <li><a href="/tvorba-webovych-stranek-pardubice" class="footer-nav-link" data-i18n="nav.local">Tvorba webů Pardubice</a></li>
-            <li><a href="/o-mne" class="footer-nav-link" data-i18n="nav.about">O mně</a></li>
-            <li><a href="/projekty" class="footer-nav-link" data-i18n="nav.projects">Projekty</a></li>
-            <li><a href="/reference" class="footer-nav-link" data-i18n="nav.references">Reference</a></li>
-            <li><a href="/kontakt" class="footer-nav-link" data-i18n="nav.contact">Kontakt</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek-pardubice" class="footer-nav-link">Tvorba webů Pardubice</a></li>
+            <li><a href="/portfolio-test/o-mne" class="footer-nav-link">O mně</a></li>
+            <li><a href="/portfolio-test/projekty" class="footer-nav-link">Projekty</a></li>
+            <li><a href="/portfolio-test/reference" class="footer-nav-link">Reference</a></li>
+            <li><a href="/portfolio-test/kontakt" class="footer-nav-link">Kontakt</a></li>
           </ul>
         </div>
 
         <!-- Right: Social -->
         <div class="footer-social-col">
-          <h4 class="footer-heading" data-i18n="footer.social.heading">Najdete mě</h4>
+          <h2 class="footer-heading">Najdete mě</h2>
           <div class="footer-socials">
             <a href="https://www.facebook.com/profile.php?id=61572145793086" class="footer-social-link is-brand"
               aria-label="Facebook" id="footerFacebook" target="_blank" rel="noopener noreferrer">
@@ -718,23 +566,18 @@
 
       <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p class="footer-copyright" data-i18n="footer.copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
-        <a href="/ochrana-osobnich-udaju" class="footer-legal-link" data-i18n="nav.privacy">Ochrana osobních údajů</a>        <button type="button" class="footer-cookie-btn" data-cookie-settings data-i18n="cookie.footerLink">Nastavení cookies</button>
+        <p class="footer-copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
+        <a href="/portfolio-test/ochrana-osobnich-udaju" class="footer-legal-link">Ochrana osobních údajů</a>        <button type="button" class="footer-prefs-btn" data-prefs-open>Nastavení cookies</button>
       </div>
 
     </div>
-
-    <!-- Typograficky podpis - dekorace, pro cteciky skryta -->
-    <p class="footer-watermark" aria-hidden="true">FuxaStudio</p>
   </footer>
 
   <!-- Kontaktni lista - jen mobil (CSS .contact-bar), zobrazovani ridi js/main.js -->
   <div class="contact-bar" id="contactBar">
-    <a href="mailto:fuxa@fuxastudio.cz?subject=Popt%C3%A1vka%20webu" class="btn-primary"
-      data-i18n="contactbar.write">Napsat</a>
-    <a href="tel:+420736131410" class="btn-secondary" data-i18n="contactbar.call">Zavolat</a>
-    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu"
-      data-i18n-aria="contactbar.close">
+    <a href="/portfolio-test/kontakt#form" class="btn-primary">Napsat</a>
+    <a href="tel:+420736131410" class="btn-secondary">Zavolat</a>
+    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M18 6 6 18M6 6l12 12" />
@@ -742,12 +585,11 @@
     </button>
   </div>
 
-  <script src="js/translations.js"></script>
-  <script src="js/wave-hero.js"></script>
-  <script src="js/smoke-shader.js"></script>
-  <script src="js/main.js"></script>
-  <script>initWaveHero('waveHeroCanvas', 'hero');</script>
-  <script>initSmokeShader('ctaAetherFlow', 'cta');</script>
+  <script defer src="js/wave-hero.js"></script>
+  <script defer src="js/smoke-shader.js"></script>
+  <script defer src="js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initWaveHero('waveHeroCanvas', 'hero'); });</script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initSmokeShader('ctaAetherFlow', 'cta'); });</script>
 
 </body>
 

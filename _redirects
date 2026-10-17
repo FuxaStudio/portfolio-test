@@ -1,8 +1,28 @@
-/about.html /o-mne 301
-/about /o-mne 301
-/contact.html /kontakt 301
-/contact /kontakt 301
-/projects.html /projekty 301
-/projects /projekty 301
+# Ceske .html varianty na ciste URL
+/index.html / 301
+/kontakt.html /kontakt 301
+/o-mne.html /o-mne 301
+/projekty.html /projekty 301
+/reference.html /reference 301
+
+# Anglicky znejici cesty vedou na EN verzi, ne do cestiny. Vznikly drive, nez
+# /en/ existovalo, a mirily na ceske stranky - kdo napsal /projects, dostal
+# cesky web. Cil je vzdy primo koncova EN stranka, aby to byl jeden hop.
+/about.html /en/about 301
+/about /en/about 301
+/contact.html /en/contact 301
+/contact /en/contact 301
+/projects.html /en/projects 301
+/projects /en/projects 301
+
+# /cenik je cesky nazev, cil zustava cesky
 /cenik.html /tvorba-webovych-stranek 301
 /cenik /tvorba-webovych-stranek 301
+
+# Hadatelne cesty. Nikdy na webu nebyly, ale clovek si je tipne podle toho, jak
+# se stranky jmenuji jinde. Vsechny miri primo na koncovou EN stranku.
+/privacy /en/privacy 301
+/privacy.html /en/privacy 301
+/pricing /en/web-design-pricing 301
+/en/pricing /en/web-design-pricing 301
+/en/wedding-website /en/projects/wedding-website 301

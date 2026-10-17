@@ -2,47 +2,62 @@
 <html lang="cs" data-page="pardubice">
 
 <head>
+  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <title>Tvorba webových stránek Pardubice — Pavel Fuxa | Fuxa Studio</title>
+  <title>Tvorba webových stránek Pardubice | FuxaStudio</title>
   <meta name="description"
-    content="Tvorba webových stránek v Pardubicích a okolí — od místního tvůrce, ne anonymní agentury. Osobní schůzka, web na míru od 10 000 Kč, hotový za 1–3 týdny." />
+    content="Weby pro firmy z Pardubic, Chrudimi a okolí. Osobní schůzka u kávy, jeden člověk na celý projekt, ceny veřejně od 10 000 Kč. Dva místní weby i s výsledky." />
   <meta name="author" content="Pavel Fuxa" />
   <meta name="theme-color" content="#141414" />
 
   <!-- Canonical + hreflang -->
   <link rel="canonical" href="https://fuxastudio.cz/tvorba-webovych-stranek-pardubice" />
-  <link rel="alternate" hreflang="cs" href="https://fuxastudio.cz/tvorba-webovych-stranek-pardubice" />
-  <link rel="alternate" hreflang="x-default" href="https://fuxastudio.cz/tvorba-webovych-stranek-pardubice" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fuxastudio.cz/tvorba-webovych-stranek-pardubice" />
-  <meta property="og:title" content="Tvorba webových stránek Pardubice — Pavel Fuxa | Fuxa Studio" />
-  <meta property="og:description" content="Web od místního tvůrce — osobní schůzka v Pardubicích, web na míru od 10 000 Kč, hotový za 1–3 týdny." />
+  <meta property="og:title" content="Tvorba webových stránek Pardubice | FuxaStudio" />
+  <meta property="og:description" content="Weby pro firmy z Pardubic, Chrudimi a okolí. Osobní schůzka u kávy, jeden člověk na celý projekt, ceny veřejně od 10 000 Kč. Dva místní weby i s výsledky." />
   <meta property="og:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="675" />
-  <meta property="og:image:alt" content="Pavel Fuxa — Fuxa Studio, tvorba webových stránek Pardubice" />
+  <meta property="og:image:alt" content="Pavel Fuxa z FuxaStudia, tvorba webových stránek Pardubice" />
   <meta property="og:locale" content="cs_CZ" />
-  <meta property="og:site_name" content="Fuxa Studio" />
+  <meta property="og:site_name" content="FuxaStudio" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Tvorba webových stránek Pardubice | Fuxa Studio" />
-  <meta name="twitter:description" content="Web od místního tvůrce — osobní schůzka v Pardubicích, web na míru od 10 000 Kč." />
+  <meta name="twitter:title" content="Tvorba webových stránek Pardubice | FuxaStudio" />
+  <meta name="twitter:description" content="Weby pro firmy z Pardubic, Chrudimi a okolí. Osobní schůzka u kávy, jeden člověk na celý projekt, ceny veřejně od 10 000 Kč." />
   <meta name="twitter:image" content="https://fuxastudio.cz/assets/og-image.jpg" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preconnect" href="https://api.web3forms.com" />
+
+  <!-- Fonts - self-host, zadny pozadavek na cizi domenu. Deklarace jsou
+       v css/style.css, tady se jen predbezne stahnou rezy nad ohybem. -->
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/geist-latin-ext.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/favicon.png" />
+
+  <!-- Animace jsou progressive enhancement: skryty vychozi stav se zapina az
+       touhle tridou. Bez JS (bot, scraper, pomala linka) i pri zapnutem
+       "omezit pohyb" zustava v CSS rovnou konecny vzhled stranky.
+       Inline a synchronne v <head>, aby trida platila uz pro prvni vykresleni. -->
+  <script>
+    (function () {
+      try {
+        if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('js-anim');
+        }
+      } catch (e) { /* stary prohlizec - zustane konecny stav, coz je v poradku */ }
+    })();
+  </script>
+  <link rel="icon" href="/portfolio-test/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="/portfolio-test/assets/brand/icon.svg" />
+  <link rel="apple-touch-icon" href="/portfolio-test/apple-touch-icon.png" />
+  <link rel="manifest" href="/portfolio-test/assets/brand/site.webmanifest" />
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -53,17 +68,18 @@
         "@type": "WebPage",
         "@id": "https://fuxastudio.cz/tvorba-webovych-stranek-pardubice#webpage",
         "url": "https://fuxastudio.cz/tvorba-webovych-stranek-pardubice",
-        "name": "Tvorba webových stránek Pardubice — Pavel Fuxa | Fuxa Studio",
-        "description": "Tvorba webových stránek v Pardubicích a okolí — od místního tvůrce. Osobní schůzka, web na míru od 10 000 Kč.",
+        "name": "Tvorba webových stránek Pardubice | FuxaStudio",
+        "description": "Weby pro firmy z Pardubic, Chrudimi a okolí. Osobní schůzka u kávy, jeden člověk na celý projekt, ceny veřejně od 10 000 Kč.",
         "isPartOf": { "@id": "https://fuxastudio.cz/#website" },
-        "inLanguage": "cs-CZ"
+        "inLanguage": "cs-CZ",
+        "dateModified": "2026-08-24"
       },
       {
         "@type": "Service",
         "@id": "https://fuxastudio.cz/tvorba-webovych-stranek-pardubice#service",
         "serviceType": "Tvorba webových stránek",
         "name": "Tvorba webových stránek Pardubice",
-        "description": "Tvorba webových stránek na míru pro firmy a živnostníky z Pardubic a okolí — od návrhu po spuštění, s možností osobní schůzky.",
+        "description": "Tvorba webových stránek na míru pro firmy a živnostníky z Pardubic a okolí, od návrhu po spuštění, s možností osobní schůzky.",
         "provider": { "@id": "https://fuxastudio.cz/#service" },
         "areaServed": [
           { "@type": "City", "name": "Pardubice" },
@@ -91,7 +107,7 @@
             "name": "Potkáme se osobně?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Rád. Jsem z Pardubicka, takže úvodní konzultaci můžeme dát osobně u kávy — v Pardubicích, Chrudimi i okolí. Komu víc vyhovuje telefon nebo videohovor, jede se na dálku."
+              "text": "Rád. Většina spoluprací z okolí osobní schůzkou začíná. Napište mi a domluvíme kdy a kde."
             }
           },
           {
@@ -99,7 +115,7 @@
             "name": "Kolik stojí tvorba webu v Pardubicích?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Stejně jako kdekoli jinde — jednostránkový web od 10 000 Kč, vícestránkový od 20 000 Kč. Kompletní ceník je veřejně na webu, žádné místní příplatky."
+              "text": "Stejně jako kdekoli jinde. Jednostránkový web vychází na 10 000 až 15 000 Kč, vícestránkový na 20 000 až 28 000 Kč. Kompletní ceník mám veřejný a místní příplatky v něm nenajdete."
             }
           },
           {
@@ -107,7 +123,7 @@
             "name": "Jak rychle bude web hotový?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Jednostránkový web za 1–2 týdny, vícestránkový za 2–3 týdny od dodání podkladů. Termín potvrzuji předem v nabídce."
+              "text": "Do měsíce od dodání podkladů, většinou dřív. Jednostránkový web bývá hotový za 1–2 týdny, vícestránkový za 2–3 týdny. U e-shopu nebo rezervací záleží na rozsahu. Termín vám napíšu do nabídky a platí stejně jako cena."
             }
           },
           {
@@ -115,7 +131,7 @@
             "name": "Děláte weby jen pro Pardubice?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Ne, pracuji pro klienty z celé ČR i Slovenska. Pardubice a okolí mají výhodu osobní schůzky, zbytek republiky obsluhuji vzdáleně bez rozdílu v kvalitě i ceně."
+              "text": "Ne, pracuju po celé ČR i pro klienty ze zahraničí. Na Pardubicku se rád potkám osobně, s ostatními to jde stejně dobře na dálku."
             }
           }
         ]
@@ -125,250 +141,336 @@
   </script>
 
   <style>
-    /* ========== LOCAL BENEFITS ========== */
-    .loc-intro {
-      padding: var(--space-3xl) 0 var(--space-section);
+    /* ========== SEKCE: stejny rastr jako zbytek webu ==========
+       stitek s linkou + velky nadpis + obsah pod sebou, sekce deli vzduch */
+    .pdc-sec {
+      padding-bottom: var(--space-section);
     }
 
-    .loc-intro-text {
-      max-width: 62ch;
-    }
-
-    .loc-intro-text p {
-      color: var(--color-text-secondary);
-      line-height: 1.7;
-      margin: 0 0 var(--space-md);
-    }
-
-    .loc-intro-text p b {
-      color: var(--color-text-primary);
-      font-weight: var(--fw-semibold);
-    }
-
-    .loc-benefits {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-xl);
-      margin-top: var(--space-2xl);
-    }
-
-    .loc-benefit {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      padding: var(--space-xl);
-      transition: border-color var(--duration-normal) var(--ease-out), transform var(--duration-normal) var(--ease-out);
-    }
-
-    .loc-benefit:hover {
-      border-color: var(--color-border-hover);
-      transform: translateY(-4px);
-    }
-
-    .loc-benefit .num {
-      font-family: var(--font-mono);
-      font-size: var(--fs-xs);
-      color: var(--color-text-muted);
-      letter-spacing: 0.12em;
-      display: block;
-      margin-bottom: var(--space-md);
-    }
-
-    .loc-benefit h3 {
+    /* ========== PROC MISTNI TVURCE ========== */
+    .pdc-letter p {
+      max-width: 38rem;
       font-size: var(--fs-lg);
-      font-weight: var(--fw-semibold);
-      margin: 0 0 var(--space-sm);
-    }
-
-    .loc-benefit p {
-      font-size: var(--fs-sm);
+      line-height: 1.65;
       color: var(--color-text-secondary);
-      line-height: 1.6;
       margin: 0;
     }
 
-    /* ========== LOCAL PROJECTS ========== */
-    .loc-projects {
-      padding-bottom: var(--space-section);
+    .pdc-letter p + p {
+      margin-top: var(--space-lg);
     }
 
-    .loc-projects .projects-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .pdc-letter p b {
+      color: var(--color-text-primary);
+      font-weight: var(--fw-medium);
     }
 
-    /* ========== AREA ========== */
-    .loc-area {
-      padding-bottom: var(--space-section);
+    /* ========== PRIPADY ==========
+       snimek webu na celou sirku, pod nim text a citace ve dvou sloupcich */
+    .pdc-case-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      margin-top: var(--space-2xl);
+      align-items: start;
     }
 
-    .loc-area-box {
+    .pdc-shot {
+      display: block;
       border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
+      border-radius: var(--radius-md);
       background: var(--color-bg-card);
-      padding: var(--space-2xl) var(--space-xl);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-lg);
-      align-items: center;
-      text-align: center;
-    }
-
-    .loc-area-cities {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--space-sm);
-    }
-
-    .loc-city {
-      font-family: var(--font-mono);
-      font-size: var(--fs-sm);
-      letter-spacing: 0.06em;
-      color: var(--color-text-secondary);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-full);
-      padding: 0.45rem 1.1rem;
-    }
-
-    .loc-area-note {
-      color: var(--color-text-secondary);
-      font-size: var(--fs-sm);
-      margin: 0;
-      max-width: 52ch;
-      line-height: 1.6;
-    }
-
-    /* ========== PRICE TEASER ========== */
-    .svc-price {
-      padding-bottom: var(--space-section);
-    }
-
-    .svc-price-box {
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      background: var(--color-bg-card);
-      padding: var(--space-3xl) var(--space-xl);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-lg);
-    }
-
-    .svc-price-box .amount {
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-      font-weight: var(--fw-bold);
-      margin: 0;
-      line-height: 1.05;
-    }
-
-    .svc-price-box .note {
-      color: var(--color-text-secondary);
-      max-width: 46ch;
-      margin: 0;
-      line-height: 1.6;
-    }
-
-    .svc-price-box .btn-secondary {
-      text-decoration: none;
-    }
-
-    /* ========== FAQ ========== */
-    .faq {
-      padding-bottom: var(--space-section);
-    }
-
-    .faq-list {
-      max-width: 760px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-
-    .faq-item {
-      background: var(--color-bg-card);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
+      margin-top: var(--space-xl);
       overflow: hidden;
       transition: border-color var(--duration-normal) var(--ease-out);
     }
 
-    .faq-item[open] {
+    a.pdc-shot:hover {
       border-color: var(--color-border-hover);
     }
 
-    .faq-item summary {
-      list-style: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-md);
-      padding: var(--space-lg) var(--space-xl);
+    .pdc-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .pdc-case-body p {
+      color: var(--color-text-secondary);
       font-size: var(--fs-md);
+      max-width: 34rem;
+      margin: 0;
+    }
+
+    .pdc-case-body p + p {
+      margin-top: var(--space-md);
+    }
+
+    .pdc-case-body p b {
+      color: var(--color-text-primary);
       font-weight: var(--fw-medium);
     }
 
-    .faq-item summary::-webkit-details-marker {
-      display: none;
+    .pdc-quote {
+      border-left: 1px solid var(--color-text-muted);
+      padding: 0.35rem 0 0.35rem 1.4rem;
+      margin: 0;
+      max-width: 34rem;
     }
 
-    .faq-item summary:focus-visible {
-      outline: 2px solid var(--color-text-secondary);
-      outline-offset: -2px;
-    }
-
-    .faq-icon {
-      flex: none;
-      transition: transform var(--duration-normal) var(--ease-out);
-    }
-
-    .faq-item[open] .faq-icon {
-      transform: rotate(45deg);
-    }
-
-    .faq-answer {
-      padding: 0 var(--space-xl) var(--space-lg);
-      color: var(--color-text-secondary);
-      line-height: 1.65;
+    .pdc-quote p {
       font-size: var(--fs-base);
-      max-width: 62ch;
+      color: var(--color-text-primary);
     }
 
-    /* ========== CTA ========== */
-    .page-cta {
-      position: relative;
-      padding: var(--space-section) 0;
-      overflow: hidden;
-      text-align: center;
+    .pdc-quote footer {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-top: var(--space-sm);
     }
 
-    .page-cta-content {
+    .pdc-case-link {
+      display: inline-block;
+      margin-top: var(--space-lg);
+      color: var(--color-text-primary);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-medium);
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-text-muted);
+      padding-bottom: 2px;
+      transition: border-color var(--duration-normal) var(--ease-out);
+    }
+
+    .pdc-case-link:hover {
+      border-color: var(--color-text-primary);
+    }
+
+    /* radka s propojenim pod druhym pripadem */
+    .pdc-connect {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-lg);
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .pdc-connect p {
+      color: var(--color-text-secondary);
+      font-size: var(--fs-base);
+      max-width: 38rem;
+      margin: 0;
+    }
+
+    .pdc-connect p b {
+      color: var(--color-text-primary);
+      font-weight: var(--fw-medium);
+    }
+
+    /* ========== REGION, CENIK, PROCES ========== */
+    .pdc-band p {
+      max-width: 38rem;
+      font-size: var(--fs-md);
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+
+    .pdc-band p b {
+      color: var(--color-text-primary);
+      font-weight: var(--fw-medium);
+    }
+
+    .pdc-band a {
+      color: var(--color-text-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-text-muted);
+      padding-bottom: 1px;
+      transition: border-color var(--duration-normal) var(--ease-out);
+    }
+
+    .pdc-band a:hover {
+      border-color: var(--color-text-primary);
+    }
+
+    .pdc-cities {
+      font-family: var(--font-mono);
+      font-size: var(--fs-sm);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-top: var(--space-md);
+    }
+
+    /* cenik: tri radky */
+    .pdc-price-rows {
+      max-width: 40rem;
+    }
+
+    .pdc-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-lg);
+      padding: 0.85rem 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .pdc-price-row:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .pdc-price-row .name {
+      font-size: var(--fs-base);
+      font-weight: var(--fw-medium);
+    }
+
+    .pdc-price-row .amt {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+      font-weight: var(--fw-semibold);
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .pdc-price-note {
+      margin-top: var(--space-lg) !important;
+      font-size: var(--fs-base) !important;
+    }
+
+    /* proces: ctyri kroky na vodorovne ose (stejne jako /tvorba-webovych-stranek) */
+    .pdc-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-xl);
+      margin-top: var(--space-2xl);
+    }
+
+    .pdc-step {
       position: relative;
-      z-index: 2;
+      padding-top: calc(var(--space-xl) + var(--space-sm));
+    }
+
+    /* vodorovna osa vedouci pres vsechny kroky */
+    .pdc-step::before {
+      content: "";
+      position: absolute;
+      top: calc(var(--space-lg) + 2px);
+      left: 0;
+      right: calc(var(--space-xl) * -1);
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    .pdc-step:last-child::before {
+      right: 0;
+    }
+
+    /* uzel na ose */
+    .pdc-step::after {
+      content: "";
+      position: absolute;
+      top: calc(var(--space-lg) - 2px);
+      left: 0;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--color-text-primary);
+      box-shadow: 0 0 0 5px var(--color-bg-primary);
+    }
+
+    .pdc-step .day {
+      font-family: var(--font-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+    }
+
+    .pdc-step h3 {
+      font-size: var(--fs-md);
+      font-weight: var(--fw-semibold);
+      margin: 0 0 var(--space-xs);
+    }
+
+    .pdc-step p {
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ========== FAQ (rozbalene, bez akordeonu) ========== */
+    .pdc-faq-item {
+      border-top: 1px solid var(--color-border);
+      padding: 1.3rem 0;
+      max-width: 46rem;
+    }
+
+    .pdc-faq-item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .pdc-faq-item h3 {
+      font-size: var(--fs-md);
+      font-weight: var(--fw-medium);
+      margin: 0;
+    }
+
+    .pdc-faq-item p {
+      color: var(--color-text-secondary);
+      font-size: var(--fs-base);
+      margin: 0.45rem 0 0;
+      max-width: 40rem;
+      line-height: 1.65;
     }
 
     /* ========== RESPONSIVE ========== */
     @media (max-width: 900px) {
-      .loc-benefits {
+      .pdc-steps {
         grid-template-columns: 1fr;
+        gap: var(--space-lg);
       }
 
-      .loc-projects .projects-grid {
-        grid-template-columns: 1fr;
+      /* kroky uz jsou pod sebou - osa musi byt svisla vlevo */
+      .pdc-step {
+        padding-top: 0;
+        padding-left: var(--space-lg);
+      }
+
+      .pdc-step::before {
+        top: 6px;
+        bottom: calc(var(--space-lg) * -1);
+        left: 4px;
+        right: auto;
+        width: 1px;
+        height: auto;
+      }
+
+      .pdc-step:last-child::before {
+        bottom: 0;
+      }
+
+      .pdc-step::after {
+        top: 2px;
+      }
+
+      .pdc-step .day {
+        position: static;
+        margin-bottom: var(--space-sm);
       }
     }
 
-    @media (max-width: 640px) {
-      .faq-item summary {
-        padding: var(--space-md) var(--space-lg);
-        font-size: var(--fs-base);
-      }
-
-      .faq-answer {
-        padding: 0 var(--space-lg) var(--space-md);
+    @media (max-width: 820px) {
+      .pdc-case-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -386,7 +488,13 @@
       security_storage: 'granted'
     });
   </script>
-  <script defer src="js/consent.js"></script>
+  <!-- Preklady pred site-prefs.js: cookie lista se sklada uz s texty
+       v aktualnim jazyce. defer drzi poradi a nic neblokuje.
+       Soubor i tridy uvnitr se jmenuji "prefs", ne "cookie" - Brave se
+       zapnutymi stity a adblocky maji v seznamech pravidla na cookie-*
+       nazvy a listu bez varovani schovaji. Neprejmenovavat zpet. -->
+  <script defer src="js/translations.js"></script>
+  <script defer src="js/site-prefs.js"></script>
 </head>
 
 <body>
@@ -394,32 +502,30 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="/" class="nav-logo"><img src="assets/logo.png" alt="Fuxa Studio Logo" width="279" height="191"></a>
+      <a href="/portfolio-test/" class="nav-logo"><img src="/portfolio-test/assets/brand/fs-logo-nav.svg" alt="Logo FuxaStudio" width="279" height="191"></a>
 
       <div class="nav-links" id="navLinks">
-        <a href="/" data-i18n="nav.home">Domů</a>
-        <a href="/tvorba-webovych-stranek" data-i18n="nav.services">Služby a ceník</a>
+        <a href="/portfolio-test/">Domů</a>
+        <a href="/portfolio-test/tvorba-webovych-stranek">Služby a ceník</a>
 
-        <a href="/projekty" data-i18n="nav.projects">Projekty</a>
-        <a href="/reference" data-i18n="nav.references">Reference</a>
-        <a href="/o-mne" data-i18n="nav.about">O mně</a>
+        <a href="/portfolio-test/projekty">Projekty</a>
+        <a href="/portfolio-test/reference">Reference</a>
+        <a href="/portfolio-test/o-mne">O mně</a>
         <div class="menu-extra">
-          <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-          <div class="lang-switcher" role="group" aria-label="Language / Jazyk">
-            <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-          </div>
+          <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+          <a class="lang-switcher" href="/portfolio-test/en/" hreflang="en" aria-label="Přepnout na anglickou verzi">
+            <span class="lang-btn">EN</span>
+          </a>
         </div>
       </div>
 
       <div class="nav-right">
         <!-- Language switcher -->
-        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Language / Jazyk">
-          <button type="button" class="lang-btn" data-lang="cs" aria-label="Čeština">CS</button>
-          <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-        </div>
-        <a href="/kontakt#form" class="nav-cta" data-i18n="nav.cta">Nezávazná poptávka</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <a class="lang-switcher" id="langSwitcher" href="/portfolio-test/en/" hreflang="en" aria-label="Přepnout na anglickou verzi">
+          <span class="lang-btn">EN</span>
+        </a>
+        <a href="/portfolio-test/kontakt#form" class="nav-cta">Nezávazná poptávka</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -430,217 +536,264 @@
 
   <main id="main-content">
 
-  <!-- ========== HERO ========== -->
-  <section class="hero" id="hero" style="min-height: 50vh; padding-top: 8rem; padding-bottom: 4rem;">
+  <!-- ========== HERO · jen text, CTA zustava v navbaru ========== -->
+  <section class="hero hero--center" id="hero" style="min-height: 50vh; padding-top: 8rem; padding-bottom: 4rem;">
     <canvas class="hero-stars-canvas" id="waveHeroCanvas"></canvas>
 
     <div class="container hero-content" style="padding-top: 2rem;">
       <h1 class="hero-title">
         <span class="line">
-          <span data-i18n="pardubicepage.hero.line1">Tvorba webových stránek</span>
+          <span>Tvorba webových stránek</span>
         </span>
         <span class="line">
-          <span class="gradient-text" data-i18n="pardubicepage.hero.line2">Pardubice</span>
+          <span class="gradient-text">Pardubice</span>
         </span>
       </h1>
-      <p class="section-subtitle" style="margin-top: var(--space-lg); max-width: 42rem;" data-i18n="pardubicepage.hero.subtitle">
-        Web od místního tvůrce, ne od anonymní agentury. Osobní schůzka u kávy, jeden člověk na celý projekt a web, který přivádí zákazníky.
+      <p class="section-subtitle" style="margin-top: var(--space-lg); max-width: 42rem; font-size: var(--fs-lg);">
+        Jsem Pavel Fuxa a weby stavím ze Svídnice u Chrudimi, dvacet minut od Pardubic. Dva weby pro firmy tady z kraje najdete níž, i s čísly.
       </p>
     </div>
   </section>
 
-  <!-- ========== INTRO + BENEFITS ========== -->
-  <section class="loc-intro" id="intro">
+  <!-- ========== PROC MISTNI TVURCE · 2 odstavce ========== -->
+  <section class="pdc-sec" id="proc">
     <div class="container">
-      <div class="loc-intro-text reveal">
-        <span class="section-label" data-i18n="pardubicepage.intro.label">Místní tvůrce</span>
-        <h2 class="section-title" data-i18n-html="pardubicepage.intro.title.html">Web pro vaši firmu,<br /><span class="gradient-text">od souseda z Pardubicka</span></h2>
-        <p data-i18n-html="pardubicepage.intro.p1.html">Jsem Pavel Fuxa, web designer a developer z Pardubicka. Firmám a živnostníkům z kraje stavím weby, které <b>se rychle načítají, najdou je lidé v Googlu a přivádějí poptávky</b> — od první skici po spuštění a další rozvoj.</p>
-        <p data-i18n="pardubicepage.intro.p2">Nejsem agentura s deseti prostředníky. Celý web dělám sám, takže víte, s kým mluvíte, kdo ho staví a kdo ho po spuštění podrží.</p>
+      <span class="section-label reveal">Místní tvůrce</span>
+      <h2 class="section-title reveal">Web pro vaši firmu, <span class="gradient-text">od souseda z Pardubicka</span></h2>
+      <div class="pdc-letter reveal">
+        <p>Web vám dnes udělá kdokoli odkudkoli. Rozdíl je v tom, co se děje kolem něj. Se mnou se potkáte osobně. Cenu a termín dostanete písemně dřív, než se k čemukoli zavážete. A když se po spuštění něco pokazí, víte, komu voláte.</p>
+        <p>Celý web dělám sám, od návrhu přes texty po spuštění. Takže za něj taky sám ručím.</p>
+        <!-- slot: sem pozdeji mala fotka, az bude nova -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRIPAD PRVNI · SVIDNICKY EXTREM ========== -->
+  <section class="pdc-sec" id="pripad-1">
+    <div class="container">
+      <span class="section-label reveal">Případ první · Svídnice</span>
+      <h2 class="section-title reveal">Závod, který žil <span class="gradient-text">jen na Facebooku</span></h2>
+      <a href="/portfolio-test/projekty/svidnicky-extrem" class="pdc-shot reveal" aria-label="Případová studie Svídnický extrém">
+        <img src="assets/cs-svidnicky-hero.webp" width="1440" height="721" alt="Náhled webu Svídnický extrém, web pro sportovní akci" loading="lazy" />
+      </a>
+
+      <div class="pdc-case-grid">
+        <div class="pdc-case-body reveal">
+          <p>Pořadatelé Svídnického extrému měli všechno v e-mailech a na Facebooku. Potřebovali dostat závod, tréninky i přihlášky na jedno místo.</p>
+          <p>Od první zprávy ke spuštění uplynulo 18 dní. Registrace dnes chodí přes web a ten byl do týdne dohledatelný na Googlu.</p>
+          <a href="/portfolio-test/projekty/svidnicky-extrem" class="pdc-case-link"><span>Přečíst celou studii</span> →</a>
+        </div>
+        <blockquote class="pdc-quote reveal reveal-delay-1">
+          <p>Během spolupráce jsme měli spoustu připomínek a Pavel je vždycky zpracoval bez problémů. Ocenili jsme, že se nebál říct svůj názor, když měl lepší nápad, ale zároveň respektoval, co jsme chtěli. Výsledek předčil naše očekávání.</p>
+          <footer>Martin Stebel · Svídnický extrém</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRIPAD DRUHY · MLYN JANDEROV ========== -->
+  <section class="pdc-sec" id="pripad-2">
+    <div class="container">
+      <span class="section-label reveal">Případ druhý · Chrudim</span>
+      <h2 class="section-title reveal">Starý web bez přístupů <span class="gradient-text">jsem převzal celý</span></h2>
+      <a href="/portfolio-test/projekty/mlyn-janderov" class="pdc-shot reveal" aria-label="Případová studie Mlýn Janderov">
+        <img src="assets/cs-janderov-hero.webp" width="1440" height="900" alt="Náhled webu Mlýn Janderov, web pro rodinné mlynářství" loading="lazy" />
+      </a>
+
+      <div class="pdc-case-grid">
+        <div class="pdc-case-body reveal">
+          <p>Rodinné mlynářství Mlýn Janderov mělo web, ke kterému nikdo neznal hesla. Převzal jsem ho i s doménou a hostingem, takže klient nemusel řešit nic technického.</p>
+          <p>Podle Search Console přišlo za první dva měsíce z Googlu 258 kliknutí.</p>
+          <a href="/portfolio-test/projekty/mlyn-janderov" class="pdc-case-link"><span>Přečíst celou studii</span> →</a>
+        </div>
+        <blockquote class="pdc-quote reveal reveal-delay-1">
+          <p>Jsme maximálně spokojení. Pomáhal nám s tvorbou webových stránek a i když to s námi nebylo úplně jednoduché, vše se nakonec podařilo. Výsledek přesně odpovídá naší představě. Budeme i nadále v kontaktu. Doporučujeme.</p>
+          <footer>Ing. Petr Schaffer · Mlýn Janderov</footer>
+        </blockquote>
       </div>
 
-      <div class="loc-benefits">
-        <div class="loc-benefit reveal">
-          <span class="num">01</span>
-          <h3 data-i18n="pardubicepage.benefit.1.title">Osobní schůzka</h3>
-          <p data-i18n="pardubicepage.benefit.1.desc">Úvodní konzultaci můžeme dát osobně — v Pardubicích, Chrudimi nebo kdekoli v okolí. Web se domlouvá líp u kávy než přes formulář.</p>
+      <div class="pdc-connect reveal">
+        <p>Weby výš nejsou anonymní ukázky. Když si budete chtít spolupráci ověřit, zeptejte se a propojení domluvím.</p>
+      </div>
+      <!-- slot: sem casem pribude Pripad treti (Racing Line / Condor) -->
+    </div>
+  </section>
+
+  <!-- ========== PAS · KDE SE POTKAME ========== -->
+  <section class="pdc-sec pdc-band" id="oblast">
+    <div class="container">
+      <span class="section-label reveal">Region</span>
+      <h2 class="section-title reveal">Kde se <span class="gradient-text">potkáme</span></h2>
+      <div class="reveal">
+        <p>Osobně kdekoli po kraji, klidně u vás v provozovně. Pro vzdálenější klienty funguje spolupráce na dálku, za stejné ceny.</p>
+        <div class="pdc-cities">Pardubice · Chrudim · Hradec Králové · Přelouč · Holice · <span>celá ČR i zahraničí na dálku</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PAS · KOLIK TO STOJI ========== -->
+  <section class="pdc-sec pdc-band" id="cena">
+    <div class="container">
+      <span class="section-label reveal">Ceník</span>
+      <h2 class="section-title reveal">Kolik to <span class="gradient-text">stojí</span></h2>
+      <div class="reveal">
+        <div class="pdc-price-rows">
+          <div class="pdc-price-row">
+            <span class="name">Jednostránkový web</span>
+            <span class="amt">10&nbsp;000&nbsp;&ndash;&#8288;&nbsp;15&nbsp;000&nbsp;Kč</span>
+          </div>
+          <div class="pdc-price-row">
+            <span class="name">Vícestránkový web</span>
+            <span class="amt">20&nbsp;000&nbsp;&ndash;&#8288;&nbsp;28&nbsp;000&nbsp;Kč</span>
+          </div>
+          <div class="pdc-price-row">
+            <span class="name">Správa webu</span>
+            <span class="amt">od 400&nbsp;Kč / měsíc</span>
+          </div>
         </div>
-        <div class="loc-benefit reveal reveal-delay-1">
-          <span class="num">02</span>
-          <h3 data-i18n="pardubicepage.benefit.2.title">Reference z regionu</h3>
-          <p data-i18n="pardubicepage.benefit.2.desc">Weby ode mě už fungují místním firmám a akcím. Rád vás s klienty propojím, ať si spolupráci ověříte z první ruky.</p>
+        <p class="pdc-price-note"><span>Ceny jsou konečné, nejsem plátce DPH. Pro Pardubice platí stejně jako pro zbytek republiky a kompletní ceník mám veřejný.</span> <a href="/portfolio-test/tvorba-webovych-stranek#cenik">Prohlédnout celý ceník</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PAS · JAK TO PROBIHA ========== -->
+  <section class="pdc-sec pdc-band" id="proces">
+    <div class="container">
+      <span class="section-label reveal">Jak to probíhá</span>
+      <h2 class="section-title reveal">Od poptávky <span class="gradient-text">ke spuštění</span></h2>
+      <div class="pdc-steps reveal">
+        <div class="pdc-step">
+          <span class="day">Den 0</span>
+          <h3>Napíšete mi</h3>
+          <p>Do 24 hodin se ozvu.</p>
         </div>
-        <div class="loc-benefit reveal reveal-delay-2">
-          <span class="num">03</span>
-          <h3 data-i18n="pardubicepage.benefit.3.title">Jeden člověk, celý web</h3>
-          <p data-i18n="pardubicepage.benefit.3.desc">Design, kód, texty i SEO řešíte se mnou napřímo. Žádné předávání mezi odděleními, žádné čekání na „projekťáka“.</p>
+        <div class="pdc-step">
+          <span class="day">Den 1</span>
+          <h3>Zadání</h3>
+          <p>Do 24 hodin po schůzce pevná cena a termín. Rozhodujete se až potom.</p>
+        </div>
+        <div class="pdc-step">
+          <span class="day">Den 7</span>
+          <h3>První verze</h3>
+          <p>Dostanete odkaz a web si proklikáte.</p>
+        </div>
+        <div class="pdc-step">
+          <span class="day">Den 14</span>
+          <h3>Spuštění</h3>
+          <p>Web běží na vaší doméně.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== LOCAL PROJECTS ========== -->
-  <section class="loc-projects projects" id="projects" style="padding-top: 0;">
+  <!-- ========== FAQ · rozbalene, bez akordeonu ========== -->
+  <section class="pdc-sec" id="faq">
     <div class="container">
-      <div class="projects-header">
-        <div>
-          <span class="section-label reveal" data-i18n="pardubicepage.projects.label">Práce pro region</span>
-          <h2 class="section-title reveal" data-i18n-html="pardubicepage.projects.title.html">Weby, které už <span class="gradient-text">v kraji fungují</span></h2>
+      <span class="section-label reveal">Časté dotazy</span>
+      <h2 class="section-title reveal">Na co se ptáte <span class="gradient-text">nejčastěji</span></h2>
+      <div class="reveal">
+        <div class="pdc-faq-item">
+          <h3>Potkáme se osobně?</h3>
+          <p>Rád. Většina spoluprací z okolí osobní schůzkou začíná. Napište mi a domluvíme kdy a kde.</p>
         </div>
-        <a href="/projekty" class="btn-secondary reveal" id="viewAllProjects">
-          <span data-i18n="projects.viewAll">Zobrazit všechny</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </a>
+        <div class="pdc-faq-item">
+          <h3>Kolik stojí tvorba webu v Pardubicích?</h3>
+          <p>Stejně jako kdekoli jinde. Jednostránkový web vychází na 10&nbsp;000 až 15&nbsp;000&nbsp;Kč, vícestránkový na 20&nbsp;000 až 28&nbsp;000&nbsp;Kč. Kompletní ceník mám veřejný a místní příplatky v něm nenajdete.</p>
+        </div>
+        <div class="pdc-faq-item">
+          <h3>Jak rychle bude web hotový?</h3>
+          <p>Do měsíce od dodání podkladů, většinou dřív. Jednostránkový web bývá hotový za 1–2 týdny, vícestránkový za 2–3 týdny. U e-shopu nebo rezervací záleží na rozsahu. Termín vám napíšu do nabídky a platí stejně jako cena.</p>
+        </div>
+        <div class="pdc-faq-item">
+          <h3>Děláte weby jen pro Pardubice?</h3>
+          <p>Ne, pracuju po celé ČR i pro klienty ze zahraničí. Na Pardubicku se rád potkám osobně, s ostatními to jde stejně dobře na dálku.</p>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="projects-grid">
-        <article class="project-card reveal" id="project1">
-          <div class="project-image">
-            <img src="assets/cs-svidnicky-hero.webp" width="1440" height="721" alt="Náhled webu Svídnický extrém — web pro sportovní akci" loading="lazy" />
-            <div class="project-image-overlay">
-              <div class="project-link-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
-                </svg>
+  <!-- ========== KONTAKT · stejna sekce jako na homepage ========== -->
+  <section class="contact" id="cta">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h2 class="section-title">Dáme si kávu <span class="gradient-text">v&nbsp;Pardubicích?</span></h2>
+          <p class="section-subtitle">Napište mi nebo zavolejte.</p>
+
+          <div class="contact-person">
+            <img src="/portfolio-test/assets/about-104.webp" alt="Pavel Fuxa" width="52" height="52" loading="lazy" decoding="async" />
+            <div>
+              <div class="contact-person-name">Pavel Fuxa</div>
+              <div class="contact-person-role">web designer a developer</div>
+            </div>
+          </div>
+
+          <div>
+            <a href="mailto:fuxa@fuxastudio.cz" class="contact-email">fuxa@fuxastudio.cz</a>
+          </div>
+
+          <div>
+            <a href="tel:+420736131410" class="contact-phone-pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+420 736 131 410</span>
+            </a>
+          </div>
+
+          <p class="contact-place">Svídnice u Chrudimi · pracuju po celé ČR i v zahraničí</p>
+        </div>
+
+        <div class="contact-form-card reveal reveal-delay-2" id="form">
+          <form class="contact-form" id="contactForm">
+            <input type="hidden" name="access_key" value="21ce9b27-37ef-4f30-bc47-26c8ce8cbc6a">
+            <!-- Honeypot Spam Protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+            <div class="form-group">
+              <label for="formName" class="form-label">Jméno *</label>
+              <input type="text" name="name" id="formName" autocomplete="name" placeholder="Jana Nováková" required />
+            </div>
+
+            <div class="form-group">
+              <span class="form-label">Kontakt *</span>
+              <p class="form-hint" id="contactHint" role="status" data-i18n="form.contact.hint">Stačí vyplnit jedno, ozvu se tam, kam chcete.</p>
+              <div class="form-duo" id="contactDuo">
+                <div>
+                  <label for="formEmail" class="form-label form-label-sub">E-mail</label>
+                  <input type="email" name="email" id="formEmail" autocomplete="email" placeholder="jana@firma.cz" aria-describedby="contactHint" />
+                </div>
+                <span class="form-duo-or" aria-hidden="true">nebo</span>
+                <div>
+                  <label for="formPhone" class="form-label form-label-sub">Telefon</label>
+                  <input type="tel" name="phone" id="formPhone" autocomplete="tel" placeholder="+420 601 123 456" aria-describedby="contactHint" />
+                </div>
               </div>
             </div>
-            <a href="/projekty/svidnicky-extrem" aria-label="Případová studie Svídnický extrém" class="project-card-overlay-link"></a>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.sport">Sport</span>
-            </div>
-            <h3 class="project-title">Svídnický extrém</h3>
-            <p class="project-description" data-i18n="project.svidnicky.desc">
-              Od nuly k webu za 18 dní: závod, který žil jen na Facebooku, získal web s online registracemi.
-            </p>
-          </div>
-        </article>
 
-        <article class="project-card reveal reveal-delay-1" id="project2">
-          <div class="project-image">
-            <img src="assets/cs-janderov-hero.webp" width="1440" height="900" alt="Náhled webu Mlýn Janderov — web pro rodinné mlynářství" loading="lazy" />
-            <div class="project-image-overlay">
-              <div class="project-link-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M7 17l9.2-9.2M17 17V7H7" />
-                </svg>
-              </div>
+            <div class="form-group">
+              <label for="formMessage" class="form-label">Váš projekt *</label>
+              <textarea name="message" id="formMessage" required
+                placeholder="Např. otevírám kavárnu a do jara potřebuju web s menu."></textarea>
             </div>
-            <a href="/projekty/mlyn-janderov" aria-label="Případová studie Mlýn Janderov" class="project-card-overlay-link"></a>
-          </div>
-          <div class="project-info">
-            <div class="project-tags">
-              <span class="project-tag" data-i18n="project.tag.mlyn">Lokální podnik</span>
-            </div>
-            <h3 class="project-title">Mlýn Janderov</h3>
-            <p class="project-description" data-i18n="project.janderov.desc">
-              Klient nemusel řešit vůbec nic technického: zastaralý web bez přístupů převzatý celý včetně domény a hostingu.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- ========== AREA ========== -->
-  <section class="loc-area" id="oblast">
-    <div class="container">
-      <div class="loc-area-box reveal">
-        <span class="section-label no-line" style="justify-content: center;" data-i18n="pardubicepage.area.label">Kde působím</span>
-        <div class="loc-area-cities">
-          <span class="loc-city">Pardubice</span>
-          <span class="loc-city">Chrudim</span>
-          <span class="loc-city">Hradec Králové</span>
-          <span class="loc-city">Přelouč</span>
-          <span class="loc-city">Holice</span>
-          <span class="loc-city" data-i18n="pardubicepage.area.remote">celá ČR — vzdáleně</span>
+            <div class="form-submit">
+              <button type="submit" class="btn-primary" id="formSubmitBtn">
+                <span data-i18n="form.submit">Odeslat poptávku</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+            </div>
+            <p class="form-consent">Odesláním formuláře berete na vědomí, jak nakládám s vašimi údaji. Nikomu je nepředávám a newsletter neposílám. Podrobnosti najdete v <a href="/portfolio-test/ochrana-osobnich-udaju">ochraně osobních údajů</a>.</p>
+          </form>
         </div>
-        <p class="loc-area-note" data-i18n="pardubicepage.area.note">V Pardubicích a okolí se rád potkám osobně. Pro klienty ze vzdálenějších měst funguje spolupráce na dálku — stejná kvalita, stejné ceny.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ========== PRICE TEASER ========== -->
-  <section class="svc-price" id="cena">
-    <div class="container">
-      <div class="svc-price-box reveal">
-        <span class="section-label no-line" style="justify-content: center;" data-i18n="sluzbypage.price.label">Kolik to stojí</span>
-        <p class="amount" data-i18n="sluzbypage.price.amount">Web od 10 000 Kč</p>
-        <p class="note" data-i18n="pardubicepage.price.note">Stejné ceny pro Pardubice i celou republiku — veřejně, bez „ceny na vyžádání“ a bez místních příplatků.</p>
-        <a href="/tvorba-webovych-stranek#cenik" class="btn-secondary">
-          <span data-i18n="sluzbypage.price.btn">Prohlédnout ceník</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FAQ ========== -->
-  <section class="faq" id="faq">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: var(--space-2xl);">
-        <span class="section-label no-line reveal" style="justify-content: center;" data-i18n="cenik.faq.label">Časté dotazy</span>
-        <h2 class="section-title reveal" data-i18n-html="cenik.faq.title.html">Na co se ptáte <span class="gradient-text">nejčastěji</span></h2>
-      </div>
-
-      <div class="faq-list">
-        <details class="faq-item reveal">
-          <summary>
-            <span data-i18n="pardubicepage.faq.1.q">Potkáme se osobně?</span>
-            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-          </summary>
-          <p class="faq-answer" data-i18n="pardubicepage.faq.1.a">Rád. Jsem z Pardubicka, takže úvodní konzultaci můžeme dát osobně u kávy — v Pardubicích, Chrudimi i okolí. Komu víc vyhovuje telefon nebo videohovor, jede se na dálku.</p>
-        </details>
-
-        <details class="faq-item reveal">
-          <summary>
-            <span data-i18n="pardubicepage.faq.2.q">Kolik stojí tvorba webu v Pardubicích?</span>
-            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-          </summary>
-          <p class="faq-answer" data-i18n="pardubicepage.faq.2.a">Stejně jako kdekoli jinde — jednostránkový web od 10 000 Kč, vícestránkový od 20 000 Kč. Kompletní ceník je veřejně na webu, žádné místní příplatky.</p>
-        </details>
-
-        <details class="faq-item reveal">
-          <summary>
-            <span data-i18n="pardubicepage.faq.3.q">Jak rychle bude web hotový?</span>
-            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-          </summary>
-          <p class="faq-answer" data-i18n="pardubicepage.faq.3.a">Jednostránkový web za 1–2 týdny, vícestránkový za 2–3 týdny od dodání podkladů. Termín potvrzuji předem v nabídce.</p>
-        </details>
-
-        <details class="faq-item reveal">
-          <summary>
-            <span data-i18n="pardubicepage.faq.4.q">Děláte weby jen pro Pardubice?</span>
-            <svg class="faq-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-          </summary>
-          <p class="faq-answer" data-i18n="pardubicepage.faq.4.a">Ne, pracuji pro klienty z celé ČR i Slovenska. Pardubice a okolí mají výhodu osobní schůzky, zbytek republiky obsluhuji vzdáleně bez rozdílu v kvalitě i ceně.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CTA ========== -->
-  <section class="page-cta" id="cta">
-    <canvas id="ctaAetherFlow" class="cta-aether-canvas"></canvas>
-    <div class="cta-fade"></div>
-    <div class="container">
-      <div class="page-cta-content">
-        <span class="section-label no-line" style="justify-content: center;" data-i18n="cta.label">Připraveni?</span>
-        <h2 class="section-title" data-i18n-html="pardubicepage.cta.title.html">Dáme si kávu <span class="gradient-text">v Pardubicích?</span></h2>
-        <p class="section-subtitle" style="margin: 0 auto var(--space-3xl);" data-i18n="cta.subtitle">Napište mi, ozvu se do 24 hodin.</p>
-        <a href="/kontakt#form" class="btn-primary" id="pardubiceCtaBtn">
-          <span data-i18n="cta.btn">Nezávazná poptávka</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </a>
+        <div class="contact-next reveal">
+          <p class="contact-next-label">Co bude dál</p>
+          <ol class="contact-next-steps">
+            <li>Do 24 hodin se ozvu</li>
+            <li>Krátce probereme, co potřebujete</li>
+            <li>Do dalších 24 hodin pošlu nabídku s cenou a termínem</li>
+            <li>Navrhnu vám hlavní stránku zdarma</li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
@@ -654,8 +807,8 @@
 
       <!-- Znacka a jednoradkove predstaveni -->
       <div class="footer-top">
-        <a href="/" class="footer-logo">FuxaStudio</a>
-        <p class="footer-claim" data-i18n="footer.claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
+        <a href="/portfolio-test/" class="footer-logo">FuxaStudio</a>
+        <p class="footer-claim">Pavel Fuxa · weby pro malé firmy z Pardubicka</p>
       </div>
 
       <!-- Footer Main Grid -->
@@ -663,7 +816,7 @@
 
         <!-- Left: Kontakt -->
         <div class="footer-brand">
-          <h4 class="footer-heading" data-i18n="footer.contact.heading">Kontakt</h4>
+          <h2 class="footer-heading">Kontakt</h2>
           <div class="footer-contact-list">
             <a href="tel:+420736131410" class="footer-contact-item">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -681,28 +834,28 @@
               fuxa@fuxastudio.cz
             </a>
           </div>
-          <p class="footer-place" data-i18n="footer.place">Svídnice u Chrudimi · pracuju po celé ČR</p>
+          <p class="footer-place">Svídnice u Chrudimi · pracuju po celé ČR i v zahraničí</p>
           <p class="footer-ico">IČO: 29618843</p>
         </div>
 
         <!-- Center: Navigation -->
         <div class="footer-nav">
-          <h4 class="footer-heading" data-i18n="footer.nav.heading">Navigace</h4>
+          <h2 class="footer-heading">Navigace</h2>
           <ul class="footer-nav-list">
-            <li><a href="/" class="footer-nav-link" data-i18n="nav.home">Domů</a></li>
-            <li><a href="/tvorba-webovych-stranek" class="footer-nav-link" data-i18n="nav.services">Služby a ceník</a></li>
+            <li><a href="/portfolio-test/" class="footer-nav-link">Domů</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek" class="footer-nav-link">Služby a ceník</a></li>
 
-            <li><a href="/tvorba-webovych-stranek-pardubice" class="footer-nav-link" data-i18n="nav.local">Tvorba webů Pardubice</a></li>
-            <li><a href="/o-mne" class="footer-nav-link" data-i18n="nav.about">O mně</a></li>
-            <li><a href="/projekty" class="footer-nav-link" data-i18n="nav.projects">Projekty</a></li>
-            <li><a href="/reference" class="footer-nav-link" data-i18n="nav.references">Reference</a></li>
-            <li><a href="/kontakt" class="footer-nav-link" data-i18n="nav.contact">Kontakt</a></li>
+            <li><a href="/portfolio-test/tvorba-webovych-stranek-pardubice" class="footer-nav-link">Tvorba webů Pardubice</a></li>
+            <li><a href="/portfolio-test/o-mne" class="footer-nav-link">O mně</a></li>
+            <li><a href="/portfolio-test/projekty" class="footer-nav-link">Projekty</a></li>
+            <li><a href="/portfolio-test/reference" class="footer-nav-link">Reference</a></li>
+            <li><a href="/portfolio-test/kontakt" class="footer-nav-link">Kontakt</a></li>
           </ul>
         </div>
 
         <!-- Right: Social -->
         <div class="footer-social-col">
-          <h4 class="footer-heading" data-i18n="footer.social.heading">Najdete mě</h4>
+          <h2 class="footer-heading">Najdete mě</h2>
           <div class="footer-socials">
             <a href="https://www.facebook.com/profile.php?id=61572145793086" class="footer-social-link is-brand"
               aria-label="Facebook" id="footerFacebook" target="_blank" rel="noopener noreferrer">
@@ -764,23 +917,18 @@
 
       <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <p class="footer-copyright" data-i18n="footer.copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
-        <a href="/ochrana-osobnich-udaju" class="footer-legal-link" data-i18n="nav.privacy">Ochrana osobních údajů</a>        <button type="button" class="footer-cookie-btn" data-cookie-settings data-i18n="cookie.footerLink">Nastavení cookies</button>
+        <p class="footer-copyright">© 2026 FuxaStudio. Všechna práva vyhrazena.</p>
+        <a href="/portfolio-test/ochrana-osobnich-udaju" class="footer-legal-link">Ochrana osobních údajů</a>        <button type="button" class="footer-prefs-btn" data-prefs-open>Nastavení cookies</button>
       </div>
 
     </div>
-
-    <!-- Typograficky podpis - dekorace, pro cteciky skryta -->
-    <p class="footer-watermark" aria-hidden="true">FuxaStudio</p>
   </footer>
 
   <!-- Kontaktni lista - jen mobil (CSS .contact-bar), zobrazovani ridi js/main.js -->
   <div class="contact-bar" id="contactBar">
-    <a href="mailto:fuxa@fuxastudio.cz?subject=Popt%C3%A1vka%20webu" class="btn-primary"
-      data-i18n="contactbar.write">Napsat</a>
-    <a href="tel:+420736131410" class="btn-secondary" data-i18n="contactbar.call">Zavolat</a>
-    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu"
-      data-i18n-aria="contactbar.close">
+    <a href="#form" class="btn-primary">Napsat</a>
+    <a href="tel:+420736131410" class="btn-secondary">Zavolat</a>
+    <button type="button" class="contact-bar-close" aria-label="Zavřít lištu">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M18 6 6 18M6 6l12 12" />
@@ -788,12 +936,9 @@
     </button>
   </div>
 
-  <script src="js/translations.js"></script>
-  <script src="js/wave-hero.js"></script>
-  <script src="js/smoke-shader.js"></script>
-  <script src="js/main.js"></script>
-  <script>initWaveHero('waveHeroCanvas', 'hero');</script>
-  <script>initSmokeShader('ctaAetherFlow', 'cta');</script>
+  <script defer src="js/wave-hero.js"></script>
+  <script defer src="js/main.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', function () { initWaveHero('waveHeroCanvas', 'hero'); });</script>
 </body>
 
 </html>
