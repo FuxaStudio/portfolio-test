@@ -101,17 +101,13 @@
 
     @media (min-width: 900px) {
       .variants {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.5rem;
       }
 
       .variant {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 11rem minmax(0, 1fr);
         padding: 1.25rem;
-      }
-
-      .variant img {
-        max-width: 15rem;
       }
     }
 
@@ -192,7 +188,7 @@
 <body>
   <main class="wrap">
     <section class="top">
-      <h1>Tři návrhy hlavní stránky</h1>
+      <h1>Čtyři návrhy hlavní stránky</h1>
       <p class="intro">Současná hlavní stránka zůstává, jak je. Varianty stojí vedle ní, mají stejná fakta, ceny a citace podle CLAUDE.md a liší se tím, čím zaujmou na první pohled. Formulář v nich odesílá naostro.</p>
       <ul class="variants">
         <li>
@@ -225,6 +221,16 @@
             </span>
           </a>
         </li>
+        <li>
+          <a class="variant" href="/portfolio-test/navrhy/d/">
+            <img src="/portfolio-test/assets/navrhy/nahled-d.webp" width="390" height="844" alt="" />
+            <span>
+              <h2>D. Černobílá</h2>
+              <p>Barvy a písma současného webu, žádná další barva. Stavba podle B, velké projekty s citacemi, a nahoře porovnání před a po z A. Výřez fotky je v sekci O mně.</p>
+              <span class="go">Otevřít variantu</span>
+            </span>
+          </a>
+        </li>
       </ul>
     </section>
 
@@ -234,7 +240,7 @@
         <li><span><b>Do pár vteřin říct, co děláš, pro koho a co má člověk udělat.</b>Nielsen Norman Group naměřili, že lidi o odchodu ze stránky rozhodují během prvních 10 až 20 sekund. Region, cena a návrh zdarma proto patří na první obrazovku, ne do třetí sekce.</span></li>
         <li><span><b>Hned pod nadpisem ukázat důkaz.</b>Skutečné weby, čísla ze studií a hodnocení z Googlu a Firmy.cz s odkazem na profil. Externím recenzím lidi věří víc než citacím, které si firma dá na vlastní web.</span></li>
         <li><span><b>Ceny nechat veřejné a říct, co člověk riskuje.</b>Konkurence v Pardubicích má podobné ceny, takže rozhoduje důvěra. U tebe je riziko nula, dokud se návrh nelíbí. To musí být vidět nahoře i u ceníku.</span></li>
-        <li><span><b>Kontakt zjednodušit na minimum.</b>Krátký formulář, telefon a e-mail. Na mobilu lišta s tlačítky Napsat a Zavolat. Všechny tři varianty to mají.</span></li>
+        <li><span><b>Kontakt zjednodušit na minimum.</b>Krátký formulář, telefon a e-mail. Na mobilu lišta s tlačítky Napsat a Zavolat. Mají to všechny varianty.</span></li>
         <li><span><b>Najít tě jde hlavně mimo homepage.</b>V Česku má Google kolem 79 % vyhledávání a Seznam kolem 16 %, takže Firemní profil Google i Firmy.cz se stejnými údaji. K tomu víc čerstvých recenzí, poctivá stránka pro Chrudim a odkaz z patičky klientských webů.</span></li>
         <li><span><b>Vyhnout se všemu, co vypadá jako šablona.</b>Fialové přechody, skleněné karty, efekty pod kurzorem a fráze typu „Pojďme vytvořit něco úžasného“. Místo přívlastků čísla, místo fotek z fotobanky skutečné weby.</span></li>
       </ol>
