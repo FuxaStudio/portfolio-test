@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Návrhy hlavní stránky | FuxaStudio</title>
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="icon" href="/portfolio-test/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="/portfolio-test/assets/brand/icon.svg" />
+  <link rel="stylesheet" href="/portfolio-test/navrhy/navrhy.css" />
+  <style>
+
+    :root {
+      --bg: #FFFFFF;
+      --ink: #17181B;
+      --muted: #5D6067;
+      --line: #E4E4E0;
+      --soft: #F4F4F1;
+      --accent: #17181B;
+      --accent-ink: #FFFFFF;
+      --focus: #17181B;
+      --display: 'Bricolage Full', 'Geist', system-ui, sans-serif;
+      --wrap: 1180px;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+
+    .top {
+      padding: clamp(2rem, 6vw, 4.5rem) 0 0;
+    }
+
+    .top h1 {
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      max-width: 14ch;
+    }
+
+    .intro {
+      margin-top: 1rem;
+      max-width: 40rem;
+      font-size: 1.125rem;
+      color: var(--muted);
+    }
+
+    .variants {
+      display: grid;
+      gap: 1rem;
+      margin: clamp(2rem, 5vw, 3.5rem) 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .variant {
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr);
+      gap: 1.1rem;
+      align-items: start;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      text-decoration: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .variant:hover {
+      border-color: var(--ink);
+    }
+
+    .variant img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .variant h2 {
+      font-size: 1.5rem;
+    }
+
+    .variant p {
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.975rem;
+      line-height: 1.5;
+    }
+
+    .variant .go {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: var(--ink);
+      font-weight: 650;
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 0.3em;
+    }
+
+    @media (min-width: 900px) {
+      .variants {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+      }
+
+      .variant {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 1.25rem;
+      }
+
+      .variant img {
+        max-width: 15rem;
+      }
+    }
+
+    .advice {
+      margin-top: clamp(3.5rem, 8vw, 6rem);
+      padding: clamp(1.5rem, 4vw, 3rem);
+      border-radius: 18px;
+      background: var(--soft);
+    }
+
+    .advice h2 {
+      font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+    }
+
+    .advice ol {
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: a;
+      display: grid;
+      gap: 1.25rem;
+      max-width: 48rem;
+    }
+
+    .advice li {
+      counter-increment: a;
+      display: grid;
+      grid-template-columns: 2rem minmax(0, 1fr);
+      gap: 0.5rem;
+    }
+
+    .advice li::before {
+      content: counter(a) '.';
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .advice b {
+      display: block;
+      font-weight: 650;
+      margin-bottom: 0.2rem;
+    }
+
+    .advice li span {
+      color: var(--muted);
+    }
+
+    .sources {
+      margin: 2rem 0 3rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .sources h2 {
+      font-family: 'Geist', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .sources ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .back {
+      display: inline-block;
+      margin: 0 0 3rem;
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="top">
+      <h1>Tři návrhy hlavní stránky</h1>
+      <p class="intro">Současná hlavní stránka zůstává, jak je. Varianty stojí vedle ní, mají stejná fakta, ceny a citace podle CLAUDE.md a liší se tím, čím zaujmou na první pohled. Formulář v nich odesílá naostro.</p>
+      <ul class="variants">
+        <li>
+          <a class="variant" href="/portfolio-test/navrhy/a/">
+            <img src="/portfolio-test/assets/navrhy/nahled-a.webp" width="390" height="844" alt="" />
+            <span>
+              <h2>A. Před a po</h2>
+              <p>Hned nahoře porovnání starého a nového webu Mlýna Janderov, posouvá se prstem. Kdo má zastaralý web, vidí rozdíl dřív, než cokoli přečte. Klidná bílá stránka, barvu nesou jen weby klientů.</p>
+              <span class="go">Otevřít variantu</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="variant" href="/portfolio-test/navrhy/b/">
+            <img src="/portfolio-test/assets/navrhy/nahled-b.webp" width="390" height="844" alt="" />
+            <span>
+              <h2>B. Barvy klientů</h2>
+              <p>Každý projekt má vlastní kapitolu v barvách svého webu. Na první pohled je vidět, že žádné dva weby nevypadají stejně. Patkové písmo, působí spíš jako časopis.</p>
+              <span class="go">Otevřít variantu</span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a class="variant" href="/portfolio-test/navrhy/c/">
+            <img src="/portfolio-test/assets/navrhy/nahled-c.webp" width="390" height="844" alt="" />
+            <span>
+              <h2>C. Modrá</h2>
+              <p>Plakát v modré, kterou FuxaStudio používá na sítích, s výřezem fotky. Největší písmo na stránce nese hlavní argument, návrh hlavní stránky zdarma. Nejvýraznější a nejosobnější varianta.</p>
+              <span class="go">Otevřít variantu</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="advice">
+      <h2>Co má hlavní stránka dělat</h2>
+      <ol>
+        <li><span><b>Do pár vteřin říct, co děláš, pro koho a co má člověk udělat.</b>Nielsen Norman Group naměřili, že lidi o odchodu ze stránky rozhodují během prvních 10 až 20 sekund. Region, cena a návrh zdarma proto patří na první obrazovku, ne do třetí sekce.</span></li>
+        <li><span><b>Hned pod nadpisem ukázat důkaz.</b>Skutečné weby, čísla ze studií a hodnocení z Googlu a Firmy.cz s odkazem na profil. Externím recenzím lidi věří víc než citacím, které si firma dá na vlastní web.</span></li>
+        <li><span><b>Ceny nechat veřejné a říct, co člověk riskuje.</b>Konkurence v Pardubicích má podobné ceny, takže rozhoduje důvěra. U tebe je riziko nula, dokud se návrh nelíbí. To musí být vidět nahoře i u ceníku.</span></li>
+        <li><span><b>Kontakt zjednodušit na minimum.</b>Krátký formulář, telefon a e-mail. Na mobilu lišta s tlačítky Napsat a Zavolat. Všechny tři varianty to mají.</span></li>
+        <li><span><b>Najít tě jde hlavně mimo homepage.</b>V Česku má Google kolem 79 % vyhledávání a Seznam kolem 16 %, takže Firemní profil Google i Firmy.cz se stejnými údaji. K tomu víc čerstvých recenzí, poctivá stránka pro Chrudim a odkaz z patičky klientských webů.</span></li>
+        <li><span><b>Vyhnout se všemu, co vypadá jako šablona.</b>Fialové přechody, skleněné karty, efekty pod kurzorem a fráze typu „Pojďme vytvořit něco úžasného“. Místo přívlastků čísla, místo fotek z fotobanky skutečné weby.</span></li>
+      </ol>
+    </section>
+
+    <section class="sources">
+      <h2>Zdroje</h2>
+      <ul>
+        <li><a href="https://www.nngroup.com/articles/how-long-do-users-stay-on-web-pages/" target="_blank" rel="noopener noreferrer">Nielsen Norman Group, How Long Do Users Stay on Web Pages?</a></li>
+        <li><a href="https://www.nngroup.com/articles/trustworthy-design/" target="_blank" rel="noopener noreferrer">Nielsen Norman Group, Trustworthy Design</a></li>
+        <li><a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener noreferrer">BrightLocal, Local Consumer Review Survey 2026</a></li>
+        <li><a href="https://gs.statcounter.com/search-engine-market-share/all/czech-republic" target="_blank" rel="noopener noreferrer">StatCounter, podíl vyhledávačů v Česku</a></li>
+        <li><a href="https://developers.google.com/search/docs/essentials/spam-policies" target="_blank" rel="noopener noreferrer">Google, Spam policies (doorway pages)</a></li>
+        <li><a href="https://www.creativeboom.com/insight/10-trends-creatives-are-so-over-in-2026/" target="_blank" rel="noopener noreferrer">Creative Boom, 10 trends creatives are so over in 2026</a></li>
+      </ul>
+    </section>
+
+    <a class="back" href="/portfolio-test/">Zpět na současný web</a>
+  </main>
+</body>
+
+</html>

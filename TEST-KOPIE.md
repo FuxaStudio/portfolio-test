@@ -13,3 +13,4 @@ Při přenosu změn zpět na živý web je potřeba:
 1. předponu "/portfolio-test/" vrátit na "/"
 2. odstranit řádek s noindex meta tagem
 3. robots.txt ani wrangler.jsonc nepřenášet
+4. složky navrhy/ a assets/navrhy/ nepřenášet, dokud Pavel nevybere variantu hlavní stránky (viz CLAUDE.md, Otevřené úkoly)
