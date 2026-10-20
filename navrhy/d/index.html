@@ -178,78 +178,94 @@
       }
     }
 
-    .hero .ba {
+    /* Pod nadpisem rovnou práce: Mattina Café přes celou šířku.
+       Na desktopu výřez 2 : 1 od horní hrany, ať je vidět nad ohybem. */
+    .show {
       margin: clamp(1.75rem, 4vw, 3.25rem) 0 0;
     }
 
-    .hero .ba-frame {
+    .show-media {
+      position: relative;
+      padding-bottom: 7%;
+    }
+
+    .show-media > a {
+      display: block;
+    }
+
+    .show-shot {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top center;
       border-radius: 14px;
       border: 1px solid var(--line);
     }
 
-    @media (min-width: 1024px) {
-      .hero .ba-frame {
-        aspect-ratio: 2 / 1;
-      }
+    .show-phone {
+      position: absolute;
+      right: 3%;
+      bottom: 0;
+      width: 30%;
+      max-width: 230px;
+      border-radius: 22px;
+      border: 6px solid #000;
+      background: #000;
+      box-shadow: 0 24px 50px -16px rgba(0, 0, 0, 0.85);
     }
 
-    .ba-cap {
+    .show-body {
       display: grid;
-      gap: 0.45rem;
-      margin-top: 1.1rem;
+      gap: 0;
+      margin-top: 1.25rem;
     }
 
-    .ba-cap-name {
+    .show-name {
       font-family: var(--poster);
-      font-size: 2.2rem;
-      line-height: 1;
+      font-weight: 400;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      line-height: 0.95;
       letter-spacing: 0.01em;
     }
 
-    .ba-cap-text {
-      color: var(--muted);
-      max-width: 58ch;
-    }
-
-    .ba-hint {
-      color: var(--faint);
-      font-size: 0.9rem;
-    }
-
-    .ba-quote {
-      margin: 1rem 0 0;
-      padding-left: 1.1rem;
-      border-left: 2px solid var(--ink);
-    }
-
-    .ba-quote blockquote {
-      margin: 0;
-      font-size: 1.05rem;
-      line-height: 1.55;
-    }
-
-    .ba-quote-who {
-      margin-top: 0.6rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
     @media (min-width: 1024px) {
-      .ba-cap {
+      .show-shot {
+        aspect-ratio: 2 / 1;
+      }
+
+      .show-phone {
+        width: 20%;
+      }
+
+      .show-body {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         column-gap: 4rem;
         align-items: start;
       }
 
-      .ba-cap > :not(.ba-quote) {
-        grid-column: 1;
+      .show-body .chapter-quote {
+        margin-top: 0.5rem;
       }
+    }
 
-      .ba-quote {
-        grid-column: 2;
-        grid-row: 1 / span 4;
-        margin-top: 0.4rem;
-      }
+    /* Porovnání před a po v kapitole Mlýna Janderov */
+    .chapter .ba {
+      margin: 0;
+    }
+
+    .chapter .ba-frame {
+      border-radius: 10px;
+      border: 1px solid var(--line);
+    }
+
+    .chapter-media--ba {
+      padding-bottom: 0;
+    }
+
+    .ba-hint {
+      margin-top: 0.6rem;
+      color: var(--faint);
+      font-size: 0.9rem;
     }
 
     /* ---------- Projekty ---------- */
@@ -936,48 +952,30 @@
           </div>
         </div>
 
-        <figure class="ba" data-ba style="--pos: 50%">
-        <div class="ba-frame">
-          <img class="ba-img ba-before" src="/portfolio-test/assets/janderov-stary-web.webp" width="860" height="720" alt="Původní web Mlýna Janderov se zeleno žlutou hlavičkou" />
-          <img class="ba-img ba-after" src="/portfolio-test/assets/cs-janderov-hero.webp" srcset="/portfolio-test/assets/cs-janderov-hero-720.webp 720w, /portfolio-test/assets/cs-janderov-hero.webp 1440w" sizes="(max-width: 1023px) 92vw, 1232px" width="1440" height="900" alt="Nový web Mlýna Janderov s fotkou mlýna" fetchpriority="high" />
-          <span class="ba-tag ba-tag-before" aria-hidden="true">Původní web</span>
-          <span class="ba-tag ba-tag-after" aria-hidden="true">Nový web</span>
-          <span class="ba-handle" aria-hidden="true"><span class="ba-knob"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></span>
-          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Porovnání původního a nového webu Mlýna Janderov" />
-        </div>
-          <figcaption class="ba-cap">
-            <span class="ba-cap-name">Mlýn Janderov</span>
-            <p class="ba-cap-text">Rodinné mlynářství od roku 1540. Původní web bez přístupů jsem převzal i&nbsp;s&nbsp;doménou a&nbsp;hostingem. Nový byl venku 6&nbsp;dní od zadání.</p>
-            <p class="case-links"><a href="/portfolio-test/projekty/mlyn-janderov">Případová studie</a><a href="https://mlyn-janderov.cz/" target="_blank" rel="noopener noreferrer">mlyn-janderov.cz</a></p>
-            <p class="ba-hint">Tažením porovnáte původní a nový web.</p>
-            <div class="ba-quote">
-              <blockquote><p>Jsme maximálně spokojení. Pomáhal nám s tvorbou webových stránek a i když to s námi nebylo úplně jednoduché, vše se nakonec podařilo. Výsledek přesně odpovídá naší představě. Budeme i nadále v kontaktu. Doporučujeme.</p></blockquote>
-              <p class="ba-quote-who">Ing. Petr Schaffer, Mlýn Janderov</p>
+        <article class="show" id="mattina">
+          <div class="show-media">
+            <a href="/portfolio-test/projekty/mattina-cafe" tabindex="-1" aria-hidden="true"><img class="show-shot" src="/portfolio-test/assets/cs-mattina-hero.webp" srcset="/portfolio-test/assets/cs-mattina-hero-400.webp 400w, /portfolio-test/assets/cs-mattina-hero-720.webp 720w, /portfolio-test/assets/cs-mattina-hero.webp 1440w" sizes="(max-width: 1023px) 92vw, 1232px" width="1440" height="900" alt="Náhled webu Mattina Café" fetchpriority="high" /></a>
+            <img class="show-phone" src="/portfolio-test/assets/navrhy/m-mattina.webp" width="390" height="844" alt="" />
+          </div>
+          <div class="show-body">
+            <div>
+              <h2 class="show-name">Mattina Café</h2>
+              <p class="chapter-text">Web pro kavárnu, která ještě neexistovala. Dvojjazyčný, s obsahem psaným za pochodu.</p>
+              <p class="chapter-stat">Hotovo měsíc před otevřením</p>
+              <p class="case-links"><a href="/portfolio-test/projekty/mattina-cafe">Případová studie</a><a href="https://mattina.sk/" target="_blank" rel="noopener noreferrer">mattina.sk</a></p>
             </div>
-          </figcaption>
-        </figure>
+            <figure class="chapter-quote">
+              <blockquote><p>So spoluprácou som veľmi spokojná, všetko bolo urobené podľa našich predstáv, dokonca aj texty prvých blogov. Ďakujeme.</p></blockquote>
+              <figcaption>Ivana Lenčéšová, Mattina Café</figcaption>
+            </figure>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- ========== PROJEKTY ========== -->
     <div class="chapters" id="projekty">
-      <section class="chapter" id="mattina">
-        <div class="wrap chapter-grid">
-          <h2>Mattina Café</h2>
-          <div class="chapter-media">
-            <a href="/portfolio-test/projekty/mattina-cafe" tabindex="-1" aria-hidden="true"><img class="chapter-shot" src="/portfolio-test/assets/cs-mattina-hero.webp" srcset="/portfolio-test/assets/cs-mattina-hero-400.webp 400w, /portfolio-test/assets/cs-mattina-hero-720.webp 720w, /portfolio-test/assets/cs-mattina-hero.webp 1440w" sizes="(max-width: 1023px) 92vw, 700px" width="1440" height="900" alt="Náhled webu Mattina Café" loading="lazy" /></a>
-            <img class="chapter-phone" src="/portfolio-test/assets/navrhy/m-mattina.webp" width="390" height="844" alt="" loading="lazy" />
-          </div>
-          <p class="chapter-text">Web pro kavárnu, která ještě neexistovala. Dvojjazyčný, s obsahem psaným za pochodu.</p>
-          <p class="chapter-stat">Hotovo měsíc před otevřením</p>
-          <figure class="chapter-quote">
-            <blockquote><p>So spoluprácou som veľmi spokojná, všetko bolo urobené podľa našich predstáv, dokonca aj texty prvých blogov. Ďakujeme.</p></blockquote>
-            <figcaption>Ivana Lenčéšová, Mattina Café</figcaption>
-          </figure>
-          <p class="case-links"><a href="/portfolio-test/projekty/mattina-cafe">Případová studie</a><a href="https://mattina.sk/" target="_blank" rel="noopener noreferrer">mattina.sk</a></p>
-        </div>
-      </section>
-      <section class="chapter chapter--flip" id="svatba">
+      <section class="chapter" id="svatba">
         <div class="wrap chapter-grid">
           <h2>Svatební web</h2>
           <div class="chapter-media">
@@ -991,6 +989,31 @@
             <figcaption>Lucia, za snoubence</figcaption>
           </figure>
           <p class="case-links"><a href="/portfolio-test/projekty/svatebni-web">Případová studie</a></p>
+        </div>
+      </section>
+      <section class="chapter chapter--flip" id="janderov">
+        <div class="wrap chapter-grid">
+          <h2>Mlýn Janderov</h2>
+          <div class="chapter-media chapter-media--ba">
+            <figure class="ba" data-ba style="--pos: 50%">
+        <div class="ba-frame">
+          <img class="ba-img ba-before" src="/portfolio-test/assets/janderov-stary-web.webp" width="860" height="720" alt="Původní web Mlýna Janderov se zeleno žlutou hlavičkou" loading="lazy" />
+          <img class="ba-img ba-after" src="/portfolio-test/assets/cs-janderov-hero.webp" srcset="/portfolio-test/assets/cs-janderov-hero-720.webp 720w, /portfolio-test/assets/cs-janderov-hero.webp 1440w" sizes="(max-width: 1023px) 92vw, 700px" width="1440" height="900" alt="Nový web Mlýna Janderov s fotkou mlýna" loading="lazy" />
+          <span class="ba-tag ba-tag-before" aria-hidden="true">Původní web</span>
+          <span class="ba-tag ba-tag-after" aria-hidden="true">Nový web</span>
+          <span class="ba-handle" aria-hidden="true"><span class="ba-knob"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Porovnání původního a nového webu Mlýna Janderov" />
+        </div>
+              <figcaption class="ba-hint">Tažením porovnáte původní a nový web.</figcaption>
+            </figure>
+          </div>
+          <p class="chapter-text">Klient nemusel řešit vůbec nic technického. Starý web bez přístupů jsem převzal celý, i s doménou a hostingem.</p>
+          <p class="chapter-stat">6 dní od zadání ke spuštění</p>
+          <figure class="chapter-quote">
+            <blockquote><p>Jsme maximálně spokojení. Pomáhal nám s tvorbou webových stránek a i když to s námi nebylo úplně jednoduché, vše se nakonec podařilo. Výsledek přesně odpovídá naší představě. Budeme i nadále v kontaktu. Doporučujeme.</p></blockquote>
+            <figcaption>Ing. Petr Schaffer, Mlýn Janderov</figcaption>
+          </figure>
+          <p class="case-links"><a href="/portfolio-test/projekty/mlyn-janderov">Případová studie</a><a href="https://mlyn-janderov.cz/" target="_blank" rel="noopener noreferrer">mlyn-janderov.cz</a></p>
         </div>
       </section>
       <div class="duo">
