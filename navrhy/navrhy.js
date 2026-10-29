@@ -57,11 +57,22 @@
 
     var touched = false;
 
+    // Na kraji jezdce by štítek ležel přes druhý web, proto se tam schová
     var setPos = function (p) {
       p = Math.max(0, Math.min(100, p));
       ba.style.setProperty('--pos', p + '%');
       range.value = String(Math.round(p));
+      ba.classList.toggle('ba--new', p < 22);
+      ba.classList.toggle('ba--old', p > 78);
     };
+
+    // Varianta E posouvá jezdec scrollováním (navrhy/pohyb.js). Jakmile
+    // na něj člověk sáhne, scroll ho už nepřebírá.
+    var markTouched = function () {
+      touched = true;
+      ba.dataset.touched = '1';
+    };
+    ba.__setPos = setPos;
 
     var posFrom = function (e) {
       var r = frame.getBoundingClientRect();
@@ -77,7 +88,7 @@
     frame.addEventListener('pointerdown', function (e) {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       down = true;
-      touched = true;
+      markTouched();
       sx = e.clientX;
       sy = e.clientY;
       decided = e.pointerType === 'mouse';
@@ -114,14 +125,14 @@
     });
 
     range.addEventListener('input', function () {
-      touched = true;
+      markTouched();
       setPos(Number(range.value));
     });
 
     // Jednou, když se porovnání poprvé ukáže, jezdec lehce cukne,
     // aby bylo vidět, že se s ním dá hýbat. Jen jednou a ne při
     // omezeném pohybu nebo když už na něj někdo sáhl.
-    if (!reduceMotion && 'IntersectionObserver' in window) {
+    if (!reduceMotion && 'IntersectionObserver' in window && !ba.hasAttribute('data-ba-scroll')) {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
