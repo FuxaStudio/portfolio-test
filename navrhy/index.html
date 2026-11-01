@@ -9,6 +9,10 @@
   <meta name="theme-color" content="#FFFFFF" />
   <link rel="icon" href="/portfolio-test/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/svg+xml" href="/portfolio-test/assets/brand/icon.svg" />
+  <script>
+    /* Kdo přijde z rozcestníku, opona ve variantě F se mu už neukáže */
+    try { sessionStorage.setItem('fs-intro', '1'); } catch (e) { /* nevadí */ }
+  </script>
   <link rel="stylesheet" href="/portfolio-test/navrhy/navrhy.css" />
   <style>
 
@@ -176,6 +180,42 @@
       gap: 0.25rem;
     }
 
+    /* Přechod mezi rozcestníkem a variantou F (F má stejné pravidlo) */
+    @view-transition {
+      navigation: auto;
+    }
+
+    ::view-transition-old(root) {
+      animation: fs-vt-old 0.7s cubic-bezier(0.76, 0, 0.24, 1) both;
+    }
+
+    ::view-transition-new(root) {
+      animation: fs-vt-new 0.7s cubic-bezier(0.76, 0, 0.24, 1) both;
+    }
+
+    @keyframes fs-vt-old {
+      to {
+        transform: translateY(-7vh) scale(0.97);
+        opacity: 0.35;
+      }
+    }
+
+    @keyframes fs-vt-new {
+      from {
+        clip-path: inset(100% 0 0 0 round 28px 28px 0 0);
+      }
+
+      to {
+        clip-path: inset(0 0 0 0 round 0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      @view-transition {
+        navigation: none;
+      }
+    }
+
     .back {
       display: inline-block;
       margin: 0 0 3rem;
@@ -246,7 +286,7 @@
             <img src="/portfolio-test/assets/navrhy/nahled-f.webp" width="390" height="844" alt="" />
             <span>
               <h2>F. Filmová</h2>
-              <p>Všechno z E a k tomu pohyb, jaký mají weby studií. Nadpis po načtení vyjede po slovech, náhled Mattiny se při scrollování roztáhne až ke krajům a rámy projektů se otevírají. Věta v sekci O mně se rozsvěcí slovo po slově. Nic se nepřipíná, k informacím se dostanete stejně rychle jako v D.</p>
+              <p>Všechno z E a k tomu pohyb, jaký mají weby studií. Nadpis po načtení vyjede po slovech, náhled Mattiny se při scrollování roztáhne až ke krajům a rámy projektů se otevírají. Věta v sekci O mně se rozsvěcí slovo po slově. Menu se na mobilu otevře kruhem od tlačítka a při prvním otevření webu se zvedne opona s logem. Nic se nepřipíná, k informacím se dostanete stejně rychle jako v D.</p>
               <span class="go">Otevřít variantu</span>
             </span>
           </a>

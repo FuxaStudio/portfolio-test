@@ -12,6 +12,33 @@
 // Bez JS, při pomalém načtení i při omezeném pohybu je stránka v klidu.
 // =====================================================================
 
+// ---------- Menu, které se otevře kruhem od tlačítka ----------
+// Otevírání a zavírání obstarává navrhy.js (třída menu-open na body).
+// Tady se jen nastaví střed kruhu na tlačítko a popisek Menu / Zavřít.
+(function () {
+  'use strict';
+
+  var btn = document.querySelector('[data-menu-btn]');
+  var sheet = document.getElementById('menu-sheet');
+  if (!btn || !sheet) return;
+
+  var place = function () {
+    var r = btn.getBoundingClientRect();
+    sheet.style.setProperty('--mx', Math.round(r.left + r.width / 2) + 'px');
+    sheet.style.setProperty('--my', Math.round(r.top + r.height / 2) + 'px');
+  };
+
+  new MutationObserver(function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.textContent = open ? 'Zavřít' : 'Menu';
+  }).observe(btn, { attributes: true, attributeFilter: ['aria-expanded'] });
+
+  btn.addEventListener('pointerdown', place);
+  btn.addEventListener('keydown', place);
+  window.addEventListener('resize', place, { passive: true });
+  place();
+})();
+
 (function () {
   'use strict';
 
@@ -210,10 +237,14 @@
 
   // ---------- úvod a objevování ----------
   if (anim) {
+    // Při prvním otevření webu se čeká, až se zvedne opona
+    var wait = root.classList.contains('f-curtain') ? 700 : 0;
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        root.classList.add('f-in');
-        setTimeout(function () { root.classList.add('f-done'); }, 1900);
+        setTimeout(function () {
+          root.classList.add('f-in');
+          setTimeout(function () { root.classList.add('f-done'); }, 1900);
+        }, wait);
       });
     });
 

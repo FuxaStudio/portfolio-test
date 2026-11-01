@@ -26,6 +26,12 @@
         if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         var r = document.documentElement;
         r.classList.add('f-anim');
+        var first = false;
+        try {
+          first = !sessionStorage.getItem('fs-intro');
+          sessionStorage.setItem('fs-intro', '1');
+        } catch (e) { /* bez opony */ }
+        if (first) r.classList.add('f-curtain');
         setTimeout(function () { if (!window.__filmOK) r.classList.remove('f-anim'); }, 2500);
       } catch (e) { /* bez animací */ }
     })();
@@ -1156,6 +1162,251 @@
       opacity: 0.3;
     }
 
+    /* ---------- F: menu, které se otevře kruhem od tlačítka ---------- */
+    /* Na mobilu a tabletu. Na PC zůstává navigace v řádku. */
+    .menu-sheet {
+      display: none;
+    }
+
+    @media (max-width: 1023px) {
+      body.menu-open .nav {
+        display: none;
+      }
+
+      /* „Zavřít“ je delší než „Menu“, hlavička se nesmí pohnout */
+      .menu-btn {
+        min-width: 5.9rem;
+      }
+
+      .menu-sheet {
+        --mx: calc(100% - 3rem);
+        --my: 2.1rem;
+        position: fixed;
+        inset: 0;
+        z-index: 45;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2.5rem;
+        padding: 6.25rem var(--gutter, clamp(1.25rem, 5vw, 4rem)) calc(1.5rem + env(safe-area-inset-bottom));
+        overflow-y: auto;
+        background: #EDEDED;
+        color: #141414;
+        clip-path: circle(0 at var(--mx) var(--my));
+        visibility: hidden;
+        transition: clip-path 0.6s cubic-bezier(0.76, 0, 0.24, 1), visibility 0s linear 0.6s;
+      }
+
+      body.menu-open .menu-sheet {
+        clip-path: circle(150vmax at var(--mx) var(--my));
+        visibility: visible;
+        transition: clip-path 0.75s cubic-bezier(0.76, 0, 0.24, 1), visibility 0s;
+      }
+
+      .sheet-nav {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sheet-nav a {
+        display: block;
+        overflow: hidden;
+        padding: 0.06em 0 0.1em;
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: clamp(2.6rem, 12.5vw, 4.4rem);
+        line-height: 1.02;
+        letter-spacing: -0.035em;
+        text-decoration: none;
+      }
+
+      .sheet-nav a span {
+        display: inline-block;
+        transform: translateY(115%);
+        transition: transform 0.45s cubic-bezier(0.7, 0, 0.84, 0);
+      }
+
+      body.menu-open .sheet-nav a span {
+        transform: none;
+        transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) calc(0.22s + var(--k, 0) * 0.06s);
+      }
+
+      .sheet-nav a[aria-current='page'] span {
+        text-decoration: underline;
+        text-decoration-thickness: 0.07em;
+        text-underline-offset: 0.12em;
+      }
+
+      .sheet-foot {
+        display: grid;
+        justify-items: start;
+        gap: 0.9rem;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      body.menu-open .sheet-foot {
+        opacity: 1;
+        transform: none;
+        transition: opacity 0.5s ease 0.5s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
+      }
+
+      .sheet-foot .btn-solid {
+        background: #141414;
+        border-color: #141414;
+        color: #EDEDED;
+      }
+
+      .sheet-lines {
+        display: grid;
+        gap: 0.2rem;
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+
+      .sheet-lines a {
+        text-decoration: none;
+      }
+
+      /* hlavička nad otevřeným menu ztmavne do barvy menu */
+      .site-head {
+        transition: background-color 0.3s ease 0.3s, color 0.25s ease 0.3s, border-color 0.3s ease 0.3s;
+      }
+
+      .site-head .logo img,
+      .site-head .head-cta {
+        transition: filter 0.25s ease 0.3s, opacity 0.25s ease 0.3s;
+      }
+
+      body.menu-open .site-head {
+        background: transparent;
+        border-bottom-color: transparent;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        color: #141414;
+        transition: background-color 0.2s ease, color 0.2s ease 0.12s, border-color 0.2s ease;
+      }
+
+      body.menu-open .site-head .logo img {
+        filter: invert(1);
+        transition: filter 0.2s ease 0.12s;
+      }
+
+      body.menu-open .site-head .head-cta {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease;
+      }
+
+      body.menu-open .contact-bar {
+        visibility: hidden;
+      }
+
+      html:has(body.menu-open) {
+        overflow: hidden;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .menu-sheet,
+      body.menu-open .menu-sheet,
+      .sheet-nav a span,
+      body.menu-open .sheet-nav a span,
+      .sheet-foot,
+      body.menu-open .sheet-foot {
+        transition-delay: 0s !important;
+      }
+    }
+
+    /* ---------- F: přechod mezi stránkami ---------- */
+    /* Nová stránka vyjede zespodu přes starou, hlavička zůstane na místě.
+       Funguje mezi stránkami, které mají tohle pravidlo taky (Chrome,
+       Edge, Safari 18.2 a novější). Jinde se stránka otevře normálně. */
+    @view-transition {
+      navigation: auto;
+    }
+
+    .site-head {
+      view-transition-name: hlavicka;
+    }
+
+    ::view-transition-old(root) {
+      animation: fs-vt-old 0.7s cubic-bezier(0.76, 0, 0.24, 1) both;
+    }
+
+    ::view-transition-new(root) {
+      animation: fs-vt-new 0.7s cubic-bezier(0.76, 0, 0.24, 1) both;
+    }
+
+    ::view-transition-group(hlavicka) {
+      animation-duration: 0.45s;
+    }
+
+    @keyframes fs-vt-old {
+      to {
+        transform: translateY(-7vh) scale(0.97);
+        opacity: 0.35;
+      }
+    }
+
+    @keyframes fs-vt-new {
+      from {
+        clip-path: inset(100% 0 0 0 round 28px 28px 0 0);
+      }
+
+      to {
+        clip-path: inset(0 0 0 0 round 0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      @view-transition {
+        navigation: none;
+      }
+    }
+
+    /* ---------- F: opona při prvním otevření webu ---------- */
+    /* Jen jednou za návštěvu a na nic nečeká, web je lehký. Opona zvedne
+       sama přes CSS, i kdyby se skript nenačetl. */
+    .curtain {
+      display: none;
+    }
+
+    .f-curtain .curtain {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #EDEDED;
+      border-radius: 0 0 28px 28px;
+      pointer-events: none;
+      animation: fs-curtain-up 0.85s cubic-bezier(0.76, 0, 0.24, 1) 0.45s forwards;
+    }
+
+    .f-curtain .curtain img {
+      width: clamp(72px, 9vw, 104px);
+      height: auto;
+      animation: fs-curtain-logo 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fs-curtain-up {
+      to {
+        transform: translateY(-100%);
+        visibility: hidden;
+      }
+    }
+
+    @keyframes fs-curtain-logo {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+    }
+
   </style>
   <script defer src="/portfolio-test/js/translations.js"></script>
   <script defer src="/portfolio-test/js/main.js"></script>
@@ -1164,6 +1415,8 @@
 </head>
 
 <body>
+
+  <div class="curtain" aria-hidden="true"><img src="/portfolio-test/assets/navrhy/fs-logo-ink.svg" alt="" width="279" height="191" /></div>
 
   <a href="#obsah" class="skip">Přeskočit na obsah</a>
 
@@ -1178,9 +1431,23 @@
         <a href="/portfolio-test/o-mne">O mně</a>
       </nav>
       <a href="#contact" class="btn btn-solid head-cta">Nezávazná poptávka</a>
-      <button type="button" class="menu-btn" data-menu-btn aria-expanded="false" aria-controls="menu">Menu</button>
+      <button type="button" class="menu-btn" data-menu-btn aria-expanded="false" aria-controls="menu-sheet">Menu</button>
     </div>
   </header>
+
+  <div class="menu-sheet" id="menu-sheet">
+    <nav class="sheet-nav" aria-label="Hlavní navigace">
+        <a href="/portfolio-test/navrhy/f/" aria-current="page" style="--k: 0"><span>Domů</span></a>
+        <a href="/portfolio-test/projekty" style="--k: 1"><span>Projekty</span></a>
+        <a href="/portfolio-test/tvorba-webovych-stranek" style="--k: 2"><span>Služby a ceník</span></a>
+        <a href="/portfolio-test/reference" style="--k: 3"><span>Reference</span></a>
+        <a href="/portfolio-test/o-mne" style="--k: 4"><span>O mně</span></a>
+    </nav>
+    <div class="sheet-foot">
+      <a href="#contact" class="btn btn-solid">Nezávazná poptávka</a>
+      <p class="sheet-lines"><a href="mailto:fuxa@fuxastudio.cz">fuxa@fuxastudio.cz</a><a href="tel:+420736131410">+420 736 131 410</a></p>
+    </div>
+  </div>
 
   <main id="obsah">
 
