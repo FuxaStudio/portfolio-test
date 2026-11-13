@@ -52,10 +52,10 @@
     data.append('subject', 'Nový dotazník k webu' + (d.lang === 'EN' ? ' (EN)' : '') + ', ' + name);
     data.append('from_name', 'FuxaStudio web');
     data.append('botcheck', form.elements.botcheck.checked ? 'true' : '');
-    data.append('Jazyk', d.lang);
+    data.append('Language', d.lang);
     // Jedno pole: otazka, pod ni odpoved, oddelene prazdnym radkem
-    data.append('Odpovědi', [...form.querySelectorAll('.dq__q')].map((box) => box.dataset.q + '\n' + answer(box)).join('\n\n'));
-    data.append('Stránka', location.href);
+    data.append('Answers', [...form.querySelectorAll('.dq__q')].map((box) => box.dataset.q + '\n' + answer(box)).join('\n\n'));
+    data.append('Page', location.href);
 
     let ok = false;
     try {

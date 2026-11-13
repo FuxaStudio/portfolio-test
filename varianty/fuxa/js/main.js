@@ -226,11 +226,11 @@
       data.append('subject', T.subject + name);
       data.append('from_name', 'FuxaStudio web');
       data.append('botcheck', form.elements.botcheck && form.elements.botcheck.checked ? 'true' : '');
-      data.append('Jméno', name);
-      data.append('E-mail', val('email') || '(nevyplněno)');
-      data.append('Telefon', val('phone') || '(nevyplněno)');
-      data.append('Zpráva', val('message'));
-      data.append('Stránka', location.href);
+      data.append('Name', name);
+      data.append('Email', val('email') || '(nevyplněno)');
+      data.append('Phone', val('phone') || '(nevyplněno)');
+      data.append('Message', val('message'));
+      data.append('Page', location.href);
       if (val('email')) data.append('replyto', val('email'));
 
       let ok = false;
