@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- LOKALNI VARIANTA, NENASAZOVAT.
+       Kod vychazi ze studijni kopie sablony Hanza (c) Gola Templates. Texty jsou zatim
+       ze sablony a upravi se pozdeji. Faze 1: vlastni obrazky a videa projektu.
+       Faze 2: vlastni hero (latka, js/hero.js). Obrazky ve sluzbach jsou vlastni (assets/img/cs/sluzba-*). -->
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Web design from €400 | FuxaStudio</title>
+  <meta name="description" content="Websites for businesses in Czechia, Slovakia and abroad from €400. Free homepage design, no commitment." />
+  <meta property="og:title" content="Web design from €400 | FuxaStudio" />
+  <meta property="og:description" content="Websites for businesses in Czechia, Slovakia and abroad from €400. Free homepage design, no commitment." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="cs_CZ" />
+  <meta property="og:site_name" content="FuxaStudio" />
+  <meta property="og:image" content="../assets/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Pavel Fuxa, FuxaStudio" />
+  <meta name="theme-color" content="#121212" />
+  <link rel="canonical" href="https://fuxastudio.cz/en/" />
+  <link rel="alternate" hreflang="cs" href="https://fuxastudio.cz/" />
+  <link rel="alternate" hreflang="en" href="https://fuxastudio.cz/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://fuxastudio.cz/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "FuxaStudio",
+    "inLanguage": "en",
+    "url": "https://fuxastudio.cz/en/",
+    "image": "https://fuxastudio.cz/assets/img/og-image.jpg",
+    "founder": {"@type": "Person", "name": "Pavel Fuxa"},
+    "email": "fuxa@fuxastudio.cz",
+    "telephone": "+420736131410",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Svídnice u Chrudimi 79",
+      "addressLocality": "Svídnice",
+      "postalCode": "538 24",
+      "addressCountry": "CZ"
+    },
+    "areaServed": ["Pardubice", "Chrudim", "Hradec Králové", "Czechia"],
+    "priceRange": "from €400",
+    "sameAs": [
+      "https://share.google/jNHbajMbGHvZoFNuk",
+      "https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html"
+    ]
+  }
+  </script>
+  <link rel="preload" href="../assets/fonts/zalando-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <!-- Poster hera je nejvetsi prvek prvni obrazovky (LCP), stahuje se hned s HTML -->
+  <link rel="preload" as="image" type="image/avif" href="../assets/hero/fabric-mob.avif" media="(max-width: 809px)" fetchpriority="high" />
+  <link rel="preload" as="image" type="image/avif" href="../assets/hero/fabric-desk.avif" media="(min-width: 810px)" fetchpriority="high" />
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+  <script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('hero-anim');</script>
+  <link rel="stylesheet" href="../css/style.css?v=31" />
+  <link rel="stylesheet" href="../css/klon.css?v=31" />
+  <link rel="stylesheet" href="../css/fuxa.css?v=31" />
+  <script defer src="../js/vendor/lenis.min.js?v=31"></script>
+  <script defer src="../js/main.js?v=31"></script>
+  <script defer src="../js/cookies.js?v=31"></script>
+  <script defer src="../js/hero.js?v=31"></script>
+</head>
+
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+
+  <svg class="sprite" aria-hidden="true" width="0" height="0">
+    <symbol id="i-caret" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-caret-l" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-fr" viewBox="0 0 24 24"><path d="M6 3h12v6h-6zM6 9h6l6 6H6zM6 15h6v6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-dr" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M5 9.5c5 .5 10-1 13.5-4.5M3.8 13.5C9 11.5 15 12 18 19M9 4c3.5 4 5.5 9.5 6 16" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="16.6" cy="7.4" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-google" viewBox="2 2 44 44"><path fill="currentColor" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17zM24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46zM11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24c0 3.55.85 6.91 2.34 9.88l7.35-5.7zM24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></symbol>
+    <symbol id="i-firmy" viewBox="42 34 126 126"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M145.129 63.892c-1.411-2.246-3.643-4.112-5.984-5.34-8.723-4.575-18.559-4.623-28.197-4.651-6.985-.022-13.968.458-20.89 1.366a171.89 171.89 0 0 0-11.402 1.892c-4.496.9-8.97 1.905-13.361 3.207-3.986 1.183-7.836 3.275-11.51 5.168-1.713.882-3.536 2.048-4.352 3.83-.98 2.138-.016 4.176.177 6.351.267 3.017 1.61 3.95 3.248 6.218 3.236 4.48 8.414 5.701 13.728 3.778 1.392-.505 4.823-2.886 6.128-2.532 2.122.578.305 6.725-.142 8.21-.613 2.027-1.75 3.54-3.833 4.276-1.749.62-5.37.263-5.947 2.465-1.611 6.147 5.28 10.683 6.23 16.148.475 2.729-.736 5.465-1.05 8.161-.412 3.542-.632 7.122-.944 10.677-.147 1.665-.657 3.954-.477 5.584.276 2.487 3.262 3.991 5.514 3.178 3.558-1.286 5.442-5.51 6.886-8.616 1.977-4.258 3.02-8.589 3.947-13.137.622-3.052 1.73-6.302 5.43-6.684 4.89-.507 9.653-1.769 14.552-2.27 5.265-.54 10.574-.76 15.781-1.736 3.473-.653 7.02-.552 10.514-1.019 5.887-.784 12.838-2.892 17.952-5.891 2.497-1.463 3.47-4.75 4.503-7.214 2.7-6.46-15.658-5.571-18.436-5.594-7.91-.066-15.241.132-21.998.657-4.943.384-9.818.724-14.781.636-2.168-.039-5.32-.019-6.734-1.908-1.66-2.215-.479-7.052.549-9.335 1.297-2.885 6.235-2.082 8.796-2.263 4.356-.31 8.685-.91 13.05-1.086 9.29-.376 18.191-.749 27.393-2.158 2.314-.355 6.434-1.089 6.999-3.78.498-2.374-.107-4.626-1.339-6.588Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8z" fill="currentColor"/></symbol>
+  </svg>
+
+  <!-- ========== HLAVICKA ========== -->
+  <header class="head head--home wrap">
+    <div class="head__left">
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span>Menu</span>
+      </button>
+      <span class="head__rule" aria-hidden="true"></span>
+      <a href="#home" class="head__logo"><img src="../assets/img/fs-mark.svg" width="279" height="191" alt="FuxaStudio" /></a>
+    </div>
+    <div class="head__end">
+      <a class="lang" href="../index.html" lang="cs" hreflang="cs" aria-label="Přepnout do češtiny"><span class="lang__alt" aria-hidden="true">CZ</span> <span class="lang__sep" aria-hidden="true">/</span> <span class="lang__cur" aria-hidden="true">EN</span></a>
+      <a href="#contact" class="btn btn--dark head__cta">
+        <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+        <span class="btn__body"><b>Get a quote</b></span>
+        <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <div class="menu__panel">
+      <div class="menu__col">
+        <nav aria-label="Main menu">
+          <a href="#home" class="menu__link" aria-current="page"><span>Home</span></a>
+          <a href="projekty.html" class="menu__link"><span>Projects</span></a>
+          <a href="#services" class="menu__link"><span>Services</span></a>
+          <a href="#pricing" class="menu__link"><span>Pricing</span></a>
+          <a href="#references" class="menu__link"><span>Reviews</span></a>
+          <a href="#faq" class="menu__link"><span>FAQ</span></a>
+          <a href="#contact" class="menu__link"><span>Contact</span></a>
+        </nav>
+        <div class="menu__user">
+          <picture><source type="image/avif" srcset="../assets/img/pavel-face-120.avif 120w, ../assets/img/pavel-face-240.avif 240w" sizes="60px" /><img class="cut" src="../assets/img/pavel-face-240.webp" srcset="../assets/img/pavel-face-120.webp 120w, ../assets/img/pavel-face-240.webp 240w" sizes="60px" width="240" height="300" alt="" loading="lazy" decoding="async" /></picture>
+          <p class="menu__name"><i class="sq"></i>Pavel Fuxa</p>
+          <p class="mono">Web designer and graphic designer</p>
+          <p class="socials socials--inv"><a href="https://share.google/jNHbajMbGHvZoFNuk" target="_blank" rel="noopener" aria-label="FuxaStudio on Google"><svg><use href="#i-google" /></svg></a><a href="https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html" target="_blank" rel="noopener" aria-label="FuxaStudio on Firmy.cz"><svg><use href="#i-firmy" /></svg></a></p>
+        </div>
+      </div>
+      <div class="menu__work">
+        <a href="case-study-mattina-cafe.html" class="menu__proj" aria-label="Mattina Café, case study"><img class="menu__foto menu__foto--mattina" src="../assets/img/cs/mattina-cafe-foto-pozadi.webp" width="1200" height="800" alt="Mattina Café" loading="lazy" decoding="async" /><img class="pk__logo pk__logo--mattina" src="../assets/img/cs/logo-mattina-cafe-bila.png" width="1001" height="894" alt="" loading="lazy" decoding="async" /></a>
+        <a href="case-study-svatebni-web.html" class="menu__proj" aria-label="Wedding website, case study"><img class="menu__foto menu__foto--svatba" src="../assets/img/cs/svatebni-web-foto-pozadi.webp" width="1200" height="800" alt="Wedding website" loading="lazy" decoding="async" /><img class="pk__logo pk__logo--svatba" src="../assets/img/cs/logo-svatebni-web-bila.svg" width="3947" height="1046" alt="" loading="lazy" decoding="async" /></a>
+      </div>
+      <!-- Pod 810 px neni tlacitko v hlavicce, je tady na konci panelu -->
+      <a href="#contact" class="btn btn--dark menu__cta">
+        <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+        <span class="btn__body"><b>Get a quote</b></span>
+        <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+      </a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero wrap" id="home">
+      <div class="hero__bg hb" aria-hidden="true">
+        <picture class="hb__poster">
+          <source media="(max-width: 809px)" type="image/avif" srcset="../assets/hero/fabric-mob.avif" />
+          <source media="(max-width: 809px)" type="image/webp" srcset="../assets/hero/fabric-mob.webp" />
+          <source type="image/avif" srcset="../assets/hero/fabric-desk.avif" />
+          <img src="../assets/hero/fabric-desk.webp" width="1600" height="1000" alt="" fetchpriority="high" decoding="async" />
+        </picture>
+        <video class="hb__media" muted loop playsinline preload="none"></video>
+        <span class="hb__shade"></span>
+      </div>
+      <div class="hero__rating rating rating--inv">
+        <p class="rating__src">
+          <span class="rating__top"><b>5</b><em>/5</em><span class="pips" style="--n:5" aria-hidden="true"></span></span>
+          <span class="mono">4&nbsp;reviews on <a href="https://share.google/jNHbajMbGHvZoFNuk" target="_blank" rel="noopener" data-profile="google">Google</a> and&nbsp;<a href="https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html" target="_blank" rel="noopener" data-profile="firmy">Firmy.cz</a></span>
+        </p>
+      </div>
+      <div class="hero__copy">
+        <h1 class="lede lede--inv">Websites for businesses from €400. <span>Free homepage design, no commitment.</span></h1>
+        <i class="tick" aria-hidden="true"></i>
+      </div>
+      <ul class="hero__list">
+        <li><span>/01</span> Web design</li>
+        <li><span>/02</span> Web development</li>
+        <li><span>/03</span> Graphic design</li>
+      </ul>
+      <p class="hero__logo wm" role="img" aria-label="FuxaStudio"><span>Fuxa</span><span>Studio</span></p>
+    </section>
+
+
+    <!-- ========== O MNE ========== -->
+    <section class="s s--light about wrap" id="about">
+      <div class="about__card">
+        <div class="ucard">
+          <div class="ucard__img">
+            <picture><source type="image/avif" srcset="../assets/img/pavel-tall-480.avif 480w, ../assets/img/pavel-tall-800.avif 800w, ../assets/img/pavel-tall-1140.avif 1140w" sizes="25vw" /><img class="cut" src="../assets/img/pavel-tall-1140.webp" srcset="../assets/img/pavel-tall-480.webp 480w, ../assets/img/pavel-tall-800.webp 800w, ../assets/img/pavel-tall-1140.webp 1140w" sizes="25vw" width="1140" height="1520" alt="Pavel Fuxa" loading="lazy" decoding="async" /></picture>
+          </div>
+          <div class="ucard__info">
+            <p class="ucard__name"><i class="sq"></i>Pavel Fuxa<span class="socials"><a href="https://share.google/jNHbajMbGHvZoFNuk" target="_blank" rel="noopener" aria-label="FuxaStudio on Google"><svg><use href="#i-google" /></svg></a><a href="https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html" target="_blank" rel="noopener" aria-label="FuxaStudio on Firmy.cz"><svg><use href="#i-firmy" /></svg></a></span></p>
+            <p class="ucard__row"><span>Role</span><b>Web designer and graphic designer</b></p>
+            <p class="ucard__row"><span>Location</span><b>Svídnice near&nbsp;Chrudim</b></p>
+            <a href="#contact" class="btn btn--dark ucard__btn">
+              <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+              <span class="btn__body"><b>Get in touch</b></span>
+              <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__body">
+        <div class="about__top">
+          <p class="tag"><i class="sq"></i>About me</p>
+        </div>
+        <!-- O mne pod 1280 px: mala karta (od 1280 px je vlevo velka .about__card) -->
+        <div class="umini">
+          <picture><source type="image/avif" srcset="../assets/img/pavel-face-120.avif 120w, ../assets/img/pavel-face-240.avif 240w" sizes="80px" /><img class="umini__img" src="../assets/img/pavel-face-240.webp" srcset="../assets/img/pavel-face-120.webp 120w, ../assets/img/pavel-face-240.webp 240w" sizes="80px" width="240" height="300" alt="" loading="lazy" decoding="async" /></picture>
+          <div class="umini__info">
+            <p class="umini__name"><i class="sq"></i>Pavel Fuxa</p>
+            <p class="mono">Web designer and graphic designer</p>
+            <p class="socials"><a href="https://share.google/jNHbajMbGHvZoFNuk" target="_blank" rel="noopener" aria-label="FuxaStudio on Google"><svg><use href="#i-google" /></svg></a><a href="https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html" target="_blank" rel="noopener" aria-label="FuxaStudio on Firmy.cz"><svg><use href="#i-firmy" /></svg></a></p>
+          </div>
+        </div>
+        <p class="mission" id="mission">I'm Pavel Fuxa, a web designer and graphic designer. I've been making websites since high school, where I studied computer graphics. Today I make them for businesses in Czechia, Slovakia and abroad, and we can talk in English, Czech or Slovak. Along with your website, I can also design your logo, business cards or anything else you need.</p>
+
+        <div class="about__folio" id="projects">
+          <p class="tag"><i class="sq"></i>Projects</p>
+          <h2 class="h h--xl split">Websites <br /><strong>I've made.</strong></h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROJEKTY ==========
+         Na homepage jen tri; vsech pet (i Global Accord a Svidnicky extrem) bude na podstrance projektu. -->
+    <section class="work">
+      <div class="work__hero wrap s--light">
+        <a href="projekty.html" class="ilink ilink--l"><span class="ilink__ico" aria-hidden="true"><svg><use href="#i-caret-l" /></svg></span><span class="roll" data-text="All projects"><span>All projects</span></span></a>
+        <p class="lede">For each website, you'll find how it came together, how long it took and what the client says about it.</p>
+      </div>
+
+      <a class="proj wrap pk" href="case-study-mattina-cafe.html" aria-label="Mattina Café, case study">
+        <span class="proj__bg" data-parallax><picture><source media="(min-width: 600px) and (max-width: 809.98px)" srcset="../assets/img/cs/mattina-cafe-foto-pozadi.webp" /><img src="../assets/img/cs/mattina-cafe-foto-1x.webp" srcset="../assets/img/cs/mattina-cafe-foto-1x.webp 390w, ../assets/img/cs/mattina-cafe-foto-2x.webp 780w" sizes="100vw" width="390" height="520" alt="" loading="lazy" decoding="async" /></picture></span>
+        <span class="proj__no"><i class="sq"></i>01</span>
+        <span class="proj__meta"><span>Client</span> <h3>Café in Bratislava</h3></span>
+        <span class="proj__meta proj__meta--b"><span>Time</span> <b>Less than a month</b></span>
+        <span class="proj__prev">
+          <img class="pk__foto" src="../assets/img/cs/mattina-cafe-foto-1x.webp" srcset="../assets/img/cs/mattina-cafe-foto-1x.webp 390w, ../assets/img/cs/mattina-cafe-foto-2x.webp 780w" sizes="(min-width: 1280px) 25vw, (min-width: 810px) 320px, 300px" width="390" height="520" alt="Mattina Café" loading="lazy" decoding="async" />
+          <img class="pk__logo pk__logo--mattina" src="../assets/img/cs/logo-mattina-cafe-bila.png" width="1001" height="894" alt="" loading="lazy" decoding="async" />
+          <span class="btn btn--dark proj__btn">
+            <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            <span class="btn__body"><b>View</b></span>
+            <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+          </span>
+        </span>
+        <span class="proj__copy">
+          <span class="proj__name">Mattina Café</span>
+          <span class="lede lede--muted">The website was ready before the café opened.</span>
+        </span>
+        <span class="proj__tags lede lede--muted"><span>Development</span></span>
+      </a>
+
+      <a class="proj wrap pk" href="case-study-svatebni-web.html" aria-label="Wedding website, case study">
+        <span class="proj__bg" data-parallax><picture><source media="(min-width: 600px) and (max-width: 809.98px)" srcset="../assets/img/cs/svatebni-web-foto-pozadi.webp" /><img src="../assets/img/cs/svatebni-web-foto-1x.webp" srcset="../assets/img/cs/svatebni-web-foto-1x.webp 390w, ../assets/img/cs/svatebni-web-foto-2x.webp 780w" sizes="100vw" width="390" height="520" alt="" loading="lazy" decoding="async" /></picture></span>
+        <span class="proj__no"><i class="sq"></i>02</span>
+        <span class="proj__meta"><span>Client</span> <h3>Couple from Košice</h3></span>
+        <span class="proj__meta proj__meta--b"><span>Time</span> <b>11&nbsp;days</b></span>
+        <span class="proj__prev">
+          <img class="pk__foto" src="../assets/img/cs/svatebni-web-foto-1x.webp" srcset="../assets/img/cs/svatebni-web-foto-1x.webp 390w, ../assets/img/cs/svatebni-web-foto-2x.webp 780w" sizes="(min-width: 1280px) 25vw, (min-width: 810px) 320px, 300px" width="390" height="520" alt="Wedding website" loading="lazy" decoding="async" />
+          <img class="pk__logo pk__logo--svatba" src="../assets/img/cs/logo-svatebni-web-bila.svg" width="3947" height="1046" alt="" loading="lazy" decoding="async" />
+          <span class="btn btn--dark proj__btn">
+            <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            <span class="btn__body"><b>View</b></span>
+            <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+          </span>
+        </span>
+        <span class="proj__copy">
+          <span class="proj__name">Wedding website</span>
+          <span class="lede lede--muted">Guests found everything about the wedding there and confirmed they were coming.</span>
+        </span>
+        <span class="proj__tags lede lede--muted"><span>Design</span><span>Development</span><span>Graphics</span></span>
+      </a>
+
+      <a class="proj wrap pk" href="case-study-mlyn-janderov.html" aria-label="Mlýn Janderov, case study">
+        <span class="proj__bg" data-parallax><picture><source media="(min-width: 600px) and (max-width: 809.98px)" srcset="../assets/img/cs/mlyn-janderov-foto-pozadi.webp" /><img src="../assets/img/cs/mlyn-janderov-foto-1x.webp" srcset="../assets/img/cs/mlyn-janderov-foto-1x.webp 390w, ../assets/img/cs/mlyn-janderov-foto-2x.webp 780w" sizes="100vw" width="390" height="520" alt="" loading="lazy" decoding="async" /></picture></span>
+        <span class="proj__no"><i class="sq"></i>03</span>
+        <span class="proj__meta"><span>Client</span> <h3>Family mill</h3></span>
+        <span class="proj__meta proj__meta--b"><span>Time</span> <b>6&nbsp;days</b></span>
+        <span class="proj__prev">
+          <img class="pk__foto" src="../assets/img/cs/mlyn-janderov-foto-1x.webp" srcset="../assets/img/cs/mlyn-janderov-foto-1x.webp 390w, ../assets/img/cs/mlyn-janderov-foto-2x.webp 780w" sizes="(min-width: 1280px) 25vw, (min-width: 810px) 320px, 300px" width="390" height="520" alt="Mlýn Janderov" loading="lazy" decoding="async" />
+          <img class="pk__logo pk__logo--janderov" src="../assets/img/cs/logo-mlyn-janderov-bila.svg" width="51" height="51" alt="" loading="lazy" decoding="async" />
+          <span class="btn btn--dark proj__btn">
+            <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            <span class="btn__body"><b>View</b></span>
+            <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+          </span>
+        </span>
+        <span class="proj__copy">
+          <span class="proj__name">Mlýn Janderov</span>
+          <span class="lede lede--muted">Nobody knew the passwords to the old website, so I sorted it out for them.</span>
+        </span>
+        <span class="proj__tags lede lede--muted"><span>Design</span><span>Development</span><span>Care</span></span>
+      </a>
+    </section>
+
+    <!-- ========== SLUZBY ========== -->
+    <section class="s s--dark svc wrap" id="services">
+      <div class="side"><p class="tag tag--inv"><i class="sq"></i>Services</p></div>
+      <div class="svc__intro">
+        <h2 class="h split">What <br /><strong>I do.</strong></h2>
+        <p class="lede lede--inv">From the first design to launch, I make websites <strong>where people quickly find what they need.</strong></p>
+      </div>
+      <div class="svc__contact">
+        <p class="tag tag--inv"><i class="sq"></i>Contact</p>
+        <h3 class="h3up">Not sure what you need?</h3>
+        <a href="#contact" class="btn btn--dark svc__btn">
+          <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+          <span class="btn__body"><b>Get in touch</b></span>
+          <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+        </a>
+      </div>
+
+      <div class="acc acc--dark svc__list">
+        <details class="acc__item" name="svc">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="01"><span>01</span></span></span> Web design <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body svc__body">
+            <img src="../assets/img/cs/sluzba-design-1x.webp" srcset="../assets/img/cs/sluzba-design-1x.webp 600w, ../assets/img/cs/sluzba-design-2x.webp 1200w" sizes="(min-width: 1280px) 240px, (min-width: 810px) 200px, calc(100vw - 112px)" width="600" height="600" alt="Homepage of the wedding website in the style of a printed invitation" loading="lazy" decoding="async" />
+            <div><h3>Designing your website</h3><p>First, I find out what you do and who your customers are. Then I design your homepage and send it to you as a link, so you can click through it on your phone and computer. You don't pay anything for the design. It works the same way if you want to redo an old website.</p></div>
+            <div class="svc__ms"><p class="mono">What you get</p><ul><li>Free homepage design</li><li>Layout of all pages</li><li>I write the copy for you</li><li>Colors and fonts that match your brand</li></ul></div>
+          </div>
+        </details>
+        <details class="acc__item" name="svc">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="02"><span>02</span></span></span> Web development <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body svc__body">
+            <img src="../assets/img/cs/sluzba-vyvoj-1x.webp" srcset="../assets/img/cs/sluzba-vyvoj-1x.webp 600w, ../assets/img/cs/sluzba-vyvoj-2x.webp 1200w" sizes="(min-width: 1280px) 240px, (min-width: 810px) 200px, calc(100vw - 112px)" width="600" height="600" alt="Homepage of the Mattina Café website" loading="lazy" decoding="async" />
+            <div><h3>Building your website</h3><p>I build websites mostly in custom code. They're fast and nothing on them needs updating. If you'd like, I can also build your website in WordPress or Framer, where you can change the text and photos yourself.</p></div>
+            <div class="svc__ms"><p class="mono">What you get</p><ul><li>Works on phones and computers</li><li>Basic SEO</li><li>Launch on your domain</li><li>Edits after launch included</li></ul></div>
+          </div>
+        </details>
+        <details class="acc__item" name="svc">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="03"><span>03</span></span></span> Graphic design <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body svc__body">
+            <img src="../assets/img/cs/sluzba-grafika-1x.webp" srcset="../assets/img/cs/sluzba-grafika-1x.webp 600w, ../assets/img/cs/sluzba-grafika-2x.webp 1200w" sizes="(min-width: 1280px) 240px, (min-width: 810px) 200px, calc(100vw - 112px)" width="600" height="600" alt="Wedding seating chart ready for printing" loading="lazy" decoding="async" />
+            <div><h3>Graphics for your business</h3><p>I'll make graphics in your brand's style, even if I'm not building your website. Logos, social media posts, banners, business cards, menus or T-shirt prints.</p></div>
+            <div class="svc__ms"><p class="mono">What you get</p><ul><li>Logo</li><li>Social media posts</li><li>Banners and flyers</li><li>Business cards and menus</li><li>Merch</li></ul></div>
+          </div>
+        </details>
+        <details class="acc__item" name="svc">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="04"><span>04</span></span></span> Website care <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body svc__body">
+            <img src="../assets/img/cs/sluzba-sprava-1x.webp" srcset="../assets/img/cs/sluzba-sprava-1x.webp 600w, ../assets/img/cs/sluzba-sprava-2x.webp 1200w" sizes="(min-width: 1280px) 240px, (min-width: 810px) 200px, calc(100vw - 112px)" width="600" height="600" alt="Homepage of the Mlýn Janderov website, which I look after" loading="lazy" decoding="async" />
+            <div><h3>Looking after your website</h3><p>I look after websites I built and also ones you already have from someone else. I change content, run updates and make small fixes. For websites I built, the domain and hosting are included.</p></div>
+            <div class="svc__ms"><p class="mono">What you get</p><ul><li>Text and photo changes</li><li>Website updates</li><li>If something breaks, it's my top priority</li><li>Taking over your current website</li></ul></div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ========== PROCES ========== -->
+    <section class="s s--dark proc wrap" id="process">
+      <div class="side"><p class="tag tag--inv"><i class="sq"></i>Process</p></div>
+      <h2 class="h proc__h split">How it <br /><strong>works.</strong></h2>
+      <p class="lede lede--inv proc__note">You don't pay anything until you approve the design. <strong>Then you pay half, once you've seen it and want to go ahead.</strong></p>
+
+      <div class="proc__grid">
+        <div class="proc__col">
+          <article class="step is-first"><header><h3 class="step__n">01</h3><span class="pips" style="--n:1" aria-hidden="true"></span></header><p class="step__tag"><i class="sq"></i>Getting in touch</p><h3>You message me</h3><p>Just a few sentences about what you do and what the website should do. We'll go over the details and I'll send you a quote with the price and timeline.</p></article>
+          <article class="step step--4"><header><h3 class="step__n">04</h3><span class="pips" style="--n:4" aria-hidden="true"></span></header><p class="step__tag"><i class="sq"></i>Approval</p><h3>Finished website</h3><p>You go through the website on your phone and computer. Anything you don't like, I'll change. Once everything is the way you want it, you approve the website.</p></article>
+        </div>
+        <div class="proc__col proc__col--2">
+          <article class="step is-first step--2"><header><h3 class="step__n">02</h3><span class="pips" style="--n:2" aria-hidden="true"></span></header><p class="step__tag"><i class="sq"></i>Design</p><h3>Free design</h3><p>I design your homepage and send it to you as a link. It doesn't have to be exactly what you had in mind right away. The point is whether it makes sense to you and you want to continue. If not, you don't pay anything.</p></article>
+          <article class="step step--5"><header><h3 class="step__n">05</h3><span class="pips" style="--n:5" aria-hidden="true"></span></header><p class="step__tag"><i class="sq"></i>Launch</p><h3>Your website goes live</h3><p>I set up basic SEO so Google can find you and go through the whole website one more time. Then you pay the second half and I launch the website on your domain.</p></article>
+        </div>
+        <div class="proc__col proc__col--3">
+          <article class="step is-first step--3"><header><h3 class="step__n">03</h3><span class="pips" style="--n:3" aria-hidden="true"></span></header><p class="step__tag"><i class="sq"></i>Building</p><h3>I build your website</h3><p>You pay half the price and I build the whole website. You send your feedback right on the live version, which you can click through.</p></article>
+          <aside class="proc__panel">
+            <h3 class="h3up">Planning <br /><strong>a new website?</strong></h3>
+            <p>Tell me what you do, what you expect from the website and who it's for.</p>
+            <p class="mono">What happens next</p>
+            <ul class="checks checks--inv">
+              <li>I get back to you</li>
+              <li>I send you a price and timeline</li>
+              <li>I design your homepage</li>
+            </ul>
+            <a href="#contact" class="btn btn--dark btn--inv">
+              <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+              <span class="btn__body"><b>Get in touch</b></span>
+              <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REFERENCE ========== -->
+    <section class="s s--light refs wrap" id="references">
+      <div class="refs__side">
+        <p class="tag"><i class="sq"></i>Reviews</p>
+        <h2 class="h split">What <br /><strong>clients say.</strong></h2>
+        <p class="lede lede--muted">A few words from people <strong>I've made websites for.</strong></p>
+        <div class="rating">
+          <p class="rating__src">
+            <span class="rating__top"><b>5</b><em>/5</em><span class="pips" style="--n:5" aria-hidden="true"></span></span>
+            <span class="mono">4&nbsp;reviews on <a href="https://share.google/jNHbajMbGHvZoFNuk" target="_blank" rel="noopener" data-profile="google">Google</a> and&nbsp;<a href="https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html" target="_blank" rel="noopener" data-profile="firmy">Firmy.cz</a></span>
+          </p>
+        </div>
+        <a href="#contact" class="btn btn--dark refs__cta">
+          <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+          <span class="btn__body"><b>Get in touch</b></span>
+          <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+        </a>
+      </div>
+
+      <div class="refs__col">
+        <figure class="ref is-first">
+          <figcaption><span class="ref__tile"><img src="../assets/img/cs/logo-mlyn-janderov-bila.svg" alt="" width="51" height="51" loading="lazy" decoding="async" /></span><b>Ing. Petr Schaffer</b><span class="mono">Mlýn Janderov</span></figcaption>
+          <blockquote lang="en">We're extremely happy. He helped us build our website, and even though we weren't the easiest to work with, everything came together in the end. The result is exactly what we had in mind. We'll stay in touch. We recommend him.</blockquote>
+<p class="mono ref__tr">Translated from Czech</p>
+          <a href="case-study-mlyn-janderov.html" class="btn btn--dark ref__btn" aria-label="View project Mlýn Janderov">
+            <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            <span class="btn__body"><b>View project</b></span>
+            <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+          </a>
+        </figure>
+        <figure class="ref">
+          <figcaption><span class="ref__tile"><img src="../assets/img/cs/logo-svidnicky-extrem-napis-bila.svg" alt="" width="392" height="178" loading="lazy" decoding="async" /></span><b>Martin Stebel</b><span class="mono">Svídnický extrém</span></figcaption>
+          <blockquote lang="en">We had a lot of feedback during the project, and Pavel always handled it without any problems. We appreciated that he wasn't afraid to speak up when he had a better idea, but he still respected what we wanted. The result exceeded our expectations.</blockquote>
+<p class="mono ref__tr">Translated from Czech</p>
+          <a href="case-study-svidnicky-extrem.html" class="btn btn--dark ref__btn" aria-label="View project Svídnický extrém">
+            <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            <span class="btn__body"><b>View project</b></span>
+            <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+          </a>
+        </figure>
+      </div>
+      <div class="refs__col refs__col--off">
+        <figure class="ref is-first">
+          <figcaption><span class="ref__tile"><img src="../assets/img/cs/logo-mattina-cafe-bila.png" alt="" width="1001" height="894" loading="lazy" decoding="async" /></span><b>Ivana Lenčéšová</b><span class="mono">Mattina Café</span></figcaption>
+          <blockquote lang="en">I'm very happy with how we worked together. Everything was done the way we imagined, even the text for the first blog posts. Thank you.</blockquote>
+<p class="mono ref__tr">Translated from Slovak</p>
+          <a href="case-study-mattina-cafe.html" class="btn btn--dark ref__btn" aria-label="View project Mattina Café">
+            <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            <span class="btn__body"><b>View project</b></span>
+            <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+          </a>
+        </figure>
+        <figure class="ref">
+          <figcaption><span class="ref__tile"><img src="../assets/img/cs/logo-global-accord-strategies-bila.svg" alt="" width="388" height="247" loading="lazy" decoding="async" /></span><b>Ivana Lenčéšová</b><span class="mono">Global Accord Strategies</span></figcaption>
+          <blockquote lang="en">He took care of the whole website from start to finish. He handled the text, photos and technical side, so we didn't have to get involved at all. Reliable and hassle-free to work with.</blockquote>
+<p class="mono ref__tr">Translated from Slovak</p>
+          <a href="case-study-global-accord-strategies.html" class="btn btn--dark ref__btn" aria-label="View project Global Accord Strategies">
+            <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            <span class="btn__body"><b>View project</b></span>
+            <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+          </a>
+        </figure>
+      </div>
+    </section>
+
+
+    <!-- ========== CENIK (varianta D4 z navrhy-cenik.html) ========== -->
+    <section class="s s--light price price--more wrap" id="pricing">
+      <div class="price__head">
+        <p class="tag"><i class="sq"></i>Pricing</p>
+        <h2 class="h split">What a website <br /><strong>costs.</strong></h2>
+        <p class="lede">The homepage design <strong>is free.</strong></p>
+      </div>
+      <div class="price__grid">
+        <article class="plan plan--1">
+          <div class="plan__head">
+            <p class="tag"><i class="sq"></i>Smaller website</p>
+            <h3 class="plan__price plan__price--sp"><small>from&nbsp;</small>€400</h3>
+            <p class="mono plan__note">usually €400&#8288;–&#8288;600</p>
+            <p class="plan__for">For tradespeople, smaller services and events that only need one to three pages.</p>
+          </div>
+          <div class="plan__body">
+            <p class="plan__t">What you get</p>
+            <ul class="checks">
+              <li>1&nbsp;to&nbsp;3&nbsp;pages</li>
+              <li>Custom design</li>
+              <li>Basic features (form, map…)</li>
+              <li>I write the copy for you</li>
+              <li>Basic SEO</li>
+              <li>30&nbsp;days of edits included</li>
+            </ul>
+            <a href="#contact" class="btn btn--muted">
+              <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+              <span class="btn__body"><b>Get a quote</b> <small>/smaller website</small></span>
+              <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            </a>
+            <p class="plan__time"><span>Ready in:</span> 1&#8288;–&#8288;2&nbsp;weeks</p>
+          </div>
+        </article>
+
+        <article class="plan plan--main">
+          <div class="plan__head">
+            <p class="tag"><i class="sq"></i>Larger website <em class="plan__pop">Most popular</em></p>
+            <h3 class="plan__price plan__price--sp"><small>from&nbsp;</small>€800</h3>
+            <p class="mono plan__note">usually €800&#8288;–&#8288;1,000</p>
+            <p class="plan__for">For businesses and restaurants that want to show more than fits on a few pages.</p>
+          </div>
+          <div class="plan__body">
+            <p class="plan__t">What you get</p>
+            <ul class="checks checks--pri">
+              <li>Everything in the smaller website</li>
+              <li>4&nbsp;to&nbsp;8&nbsp;pages</li>
+              <li>Content organized into pages</li>
+              <li>Each page set up for Google separately</li>
+              <li>45&nbsp;days of edits included</li>
+            </ul>
+            <p class="plan__t">Also included</p>
+            <ul class="checks checks--sec">
+              <li>Visitor analytics</li>
+              <li>Google and Firmy.cz profile setup</li>
+            </ul>
+            <a href="#contact" class="btn btn--dark">
+              <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+              <span class="btn__body"><b>Get a quote</b> <small>/larger website</small></span>
+              <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            </a>
+            <p class="plan__time"><span>Ready in:</span> 2&#8288;–&#8288;3&nbsp;weeks</p>
+          </div>
+        </article>
+
+        <article class="plan plan--3">
+          <div class="plan__head">
+            <p class="tag"><i class="sq"></i>Custom website</p>
+            <h3 class="plan__price">Custom quote</h3>
+            <p class="plan__for">When your website needs to do more, like sell or take bookings.</p>
+          </div>
+          <div class="plan__body">
+            <p class="plan__t">For example</p>
+            <ul class="checks">
+              <li>Online store</li>
+              <li>Online payments</li>
+              <li>Bookings</li>
+              <li>Customer accounts</li>
+              <li>Connection to a system you already use</li>
+            </ul>
+            <p class="plan__t">What you get</p>
+            <ul class="checks">
+              <li>Everything in the larger website</li>
+              <li>Work can be split into stages</li>
+              <li>I'll send you the price and timeline in writing</li>
+            </ul>
+            <a href="#contact" class="btn btn--muted">
+              <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+              <span class="btn__body"><b>Get a quote</b> <small>/custom</small></span>
+              <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            </a>
+            <p class="plan__time"><span>Timeline:</span> in the quote</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="price__more">
+        <div class="price__head price__more-head">
+          <p class="tag"><i class="sq"></i>Other services</p>
+          <h3 class="h split">Graphics <br /><strong>and care.</strong></h3>
+          <p class="lede">I do graphic design <strong>even without a website.</strong></p>
+        </div>
+        <div class="price__extra">
+          <article class="plan">
+            <div class="plan__head">
+              <p class="tag"><i class="sq"></i>Website care</p>
+              <h3 class="plan__price plan__price--sp"><small>from&nbsp;</small>€12<small>&nbsp;/&nbsp;month</small></h3>
+              <p class="mono plan__note">Domain and hosting are included if I built your website.</p>
+            </div>
+            <div class="plan__body">
+              <ul class="checks">
+                <li>Regular checks that your website works</li>
+                <li>Text and photo changes</li>
+                <li>Website updates</li>
+                <li>If something breaks, it's my top priority</li>
+                <li>I'll take over a website from someone else too</li>
+              </ul>
+              <a href="#contact" class="btn btn--muted">
+                <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+                <span class="btn__body"><b>Get a quote</b> <small>/website care</small></span>
+                <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+              </a>
+            </div>
+          </article>
+          <article class="plan">
+            <div class="plan__head">
+              <p class="tag"><i class="sq"></i>Graphic design</p>
+              <h3 class="plan__price plan__price--sp"><small>from&nbsp;</small>€40</h3>
+              <p class="mono plan__note">The exact price depends on what you need.</p>
+            </div>
+            <div class="plan__body">
+              <ul class="checks">
+                <li>Logo</li>
+                <li>Social media posts</li>
+                <li>Banners and flyers</li>
+                <li>Business cards</li>
+                <li>Menus</li>
+                <li>Merch</li>
+              </ul>
+              <a href="#contact" class="btn btn--muted">
+                <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+                <span class="btn__body"><b>Get a quote</b> <small>/graphics</small></span>
+                <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="s s--light faq wrap" id="faq">
+      <div class="faq__side">
+        <p class="tag"><i class="sq"></i>FAQ</p>
+        <h2 class="h split">Frequently asked <br /><strong>questions.</strong></h2>
+        <p class="lede lede--muted"><strong>What you should know before we start.</strong> Didn't find your answer? <a href="#contact">Get in touch</a>.</p>
+      </div>
+      <div class="acc faq__list">
+        <details class="acc__item" name="faq" open>
+          <summary><span class="acc__no"><span class="acc__nr" data-text="01"><span>01</span></span></span> How long does it take to make a website? <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body"><p>A smaller website is usually ready in 1&#8288;–&#8288;2&nbsp;weeks, a larger one in 2&#8288;–&#8288;3&nbsp;weeks after I get everything from you. You'll find the exact timeline in the quote. If the design or the finished website is waiting for your approval, the timeline moves by that time.</p></div>
+        </details>
+        <details class="acc__item" name="faq">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="02"><span>02</span></span></span> Can I add something to a smaller website? <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body"><p>Yes. Visitor analytics, Google profile setup, a second language, a blog or anything else, I can add to any website. Just let me know and I'll add the price to the quote.</p></div>
+        </details>
+        <details class="acc__item" name="faq">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="03"><span>03</span></span></span> Do your prices include VAT? <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body"><p>I'm not a VAT payer, so there's no VAT on my invoice.</p></div>
+        </details>
+        <details class="acc__item" name="faq">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="04"><span>04</span></span></span> I don't have any text or photos. Is that a problem? <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body"><p>Not at all. I'll write the text myself from what you tell me about your business. If you're nearby, I can stop by and take a few photos on my phone. If you're farther away, I'll tell you what to photograph. For professional photos, a photographer is the better choice.</p></div>
+        </details>
+        <details class="acc__item" name="faq">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="05"><span>05</span></span></span> Do you also make logos and other graphics? <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body"><p>Yes, even if I'm not building your website. Logos, business cards, social media posts, banners, menus or T-shirt prints. Smaller things start at €40&nbsp;and you'll get the exact price in the quote. If I make your website too, everything fits together.</p></div>
+        </details>
+        <details class="acc__item" name="faq">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="06"><span>06</span></span></span> Do I pay anything every year? <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body"><p>You pay for the domain and hosting separately. The quote says how much it'll be. If I built your website and look after it (from €12&nbsp;a month), they're included.</p></div>
+        </details>
+        <details class="acc__item" name="faq">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="07"><span>07</span></span></span> Who owns the domain and the website? <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body"><p>You do. I can register the domain and hosting in your name from the start. If you don't want to deal with it, leave them with me as part of website care. I can transfer everything to you or someone else at any time.</p></div>
+        </details>
+        <details class="acc__item" name="faq">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="08"><span>08</span></span></span> Can I edit the website myself? <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body"><p>With WordPress and Framer, yes, you can change text, photos and posts yourself. With a custom-coded website, you send me the changes. Small edits are included after launch, 30&nbsp;days for a smaller website and 45&nbsp;for a larger one. After that, we'll agree on it or it's part of website care.</p></div>
+        </details>
+        <details class="acc__item" name="faq">
+          <summary><span class="acc__no"><span class="acc__nr" data-text="09"><span>09</span></span></span> Do you work with clients abroad? <svg class="acc__plus"><use href="#i-plus" /></svg></summary>
+          <div class="acc__body"><p>Yes. We handle everything by email or video call, in English, Czech or Slovak. That's how I made websites for a café in Bratislava and an international consulting firm. If you're in&nbsp;<a href="tvorba-webovych-stranek-pardubice.html">Pardubice</a> or <a href="tvorba-webovych-stranek-chrudim.html">Chrudim</a>, I'm happy to meet in person.</p></div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== PATICKA S KONTAKTEM ========== -->
+  <footer class="s s--dark foot wrap" id="contact">
+    <div class="foot__left">
+      <div class="foot__stick">
+      <div class="ucard ucard--inv foot__card">
+        <div class="ucard__img">
+          <picture><source type="image/avif" srcset="../assets/img/pavel-tall-480.avif 480w, ../assets/img/pavel-tall-800.avif 800w, ../assets/img/pavel-tall-1140.avif 1140w" sizes="(min-width: 1280px) 25vw, (min-width: 810px) 50vw, 100vw" /><img class="cut" src="../assets/img/pavel-tall-1140.webp" srcset="../assets/img/pavel-tall-480.webp 480w, ../assets/img/pavel-tall-800.webp 800w, ../assets/img/pavel-tall-1140.webp 1140w" sizes="(min-width: 1280px) 25vw, (min-width: 810px) 50vw, 100vw" width="1140" height="1520" alt="Pavel Fuxa" loading="lazy" decoding="async" /></picture>
+        </div>
+        <div class="ucard__info">
+          <p class="ucard__name"><i class="sq"></i>Pavel Fuxa<span class="socials socials--inv"><a href="https://share.google/jNHbajMbGHvZoFNuk" target="_blank" rel="noopener" aria-label="FuxaStudio on Google"><svg><use href="#i-google" /></svg></a><a href="https://www.firmy.cz/detail/14049488-fuxastudio-svidnice.html" target="_blank" rel="noopener" aria-label="FuxaStudio on Firmy.cz"><svg><use href="#i-firmy" /></svg></a></span></p>
+          <p class="ucard__row"><span>Role</span><b>Web designer and graphic designer</b></p>
+          <p class="ucard__row"><span>Location</span><b>Svídnice near&nbsp;Chrudim</b></p>
+        </div>
+      </div>
+      </div>
+      <p class="foot__logo wm" role="img" aria-label="FuxaStudio"><span>Fuxa</span><span>Studio</span></p>
+    </div>
+
+    <div class="foot__main">
+      <p class="tag tag--inv"><i class="sq"></i>Contact</p>
+      <h2 class="h h--xl split">Have an idea <br /><strong>for a website?</strong></h2>
+      <div class="foot__sub">
+        <p class="lede lede--inv">Tell me in a few sentences <strong>what you need.</strong></p>
+      </div>
+
+      <form class="form" id="form" novalidate>
+        <!-- Web3Forms: stejny access key jako zivy web. botcheck je past na roboty (podle dokumentace Web3Forms), clovek ho nevidi. -->
+        <input type="hidden" name="access_key" value="21ce9b27-37ef-4f30-bc47-26c8ce8cbc6a" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" />
+        <label><span class="form__l"><i class="sq"></i>Name</span><input type="text" name="name" autocomplete="name" placeholder="Jane Smith" required /></label>
+        <div class="form__contact">
+          <div class="form__duo">
+            <label><span class="form__l"><i class="sq"></i>Email</span><input type="email" name="email" autocomplete="email" placeholder="jane@email.com" aria-describedby="contactHint" /></label>
+            <span class="form__or" aria-hidden="true">or</span>
+            <label><span class="form__l"><i class="sq"></i>Phone</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+420 601 123 456" aria-describedby="contactHint" /></label>
+          </div>
+          <p class="form__hint" id="contactHint">Just fill in one and I'll reply wherever you prefer.</p>
+        </div>
+        <label><span class="form__l"><i class="sq"></i>What should the website do?</span><textarea name="message" rows="5" placeholder="E.g. I'm opening a café and want a website with a menu and opening hours." required></textarea></label>
+        <div class="form__end">
+          <button type="submit" class="btn btn--inv submit" id="submit" data-state="incomplete">
+            <span class="btn__ico btn__ico--l" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+            <span class="btn__body"><b id="submitText">Form not filled in</b></span>
+            <span class="btn__ico btn__ico--r" aria-hidden="true"><svg><use href="#i-caret" /></svg></span>
+          </button>
+          <p class="form__legal">By sending this form, you acknowledge the <a href="terms.html">terms and conditions</a> and&nbsp;<a href="privacy.html">privacy policy</a>.</p>
+        </div>
+      </form>
+
+      <div class="foot__links">
+        <nav aria-label="Footer">
+          <a href="projekty.html" class="foot__link"><span>Projects</span></a>
+          <a href="#services" class="foot__link"><span>Services</span></a>
+          <a href="#pricing" class="foot__link"><span>Pricing</span></a>
+          <a href="#faq" class="foot__link"><span>FAQ</span></a>
+          <a href="tvorba-webovych-stranek-pardubice.html" class="foot__link"><span>Web design Pardubice</span></a>
+          <a href="tvorba-webovych-stranek-chrudim.html" class="foot__link"><span>Web design Chrudim</span></a>
+        </nav>
+        <div class="foot__addr">
+          <a class="foot__mail" href="mailto:fuxa@fuxastudio.cz"><span class="foot__roll" data-text="fuxa@fuxastudio.cz"><span>fuxa@fuxastudio.cz</span></span></a>
+          <a class="foot__mail" href="tel:+420736131410"><span class="foot__roll" data-text="+420&nbsp;736&nbsp;131&nbsp;410"><span>+420&nbsp;736&nbsp;131&nbsp;410</span></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot__bottom">
+      <p>© 2026&nbsp;FuxaStudio, Pavel Fuxa<br />Svídnice u&nbsp;Chrudimi 79, 538&nbsp;24, Czechia<br />Company ID (IČO)&nbsp;29618843, registered in the Czech Trade Register</p>
+      <p><a href="terms.html">Terms and conditions</a><br /><a href="privacy.html">Privacy policy</a></p>
+      <p><button type="button" class="foot__cookie" data-cookie-settings>Cookie settings</button><br /><a href="cookies.html">Cookies</a></p>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+/* Doplnky pro studijni kopii s puvodnim obsahem sablony.
+   Zaklad je spolecny s variantou hanza-html (css/style.css). */
+
+/* Hero a case study maji v originale video, ne obrazek */
+video.hero__bg { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* Ztlumeni videa zmerene proti originalu, asi na 73 % jasu */
+.hero::after { background: rgba(0, 0, 0, 0.27) url('../assets/noise.png'); }
+.hero > *:not(video) { position: relative; z-index: 1; }
+.cq__img video { width: 100%; height: 100%; object-fit: cover; }
+
+/* Ikony socialnich siti na karte uzivatele */
+.socials { display: inline-flex; gap: 6px; margin-left: auto; }
+.socials a { display: grid; place-items: center; width: 18px; height: 18px; color: var(--ink); }
+.socials svg { width: 18px; height: 18px; }
+.socials--inv a { color: #fff; }
+.menu__user .socials { margin: 16px 0 0; }
+.ucard__name .socials { margin-left: auto; }
+
+/* Hvezdy v kartach referenci */
+.stars { display: flex; gap: 2px; margin-top: 24px; color: var(--accent); }
+.stars svg { width: 14px; height: 14px; }
+.ref blockquote { padding-top: 0; margin-top: 30px; }
+@media (min-width: 1280px) {
+  .stars { margin-top: auto; padding-top: 80px; }
+}
+
+/* Kolecko +32 je sirsi nez avatar */
+.faces i { width: 40px; font-size: 12px; }
+
+/* Cena s pripojenym /Project */
+/* Cenove karty: jemny ramecek, aby se na svetlem pozadi neslevaly */
+.plan { border: 1px solid var(--line-m); }
+.plan--main { position: relative; z-index: 1; border-top: 2px solid var(--accent); }
+@media (min-width: 1280px) {
+  /* Karty na desktopu stoji bez mezery, sousedni ramecky se prekryvaji do jedne linky */
+  .plan + .plan { margin-left: -1px; }
+}
+
+/* Stejny jemny ramecek i u karet v O mne, Postupu a Referencich. Je to stin,
+   ne border, aby zustaly beze zmeny barevne horni linky a oddelovace mezi kartami;
+   sousedni karty se prekryvaji, takze mezi nimi vyjde jedna linka. */
+.stat, .ref { box-shadow: 0 0 0 1px var(--line-m); }
+.step { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08); }
+
+.plan__price small { margin-left: 8px; font-family: var(--mono); font-size: 12px; line-height: 14.4px; letter-spacing: 0; color: var(--ink-60); vertical-align: 6px; }
+
+/* Bila loga projektu maji v sablone 32 px */
+.proj__copy img { height: 32px; }
+.menu__logo--s { width: 100px; }
+
+/* Paticka: avatar autora sablony */
+.foot__credit--img { display: flex; align-items: center; gap: 13px; text-align: left; }
+.foot__credit--img img { width: 40px; height: 40px; border-radius: 50%; }
+.foot__credit--img > span { display: grid; gap: 2px; }
+.foot__mail { text-transform: uppercase; }
+/* Bez bloku volnych terminu zabira popis celou sirku */
+.foot__sub .lede { grid-column: 1 / -1; }
+/* Tlacitko nastaveni cookies vypada jako odkaz vedle nej */
+.foot__bottom .foot__cookie { padding: 0; border: 0; background: none; font: inherit; letter-spacing: inherit; text-transform: uppercase; color: inherit; cursor: pointer; }
+
+@media (min-width: 1280px) {
+  .foot__links nav { grid-auto-rows: min-content; }
+  /* Anglicky popis je kratsi nez cesky, hlavicka karty se ridi obsahem */
+  .plan__head, .plan--main .plan__head { min-height: 0; }
+  .hero__copy { margin-top: 22px; }
+  .hero__list { margin-top: 12px; }
+  .refs__side .lede { max-width: 332px; }
+  .foot__sub .lede { max-width: 560px; }
+  /* Leva cast paticky je v sablone vysoka 1378 px, karta v ni pluje a logo sedi dole */
+  .foot { padding-bottom: 48px; }
+  .foot__left { min-height: 1378px; }
+  .foot__bottom { margin-top: 80px; }
+}

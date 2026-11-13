@@ -1,0 +1,138 @@
+/* Podstranka case study (podle portfolio/goodwell). Zaklad je style.css, klon.css a fuxa.css,
+   tady jsou jen sekce, ktere na hlavni strance nejsou. Rozmery zmerene
+   z originalu na 390 a 1440 px, tablet je dopocitany. */
+
+/* ---- Hlavicka: misto mistniho casu odkaz zpet na projekty ---- */
+.head__back .ilink__ico, .csh__more .ilink__ico { background: rgba(255, 255, 255, 0.1); border-color: transparent; color: #fff; }
+
+/* ---- Hero ---- */
+.csh { position: relative; display: grid; align-content: end; height: 500px; overflow: hidden; padding-bottom: 32px; color: #fff; background: var(--dark); }
+.csh__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.csh::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.27) url('../assets/noise.png'); pointer-events: none; }
+.csh > *:not(.csh__bg) { position: relative; z-index: 1; }
+.csh__prev, .csh__more { display: none; }
+.csh__copy { display: grid; justify-items: start; }
+.csh__copy .tick { margin-top: 24px; background: var(--accent); }
+.csh__title { margin-top: 24px; font-size: 44px; line-height: 48px; font-weight: 500; letter-spacing: -0.03em; text-transform: uppercase; }
+.csh__sub { margin-top: 16px; max-width: 250px; color: var(--white-60); }
+
+/* Radky Rok, Klient, ...: mono popisek a hodnota */
+.meta { display: grid; gap: 8px; }
+.meta p { display: flex; flex-wrap: wrap; gap: 0 8px; font-size: 12px; line-height: 14.4px; font-weight: 500; letter-spacing: 0; text-transform: uppercase; }
+.meta span { font-family: var(--mono); color: var(--ink-60); }
+.meta--inv span { color: var(--white-60); }
+.csh .meta__type { display: none; }
+
+/* ---- Obsah: detaily, citace, uvod a prubeh projektu ---- */
+.cs { --ln: var(--line-l); display: grid; grid-template-columns: minmax(0, 1fr); padding-top: 48px; background: var(--paper); }
+.cs__details .meta { gap: 16px; margin-top: 32px; }
+.cs__details .ilink { margin-top: 36px; }
+
+.cs__quote { margin-top: 24px; padding-top: 32px; border-top: 1px solid var(--line-l); }
+.cs__quote .cq__mark { margin-top: 0; color: var(--accent); }
+/* Citace se rozsveci po slovech jako odstavec O mne, logika je v js/main.js (#mission) */
+.cs__q { margin-top: 20px; font-size: 22px; line-height: 28.6px; font-weight: 500; letter-spacing: -0.04em; text-wrap: pretty; }
+.js .cs__q .wd { opacity: 0.2; transition: opacity 0.25s linear; }
+.js .cs__q .wd.on { opacity: 1; }
+.cs__who { display: flex; align-items: center; gap: 16px; margin-top: 32px; }
+.cs__who img { width: 70px; height: 84px; object-fit: cover; }
+.cs__who b { display: block; font-size: 14px; line-height: 18.2px; font-weight: 500; letter-spacing: -0.02em; text-transform: uppercase; }
+
+.cs__intro { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line-l); }
+.cs__intro .ilink { display: none; }
+
+.cs__h { font-size: 26px; line-height: 33.8px; font-weight: 500; letter-spacing: -0.02em; text-wrap: pretty; }
+.cs__flow .cs__h { font-size: 22px; line-height: 28.6px; }
+.cs__p { margin-top: 16px; font-size: 15px; line-height: 24px; letter-spacing: -0.01em; color: var(--ink-60); }
+.cs__p + .cs__p { margin-top: 20px; }
+
+.cs__flow { display: grid; grid-template-columns: minmax(0, 1fr); margin-top: 32px; }
+.cs__img { overflow: hidden; background: var(--line-l); }
+.cs__img + .cs__img { margin-top: 8px; }
+.cs__img img { width: 100%; height: 100%; object-fit: cover; }
+.cs__label { align-self: start; }
+.cs__img + .cs__label { margin-top: 32px; }
+.cs__label + .cs__text { margin-top: 32px; }
+.cs__text + .cs__img { margin-top: 32px; }
+
+.cs__stats { display: grid; gap: 32px; margin-top: 32px; }
+.cs__n { font-size: 48px; line-height: 48px; font-weight: 500; letter-spacing: -0.03em; }
+.cs__stats .tag { margin-top: 16px; font-family: var(--mono); color: var(--ink-60); }
+.cs__stats article > p:last-child { margin-top: 16px; max-width: 300px; font-size: 15px; line-height: 24px; letter-spacing: -0.01em; }
+
+/* ---- Dalsi projekt: hlavicka sekce Projekty s nadpisem ---- */
+.work__hero--next { column-gap: 0; }
+.work .proj__no { text-transform: uppercase; }
+.work__hero--next .lede strong { color: var(--ink); }
+
+@media (min-width: 810px) {
+  .csh { height: 600px; padding-bottom: 48px; grid-template-columns: 1fr 1fr; }
+  .csh__copy { grid-column: 2; }
+  .csh .meta__type { display: flex; }
+  .csh__title { font-size: 60px; line-height: 65px; }
+
+  /* Tablet: detaily a citace vedle sebe, text ve druhem sloupci */
+  .cs { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-top: 64px; }
+  .cs__details { grid-column: 1; grid-row: 1; padding-right: 32px; }
+  .cs__details .meta, .cs__details .tag { display: none; }
+  .cs__details .ilink { margin-top: 6px; }
+  .cs__quote { grid-column: 2; grid-row: 1; margin: 0; padding: 0; border: 0; }
+  .cs__q { font-size: 24px; line-height: 31.2px; }
+  .cs__who img { width: 80px; height: 96px; }
+  .cs__who b { font-size: 16px; line-height: 20.8px; }
+  .cs__intro { grid-column: 2; grid-row: 2; margin-top: 64px; padding-top: 0; border: 0; }
+  .cs__h { font-size: 30px; line-height: 36px; }
+  .cs__flow { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 64px; }
+  .cs__flow .cs__h { font-size: 28px; line-height: 33.6px; }
+  .cs__img { grid-column: 1 / -1; }
+  .cs__img + .cs__img { margin-top: 16px; }
+  .cs__label { grid-column: 1; margin-left: 14px; }
+  .cs__label .sq { margin-left: -14px; }
+  .cs__text { grid-column: 2; }
+  .cs__img + .cs__label, .cs__img + .cs__label + .cs__text { margin-top: 64px; }
+  .cs__text + .cs__img { margin-top: 64px; }
+  .cs__p { margin-top: 32px; }
+  .cs__stats { grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+  .cs__n { font-size: 56px; line-height: 56px; }
+  .cs__stats .tag, .cs__stats article > p:last-child { margin-top: 24px; }
+
+  .work__hero--next { grid-template-columns: 1fr 1fr; }
+  .work__hero--next .h { grid-column: 2; }
+  .work__hero--next .lede { grid-column: 2; }
+}
+
+@media (min-width: 1280px) {
+  /* Hero: karta s nahledem v 1. sloupci, popis ve 3., odkaz dolu ve 4. */
+  .csh { height: 100vh; min-height: 720px; padding-bottom: 64px; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: end; }
+  .csh__prev { display: block; position: relative; grid-column: 1; grid-row: 1; width: calc(100% - 8px); margin-left: 16px; aspect-ratio: 3 / 4; overflow: hidden; }
+  .csh__prev > img:first-child { width: 100%; height: 100%; object-fit: cover; }
+  .csh__prev::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.12); }
+  .csh__logo { position: absolute; z-index: 1; left: 50%; top: 50%; width: 100px; transform: translate(-50%, -50%); }
+  .csh__copy { grid-column: 3; grid-row: 1; }
+  .csh .meta { gap: 12px; }
+  .csh__copy .tick { margin-top: 16px; }
+  .csh__title { margin-top: 40px; font-size: 80px; line-height: 86px; white-space: nowrap; }
+  .csh__sub { margin-top: 40px; font-size: 16px; line-height: 20.8px; max-width: 240px; }
+  .csh__more { display: inline-flex; grid-column: 4; grid-row: 1; justify-self: end; margin-right: 16px; }
+  .csh__more .ilink__ico svg { transform: rotate(90deg); }
+
+  /* Obsah: citace v 1. sloupci jede s obsahem, zbytek ve sloupcich 2 az 4 */
+  .cs { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-top: 64px; }
+  .cs__quote { grid-column: 1; grid-row: 1 / 3; align-self: stretch; }
+  .cs__stick { position: sticky; top: 64px; padding-right: 32px; }
+  .cs__details { grid-column: 2; grid-row: 1; padding-right: 0; }
+  .cs__details .ilink { margin-top: 6px; }
+  .cs__intro { grid-column: 3 / 5; grid-row: 1; margin: 0; }
+  .cs__h { font-size: 34px; line-height: 40.8px; }
+  .cs__flow { grid-column: 2 / 5; grid-row: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 80px; }
+  .cs__flow .cs__h { font-size: 32px; line-height: 38.4px; }
+  .cs__img + .cs__label, .cs__img + .cs__label + .cs__text, .cs__text + .cs__img { margin-top: 80px; }
+  .cs__text { grid-column: 2 / 4; }
+  .cs__stats { margin-top: 64px; gap: 0; }
+  .cs__n { font-size: 64px; line-height: 64px; }
+
+  .work__hero--next { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: auto auto; row-gap: 48px; }
+  .work__hero--next .h { grid-column: 3 / 5; grid-row: 1; font-size: 80px; line-height: 86px; }
+  .work__hero--next .lede { grid-column: 3 / 5; grid-row: 2; }
+  .work__hero--next .ilink { grid-row: 2; }
+}

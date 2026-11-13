@@ -1,0 +1,962 @@
+/* Faze 1: vlastni obrazky a videa projektu. Zaklad je style.css a klon.css. */
+
+/* <picture> se v rozlozeni chova jako samotny obrazek */
+picture { display: contents; }
+/* Jinak by se <source> v mrizce chovalo jako dalsi polozka a rozhodilo sloupce */
+picture > source { display: none; }
+
+/* ---- Hodnoceni: realny udaj s odkazy na profily ---- */
+.rating__src { display: grid; gap: 7px; }
+.rating .mono a { display: inline; text-decoration: underline; text-underline-offset: 2px; }
+.rating--inv .mono a { color: #fff; }
+
+/* ---- Karta s fotkou: format 3 : 4 jako v sablone, bez ramecku, tlacitko pod fotkou ---- */
+.ucard__img { aspect-ratio: 3 / 4; border-top: 0; }
+.ucard__img img { width: 100%; height: 100%; object-fit: cover; }
+.ucard__info .ucard__btn { position: relative; right: auto; bottom: auto; width: 100%; margin-top: 8px; }
+.mini img { border-top: 0; }
+
+/* ---- Menu: nazev projektu misto loga ---- */
+.menu__logo--txt { width: auto; color: #fff; font-size: 20px; line-height: 1; font-weight: 500; letter-spacing: -0.02em; text-transform: uppercase; white-space: nowrap; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
+.menu__work a > img:first-child { object-position: top; }
+
+/* ---- Logo klienta ve ctverci: reference (landing, mesta) i citace ve studiich ----
+   Bile logo cele uvnitr tmaveho ctverce 80 px, bez zaobleni. */
+.ref__tile { flex: none; display: grid; place-items: center; width: 80px; height: 80px; padding: 14px; border-radius: 0; background: #121212; }
+.ref__tile img { display: block; width: 100%; height: 100%; object-fit: contain; }
+/* Ve studiich stoji box vedle jmena; case.css tu ma rozmer puvodni fotky autora */
+.cs__who .ref__tile { margin-bottom: 0; }
+.cs__who .ref__tile img { width: 100%; height: 100%; object-fit: contain; }
+/* Bez hvezd: citace na desktopu zustava dole v karte jako v sablone */
+@media (min-width: 1280px) {
+  .ref blockquote { margin-top: auto; padding-top: 80px; }
+}
+
+/* ---- Video s posterem: poster je liny obrazek pod videem, video ho prekryje prvnim snimkem ---- */
+.vid { display: grid; overflow: hidden; }
+.vid > *, .vid > picture > img { grid-area: 1 / 1; }
+.vid__video, .vid__poster { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.vid__poster { background: var(--black); }
+
+/* ---- Projekty v rozlozeni sablony: rozmazany web jako fotka v pozadi, ostry web v karte ---- */
+/* Fotka je uz tmava z images.mjs (cine), prechod jen jisti popisky nahore a text dole */
+.proj::after { background: url('../assets/noise.png'), linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 22%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.55) 100%); }
+.proj__bg picture { display: block; height: 130%; }
+.proj__bg picture img { height: 100%; }
+.proj__name { font-size: 26px; line-height: 1; font-weight: 500; letter-spacing: -0.03em; text-transform: uppercase; }
+.proj__meta--b b { max-width: 220px; text-align: right; }
+.proj__prev .vid { width: 100%; height: 100%; }
+.proj__prev .vid__poster { background: var(--dark-2); }
+
+/* Na mobilu a tabletu je karta s webem videt taky, sablona ji tam skryva */
+@media (max-width: 1279.98px) {
+  .proj { height: auto; grid-template-rows: auto auto auto auto; row-gap: 24px; }
+  .proj__prev { display: block; position: relative; grid-column: 1 / -1; grid-row: 3; width: min(64%, 300px); aspect-ratio: 3 / 4; overflow: hidden; margin-top: 16px; }
+  .proj__btn { position: absolute; right: 0; bottom: 0; width: 100%; }
+  .proj__btn .btn__body { padding-right: 60px; }
+  .proj__copy { grid-row: 4; }
+}
+
+@media (min-width: 810px) {
+  .proj__meta--b b { text-align: left; }
+  .proj__name { font-size: 30px; }
+}
+
+@media (min-width: 810px) and (max-width: 1279.98px) {
+  .proj { padding-block: 48px; }
+  .proj__prev { grid-column: 1; grid-row: 3 / 5; width: 100%; max-width: 320px; margin-top: 24px; }
+  .proj__copy { grid-column: 2; grid-row: 3; align-self: end; }
+  .proj__tags { grid-column: 2; grid-row: 4; }
+}
+
+@media (min-width: 1280px) {
+  .proj__name { font-size: 32px; }
+}
+
+/* ---- Formular: vyraznejsi pole, e-mail a telefon vedle sebe ---- */
+.form input, .form textarea { background: var(--field); border: 1px solid rgba(255, 255, 255, 0.08); transition: border-color 0.2s, background 0.2s; }
+.form input:hover, .form textarea:hover { border-color: rgba(255, 255, 255, 0.14); }
+.form input:focus, .form textarea:focus { border-color: rgba(255, 255, 255, 0.28); background: var(--field-focus); }
+.form__contact { display: grid; gap: 12px; }
+/* E-mail a telefon vedle sebe i na mobilu, "or" sedi na urovni poli */
+.form__duo { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: end; gap: 8px; }
+.form__duo input { min-width: 0; padding-inline: 12px; }
+.form__or { display: grid; place-items: center; height: 54px; font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; color: var(--white-60); }
+.form__hint { font-size: 13px; line-height: 19.5px; color: var(--white-60); }
+/* Do 600 px e-mail, "nebo" a telefon pod sebou, pole na plnou sirku */
+@media (max-width: 600px) {
+  .form__duo { grid-template-columns: minmax(0, 1fr); align-items: start; gap: 16px; }
+  .form__duo input { padding-inline: 20px; }
+  .form__or { place-items: center; height: auto; line-height: 14.4px; }
+}
+
+@media (min-width: 810px) {
+  .form__duo { gap: 16px; }
+  .form__duo input { padding-inline: 20px; }
+}
+
+/* ---- Formular: hlasky pod poli a zprava o odeslani (js/main.js) ----
+   Male pismo jako .form__hint, bez ikon. Svetle cervena ma na tmavem pozadi kontrast pres 7 : 1. */
+.form__err { font-size: 13px; line-height: 19.5px; color: #FF8F80; }
+.form > .form__err { margin-top: -24px; }
+.form input[aria-invalid='true'], .form textarea[aria-invalid='true'] { border-color: #FF8F80; }
+.form__status { font-size: 13px; line-height: 19.5px; color: #fff; }
+.form__status--err { color: #FF8F80; }
+.form__status a { color: #fff; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.submit:disabled { cursor: progress; }
+/* Od 601 px jsou e-mail a telefon vedle sebe, hlaska stoji pod svym polem */
+@media (min-width: 601px) {
+  .form__duo > label:first-child { grid-column: 1; grid-row: 1; }
+  .form__duo > .form__or { grid-column: 2; grid-row: 1; }
+  .form__duo > label:last-of-type { grid-column: 3; grid-row: 1; }
+  .form__err--email { grid-column: 1; grid-row: 2; }
+  .form__err--phone { grid-column: 3; grid-row: 2; }
+}
+/* Dva sloupce pod formularem: zprava pod tlacitkem, pravni veta vpravo */
+@media (min-width: 810px) {
+  .form__end .submit { grid-column: 1; grid-row: 1; }
+  .form__end .form__status { grid-column: 1; grid-row: 2; padding-top: 8px; }
+  .form__end .form__legal { grid-column: 2; grid-row: 1 / span 2; }
+}
+
+/* ---- Lista se souhlasem s cookies (js/cookies.js) ----
+   Neblokuje stranku: zadne ztmaveni, jen box. PC vlevo dole, pod 600 px pres celou sirku dole. */
+.cbar { position: fixed; z-index: 150; left: 24px; bottom: 24px; width: min(420px, calc(100vw - 48px)); padding: 27px 24px 24px; background: var(--white); border: 1px solid var(--line-m); border-radius: 0; color: var(--ink); font-size: 15px; line-height: 24px; letter-spacing: -0.01em; }
+.cbar[hidden] { display: none; }
+/* Modry pruh nahore pres celou sirku boxu, barva jako modre pole tlacitka Nezavazna poptavka (--accent) */
+.cbar::before { content: ''; position: absolute; left: -1px; right: -1px; top: -1px; height: 4px; background: var(--accent); }
+.cbar__title { font-family: var(--sans); font-size: 20px; line-height: 26px; font-weight: 700; letter-spacing: -0.02em; text-transform: none; }
+.cbar__text { margin-top: 8px; color: var(--ink-60); }
+.cbar__link { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.cbar__btns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+/* Obrysove tlacitko listy. Pismo jako .btn__body, hover: tmava vypln vjede zleva
+   se stejnou delkou a krivkou jako posun .btn (0.35s cubic-bezier(0.3, 0.8, 0.2, 1) ve style.css). */
+.cbar__btn { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center; justify-content: center; min-width: 0; height: 48px; padding: 0 20px; border: 1px solid var(--ink); border-radius: 0; background: var(--white); color: var(--ink); font-family: var(--mono); font-size: 14px; line-height: 15.4px; font-weight: 500; letter-spacing: 0; text-transform: uppercase; white-space: nowrap; cursor: pointer; transition: color 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+.cbar__btn::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--dark); transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+.cbar__btn:hover, .cbar__btn:focus-visible { color: #fff; }
+.cbar__btn:hover::before, .cbar__btn:focus-visible::before { transform: scaleX(1); }
+@media (max-width: 399.98px) {
+  .cbar__btn { padding: 0 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cbar__btn, .cbar__btn::before { transition: none; }
+}
+@media (max-width: 599.98px) {
+  .cbar { left: 0; right: 0; bottom: 0; width: auto; border-width: 1px 0 0; }
+  .cbar::before { left: 0; right: 0; }
+}
+
+/* ---- Lenis: plynuly scroll si rizeni prebira sam ---- */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ---- Barva: modra z loga FuxaStudio misto oranzove ze sablony ---- */
+:root { --accent: #414FFA; }
+
+/* ---- Znacka: znak FS v hlavicce, napis FUXA / STUDIO v hero a paticce ---- */
+.head__logo img { width: auto; height: 20px; object-fit: contain; }
+/* Pismo se meri v sirce prvku (cqi): STUDIO vyplni celou sirku na kazdem displeji.
+   28,3 = 100 / 3,523, sirka slova STUDIO pri 100 px v Zalando Sans 700 */
+.wm { container-type: inline-size; display: grid; margin: 0; color: #fff; font-family: var(--sans); font-weight: 700; line-height: 0.76; text-transform: uppercase; white-space: nowrap; }
+.wm span:first-child { padding-top: 0.06em; }
+/* Proklad v em se pocita z velikosti slova, proto az na span */
+.wm span { font-size: 28.3cqi; letter-spacing: -0.05em; }
+
+/* ---- Male vyrezy fotky: drzet hlavu nahore, at se neusekne celo ---- */
+.btn__img img, .menu__user img, .mini img, .clarity img { object-position: 50% 12%; }
+
+/* ================ HERO: latka (Faze 2, varianta A9) ================
+   Vrstvy: poster, video, ztmaveni, sum (.hero::after), texty. Video se stahuje
+   az v js/hero.js a jen od 810 px bez omezeneho pohybu, jinak zustava poster.
+   Ztmaveni je vyladene kontrolou kontrastu: male texty 4,5:1, modre CTA
+   a tecky hodnoceni 3:1 (cista #414FFA na cerne da nejvys asi 3,7). */
+.hero > .hb { position: absolute; z-index: 0; inset: 0; overflow: hidden; background: #020309; }
+.hb__poster, .hb__poster img, .hb__media { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hb__poster img { object-fit: cover; }
+.hb__media { object-fit: cover; opacity: 0; transition: opacity 0.8s ease; }
+.hb.is-live .hb__media { opacity: 1; }
+.hb__poster { transition: opacity 0.8s ease; }
+.hb.is-live .hb__poster { opacity: 0; }
+.hb__shade { position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(30% 24% at 6% 92%, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.75) 45%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(18% 14% at 7% 8%, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(16% 16% at 96% 8%, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 22%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 55%),
+    radial-gradient(120% 90% at 85% 80%, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 70%),
+    radial-gradient(30% 22% at 62% 54%, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%); }
+/* Latka je tmava sama o sobe, sum hera uz ji neztmavuje */
+.hero::after { background: url('../assets/noise.png'); }
+@media (max-width: 809px) {
+  .hb__shade { background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 22%, rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0.5) 65%, rgba(0, 0, 0, 0.7) 100%); }
+}
+/* Tablet: napis FUXA STUDIO roste se sirkou, vyssi hero drzi h1 aspon 24 px pod hlavickou */
+@media (min-width: 600px) and (max-width: 809px) {
+  .hero { height: 552px; }
+}
+/* Hlavicka bez mistniho casu: CTA zustava v pravem sloupci na vsech strankach
+   (i kdyz ve druhem sloupci neni odkaz ani stitek stranky) */
+@media (min-width: 1280px) {
+  .head__cta { grid-column: 3; }
+}
+/* Sluzby, odrazky "Co dostanete": ctverecek u prvniho radku, ne uprostred zalomene odrazky
+   (radek 14,4 px, ctverecek 6 px: (14,4 - 6) / 2 = 4,2 px) */
+.svc__ms li { align-items: flex-start; }
+.svc__ms li::before { margin-top: 4.2px; }
+
+/* ================ CENIK: varianta D4 z navrhy-cenik.html ================
+   Pravidla jsou z <style> pracovni stranky, tridy nv-* jsou tu prejmenovane
+   (price--more, price__more, price__extra), aby se navzajem neovlivnovaly. */
+/* Cesky nazev balicku je delsi nez "Premium", stitek "Nejcastejsi volba" jde na mobilu pod nej */
+.plan__head .tag { flex-wrap: wrap; row-gap: 8px; }
+.plan__pop { white-space: nowrap; }
+/* "od" pred cenou je stejne drobne jako "Kc" za ni, odstup ma na druhou stranu */
+.plan__price small:first-child { margin-left: 0; margin-right: 8px; }
+/* Ceny na landingu: mezera je pevna mezera v textu (cte se "od 10 000 Kc"), okraje by ji zdvojily */
+.plan__price--sp small, .plan__price--sp small:first-child { margin: 0; }
+/* Drobny radek pod cenou: styl .mono ze sablony, jen odstup */
+.plan__note { margin-top: 8px; }
+/* Na mobilu a tabletu karty v poradi Mensi, Vetsi, Narocnejsi web (sablona dava prostredni prvni) */
+.price--more .plan--main { order: 0; }
+/* Dalsi sluzby hned pod weby, s vlastni hlavickou */
+.price__more { margin-top: 48px; }
+.price__extra { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.price__more-head + .price__extra { margin-top: 48px; }
+/* Obe karty stejne vysoke, tlacitko dole; 48 px nad tlacitkem jako .plan .btn */
+.price__extra > .plan { display: flex; flex-direction: column; }
+.price__extra .plan__body { flex: 1 1 auto; display: flex; flex-direction: column; }
+.price__extra .checks { margin-bottom: 48px; }
+.price__extra .plan .btn { flex-shrink: 0; margin-top: auto; }
+@media (min-width: 810px) {
+  .price__extra { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+}
+@media (min-width: 1280px) {
+  .price__more { margin-top: 64px; }
+  .price__extra { gap: 0; }
+  .price__more-head + .price__extra { margin-top: 64px; }
+  /* Posledni vec v sekci uz nikam nevyjizdi, potrebuje vlastni odstup od FAQ */
+  .price--more { padding-bottom: 128px; }
+  /* Schody: kazdou kartu webu js/main.js protahne aspon o 32 px nad kartu vlevo.
+     Volne misto jde nad tlacitko (stejne jako u .price__extra), tlacitko a radek
+     "Hotovy za" / "Termin" zustavaji dole. */
+  .price--more .price__grid > .plan { display: flex; flex-direction: column; }
+  .price--more .price__grid .plan__body { flex: 1 1 auto; display: flex; flex-direction: column; }
+  .price--more .price__grid .plan__body > ul:last-of-type { margin-bottom: 40px; }
+  .price--more .price__grid .plan .btn { flex-shrink: 0; margin-top: auto; }
+  /* Hustsi karty webu, aby se na 1440 x 900 vesly cele do okna */
+  .price--more .price__grid .plan__head,
+  .price--more .price__grid .plan__body { padding: 32px; }
+  .price--more .price__grid .plan__t { margin-bottom: 24px; }
+  .price--more .price__grid .checks { gap: 8px; }
+  .price--more .price__grid .checks + .plan__t { margin-top: 40px; }
+}
+/* Na nejuzsich mobilech by doplnek za lomitkem zajel pod sipku tlacitka, tak se schova */
+@media (max-width: 359.98px) {
+  .price--more .btn__body small { display: none; }
+}
+
+/* FAQ: odkaz v perexu a v odpovedich podtrzeny jako odkazy u hodnoceni, jinak by splynul s textem */
+.faq__side .lede a, .faq__list .acc__body a { text-decoration: underline; text-underline-offset: 2px; }
+/* FAQ na nejuzsich mobilech: otazka 01 by se pri 24 px okraji zalomila na 3 radky */
+@media (max-width: 359.98px) {
+  .faq__list .acc__item summary { padding-inline: 16px; }
+  .faq__list .acc__body { padding-inline: 16px; }
+}
+
+/* Roll odkazy: s line-height 1 orezaval overflow hacky a carky velkych ceskych pismen
+   (SLUZBY, CENIK, CASTE) a carky druhe kopie textu prosvitaly pod odkazem.
+   Odsazeni nahore da diakritice misto, zaporny okraj vraci rozlozeni na puvodni misto. */
+.roll { margin-top: -0.3em; }
+.roll > span, .roll::after { padding-top: 0.3em; }
+
+/* Velky e-mail (a ve variante A telefon) v paticce: pod 360 px by pri 7.2vw presahoval do okraje stranky */
+@media (max-width: 359.98px) {
+  .foot__mail { font-size: 6.8vw; }
+}
+
+/* Paticka: velky e-mail a pod nim telefon k sobe patri, mezera 24 px misto 32 px */
+.foot__addr:has(.foot__mail + .foot__mail) { gap: 24px; }
+/* Radky se neroztahuji na vysku vedlejsiho seznamu odkazu, mezera zustava 24 px */
+.foot__addr { align-content: start; }
+/* Od 810 px: sloupce odkazu a spodni rady bez mezery, aby text zacinal na care sloupce.
+   E-mail se posouva nahoru tak, aby horni hrana jeho pismen byla ve vysce pismen odkazu Projekty
+   (e-mail ma vetsi pismo a jinou vysku radku, rozdil je zmereny na pismenech v Chromu). */
+@media (min-width: 810px) {
+  .foot__links { column-gap: 0; }
+  .foot__addr { margin-top: -9.7px; }
+}
+/* Od 1280 px zacina e-mail na care ctvrteho sloupce. Pri 30 px je siroky 340 px a do sloupce
+   ((sirka okna - 2 x 48 px) / 4) se vejde az kolem 1476 px, proto plynule pismo: sirka e-mailu je
+   11,32 x velikost pisma, delitel 46,5 misto 45,3 nechava rezervu i na posuvnik (100vw ho zapocita).
+   Telefon ma stejnou tridu, takze i stejnou velikost. Posun nahoru k pismenum odkazu Projekty
+   zavisi na velikosti pisma, zmereno v Chromu: 18,79 px - 0,35 x velikost pisma. */
+@media (min-width: 1280px) {
+  .foot__bottom { column-gap: 0; }
+  .foot__addr { --fm: clamp(20px, calc((100vw - 96px) / 46.5), 30px); margin-top: calc(0.35 * var(--fm) - 18.79px); }
+  .foot__mail { font-size: var(--fm); }
+}
+
+/* ---- Karty projektu s fotkou z webu klienta (.pk): projekty.html, landing a karta Dalsi projekt ve studiich ---- */
+/* Pozadi: stejna fotka jako nahled, rozmazana (jako karta Dalsi projekt ve studiich) */
+.pk .proj__bg img { filter: blur(20px); transform: scale(1.25); }
+.pk .proj__bg::after { content: ''; position: absolute; inset: 0; background: var(--pk-dim); }
+/* Nahled: ostry vyrez 3 : 4. Ztmaveni je pro vsech pet fotek stejne, aby byla bila loga citelna. */
+.pk { --pk-dim: rgba(0, 0, 0, 0.42); }
+.pk .proj__prev .pk__foto { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pk .proj__prev::after { content: ''; position: absolute; inset: 0; z-index: 1; background: var(--pk-dim); pointer-events: none; }
+/* Selektor se tridou rodice: sablona od 1280 px roztahuje kazdy obrazek v .proj__prev na 100 %, logo to musi prebit */
+.pk .pk__logo, .csh__prev .pk__logo { position: absolute; z-index: 2; left: 50%; top: 50%; width: var(--pk-logo, 40%); height: auto; transform: translate(-50%, -50%); pointer-events: none; }
+.pk .proj__btn { z-index: 3; }
+/* Loga maji ruzny tvar, sirky jsou nastavene tak, aby pusobila stejne velka */
+.pk__logo--mattina { --pk-logo: 42%; }
+.pk__logo--svatba { --pk-logo: 58%; }
+.pk__logo--gas { --pk-logo: 58%; }
+.pk__logo--janderov { --pk-logo: 36%; }
+/* Napis Svidnicky extrem (Barlow Condensed 800 v krivkach): sirsi nez ostatni loga, aby mel podobnou vysku jako logo GAS */
+.pk__logo--extrem { --pk-logo: 72%; }
+/* Posunuty o kus niz, aby nezakryval obliceje (hlavy jsou v horni tretine fotky) */
+.pk .pk__logo--extrem, .csh__prev .pk__logo--extrem { top: 54%; }
+
+/* Svisle cary mrizky pres kartu projektu jako v sablone: svetle pruhledne (rgba 255/0.07 jako sablona), nad fotkou v pozadi a ztmavenim, pod obsahem karty */
+.pk::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding-inline: var(--g);
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px calc(100% / var(--cols))) content-box,
+    linear-gradient(rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07)) right / 1px 100% no-repeat content-box;
+}
+.pk > *:not(.proj__bg) { z-index: 2; }
+
+/* Od 1280 px (rozlozeni se ctyrmi sloupci) nema karta vysku okna, ale asi tri ctvrtiny. Ubira se jen prazdne misto nad fotkou,
+   fotka ma porad sirku sloupce. Kdyz by se obsah nevesel, karta naroste (height: auto). */
+@media (min-width: 1280px) {
+  .pk { height: auto; min-height: 75vh; }
+  .pk .proj__prev { margin-top: 48px; }
+}
+
+/* ================ HLAVICKA DRZI NAHORE ================
+   Na zacatku stranky vypada stejne jako driv (pruhledna, odsazeni = puvodni top).
+   Kdyz hero odjede pod hlavicku, js/main.js prida .is-stuck: tmavy pruh, mensi odsazeni.
+   --head-h je vyska sbalene hlavicky, z ni se pocita scroll-margin kotev a sticky prvky. */
+:root { --head-h: 52px; }
+.head { position: fixed; top: 0; padding-top: 32px; transition: padding 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease; }
+.head.is-stuck { padding-block: 16px; background-color: var(--dark); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06); pointer-events: auto; }
+.head__cta { transition: margin 0.35s ease; }
+.head__logo img { transition: filter 0.35s ease; }
+/* Svetla hlavicka podstranek je v tmavem pruhu zase bila */
+.head--light.is-stuck, .head--light.is-stuck .menu-btn { color: #fff; }
+.head--light.is-stuck .dots i, .head--light.is-stuck .head__rule { background: rgba(255, 255, 255, 0.2); }
+.head--light.is-stuck .menu-btn[aria-expanded='true'] .dots i { background: #fff; }
+.head--light.is-stuck .head__logo img { filter: none; }
+.head--light.is-stuck .tag span { color: var(--white-60); }
+/* Kotvy nekonci pod hlavickou */
+[id] { scroll-margin-top: calc(var(--head-h) + 16px); }
+/* Sticky karty a stitky sablony mely top 64 px, ted musi zustat pod hlavickou */
+html .about__card, html .side .tag, html .refs__side, html .faq__side, html .foot__card,
+html .csa-stick, html .cs__stick, html .legal__card { top: calc(var(--head-h) + 24px); }
+@media (min-width: 810px) {
+  :root { --head-h: 74px; }
+  .head { top: 0; padding-top: 58px; }
+  .head.is-stuck { padding-block: 12px; }
+  .head.is-stuck .head__cta { margin-block: 0; }
+}
+@media (min-width: 1280px) {
+  .head { top: 0; padding-top: 48px; }
+  .head.is-stuck { padding-block: 12px; }
+}
+
+/* ---- Sluzby: v karte Kontakt jen stitek, nadpis a tlacitko (bez fotky) ---- */
+.svc__btn { margin-top: 32px; }
+/* Telo tlacitka je na tmave sekci o odstin svetlejsi (jako byvala karta), jinak by splynulo */
+.svc__btn .btn__body { background: var(--dark-2); }
+
+/* ---- Reference (landing i stranky mest): kratsi karty, odkaz na studii (box s logem viz .ref__tile) ---- */
+.refs .ref blockquote { margin-top: 24px; padding-top: 0; }
+/* Obrysove tlacitko jako "Otevrit web" ve studiich (.csa-live v case-a.css) */
+.ref__btn { max-width: 300px; height: auto; min-height: 50px; margin-top: 32px; }
+.ref__btn .btn__body { flex: none; width: calc(100% - 50px); padding-block: 10px; padding-right: 20px; background: var(--white); color: var(--ink); border: 1px solid var(--ink); white-space: normal; }
+.ref__btn .btn__ico { height: auto; bottom: 0; }
+/* Svisle hrany karet lezi presne na carach mrizky. Cara mrizky je 1 px uvnitr sloupce
+   (na jeho leve hrane, posledni na prave hrane obsahu), kdezto obrys z klon.css
+   (box-shadow 0 0 0 1px) lezel 1 px vne karty: vznikala dvojita cara a modra cara
+   koncila pred carou mrizky. Proto: levou hranu kresli kazda karta dovnitr (= cara
+   jejiho sloupce), pravou jen karty posledniho sloupce (= prava cara mrizky). Pravou
+   hranu leveho sloupce tvori cara mrizky, resp. leva hrana karty vedle. */
+.refs .ref { box-shadow: inset 1px 0 0 var(--line-m), inset -1px 0 0 var(--line-m), 0 1px 0 var(--line-m), 0 -1px 0 var(--line-m); }
+@media (min-width: 810px) {
+  .refs .refs__col:not(.refs__col--off) .ref { box-shadow: inset 1px 0 0 var(--line-m), 0 1px 0 var(--line-m), 0 -1px 0 var(--line-m); }
+}
+@media (min-width: 1280px) {
+  .refs .ref { min-height: 0; }
+  .refs .ref blockquote { margin-top: 24px; padding-top: 0; }
+}
+
+/* ================ MEZERY MEZI SEKCEMI (vsechny stranky) ================
+   Mezera od konce obsahu sekce ke stitku dalsi sekce je nejvys 96 / 128 / 160 px
+   (mobil / tablet / od 1280 px). Na hranach rozdelena napul do obou sekci (--gap-h),
+   aby byl prechod svetla/tmava vyvazeny. Kratsi mezery zustavaji, jak byly.
+   Plati pro landing, stranky mest i studie; vsechny paddingy techto prechodu jsou jen tady. */
+:root { --gap-h: 48px; }
+.proc { padding-bottom: var(--gap-h); }
+.refs { padding-block: var(--gap-h); }
+.price { padding-top: var(--gap-h); }
+.price--more, .price.s--dark { padding-bottom: var(--gap-h); }
+.faq { padding-block: var(--gap-h); }
+/* Paticka po svetle sekci: polovina mezery, 2px modra linka nahore se do ni pocita.
+   Po tmave karte projektu (studie, Projekty) je tmava plocha souvisla, odsazeni zustava. */
+main:has(> .s--light:last-child) + .foot { padding-top: calc(var(--gap-h) - 2px); }
+/* Studie: konec obsahu -> Dalsi projekt */
+.cs { padding-bottom: var(--gap-h); }
+/* Prazdne misto kolem odkazu Vsechny projekty / pod popiskem nad prvni kartou projektu.
+   Dalsi projekt ve studiich ma horni odsazeni podle mezery mezi sekcemi (opakuje se
+   v kazdem zlomu, jinak by ho prebil padding-block .work__hero). */
+.work__hero { padding-block: 24px; }
+.work__hero--next { padding-top: var(--gap-h); }
+@media (min-width: 810px) {
+  :root { --gap-h: 64px; }
+  .work__hero { padding-block: 32px; }
+  .work__hero--next { padding-top: var(--gap-h); }
+}
+@media (min-width: 1280px) {
+  :root { --gap-h: 80px; }
+  .work__hero { padding-block: 40px; }
+  .work__hero--next { padding-top: var(--gap-h); }
+}
+
+/* ================ ZAROVNANI NA SVISLE CARY (12. 11. 2026) ================
+   Prvky paticky, formulare a hlavicky Projektu zacinaji na levé care sveho sloupce. */
+/* Paticka na mobilu: odkazy, e-mail s telefonem a spodni radek zarovnane vlevo na caru (driv na stredu) */
+.foot__links, .foot__links nav, .foot__addr, .foot__bottom { justify-items: start; text-align: left; }
+/* Hlavicka sekce Projekty (landing, mesta): mezera mezi sloupci posouvala perex o 8 px z cary,
+   odkaz Vsechny projekty stoji na care sloupce 1 jako ve studiich (sablona ho posouvala o 16 px) */
+.work__hero { column-gap: 0; }
+@media (min-width: 1280px) {
+  .work__hero .ilink { margin-left: 0; }
+}
+@media (min-width: 810px) {
+  /* Pravni veta u tlacitka zacina na care druheho sloupce (driv zarovnana doprava) */
+  .form__legal { justify-self: start; text-align: left; }
+  /* Tlacitko konci 32 px pred carou, at se veta vedle nej nelepi (odsazeni jen zprava jako ve studiich) */
+  .form__end .submit { width: auto; margin-right: 32px; }
+  /* E-mail a telefon: telefon zacina na prostredni care, "nebo" stoji na konci prvniho sloupce za polem e-mailu */
+  .form__duo { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0; }
+  .form__duo > label:first-child, .form__err--email { grid-column: 1; margin-right: 56px; }
+  .form__duo > .form__or { grid-column: 1; justify-self: end; width: 56px; }
+  .form__duo > label:last-of-type, .form__err--phone { grid-column: 2; }
+}
+/* Spodni radek paticky na tabletu: dva sloupce jako mrizka (driv tri tretiny mimo cary).
+   Vlevo adresa a ICO, vpravo pravni odkazy a pod nimi cookies. */
+@media (min-width: 810px) and (max-width: 1279.98px) {
+  .foot__bottom { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0; }
+  .foot__bottom > :nth-child(1) { grid-column: 1; grid-row: 1 / span 2; }
+  .foot__bottom > :nth-child(2) { grid-column: 2; grid-row: 1; }
+  .foot__bottom > :nth-child(3) { grid-column: 2; grid-row: 2; }
+}
+
+/* ================ POSTUP: dva sloupce 810 az 1279 px ================
+   Karty v radku stejne vysoke (driv align-items: start, kratsi karta 01 nechavala diru nad 03). */
+@media (min-width: 810px) and (max-width: 1279.98px) {
+  .proc__grid { align-items: stretch; }
+}
+
+/* ================ MENU: nahledy projektu (od 1280 px) ================
+   Dva nahledy pod sebou pres celou sirku praveho sloupce, spolu vyplni vysku panelu (radky 1fr 1fr ze style.css).
+   Fotka {slug}-foto-pozadi.webp na sirku, ztmaveni 42 % (pri najeti 30 %, delka a krivka jako .btn),
+   bile logo uprostred jako samostatna vrstva. Sirka loga se odviji od karty projektu (--pk-logo je % sirky
+   karty 3 : 4), prepocitana na nahled na sirku tak, aby logo melo k vysce nahledu podobny pomer. */
+@media (min-width: 1280px) {
+  .menu__proj { --pk-dim: rgba(0, 0, 0, 0.42); }
+  .menu__proj::after { content: ''; position: absolute; inset: 0; z-index: 1; background: var(--pk-dim); pointer-events: none; transition: background-color 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+  .menu__proj:hover, .menu__proj:focus-visible { --pk-dim: rgba(0, 0, 0, 0.3); }
+  /* Selektory s .menu__work a: style.css a zacatek fuxa.css nastavuji prvnimu obrazku object-position top a zvetseni pri najeti */
+  .menu__work a.menu__proj > img.menu__foto { display: block; width: 100%; height: 100%; object-fit: cover; transform: none; }
+  /* Vyrez na hlavni motiv: baristu u Mattiny, tvare snoubencu u svatby */
+  .menu__work .menu__proj > .menu__foto--mattina { object-position: 50% 15%; }
+  /* Svatba: vyrez co nejvys. Fotka 1200 x 800 v nahledu 400 x 250 se da posunout jen o 16 px, tvare snoubencu
+     (stred zhruba 21 a 48 % vysky fotky) se do horni tretiny nahledu nedostanou, monogram zustava na nevestine tvari. */
+  .menu__work .menu__proj > .menu__foto--svatba { object-position: 50% 0%; }
+  .menu__proj .pk__logo { position: absolute; z-index: 2; left: 50%; top: 50%; width: calc(var(--pk-logo, 40%) * 0.6); height: auto; transform: translate(-50%, -50%); pointer-events: none; }
+}
+/* Sedm polozek menu: panel na PC zustava 500 px vysoky jako se ctyrmi polozkami (radky odkazu a mezera nad kartou autora o kus mensi) */
+@media (min-width: 1280px) {
+  .menu__col { gap: 24px; }
+  .menu__col nav { gap: 11px; }
+  /* Nahledy se vejdou do vysky panelu: radky nesmi rust podle prirozene vysky fotek */
+  .menu__work { grid-template-rows: repeat(2, minmax(0, 1fr)); min-height: 0; }
+  .menu__panel { grid-template-rows: minmax(0, 1fr); }
+}
+/* Nizke telefony (napr. 320 x 568): menu se sedmi polozkami se vejde bez rolovani */
+@media (max-width: 809.98px) and (max-height: 700px) {
+  .menu { padding-top: 64px; padding-bottom: 16px; }
+  .menu__col { gap: 24px; padding: 24px 32px; }
+  .menu__col nav { gap: 11px; }
+  .menu__user img { margin-bottom: 12px; }
+}
+
+/* ================ ANIMACE A UPRAVY (12. 11. 2026, podle kontrola/animace-sablona.md) ================
+   Pri prefers-reduced-motion zadny pohyb: animace nebezi, prechody se zkrati na okamzitou zmenu
+   (style.css). Bez JS je vsechno videt: menu bez JS stejne neotevrete, hero animaci zapina
+   inline skript v <head> (trida hero-anim) a i tak konci viditelnym stavem. */
+
+/* ---- Pruziny ze sablony prevedene na CSS ----
+   Framer animuje menu a tecky ikony pruzinou zadanou delkou a pruznosti (bounce 0). Krivky nize jsou
+   vypoctene presne stejnym kodem jako v Motion (motion.4eWhkn1T.mjs, pruzina z delky konci prave
+   v zadanem case), vzorek po 10 ms jako u Frameru. */
+:root {
+  --spring-300: linear(0, 0.0411, 0.1342, 0.2478, 0.3638, 0.4725, 0.5692, 0.6524, 0.7222, 0.7798, 0.8267, 0.8644, 0.8944, 0.9181, 0.9367, 0.9513, 0.9626, 0.9714, 0.9782, 0.9834, 0.9874, 0.9904, 0.9927, 0.9945, 0.9959, 0.9969, 0.9976, 0.9982, 0.9987, 1);
+  --spring-500: linear(0, 0.0157, 0.0555, 0.1106, 0.1747, 0.243, 0.3122, 0.3799, 0.4447, 0.5055, 0.5618, 0.6133, 0.6601, 0.7022, 0.7399, 0.7734, 0.8031, 0.8292, 0.8522, 0.8724, 0.8899, 0.9052, 0.9185, 0.93, 0.94, 0.9486, 0.956, 0.9624, 0.9679, 0.9726, 0.9767, 0.9801, 0.9831, 0.9856, 0.9878, 0.9896, 0.9912, 0.9925, 0.9937, 0.9946, 0.9955, 0.9961, 0.9967, 0.9972, 0.9977, 0.998, 0.9983, 0.9986, 0.9988, 1);
+  --spring-600: linear(0, 0.011, 0.0399, 0.0811, 0.1305, 0.1849, 0.2418, 0.2993, 0.3561, 0.4111, 0.4637, 0.5134, 0.56, 0.6032, 0.6432, 0.6799, 0.7135, 0.7441, 0.7718, 0.7969, 0.8194, 0.8397, 0.858, 0.8743, 0.8888, 0.9018, 0.9133, 0.9236, 0.9327, 0.9408, 0.9479, 0.9543, 0.9598, 0.9648, 0.9691, 0.9729, 0.9763, 0.9792, 0.9818, 0.9841, 0.9861, 0.9879, 0.9894, 0.9908, 0.9919, 0.993, 0.9939, 0.9947, 0.9953, 0.9959, 0.9965, 0.9969, 0.9973, 0.9977, 0.998, 0.9982, 0.9985, 0.9987, 0.9988, 1);
+}
+
+/* ---- Menu: otevreni a zavreni 1:1 podle sablony (script_main.N3mEoV6l.mjs @198020, @205032) ----
+   Pozadi: cerna 40 % s rozmazanim 5 px, pruhlednost 0 -> 1, pruzina 0,3 s.
+   Panel: pruhlednost 0 -> 1 a posun z 30 px pod cilovou polohou, pruzina 0,6 s, bez zmeny meritka.
+   Zavreni stejnymi pruzinami obracene (pozadi 0,3 s, panel zmizi a sjede o 30 px dolu za 0,6 s).
+   Polozky menu nemaji zadne vlastni zpozdeni. js/main.js zrusi hidden, o snimek pozdeji prida
+   .is-open a pri zavreni vrati hidden po 0,6 s. Poloha panelu: viz --menu-gap nize. */
+/* Pozadi a panel jsou v sablone dve samostatne vrstvy s vlastni pruhlednosti, proto pozadi kresli ::before
+   (cele .menu se neprolina, jinak by se pruhlednosti pozadi a panelu nasobily) */
+.menu { background: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.menu::before { content: ''; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); opacity: 0; transition: opacity 0.3s var(--spring-300); }
+.menu.is-open::before { opacity: 1; }
+.menu__panel { position: relative; z-index: 1; }
+.menu__panel { opacity: 0; transform: translateY(30px); transition: opacity 0.6s var(--spring-600), transform 0.6s var(--spring-600); }
+.menu.is-open .menu__panel { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .menu__panel { transform: none; }
+}
+/* Panel ma od spodku tlacitka MENU stejny odstup jako v sablone (zmereno v prohlizeci):
+   mobil 24 px, tablet 28 px, 1280 az 1599 px 30 px, od 1600 px 24 px. Spodek tlacitka dosazuje
+   js/main.js do --menu-top pri kazdem otevreni (hlavicka je po odrolovani nizsi nez nahore). */
+.menu { --menu-gap: 24px; }
+.menu[style*='--menu-top'] { padding-top: calc(var(--menu-top) + var(--menu-gap)); }
+@media (min-width: 810px) { .menu { --menu-gap: 28px; } }
+@media (min-width: 1280px) { .menu { --menu-gap: 30px; } }
+@media (min-width: 1600px) { .menu { --menu-gap: 24px; } }
+
+/* ---- Ikona menu: v otevrenem menu i pri najeti se mrizka tecek otoci o 135 stupnu ----
+   Sablona (Menu Toggle, MAIN @133625): rotate 135, tecky o odstin svetlejsi, pruzina 0,5 s. */
+.dots { transition: transform 0.5s var(--spring-500); }
+.dots i { transition: background-color 0.5s var(--spring-500); }
+.menu-btn[aria-expanded='true'] .dots { transform: rotate(135deg); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .menu-btn:hover .dots { transform: rotate(135deg); }
+}
+.menu-btn:focus-visible .dots { transform: rotate(135deg); }
+@media (hover: hover) {
+  .menu-btn:hover .dots i { background: #fff; }
+  .head--light:not(.is-stuck) .menu-btn:hover .dots i { background: var(--ink); }
+}
+.menu-btn:focus-visible .dots i { background: #fff; }
+.head--light:not(.is-stuck) .menu-btn:focus-visible .dots i { background: var(--ink); }
+@media (prefers-reduced-motion: reduce) {
+  .menu-btn:focus-visible .dots { transform: none; }
+  .menu-btn[aria-expanded='true'] .dots { transform: rotate(135deg); }
+}
+
+/* ---- Polozky menu a paticky: zleva naroste ctverecek a text se posune o 16 px ----
+   Sablona (Components/Nav Item, MAIN @53441 a @55311): ctverecek 6 px scale 0 -> 1, text o 16 px,
+   pruzina 0,5 s. Stejnou komponentu ma sablona v menu i v paticce. */
+.menu__link, .foot__link { position: relative; display: inline-block; }
+.menu__link::before, .foot__link::before { content: ''; position: absolute; left: 0; top: 50%; width: 6px; height: 6px; margin-top: -3px; background: var(--accent); transform: scale(0); transition: transform 0.5s var(--spring-500); }
+.menu__link > span, .foot__link > span { display: inline-block; transition: transform 0.5s var(--spring-500); }
+.menu__link:focus-visible::before, .foot__link:focus-visible::before { transform: scale(1); }
+.menu__link:focus-visible > span, .foot__link:focus-visible > span { transform: translateX(16px); }
+@media (hover: hover) {
+  .menu__link:hover::before, .foot__link:hover::before { transform: scale(1); }
+  .menu__link:hover > span, .foot__link:hover > span { transform: translateX(16px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Bez pohybu: ctverecek se jen objevi, text zustava na miste */
+  .menu__link > span, .foot__link > span { transform: none !important; }
+}
+
+/* ---- Prechod mezi strankami podle sablony (MAIN @223512, provadi FR @23956) ----
+   Sablona: odchod = stara stranka zmizi a odjede o 50 px nahoru, 0,4 s, cubic-bezier(.5, 0, .88, .77);
+   prichod = nova se objevi z 50 px zespodu, 0,4 s, cubic-bezier(.12, .23, .5, 1), zpozdeni 0,5 s.
+   Celkem 0,9 s, bez meritka, rozmazani i prekryvu. Stirani na uvodni stranku se neprebira.
+   Delku ridi jedna promenna --vt-total, pomer odchod / pauza / prichod zustava jako v sablone (4 : 1 : 4). */
+:root { --vt-total: 0.5s; /* sablona: 0.9s */ }
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { mix-blend-mode: normal; backface-visibility: hidden; }
+::view-transition-old(root) { animation: calc(var(--vt-total) * 4 / 9) cubic-bezier(0.5, 0, 0.88, 0.77) both vt-out; }
+::view-transition-new(root) { animation: calc(var(--vt-total) * 4 / 9) cubic-bezier(0.12, 0.23, 0.5, 1) calc(var(--vt-total) * 5 / 9) both vt-in; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-50px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(50px); } }
+/* Hlavicka ma vlastni skupinu bez animace: nova se objevi hned na miste stare, neblikne */
+.head { view-transition-name: head; }
+::view-transition-group(head) { animation: none; }
+::view-transition-old(head) { animation: none; opacity: 0; }
+::view-transition-new(head) { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+
+/* ---- Hero: texty se pri nacteni postupne objevi, celkem 0,55 s (0,4 s + zpozdeni do 0,15 s) ----
+   Jen pruhlednost a transform, rozlozeni se nehybe. Tridu hero-anim pridava inline skript v <head>
+   jen bez omezeneho pohybu; bez JS je text videt hned. Nadpisy .split animuje js/main.js po znacich.
+   Velky napis FuxaStudio (.hero__logo) se neanimuje: na PC je to LCP prvek a prolnuti by LCP posunulo o 0,4 s. */
+@keyframes hero-in { from { opacity: 0; transform: translateY(10px); } }
+.hero-anim :is(.hero__rating, .hero__copy > *, .hero__list, .phero__lede, .phero .chips, .csh__copy > :not(.split), .csh__svc) { animation: hero-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+.hero-anim :is(.hero__copy > h1, .csh__copy > .tick, .phero__lede) { animation-delay: 0.05s; }
+.hero-anim :is(.hero__copy > :not(h1), .csh__sub, .phero .chips) { animation-delay: 0.1s; }
+.hero-anim :is(.hero__list, .csh__svc) { animation-delay: 0.15s; }
+
+/* ---- Jemny zoom fotky pri najeti mysi: karty projektu (.pk) a nahledy projektu v menu ----
+   Fotka uvnitr ramu s overflow hidden, bile logo je samostatna vrstva a nezvetsuje se. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pk .proj__prev .pk__foto, .menu__work a.menu__proj > img.menu__foto { transition: transform 0.6s cubic-bezier(0.3, 0.8, 0.2, 1); }
+  .pk:hover .proj__prev .pk__foto, .menu__work a.menu__proj:hover > img.menu__foto { transform: scale(1.04); }
+}
+
+/* ---- Hlavicka: text MENU a text tlacitka na stred s ikonou a logem ----
+   Velka pismena byla asi o 0,9 px vys nez stred tecek a loga (radkovy box ma nad pismeny vic mista nez pod nimi).
+   text-box orizne radek na vysku velkych pismen, takze je flex vystredi presne. Prohlizece bez podpory dostanou posun o 1 px. */
+.menu-btn > span:not(.dots), .head__cta .btn__body b { text-box: trim-both cap alphabetic; }
+@supports not (text-box: trim-both cap alphabetic) {
+  .menu-btn > span:not(.dots), .head__cta .btn__body b { position: relative; top: 1px; }
+}
+
+/* ---- Hlavicka: tlacitko Nezavazna poptavka ----
+   Na tmave hlavicce (pres hero i po odrolovani) svetle telo s tmavym textem, aby nesplyvalo s pruhem.
+   Na svetle hlavicce (.head--light) zustava tmave. Sirka podle textu, vpravo na care mrizky. */
+.head:not(.head--light) .head__cta .btn__body, .head--light.is-stuck .head__cta .btn__body { background: var(--white); color: var(--ink); }
+@media (min-width: 810px) {
+  .head .head__cta { width: auto; }
+}
+@media (min-width: 1280px) {
+  .head .head__cta { justify-self: end; }
+}
+
+/* ---- O mne pod 1280 px: mala vodorovna karta nad velkym textem (od 1280 px je velka karta) ---- */
+.umini { display: grid; grid-template-columns: 80px minmax(0, 1fr); align-items: center; gap: 16px; margin-top: 24px; padding: 16px; background: var(--white); box-shadow: inset 1px 0 0 var(--line-m), inset -1px 0 0 var(--line-m), 0 1px 0 var(--line-m), 0 -1px 0 var(--line-m); }
+.umini__img { display: block; width: 80px; height: 80px; object-fit: cover; object-position: 50% 12%; }
+.umini__info { display: grid; gap: 4px; min-width: 0; }
+.umini__name { display: flex; align-items: center; gap: 8px; font-size: 16px; line-height: 20.8px; font-weight: 500; letter-spacing: -0.02em; text-transform: uppercase; }
+.umini .socials { margin: 8px 0 0; }
+@media (min-width: 810px) {
+  /* Jeden sloupec mrizky: leva hrana na care sloupce, pravou tvori cara mrizky vedle */
+  .umini { width: 50%; box-shadow: inset 1px 0 0 var(--line-m), 0 1px 0 var(--line-m), 0 -1px 0 var(--line-m); margin-top: 32px; }
+}
+@media (min-width: 1280px) {
+  .umini { display: none; }
+}
+
+/* ================ HOVER EFEKTY (12. 11. 2026) ================
+   U kazdeho prvku je hover ze sablony, kde ho sablona ma; jinak vychozi navrh. Hover jen pro zarizeni
+   s mysi, stejny vzhled dostane i :focus-visible. Pri prefers-reduced-motion se nic nehybe, jen se zmeni barva. */
+
+/* ---- Logo FS v hlavicce: sablona nema hover, vychozi navrh (ztlumeni na 70 %, casovani jako .btn) ---- */
+.head__logo { transition: opacity 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+.head__logo:focus-visible { opacity: 0.7; }
+@media (hover: hover) { .head__logo:hover { opacity: 0.7; } }
+
+/* ---- Akordeony Sluzby a FAQ: cislo odroluje a plus se otoci o 180 stupnu ----
+   Sablona (Accordion VhoqqnQxw @7401, Services VeSmwCu7Z @26926): cislo jsou dve kopie pod sebou ve vyrezu,
+   pri najeti vyjede druha; plus u zavrene polozky rotate 0 -> 180; pruzina 0,5 s. Barvu sablona nemeni. */
+.acc__nr { position: relative; display: inline-block; overflow: hidden; vertical-align: top; }
+.acc__nr > span { display: block; transition: transform 0.5s var(--spring-500); }
+.acc__nr::after { content: attr(data-text); content: attr(data-text) / ''; position: absolute; left: 0; top: 100%; transition: transform 0.5s var(--spring-500); }
+.acc__plus { transition: transform 0.5s var(--spring-500), color 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+.acc__no { transition: color 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+.acc__item > summary:focus-visible .acc__nr > span, .acc__item > summary:focus-visible .acc__nr::after { transform: translateY(-100%); }
+.acc__item:not([open]) > summary:focus-visible .acc__plus { transform: rotate(180deg); }
+@media (hover: hover) {
+  .acc__item > summary:hover .acc__nr > span, .acc__item > summary:hover .acc__nr::after { transform: translateY(-100%); }
+  .acc__item:not([open]) > summary:hover .acc__plus { transform: rotate(180deg); }
+}
+
+/* ---- Paticka: e-mail a telefon ----
+   Sablona (Button Text, MAIN @62589): text odroluje a nahradi ho stejny radek, pod textem tenka linka
+   (bila 5 %), po ktere zleva doprava naroste bila cara; pruzina 0,5 s. */
+.foot__mail { position: relative; display: inline-block; }
+.foot__mail::before, .foot__mail::after { content: ''; position: absolute; left: 0; bottom: 0; height: 1px; }
+.foot__mail::before { right: 0; background: rgba(255, 255, 255, 0.05); }
+.foot__mail::after { width: 100%; background: #fff; transform: scaleX(0); transform-origin: left; transition: transform 0.5s var(--spring-500); }
+.foot__roll { position: relative; display: inline-block; overflow: hidden; vertical-align: top; }
+.foot__roll > span { display: block; transition: transform 0.5s var(--spring-500); }
+.foot__roll::after { content: attr(data-text); content: attr(data-text) / ''; position: absolute; left: 0; top: 100%; white-space: nowrap; transition: transform 0.5s var(--spring-500); }
+.foot__mail:focus-visible::after { transform: none; }
+.foot__mail:focus-visible .foot__roll > span, .foot__mail:focus-visible .foot__roll::after { transform: translateY(-100%); }
+@media (hover: hover) {
+  .foot__mail:hover::after { transform: none; }
+  .foot__mail:hover .foot__roll > span, .foot__mail:hover .foot__roll::after { transform: translateY(-100%); }
+}
+
+/* ---- Paticka: Obchodni podminky, Ochrana osobnich udaju, Cookies, Nastaveni cookies ----
+   Sablona (odkazy Terms a Privacy Policy, styl 1mmre08): barva z bile 60 % na bilou. Sablona barvu meni
+   naraz, tady s casovanim .btn. */
+.foot__bottom a, .foot__bottom .foot__cookie { transition: color 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+.foot__bottom a:focus-visible, .foot__bottom .foot__cookie:focus-visible { color: #fff; }
+@media (hover: hover) {
+  .foot__bottom a:hover, .foot__bottom .foot__cookie:hover { color: #fff; }
+}
+
+/* ---- Ikony Google a Firmy.cz v kartach (O mne, mala karta, paticka, menu) ----
+   Sablona (Components/Social Icon vVecoPcT0 @12401): ikona naroste na 110 %, pruzina 0,6 s. Barvu nemeni. */
+.socials a { transition: transform 0.6s var(--spring-600), color 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+.socials a:focus-visible { transform: scale(1.1); }
+@media (hover: hover) { .socials a:hover { transform: scale(1.1); } }
+
+/* ---- Omezeny pohyb: misto pohybu jen zmena barvy ---- */
+@media (prefers-reduced-motion: reduce) {
+  .acc__nr > span, .acc__nr::after, .foot__roll > span, .foot__roll::after { transform: none !important; }
+  .acc__item:not([open]) > summary .acc__plus { transform: none !important; }
+  .acc__item > summary:focus-visible .acc__no, .acc__item > summary:focus-visible .acc__plus { color: var(--accent); }
+  .socials a { transform: none !important; }
+  .socials a:focus-visible { color: var(--accent); }
+  .foot__mail:focus-visible { color: var(--accent); }
+}
+@media (prefers-reduced-motion: reduce) and (hover: hover) {
+  .acc__item > summary:hover .acc__no, .acc__item > summary:hover .acc__plus { color: var(--accent); }
+  .socials a:hover { color: var(--accent); }
+  .foot__mail:hover { color: var(--accent); }
+}
+
+/* ================ MENU POD 810 PX (12. 11. 2026) ================
+   Jako sablona: panel u praveho okraje pod tlacitkem MENU, sirka podle obsahu (aspon 260 px jako sablona,
+   nejvys 320 px a nikdy sirsi nez obsah stranky), prava hrana na prave care hlavicky (padding .menu = --g).
+   Panel navazuje primo na spodni hranu hlavicky: js/main.js pod 810 px dosazuje do --menu-top spodek .head
+   a odstup je 0. Na konci panelu je tlacitko Nezavazna poptavka, ktere v hlavicce pod 810 px neni.
+   Od 810 px se nic nemeni (tlacitko je v hlavicce, .menu__cta je skryte). */
+.menu .menu__cta { display: none; }
+@media (max-width: 809.98px) {
+  .menu { --menu-gap: 0px; }
+  .menu__panel { width: fit-content; min-width: min(260px, 100%); max-width: min(320px, 100%); margin-left: auto; }
+  .menu .menu__cta { display: flex; }
+  /* Stejne jako tlacitko v tmave hlavicce: svetle telo, tmavy text, modre pole se sipkou */
+  .menu__cta .btn__body { background: var(--white); color: var(--ink); }
+}
+/* Nizke telefony (320 x 568): panel s tlacitkem konci 8 px nad spodkem okna, spodni odsazeni 16 px
+   by jinak pridalo rolovani o 8 px */
+@media (max-width: 809.98px) and (max-height: 700px) {
+  .menu { padding-bottom: 0; }
+}
+
+/* ================ ODKAZY V BEZNEM TEXTU (12. 11. 2026) ================
+   Hodnoceni v heru, FAQ a text vedle nej, veta pod formularem, texty pravnich stranek.
+   Pri najeti a :focus-visible barva --link-hover, podtrzeni (text-decoration) meni barvu s textem.
+   Na svetlem pozadi --accent, na tmavem (hodnoceni v heru, veta pod formularem v paticce) --accent-on-dark kvuli kontrastu. */
+:root { --accent-on-dark: #7A85FF; }
+.rating__src .mono a, .faq__side .lede a, .faq__list .acc__body a, .form__legal a, .legal__body a { --link-hover: var(--accent); }
+.hero .rating__src .mono a, .foot .form__legal a { --link-hover: var(--accent-on-dark); }
+.rating__src .mono a, .faq__side .lede a, .faq__list .acc__body a, .form__legal a, .legal__body a { transition: color 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+.rating__src .mono a:focus-visible, .faq__side .lede a:focus-visible, .faq__list .acc__body a:focus-visible, .form__legal a:focus-visible, .legal__body a:focus-visible { color: var(--link-hover); }
+@media (hover: hover) {
+  .rating__src .mono a:hover, .faq__side .lede a:hover, .faq__list .acc__body a:hover, .form__legal a:hover, .legal__body a:hover { color: var(--link-hover); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rating__src .mono a, .faq__side .lede a, .faq__list .acc__body a, .form__legal a, .legal__body a { transition: none; }
+}
+
+/* ================ OPRAVY Z AUDITU (kontrola/audit.md, 12. 11. 2026) ================ */
+/* C11: text tlacitka formulare i ve vychozim stavu plne bily (bila 60 % na modre mela 3,02 : 1) */
+html .submit .btn__body { color: #fff; }
+/* C12: male texty v modrem panelu Postupu plne bile, seda cast velkeho nadpisu zustava */
+html .proc__panel > p:not(.mono), html .proc__panel .mono, html .proc__panel .checks li { color: #fff; }
+/* C15: fokus tlacitka v modrem panelu bilym obrysem (modry obrys na modre nebyl videt) */
+html .proc__panel .btn:focus-visible { outline-color: #fff; }
+/* C13: popisky v kartach projektu (Klient, Doba, cislo, Dalsi) bila 85 % misto 60 % */
+html .proj__meta > span, html .proj__no { color: rgba(255, 255, 255, 0.85); }
+/* C16: rolovaci nahledy ve studiich maji viditelny fokus i pod 768 px (modry ram jako od 768 px) */
+@media (max-width: 767.98px) {
+  html .csa-screen:has(> .csa-scroll:focus-visible), html .csa-phone:has(> .csa-scroll:focus-visible) { box-shadow: 0 0 0 3px var(--accent); }
+}
+/* D17: ramecek poli formulare aspon 3 : 1 proti poli i okoli, pri fokusu bily */
+html .form input, html .form textarea { border-color: rgba(255, 255, 255, 0.4); }
+html .form input:hover, html .form textarea:hover { border-color: rgba(255, 255, 255, 0.55); }
+html .form input:focus, html .form textarea:focus { border-color: #fff; }
+/* N13: stitky Zadani a Vysledek ve studiich stejnym pismem jako ostatni stitky */
+html .tag.csa-tag { font-family: var(--sans); }
+/* N14: pravni stranky od 1280 px konci spodnim odsazenim podle pravidla mezer (polovina 160 px, druhou ma paticka) */
+@media (min-width: 1280px) {
+  html .legal { padding-bottom: var(--gap-h); }
+}
+/* Posledni seznam v textu (obchodni podminky) mel vychozi spodni okraj 1em a mezeru zvetsoval */
+html .legal__body > :last-child { margin-bottom: 0; }
+/* N15: ceniky na care mrizky. Mesta od 1024 px: sloupce radku se potkavaji na prostredni care.
+   Index 810 az 1279 px: karty Grafika a sprava bez mezery jako od 1280 px. */
+@media (min-width: 1024px) {
+  html .mrows--inv { column-gap: 0; }
+}
+@media (min-width: 810px) and (max-width: 1279.98px) {
+  html .price__extra { column-gap: 0; }
+}
+/* N16: monitor a podstavec v nahledu bez zaobleni, zaobleny zustava jen telefon */
+html .csa-screen, html .csa-base { border-radius: 0; }
+/* N17: telefon a e-mail v karte pravnich stranek se pri najeti chovaji jako odkazy v textu */
+html .legal__row a { --link-hover: var(--accent); transition: color 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+html .legal__row a:focus-visible { color: var(--link-hover); }
+@media (hover: hover) { .legal__row a:hover { color: var(--link-hover); } }
+@media (prefers-reduced-motion: reduce) { .legal__row a { transition: none; } }
+/* N18: pri omezenem pohybu se obsah tlacitka nehybe, pri najeti a fokusu se jen zmeni barva tela */
+@media (prefers-reduced-motion: reduce) {
+  html .btn .btn__body, html .btn .btn__ico, html .btn .btn__img { transform: none !important; }
+  html .btn:hover .btn__body, html .btn:focus-visible .btn__body { background: var(--accent) !important; color: #fff !important; }
+  html .btn--inv:hover .btn__body, html .btn--inv:focus-visible .btn__body, html .proc__panel .btn:hover .btn__body, html .proc__panel .btn:focus-visible .btn__body { background: var(--dark) !important; color: #fff !important; }
+}
+/* N19: Napiste mi ve Sluzbach ma telo #121212 jako ostatni tmava tlacitka; Zobrazit v karte ma vsude 70 px vpravo; tlacitka listy 50 px */
+html .svc__btn .btn__body { background: var(--dark); }
+html .proj__btn .btn__body { padding-right: 70px; }
+html .cbar__btn { height: 50px; }
+/* N21: odkazy s ikonou a filtry Projektu stejna delka a krivka jako .btn */
+html .ilink__ico, html .roll > span, html .roll::after { transition-duration: 0.35s; transition-timing-function: cubic-bezier(0.3, 0.8, 0.2, 1); }
+html .chip { transition-duration: 0.35s; transition-timing-function: cubic-bezier(0.3, 0.8, 0.2, 1); }
+/* D12: Zobrazit projekt v Referencich na jeden radek i na 320 px */
+@media (max-width: 359.98px) {
+  html .ref__btn .btn__body { padding-left: 14px; padding-right: 14px; white-space: nowrap; }
+}
+/* D13: obrazky v galerii studii pri najeti jako karty projektu (fotka 1,04, 0,6 s) */
+html .csa-lbtn { overflow: hidden; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  html .csa-lbtn img { transition: transform 0.6s cubic-bezier(0.3, 0.8, 0.2, 1); }
+  html .csa-lbtn:hover img { transform: scale(1.04); }
+}
+
+/* ---- C14: hero studii, jemny tmavy prechod pod hlavickou (Menu, Vsechny projekty, logo) ---- */
+html .csh::before { content: ''; position: absolute; z-index: 1; left: 0; right: 0; top: 0; height: 160px; background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%); pointer-events: none; }
+/* Sluzby v heru od 1280 px plne bile (85 % bylo na svetlem miste fotky skoro neviditelne) */
+html .csh__svc { color: #fff; }
+/* Podtitulek hera studii bila 85 % misto 60 % (13. 11. 2026), na svetlych mistech fotek mel jen 3,7 : 1 */
+html .csh__sub { color: rgba(255, 255, 255, 0.85); }
+
+/* ---- C1: hero studii 810 az 1279 px: maly nahled s fotkou a logem ve sloupci 1, nadpis od sloupce 3 jako od 1280 px.
+   Vyska podle obsahu, bez velkeho prazdneho mista. Sluzby v heru zustavaji jen od 1280 px. ---- */
+@media (min-width: 810px) and (max-width: 1279.98px) {
+  html .csh { height: auto; padding-top: 150px; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: end; }
+  html .csh__prev { display: block; position: relative; grid-column: 1; grid-row: 1; width: calc(100% - 8px); margin-left: 16px; aspect-ratio: 3 / 4; overflow: hidden; }
+  html .csh__prev > img:first-child { width: 100%; height: 100%; object-fit: cover; }
+  html .csh__prev::after { content: ''; position: absolute; inset: 0; }
+  html .csh__copy { grid-column: 3 / 5; grid-row: 1; }
+}
+
+/* ---- C2: Vsechny projekty u bloku Dalsi projekt na vsech sirkach, pod 1280 px pod perexem na leve care ---- */
+@media (max-width: 1279.98px) {
+  html .work__hero--next .ilink { display: inline-flex; justify-self: start; margin-left: 0; }
+}
+@media (min-width: 810px) and (max-width: 1279.98px) {
+  /* Od dvou sloupcu jako od 1280 px: levy sloupec dole, na leve care, spodek srovnany se spodkem perexu (13. 11. 2026) */
+  html .work__hero--next .ilink { grid-column: 1; grid-row: 2; align-self: end; }
+}
+@media (max-width: 809.98px) {
+  html .work__hero--next .ilink { order: 3; }
+}
+
+/* ---- C3: karty projektu pod 810 px (text pod nahledem): bez ramecku, ostra fotka pres celou kartu, ztmaveni 42 %,
+   odspodu prechod, bile logo uprostred horni casti (Svidnicky extrem bez loga), nahore cislo, Klient a Doba,
+   dole nazev, popis, stitky a tlacitko. Od 810 px se karta nemeni. ---- */
+html .pk__logo--mattina { --pk-k: 0.42; }
+html .pk__logo--svatba { --pk-k: 0.58; }
+html .pk__logo--gas { --pk-k: 0.58; }
+html .pk__logo--janderov { --pk-k: 0.36; }
+@media (max-width: 809.98px) {
+  html .pk { grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto clamp(180px, 42vw, 280px) auto auto auto; column-gap: 24px; row-gap: 0; padding-block: 40px 32px; }
+  html .pk::after { background: url('../assets/noise.png'), linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 22%, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.8) 100%); }
+  html .pk .proj__bg img { filter: none; transform: none; }
+  html .pk .proj__prev { display: contents; }
+  html .pk .proj__prev .pk__foto { display: none; }
+  html .pk .proj__no { grid-column: 1; grid-row: 1; }
+  html .pk .proj__meta { grid-column: 2; grid-row: 1; justify-content: flex-start; flex-wrap: wrap; column-gap: 8px; }
+  html .pk .proj__meta--b { grid-row: 2; margin-top: 6px; }
+  html .pk .proj__meta--b b { text-align: left; }
+  html .pk .pk__logo { position: relative; z-index: 2; left: auto; top: auto; transform: none; grid-column: 1 / -1; grid-row: 3; justify-self: center; align-self: center; width: calc(min(100%, 300px) * var(--pk-k, 0.4)); }
+  html .pk .pk__logo--extrem { display: none; }
+  html .pk .proj__copy { grid-column: 1 / -1; grid-row: 4; gap: 16px; }
+  html .pk .proj__tags { display: flex; flex-wrap: wrap; gap: 4px 16px; grid-column: 1 / -1; grid-row: 5; margin-top: 16px; }
+  html .pk .proj__btn { position: relative; z-index: 3; right: auto; bottom: auto; grid-column: 1 / -1; grid-row: 6; width: min(100%, 300px); margin-top: 32px; }
+}
+
+/* N12: H1 na 404 ma velikost .h--xl jako studie a pravni stranky. Pod 360 px se NENALEZENA. ve 44 px nevejde,
+   zustava puvodnich 40 px. */
+@media (max-width: 359.98px) {
+  html .nf__h { font-size: 40px; line-height: 44px; }
+}
+
+/* C13: od 810 px (rozmazane pozadi karty) jemne tmavsi ztmaveni pozadi, 42 -> 52 %, aby popisky mely 4,5 : 1 i v nejsvetlejsim miste.
+   Nahled s fotkou v karte ma dal 42 %. */
+@media (min-width: 810px) {
+  html .pk .proj__bg::after { background: rgba(0, 0, 0, 0.52); }
+}
+
+/* ================ PREPINAC JAZYKU CZ / EN (13. 11. 2026) ================
+   Jen v hlavicce. Od 810 px vlevo vedle tlacitka Nezavazna poptavka (spolecny obal .head__end),
+   pod 810 px vlevo vedle MENU (logo vlevo, prepinac a MENU vpravo). Mezera 16 px jako mezi MENU, carou a logem.
+   Pismo, velikost a verzalky jako MENU, svisle oriznuti radku (text-box) jako MENU.
+   Aktivni jazyk plnou barvou hlavicky (bila / --ink), lomitko a druhy jazyk ztlumene (--white-60 / --ink-60).
+   Od 13. 11. 2026 je prepinac jeden odkaz (viz nize), pri najeti a :focus-visible se ztlumeny jazyk rozsviti, casovani jako .btn. */
+.head__end { display: flex; align-items: center; gap: 16px; }
+/* Prepinac je jeden odkaz <a class="lang"> na stejnou stranku v druhem jazyce. Uvnitr .lang__cur (aktualni jazyk, plna barva),
+   .lang__sep a .lang__alt (cilovy jazyk, ztlumeny). Klikaci plocha aspon 44 px na vysku (radek je kvuli text-box oriznuty na vysku verzalek, proto padding 17 px) a stejny zaporny margin,
+   takze vzhled, pozice a mezery 16 px zustavaji. Ztlumeny jazyk je --lang-dim (bila 60 %, na svetle hlavicce --ink-60). */
+:root { --lang-dim: var(--white-60); --lang-dim-ink: var(--ink-60); }
+.lang { display: block; padding: 17px 0; margin: -17px 0; color: inherit; text-decoration: none; font-size: 14px; line-height: 14px; font-weight: 500; letter-spacing: -0.5px; text-transform: uppercase; white-space: nowrap; cursor: pointer; text-box: trim-both cap alphabetic; }
+@supports not (text-box: trim-both cap alphabetic) {
+  .lang { position: relative; top: 1px; }
+}
+.lang__sep, .lang__alt { color: var(--lang-dim); }
+.head--light:not(.is-stuck) :is(.lang__sep, .lang__alt) { color: var(--lang-dim-ink); }
+.lang__alt { transition: color 0.35s cubic-bezier(0.3, 0.8, 0.2, 1); }
+.head .lang:focus-visible .lang__alt { color: inherit; }
+@media (hover: hover) {
+  .head .lang:hover .lang__alt { color: inherit; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lang__alt { transition: none; }
+}
+/* Pri nacteni uprostred stranky naskoci tmava hlavicka bez prechodu */
+.head--instant, .head--instant * { transition: none !important; }
+/* Pod 810 px: obsah .head__left se stane primo polozkami hlavicky, aby prepinac mohl stat mezi logem a MENU */
+@media (max-width: 809.98px) {
+  .head__left { display: contents; }
+  .head__logo { order: -1; }
+  .head__end { margin-left: auto; margin-right: 16px; }
+  .menu-btn { order: 1; }
+}
+/* Od 1280 px: obal ve tretim sloupci hlavicky, vpravo na care mrizky. minmax(0, …), aby sirsi obal
+   nerozsiril sloupec a neposunul stitek stranky ve druhem sloupci. */
+@media (min-width: 1280px) {
+  .head { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); }
+  .head__end { grid-column: 3; justify-self: end; }
+}
+
+/* ================ CARY MRIZKY PRES AKORDEON (Sluzby na indexu, FAQ na vsech strankach) ================
+   Bila plocha polozky zakryvala svisle cary mrizky. Na polozku se dokresluje jen leva a prava krajni cara (1 px dovnitr,
+   barva --ln); prostredni cary mrizky pres polozky nevedou.
+   --acc-ln: na tmave plose polozky (--dark-2) by pruhledna cara (bila 5 %) vysla svetlejsi nez cara mezi polozkami na --dark,
+   proto Sluzby dostavaji plnou barvu, ktera vychazi stejne jako 5 % bile na --dark (#121212 -> #1E1E1E). */
+.svc__list, .faq__list { --acc-ln: var(--ln); }
+.svc__list { --acc-ln: var(--line-svc); }
+.svc__list .acc__item, .faq__list .acc__item {
+  background-image: linear-gradient(var(--acc-ln), var(--acc-ln)), linear-gradient(var(--acc-ln), var(--acc-ln));
+  background-size: 1px 100%, 1px 100%;
+  background-position: 0 0, 100% 0;
+  background-repeat: no-repeat;
+}
+
+
+/* Poznámka „Translated from Czech / Slovak“ pod citací. Jen anglické stránky (třída jinde není).
+   Barva a velikost z .mono (--ink-60 na bílé 5,1 : 1). */
+.ref__tr { margin-top: 12px; }
+
+/* EN: doplněk za lomítkem na tlačítkách ceníku (/smaller website) je delší než česky a do 430 px zajíždí pod šipku, schová se jako česky pod 360 px */
+@media (max-width: 429.98px) {
+  html[lang="en"] .price--more .btn__body small { display: none; }
+}
+
+/* Studie (html.studie z inline skriptu v <head>): pod 810 px je hlavicka tmava od prvniho vykresleni, i nahore (13. 11. 2026).
+   Stejny vzhled jako .head.is-stuck. Od 810 px je nahore pruhledna a ztmavne po 8 px (js/main.js). */
+@media (max-width: 809.98px) {
+  html.studie .head { padding-block: 16px; background-color: var(--dark); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06); pointer-events: auto; }
+}
+
+/* EN dotaznik: "questionnaire" ve 44 px je sirsi nez 320 px displej, nadpis se pod 430 px zmensuje podle sirky. */
+@media (max-width: 429.98px) {
+  html[lang="en"] .dq .h--xl { font-size: min(44px, calc((100vw - 32px) / 8.4)); line-height: 1.1; }
+}

@@ -1,0 +1,30 @@
+# NAVRH, zatim se nikde nepouziva. Pri prenosu na zivy web pridat do _redirects.
+# Stranky O mne, Reference, Kontakt a Tvorba webovych stranek v redesignu nejsou, vedou na sekce homepage.
+/o-mne /#o-mne 301
+/reference /#reference 301
+/kontakt /#kontakt 301
+/tvorba-webovych-stranek /#cenik 301
+
+# Anglicka verze (13. 11. 2026): stranky About, References, Contact a Web design pricing v EN nejsou, vedou na sekce /en/.
+/en/about /en/#about 301
+/en/references /en/#references 301
+/en/contact /en/#contact 301
+/en/web-design-pricing /en/#pricing 301
+
+# Mapovani souboru en/*.html na adresy (stejne jako u cestiny: soubor -> cista adresa). Pri prenosu se soubory prejmenuji.
+/en/index.html /en/ 301
+/en/projekty.html /en/projects 301
+/en/case-study-mattina-cafe.html /en/projects/mattina-cafe 301
+/en/case-study-svatebni-web.html /en/projects/wedding-website 301
+/en/case-study-global-accord-strategies.html /en/projects/global-accord-strategies 301
+/en/case-study-mlyn-janderov.html /en/projects/mlyn-janderov 301
+/en/case-study-svidnicky-extrem.html /en/projects/svidnicky-extrem 301
+/en/tvorba-webovych-stranek-pardubice.html /en/web-design-pardubice 301
+/en/tvorba-webovych-stranek-chrudim.html /en/web-design-chrudim 301
+/en/terms.html /en/terms 301
+/en/privacy.html /en/privacy 301
+/en/cookies.html /en/cookies 301
+
+# Dotaznik pro klienty (13. 11. 2026): skryta stranka, noindex, neni v menu ani v sitemape, posila se odkazem. Soubory se pri prenosu prejmenuji.
+/dotaznik.html /dotaznik 301
+/en/questionnaire.html /en/questionnaire 301

@@ -1,0 +1,87 @@
+/* Mistni stranka (zatim Pardubice, pozdeji Chrudim se stejnym rozlozenim a jinym obsahem).
+   Sklada se ze sekci hlavni stranky a stranky Projekty, tady jsou jen kusy navic:
+   staticky seznam mest v heru, radky ceniku a seznam "Co bude dal" v paticce. */
+
+/* ---- Hero: mesta jako stitky, nejsou to tlacitka filtru ---- */
+.chips--static .chip:hover { background: var(--paper); }
+.chip--muted { background: transparent; color: var(--ink-60); }
+.chips--static .chip--muted:hover { background: transparent; }
+
+/* ---- Pripady: misto poradoveho cisla obec, verzalkami jako ostatni popisky ---- */
+.work .proj__no { text-transform: uppercase; }
+
+/* ---- Cenik: radky misto karet s balicky ---- */
+.mrows { display: grid; gap: 8px; margin-top: 48px; }
+.mrow { display: grid; gap: 8px; padding: 24px; background: var(--white); border-bottom: 1px solid var(--line-l); }
+.mrow__name { font-size: 18px; line-height: 23.4px; font-weight: 500; letter-spacing: -0.02em; text-transform: uppercase; }
+.mrow__note { font-family: var(--mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0; text-transform: uppercase; color: var(--ink-60); }
+.mrow__amt { margin-top: 8px; font-size: min(26px, 6.6vw); line-height: 28.6px; font-weight: 500; letter-spacing: -0.03em; white-space: nowrap; }
+/* Navrh zdarma je hlavni argument, proto modra hrana a cena v barve znacky */
+.mrow--free { border-top: 2px solid var(--accent); }
+.mrow--free .mrow__amt { color: var(--accent); }
+.mprice__foot { display: grid; gap: 24px; justify-items: start; margin-top: 32px; }
+.mprice__foot p { max-width: 520px; color: var(--ink-60); }
+
+/* ---- Paticka: co se stane po odeslani ---- */
+.mnext { margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+.mnext ol { display: grid; gap: 12px; margin: 24px 0 0; padding: 0; list-style: none; counter-reset: krok; }
+.mnext li { display: flex; gap: 12px; font-size: 14px; line-height: 18.2px; font-weight: 500; letter-spacing: -0.01em; text-transform: uppercase; counter-increment: krok; }
+.mnext li::before { content: '0' counter(krok); flex: none; width: 24px; font-family: var(--mono); color: var(--white-60); }
+.mnext li:last-child { color: #fff; }
+.mnext li:last-child::after { content: ''; flex: none; align-self: center; width: 6px; height: 6px; background: var(--accent); }
+
+@media (min-width: 810px) {
+  .mrows { margin-top: 64px; }
+  .mrow { grid-template-columns: 1fr 1fr; align-items: center; padding: 32px 40px; }
+  .mrow__name { grid-column: 1; }
+  .mrow__note { grid-column: 1; grid-row: 2; }
+  .mrow__amt { grid-column: 2; grid-row: 1 / 3; justify-self: end; margin-top: 0; }
+  .mprice__foot { grid-template-columns: 1fr auto; align-items: center; margin-top: 40px; }
+  .mnext ol { grid-template-columns: 1fr 1fr; gap: 16px 32px; }
+}
+
+@media (min-width: 1280px) {
+  .mrow { grid-template-columns: 2fr 1fr; padding: 40px 48px; }
+  .mrow__amt { font-size: 32px; line-height: 35.2px; }
+  .mnext { margin-top: 64px; padding-top: 64px; }
+}
+
+/* =====================================================================
+   Kostra od 11. 11. 2026. Vse nize je jen pro stranku mesta, sdilene soubory se nemeni.
+   ===================================================================== */
+
+/* ---- Hero: stavba a styly z index.html (style.css .hero, fuxa.css .hb), tady jen podtitulek pod h1 ----
+   Na landingu je druha veta sedy <span> uvnitr h1, tady samostatny odstavec se stejnymi barvami. */
+.hero .hero__sub { color: var(--white-60); }
+.hero .hero__sub strong { color: var(--white); }
+
+/* ---- Sekce 01 a hlavicka sekce 02: odstupy beze zmen ze style.css (.mission + .about__folio), stejne jako landing ---- */
+
+/* ---- Cenik na tmavem pozadi: radky .mrows--inv, vpravo cena a pod ni pripadne rozpeti ---- */
+.mrow__val { margin-top: 8px; }
+.mrow__val .mrow__amt { margin-top: 0; }
+.mrow__sub { margin-top: 4px; font-family: var(--mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0; text-transform: uppercase; color: var(--ink-60); }
+.mrows--inv .mrow { background: var(--dark-2); border-bottom-color: var(--line-d); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08); color: #fff; }
+.mrows--inv .mrow__note, .mrows--inv .mrow__sub { color: var(--white-60); }
+/* Modra na tmave nema dost kontrastu, cena Zdarma je bila, modra zustava v horni hrane */
+.mrows--inv .mrow--free .mrow__amt { color: #fff; }
+
+@media (min-width: 810px) {
+  .mrow__val { grid-column: 2; grid-row: 1 / 3; justify-self: end; margin-top: 0; text-align: right; }
+}
+
+/* ---- Cenik: tlacitko Nezavazna poptavka pod radky. Stavba a hover jako v hlavicce (.btn, posun sipky),
+   barvy jako tlacitko formulare: modre pole, bile ctverce se sipkou (.btn--inv). Cerne pole z hlavicky
+   by na tmavem pozadi splynulo. Na mobilu nad odkazem Cely cenik pres celou sirku,
+   od 810 px vpravo na radku s odkazem. ---- */
+.mprice__cta { order: -1; justify-self: stretch; }
+.mprice__cta .btn__body { background: var(--accent); }
+@media (min-width: 810px) {
+  .mprice__cta { order: 0; justify-self: end; width: auto; }
+}
+
+/* ---- Cenik od 1024 px: dva sloupce po trech radcich, delici mezera na prostredni care mrizky ---- */
+@media (min-width: 1024px) {
+  .mrows--inv { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, 1fr); grid-auto-flow: column; column-gap: var(--g); }
+  .mrows--inv .mrow { grid-template-columns: minmax(0, 1fr) auto; column-gap: 24px; }
+}

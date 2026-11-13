@@ -1,0 +1,15 @@
+{
+  "name": "fuxa-varianta",
+  "private": true,
+  "type": "module",
+  "description": "Lokalni varianta, nenasazovat. Zavislosti jsou jen pro skripty, na web nejdou.",
+  "scripts": {
+    "images": "node scripts/images.mjs",
+    "grade": "node scripts/grade.mjs",
+    "record": "node scripts/record.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.1",
+    "sharp": "^0.34.4"
+  }
+}

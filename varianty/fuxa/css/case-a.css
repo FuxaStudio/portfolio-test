@@ -1,0 +1,267 @@
+/* Pripadove studie (case-study-*.html). Vychazi z inline stylu predlohy case-study-a.html;
+   case.css zustava beze zmeny, tady jsou jen upravy pro kratkou studii. */
+
+/* Rozlozeni drzi sloupce sablony (svisle cary: 1 sloupec, od 810 px 2, od 1280 px 4, bez mezer mezi sloupci).
+   Kazdy prvek zacina na care a konci pred dalsi; odsazeni je jen zprava. */
+
+/* ---- Hero ---- */
+/* Pozadi presahuje okraje, aby rozostreni nebylo videt na hranach */
+.csh__bgwrap { display: block; position: absolute; inset: 0; }
+.csh > .csh__bgwrap { position: absolute; z-index: 0; }
+.csh .csh__bg { inset: auto; position: static; display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Pod 810 px: ostra fotka, dole ztmavena pod nadpisem */
+.csh::after { background: url("../assets/noise.png"), linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.25) 35%, rgba(0, 0, 0, 0.88) 100%); }
+.csa-logo-white { filter: brightness(0) invert(1); }
+
+/* Karta Dalsi projekt: pozadi rozostrene a ztmavene jako hero na PC */
+.csa-next .proj__bg img { filter: blur(20px); transform: scale(1.25); }
+.csa-next::after { background: rgba(0, 0, 0, 0.62) url("../assets/noise.png"); }
+
+/* ---- Pod herem ---- */
+/* Obrysove tlacitko na zivy web pod citaci: plne zustava jen Nezavazna poptavka */
+.csa-live { max-width: 300px; margin-top: 32px; }
+/* Textova cast je o ctverecek uzsi a ma okraj ze vsech stran. Pri najeti/fokusu se posune o 50 px doprava
+   (animace sablony), ctverecek vyjede zleva, a okraj tak zustava cely v obou stavech. */
+.csa-live .btn__body { flex: none; width: calc(100% - 50px); padding-right: 20px; background: var(--white); color: var(--ink); border: 1px solid var(--ink); }
+
+/* Citace: logo klienta je ve stejnem boxu jako v referencich (.ref__tile ve fuxa.css) */
+
+/* Zadani a Vysledek: stitek, nadpis, odstavec */
+.csa-intro { display: grid; }
+.csa-col + .csa-col { margin-top: 48px; }
+.csa-tag { font-family: var(--mono); color: var(--ink-60); }
+.csa-col .cs__h { margin-top: 16px; }
+/* zhruba 65 znaku na radek, dokud jsou sloupce pod sebou (prumerny znak je uzsi nez ch) */
+.csa-col .cs__p { max-width: 46ch; }
+/* Cena je v bloku O projektu mezi udaji a tlacitkem, mezery nad i pod 32 px jako mezi ostatnimi castmi bloku */
+.csa-price { margin-top: 32px; }
+
+/* ---- Rolovaci nahled webu: monitor a telefon ---- */
+/* Pod 1280 px: monitor pres vsechny sloupce, telefon pod nim v poslednim sloupci */
+.csa-show { --h: min(70svh, 620px); --rim: 8px; min-width: 0; margin: 48px 0 0; }
+.csa-frames { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); row-gap: 32px; }
+/* V klidu ramecek nechyta kolecko (stranka jede dal), roluje se az aktivni (.is-active, skript dole) */
+.csa-scroll { height: 100%; overflow-y: hidden; scrollbar-width: none; background: var(--dark-2); cursor: zoom-in; }
+.csa-scroll::-webkit-scrollbar { display: none; }
+.csa-scroll:focus-visible { outline: none; }
+/* Napoveda uprostred ramecku, jen na PC po najeti mysi */
+/* Ztmaveni obrazovky a trvaly stitek uprostred. V klidu 16 %, po najeti 8 %. Barva je tmave hneda, ne cerna, aby bezova Mattiny nezesedla, aktivni ramecek bez nich.
+   Prechody 200 ms; pri prefers-reduced-motion je style.css zkrati na nulu. */
+.csa-dim { position: absolute; inset: var(--rim); z-index: 1; background: #24170C; opacity: 0.16; pointer-events: none; transition: opacity 0.2s; }
+.csa-phone .csa-dim { border-radius: 24px; }
+.csa-hint { position: absolute; left: 50%; top: 50%; z-index: 2; padding: 8px 12px; background: var(--dark); color: #fff; font-family: var(--mono); font-size: 12px; line-height: 14.4px; font-weight: 500; text-transform: uppercase; white-space: nowrap; transform: translate(-50%, -50%); pointer-events: none; transition: opacity 0.2s; }
+.csa-hint--d { display: none; }
+.csa-zoom { z-index: 3; }
+.csa-scroll img { display: block; width: 100%; height: auto; }
+
+/* Monitor: cerny ram jako telefon, rohy jen lehce zaoblene, nozka a podstavec */
+.csa-desk { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; min-width: 0; }
+/* content-box: pomer 16 : 9 plati pro vnitrni plochu (kde roluje web), ram var(--rim) je navic */
+.csa-screen { position: relative; display: flex; flex-direction: column; box-sizing: content-box; width: calc(100% - 2 * var(--rim)); aspect-ratio: 16 / 9; overflow: hidden; padding: var(--rim); border-radius: 6px; background: var(--dark); }
+.csa-screen .csa-scroll { flex: 1; height: auto; min-height: 0; }
+.csa-neck { width: 14%; height: 28px; background: var(--dark); }
+.csa-base { width: 36%; height: 8px; border-radius: 4px 4px 0 0; background: var(--dark); }
+/* Napoveda, ze na monitor jde klepnout (jen na mobilu) */
+.csa-zoom { position: absolute; right: calc(var(--rim) + 8px); bottom: calc(var(--rim) + 8px); display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; background: var(--accent); color: #fff; cursor: zoom-in; }
+.csa-zoom svg { width: 16px; height: 16px; }
+
+/* Telefon: nejvys 70svh a uzsi nez sirka, at se da chytit stranka vedle nej. Pod monitorem vodorovne na stredu.
+   content-box: vnitrni plocha ma presne pomer 390 : 844 (okno, ve kterem vznikl snimek), ram je navic. */
+.csa-phone { position: relative; grid-column: 1 / -1; justify-self: center; box-sizing: content-box; width: min(calc(100% - 64px - 2 * var(--rim)), calc((var(--h) - 2 * var(--rim)) * 390 / 844)); aspect-ratio: 390 / 844; overflow: hidden; padding: var(--rim); border-radius: 32px; background: var(--dark); }
+.csa-phone .csa-scroll { border-radius: 24px; }
+
+.csa-show__cap { margin-top: 16px; }
+
+/* Prekryv s webem pres celou obrazovku */
+.csa-lb { width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: var(--dark); color: #fff; }
+.csa-lb::backdrop { background: rgba(0, 0, 0, 0.9); }
+.csa-lb__view { height: 100%; overflow: auto; overscroll-behavior: contain; touch-action: pan-x pan-y pinch-zoom; }
+.csa-lb__view img { display: block; width: 100%; height: auto; }
+.csa-lb__close { position: fixed; top: 12px; right: 12px; z-index: 2; height: 40px; padding: 0 16px; border: 0; background: var(--dark); color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; cursor: pointer; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2); }
+.csa-lb__close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Udaje: hodnota zacina na radku se stitkem a zalomeny radek pokracuje pod zacatkem hodnoty */
+.cs__details .meta p { display: grid; grid-template-columns: auto minmax(0, 1fr); flex-wrap: nowrap; }
+
+@media (min-width: 768px) {
+  .csa-show { --h: clamp(420px, min(70vh, 56vw), 760px); margin-top: 64px; }
+  .csa-neck { width: 12%; height: 40px; }
+  .csa-base { width: 30%; height: 10px; }
+  .csa-zoom { display: none; }
+  .csa-scroll { cursor: pointer; }
+  .csa-scroll.is-active { overflow-y: auto; cursor: auto; }
+  .csa-hint--d { display: inline; }
+  .csa-hint--m { display: none; }
+  .csa-screen:hover .csa-dim, .csa-phone:hover .csa-dim { opacity: 0.08; }
+  .csa-screen.is-active .csa-dim, .csa-phone.is-active .csa-dim,
+  .csa-screen.is-active .csa-hint, .csa-phone.is-active .csa-hint { opacity: 0; }
+  /* Aktivni ramecek: modry obrys kolem ramu */
+  .csa-screen.is-active, .csa-phone.is-active { box-shadow: 0 0 0 3px var(--accent); }
+}
+@media (min-width: 810px) {
+  /* Hero: na PC rozostrene a ztmavene pozadi */
+  .csh__bgwrap { inset: -60px; }
+  .csh .csh__bg { filter: blur(20px); transform: scale(1.05); }
+  .csh::after { background: rgba(0, 0, 0, 0.62) url("../assets/noise.png"); }
+  /* Blok Udaje zustava videt i od 810 px (sablona tu nechava jen odkaz) */
+  .cs__details .tag { display: flex; }
+  .cs__details .meta { display: grid; }
+
+  .csa-show { grid-column: 1 / -1; }
+  .csa-col .cs__h { margin-top: 24px; }
+}
+@media (min-width: 810px) and (max-width: 1279.98px) {
+  /* Dva sloupce: blok O projektu s tlacitkem jede se strankou, dokud nedojede konec textu vpravo (radky 1 a 2) */
+  .cs__details { grid-row: 1 / 3; }
+  .csa-stick { position: sticky; top: 64px; }
+}
+@media (min-width: 1280px) {
+  /* Pod herem: citace ve sloupci 1 (neprilepena, scrolluje se se strankou), Udaje s tlacitkem ve 2, Zadani ve 3, Vysledek ve 4 */
+  .cs__stick { position: static; }
+  /* Podtitulek hera jen ve sloupci 3 (s pravou mezerou): ve sloupci 4 jsou vedle nej sluzby. Puvodne smel do sloupce 4: calc(200% - 32px) */
+  .csh__sub { max-width: calc(100% - 32px); }
+  .cs__details { padding-right: 32px; }
+  .csa-intro { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto auto; }
+  .csa-col { display: grid; grid-row: 1 / 4; grid-template-rows: subgrid; align-content: start; padding-right: 32px; }
+  .csa-col + .csa-col { margin-top: 0; }
+  .csa-col .cs__p { max-width: none; }
+
+  /* Nahled: monitor pres sloupce 1 az 3, telefon ve sloupci 4, horni i spodni hrany sedi.
+     Vysku radku urcuje monitor (obrazovka 16 : 9 podle sirky), telefon ma contain: size a natahne se na ni;
+     sirku si dopocita z pomeru 390 : 844 a stoji na stredu sloupce. */
+  .csa-show { grid-row: 3; margin-top: 96px; }
+  .csa-frames { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: stretch; }
+  /* Monitor vodorovne na stredu sloupcu 1 az 3: stejna mezera 16 px vlevo i vpravo (sirka zustava stejna jako s mezerou 32 px jen vpravo) */
+  .csa-desk { grid-column: 1 / 4; grid-row: 1; margin-inline: 16px; }
+  .csa-phone { grid-column: 4; grid-row: 1; justify-self: center; align-self: stretch; width: auto; height: auto; contain: size; }
+}
+
+/* ---- Doplnky pro vsechny studie ---- */
+/* Docasne: misto, kam prijde text. Zlute, aby bylo videt na prvni pohled. Pred spustenim smazat. */
+.csa-tbd { background: #FFE14D; color: #121212; padding: 0 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* Karta Dalsi projekt: nahled je ostry vyrez 3 : 4 z hera ciloveho projektu, uprostred bile logo */
+.csa-next .proj__prev > img:first-child { display: block; width: 100%; height: 100%; object-fit: cover; }
+.csa-next .proj__prev .csh__logo { position: absolute; z-index: 1; left: 50%; top: 50%; width: 30%; height: auto; transform: translate(-50%, -50%); }
+/* Popis karty je zatim prazdny a skryty (.lede jinak prebiji atribut hidden) */
+.csa-next .proj__copy [hidden] { display: none; }
+
+/* Tlacitko na zivy web: dlouha domena se zalomi na dalsi radek (mista zlomu urcuje <wbr> v HTML),
+   tlacitko pak naroste a ctverecky se sipkou rostou s nim. Kratky text zustava na 50 px. */
+.csa-live { height: auto; min-height: 50px; }
+.csa-live .btn__body { padding-block: 10px; white-space: normal; }
+.csa-live .btn__ico { height: auto; bottom: 0; }
+
+/* Rada screenshotu pod nahledem webu (zatim jen svatebni web). Pod 480 px pod sebou, od 480 px 2 x 2,
+   od 810 px kazdy obrazek v jednom sloupci mrizky (2, od 1280 px 4 v radku), odsazeni jen zprava.
+   Obrazky maji stejnou vysku, orez od horniho okraje, hranate rohy. */
+.csa-shots { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px 16px; min-width: 0; margin-top: 48px; }
+.csa-shot { min-width: 0; margin: 0; }
+.csa-shot img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; object-position: top center; border-radius: 0; }
+.csa-shot__cap { margin-top: 16px; }
+@media (min-width: 480px) {
+  .csa-shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 768px) {
+  .csa-shots { margin-top: 64px; }
+}
+@media (min-width: 810px) {
+  /* obrazek i popisek na stredu sloupce (16 px z obou stran), popisek zarovnany s levou hranou obrazku */
+  .csa-shots { grid-column: 1 / -1; column-gap: 0; }
+  .csa-shot { padding-inline: 16px; }
+}
+/* Rada dvou screenshotu puvodniho webu (zatim Mlyn Janderov): stitek nad radou, na PC kazdy obrazek pres dva sloupce */
+.csa-shots__tag { grid-column: 1 / -1; margin-bottom: -16px; }
+@media (min-width: 810px) { .csa-shots__tag { padding-left: 16px; } }
+@media (min-width: 1280px) { .csa-shots--two .csa-shot { grid-column: span 2; } }
+@media (min-width: 1280px) {
+  .csa-shots { grid-row: 4; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 96px; }
+}
+
+/* ---- Lightbox obrazku (img[data-lightbox], skript v js/case-a.js) ----
+   Obrazek obali tlacitko .csa-lbtn. Prekryv .csa-gl: tmave pozadi, nahore pocitadlo a Zavrit, dole popisek,
+   sipky po stranach (pod 768 px dole vedle popisku). Obrazek cely bez orezu, na PC kliknutim 2x. */
+.csa-lbtn { display: block; width: 100%; padding: 0; border: 0; border-radius: 0; background: none; cursor: zoom-in; }
+.csa-lbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.csa-gl { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; overflow: hidden; background: var(--dark); color: #fff; }
+.csa-gl::backdrop { background: rgba(0, 0, 0, 0.6); }
+.csa-gl[open] { display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; grid-template-rows: 64px minmax(0, 1fr) auto; animation: csa-gl-in 0.2s ease-out; }
+@keyframes csa-gl-in { from { opacity: 0; } to { opacity: 1; } }
+.csa-gl__count { grid-column: 1 / 3; grid-row: 1; align-self: center; padding-left: 16px; color: rgba(255, 255, 255, 0.6); }
+.csa-gl__close { grid-column: 2 / 4; grid-row: 1; justify-self: end; align-self: center; z-index: 2; height: 40px; margin-right: 12px; padding: 0 16px; border: 0; border-radius: 0; background: var(--dark); color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 500; text-transform: uppercase; cursor: pointer; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2); }
+/* Plocha mezi horni a spodni listou. Obrazek, ktery se vejde, je v ni absolutne na stredu v obou osach
+   (inset 0 + margin auto, max 100 % sirky i vysky se zachovanym pomerem), nezavisle na prohlizeci. */
+.csa-gl__stage { grid-column: 1 / -1; grid-row: 2; position: relative; min-width: 0; min-height: 0; margin: 0 16px; overflow: hidden; touch-action: manipulation; }
+.csa-gl__img { position: absolute; inset: 0; display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; margin: auto; border-radius: 0; transform-origin: 50% 50%; user-select: none; -webkit-user-select: none; -webkit-user-drag: none; -webkit-touch-callout: none; }
+.csa-gl__bar { grid-column: 1 / -1; grid-row: 3; display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; align-items: center; gap: 4px 8px; padding: 16px 16px 20px; }
+.csa-gl__cap { grid-column: 2; grid-row: 2; margin: 0; color: rgba(255, 255, 255, 0.75); text-align: center; }
+/* Napoveda pod obrazkem pri prvni navsteve (dotyk), stejne pismo jako popisek */
+.csa-gl__tip { grid-column: 2; grid-row: 1; margin: 0; color: rgba(255, 255, 255, 0.5); text-align: center; }
+.csa-gl__tip[hidden] { display: none; }
+/* Kratka napoveda pri priblizeni, 2 s pres spodni okraj plochy */
+.csa-gl__toast { grid-column: 1 / -1; grid-row: 2; align-self: end; justify-self: center; z-index: 3; margin: 0 0 12px; padding: 8px 12px; background: var(--dark); color: #fff; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2); opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.csa-gl__toast.is-on { opacity: 1; }
+.csa-gl__nav { display: grid; place-items: center; z-index: 2; width: 48px; height: 48px; padding: 0; border: 0; border-radius: 0; background: var(--dark); color: #fff; cursor: pointer; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2); }
+.csa-gl__nav svg { width: 20px; height: 20px; }
+.csa-gl__prev { grid-column: 1; grid-row: 1 / 3; }
+.csa-gl__next { grid-column: 3; grid-row: 1 / 3; }
+.csa-gl__nav[hidden], .csa-gl__count[hidden] { display: none; }
+.csa-gl__close:focus-visible, .csa-gl__nav:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.csa-gl__nav:hover, .csa-gl__close:hover { background: #2a2a2a; }
+/* Zoom 2x jen u mysi: posouva se pohybem (transform-origin podle kurzoru, skript) */
+.csa-gl.is-zoomable .csa-gl__img { cursor: zoom-in; }
+.csa-gl.is-zoomed .csa-gl__img { transform: scale(2); cursor: zoom-out; }
+/* Vysoky obrazek (vyssi nez 2x okno, trida ze skriptu): sirka jaka se vejde, nejvys prirozena, roluje se uvnitr */
+.csa-gl.is-tall .csa-gl__stage { overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; }
+.csa-gl.is-tall .csa-gl__img { position: static; max-width: min(100%, 720px); max-height: none; margin: 0 auto; cursor: auto; }
+/* Priblizeni klepnutim 2,5x: obrazek ma pevnou velikost ze skriptu a plocha se roluje prstem do vsech stran.
+   margin auto drzi mensi osu na stredu a pri preteceni spadne na 0, takze je dosazitelny kazdy okraj. */
+.csa-gl.is-tzoom .csa-gl__stage { display: flex; overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.csa-gl.is-tzoom .csa-gl__img { position: static; flex: none; max-width: none; max-height: none; margin: auto; }
+@media (min-width: 768px) {
+  /* sipky po stranach obrazku, svisle na stredu */
+  .csa-gl[open] { grid-template-columns: 96px minmax(0, 1fr) 96px; }
+  .csa-gl__stage { grid-column: 2; margin: 0; }
+  .csa-gl__bar { grid-column: 2; grid-template-columns: minmax(0, 1fr); padding: 20px 0 24px; }
+  .csa-gl__cap, .csa-gl__tip { grid-column: 1; }
+  .csa-gl__nav { position: fixed; top: 50%; transform: translateY(-50%); }
+  .csa-gl__prev { left: 24px; }
+  .csa-gl__next { right: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .csa-gl[open] { animation: none; }
+}
+
+/* Popisek pod Dalsi projekt: zlom pred druhym radkem jen od 810 px, na mobilu se lame normalne */
+.csa-br { display: none; }
+@media (min-width: 810px) { .csa-br { display: inline; } }
+
+/* Sluzby v heru: pod 1280 px nejsou (zustavaji v bloku O projektu) */
+.csh__svc { display: none; }
+
+/* Nazev projektu v heru: dlouhy nazev se zalomi, nejdal do konce sloupce 4 (sablona ho necha v jednom radku) */
+@media (min-width: 1280px) {
+  .csh__copy { grid-template-columns: minmax(0, 1fr); }
+  .csh__title { width: max-content; max-width: 200%; white-space: normal; }
+  /* podtitulek: sirka podle textu, nejvys sloupec 3 (max-width vyse) */
+  .csh__sub { width: max-content; }
+  /* Sluzby ve sloupci 4: kazda na vlastnim radku jako stitky v karte Dalsi projekt, pismo podtitulku, barva stitku v karte,
+     zarovnane doprava k prave svisle care sloupce 4, spodni hrana srovnana s podtitulkem (oba drzi spodek radku hera) */
+  .csh__svc { display: grid; grid-column: 4; grid-row: 1; align-self: end; justify-self: end; justify-items: end; text-align: right; gap: 2px; font-size: 16px; line-height: 20.8px; color: rgba(255, 255, 255, 0.85); }
+  /* Karta Dalsi projekt: Vsechny projekty presne na svisle care sloupce 1 (sablona ho posouva o 16 px) */
+  .work__hero--next .ilink { margin-left: 0; }
+}
+/* Dlouhe slovo v nazvu (STRATEGIES) se na uzkem mobilu nevejde do sloupce, pismo se zmensi jen tam */
+@media (max-width: 809.98px) {
+  .csa-title-long { font-size: min(44px, 13vw); line-height: 1.09; }
+}
+
+/* Hero: nahled vlevo (od 1280 px) je stejny jako karta projektu (.pk ve fuxa.css): fotka 3 : 4, stejne ztmaveni a bile logo .pk__logo */
+.csh__prev { --pk-dim: rgba(0, 0, 0, 0.42); }
+.csh__prev::after { z-index: 1; background: var(--pk-dim); }
+
+/* Perex v bloku Dalsi projekt: jako perex v heru projekty.html. Od 1280 px pres sloupce 3 a 4 bez limitu 350 px ze sablony,
+   aby byl presne na dva radky (sedy a cerny, zlom dela .csa-br od 810 px). Na mobilu se lame prirozene. */
+@media (min-width: 1280px) {
+  .work__hero--next .lede { max-width: calc(100% - 32px); }
+}
