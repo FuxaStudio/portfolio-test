@@ -621,4 +621,6 @@
   });
   if (document.fonts) document.fonts.ready.then(() => { alignPlans(); fitRefs(); fitProc(); onScroll(); });
   update();
+  // Rok v patičce: v HTML stojí 2026, tady se přepíše na aktuální
+  document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 })();

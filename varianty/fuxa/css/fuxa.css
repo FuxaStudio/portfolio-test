@@ -960,3 +960,10 @@ html .pk__logo--janderov { --pk-k: 0.36; }
 @media (max-width: 429.98px) {
   html[lang="en"] .dq .h--xl { font-size: min(44px, calc((100vw - 32px) / 8.4)); line-height: 1.1; }
 }
+
+/* Klikaci plocha (13. 11. 2026): vzhled a pozice zustavaji, plocha se jen zvetsi pseudoprvkem.
+   Hlavicka: aspon 44 px na vysku, jen svisle, aby se plochy neprekryvaly s logem, prepinacem a tlacitkem.
+   Ikony Google a Firmy.cz: 18 px ikona, 24 px plocha (mezera mezi ikonami 6 px, plochy se jen dotykaji). */
+.menu-btn, .head__logo, .socials a { position: relative; }
+.menu-btn::after, .head__logo::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 44px; margin-top: -22px; }
+.socials a::after { content: ''; position: absolute; inset: -3px; }

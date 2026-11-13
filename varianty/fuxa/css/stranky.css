@@ -183,3 +183,7 @@ body:has(.foot--short) > .foot--short { flex: 1 0 auto; }
 .dq__status--err { color: #B3261E; }
 .dq__status a { text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 .dq__status--ok { font-weight: 500; color: var(--ink); }
+
+/* Veta pod tlacitkem Odeslat: pismo jako .form__legal u kontaktniho formulare, barvy pro svetle pozadi */
+.legal__body .dq__legal { margin: 0; font-size: 13px; line-height: 19.5px; letter-spacing: 0; color: var(--ink-60); }
+.legal__body .dq__legal a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }

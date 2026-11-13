@@ -14,3 +14,4 @@ Při přenosu změn zpět na živý web je potřeba:
 2. odstranit řádek s noindex meta tagem
 3. robots.txt ani wrangler.jsonc nepřenášet
 4. složky navrhy/ a assets/navrhy/ nepřenášet, dokud Pavel nevybere variantu hlavní stránky (viz CLAUDE.md, Otevřené úkoly)
+5. složku varianty/fuxa/assets/src/ nepřenášet (web ji nenačítá, je to zdroj pro scripts/images.mjs)
